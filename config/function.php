@@ -13,6 +13,20 @@ if (!function_exists('app')) {
     }
 }
 
+if (!function_exists('controller')) {
+    function controller()
+    {
+        return \Yii::$app->controller;
+    }
+}
+
+if (!function_exists('module')) {
+    function module()
+    {
+        return \Yii::$app->controller->module;
+    }
+}
+
 if (!function_exists('user')) {
     function user()
     {
