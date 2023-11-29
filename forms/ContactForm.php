@@ -1,6 +1,12 @@
 <?php
+/*
+ *   Jamshidbek Akhlidinov
+ *   29 - 11 2023 17:6:20
+ *   https://ustadev.uz
+ *   https://github.com/JamshidbekAkhlidinov/yii2basic
+ */
 
-namespace app\models;
+namespace forms;
 
 use Yii;
 use yii\base\Model;
