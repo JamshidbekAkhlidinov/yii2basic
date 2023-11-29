@@ -64,9 +64,13 @@ class MenuWidget extends Widget
         $menus = [];
         foreach ($this->items as $menu) {
             if ($menu['type'] == self::type_title) {
-                $menus[] = $this->initTitle($menu);
+                if ((isset($menu['visible']) && $menu['visible']) || !isset($menu['visible'])) {
+                    $menus[] = $this->initTitle($menu);
+                }
             } else {
-                $menus[] = $this->initMainMenu($menu);
+                if ((isset($menu['visible']) && $menu['visible']) || !isset($menu['visible'])) {
+                    $menus[] = $this->initMainMenu($menu);
+                }
             }
         }
         return implode('', $menus);
