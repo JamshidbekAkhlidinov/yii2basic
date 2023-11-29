@@ -2,6 +2,7 @@
 
 namespace app\modules\admin;
 
+use yii\filters\AccessControl;
 use yii\web\ErrorHandler;
 
 /**
@@ -22,5 +23,20 @@ class Module extends \yii\base\Module
         parent::init();
         $this->layout = 'main';
         \Yii::$app->errorHandler->errorAction = '/admin/default/error';
+    }
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+        ];
     }
 }
