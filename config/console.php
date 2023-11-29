@@ -2,10 +2,12 @@
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+require __DIR__ . '/function.php';
 
 if (file_exists(__DIR__ . '/db_locale.php')) {
     $db = require __DIR__ . '/db_locale.php';
 }
+
 
 $config = [
     'id' => 'basic-console',
@@ -18,6 +20,9 @@ $config = [
         '@tests' => '@app/tests',
     ],
     'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -37,6 +42,7 @@ $config = [
             'class' => 'yii\console\controllers\MigrateController',
             'migrationPath' => [
                 '@app/modules/admin/migrations',
+                '@yii/rbac/migrations',
             ]
         ],
     ],

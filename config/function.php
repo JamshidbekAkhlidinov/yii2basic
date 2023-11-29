@@ -20,10 +20,32 @@ if (!function_exists('user')) {
     }
 }
 
+if (!function_exists('authManager')) {
+    function authManager()
+    {
+        return \Yii::$app->authManager;
+    }
+}
+
+
+if (!function_exists('can')) {
+    function can($permission)
+    {
+        return \Yii::$app->user->can($permission);
+    }
+}
+
 
 if (!function_exists('translate')) {
     function translate($text, $options = []): string
     {
         return \Yii::t('app', $text, $options);
+    }
+}
+
+if (!function_exists('security')) {
+    function security()
+    {
+        return Yii::$app->getSecurity();
     }
 }
