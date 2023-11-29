@@ -3,6 +3,10 @@
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
+if (file_exists(__DIR__ . '/db_locale.php')) {
+    $db = require __DIR__ . '/db_locale.php';
+}
+
 $config = [
     'id' => 'basic-console',
     'basePath' => dirname(__DIR__),
@@ -10,7 +14,7 @@ $config = [
     'controllerNamespace' => 'app\commands',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
         '@tests' => '@app/tests',
     ],
     'components' => [
@@ -28,13 +32,14 @@ $config = [
         'db' => $db,
     ],
     'params' => $params,
-    /*
     'controllerMap' => [
-        'fixture' => [ // Fixture generation command line.
-            'class' => 'yii\faker\FixtureController',
+        'migrate' => [
+            'class' => 'yii\console\controllers\MigrateController',
+            'migrationPath' => [
+                '@app/modules/admin/migrations',
+            ]
         ],
     ],
-    */
 ];
 
 if (YII_ENV_DEV) {
