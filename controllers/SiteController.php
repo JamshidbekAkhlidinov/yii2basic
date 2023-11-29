@@ -2,8 +2,8 @@
 
 namespace app\controllers;
 
-use forms\ContactForm;
-use forms\LoginForm;
+use app\forms\ContactForm;
+use app\forms\LoginForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;

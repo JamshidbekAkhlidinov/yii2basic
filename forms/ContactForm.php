@@ -6,7 +6,7 @@
  *   https://github.com/JamshidbekAkhlidinov/yii2basic
  */
 
-namespace forms;
+namespace app\forms;
 
 use Yii;
 use yii\base\Model;
