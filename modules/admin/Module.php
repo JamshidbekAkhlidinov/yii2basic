@@ -21,16 +21,6 @@ class Module extends \yii\base\Module
     {
         parent::init();
         $this->layout = 'main';
-        \Yii::configure($this, [
-            'components' => [
-                'errorHandler' => [
-                    'class' => ErrorHandler::className(),
-                    'errorAction' => '/admin/default/error',
-                ]
-            ],
-        ]);
-        $handler = $this->get('errorHandler');
-        \Yii::$app->set('errorHandler', $handler);
-        $handler->register();
+        \Yii::$app->errorHandler->errorAction = '/admin/default/error';
     }
 }
