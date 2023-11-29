@@ -12,6 +12,7 @@
  */
 
 use app\modules\admin\assets\AdminAsset;
+use app\modules\admin\components\menu\Menu;
 use app\modules\admin\widgets\MenuWidget;
 use yii\bootstrap5\Html;
 use yii\helpers\Url;
@@ -832,8 +833,12 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                             <img class="rounded-circle header-profile-user" src="/images/users/avatar-1.jpg"
                                  alt="Header Avatar">
                             <span class="text-start ms-xl-2">
-                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Anna Adame</span>
-                                <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Founder</span>
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
+                                    <?= user()->identity->publicIdentity ?>
+                                </span>
+                                <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">
+                                    <?= user()->identity->role() ?>
+                                </span>
                             </span>
                         </span>
                         </button>
@@ -942,54 +947,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
                 <div id="two-column-menu">
                 </div>
-
-                <?= MenuWidget::widget([
-                    'items' => [
-                        [
-                            'label' => 'Test Title',
-                            'type' => MenuWidget::type_title, //menu,item
-                            'icon' => 'ri-dashboard-2-line',
-                        ],
-                        [
-                            'label' => 'Main Manu',
-                            'type' => MenuWidget::type_item, //menu,item
-                            'icon' => 'ri-dashboard-2-line',
-                            'url' => ['/admin/default/index'],
-                            'active' => false,
-                        ],
-                        [
-                            'label' => 'Main menu child',
-                            'type' => MenuWidget::type_item, //menu,item
-                            'icon' => 'ri-dashboard-2-line',
-                            'id' => 'test',
-                            'active' => true,
-                            'items' => [
-                                [
-                                    'label' => 'Login',
-                                    'url' => ['/admin/default/index'],
-                                    'icon' => 'ri-dashboard-2-line',
-                                    'active' => true,
-                                ],
-                                [
-                                    'label' => 'child menu',
-                                    'url' => ['/admin/default/index'],
-                                    'icon' => 'ri-dashboard-2-line',
-                                ],
-                                [
-                                    'label' => 'child menu',
-                                    'url' => ['/admin/default/index'],
-                                    'icon' => 'ri-dashboard-2-line',
-                                ],
-                                [
-                                    'label' => 'child menu',
-                                    'url' => ['/admin/default/index'],
-                                    'icon' => 'ri-dashboard-2-line',
-                                ],
-                            ],
-                        ]
-                    ]
-                ]) ?>
-
+                <?= Menu::getMenu() ?>
             </div>
             <!-- Sidebar -->
         </div>
