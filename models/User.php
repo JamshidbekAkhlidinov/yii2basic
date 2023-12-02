@@ -9,6 +9,7 @@
 namespace app\models;
 
 use app\models\query\UserQuery;
+use Yii;
 use yii\base\Exception;
 use yii\behaviors\AttributeBehavior;
 use yii\behaviors\TimestampBehavior;
@@ -263,6 +264,15 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $roles = authManager()->getRolesByUser($this->id);
         return array_keys($roles)[0] ?? 'Guest';
+    }
+
+    public function afterSignup(array $profileData = [])
+    {
+        $profile = new UserProfile();
+        $profile->user_id = $this->id;
+        $profile->locale = Yii::$app->language;
+        $profile->load($profileData, '');
+        $profile->save();
     }
 
 }

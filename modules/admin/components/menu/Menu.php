@@ -10,6 +10,8 @@ namespace app\modules\admin\components\menu;
 
 use app\modules\admin\enums\UserRolesEnum;
 use app\modules\admin\widgets\MenuWidget;
+use rmrevin\yii\fontawesome\FA;
+use rmrevin\yii\fontawesome\FontAwesome;
 
 class Menu
 {
@@ -23,11 +25,11 @@ class Menu
                     'icon' => 'ri-dashboard-2-line',
                 ],
                 [
-                    'label' => 'Main Manu',
+                    'label' => translate("Users"),
                     'type' => MenuWidget::type_item, //menu,item
-                    'icon' => 'ri-dashboard-2-line',
-                    'url' => ['/admin/default/index'],
-                    'active' => false,
+                    'icon' => 'fa fa-users',
+                    'url' => ['/admin/user'],
+                    'active' => controller()->id == 'user',
                 ],
                 [
                     'label' => 'Main menu child',
@@ -73,7 +75,7 @@ class Menu
             'icon' => 'ri-dashboard-2-line',
             'visible' => can(UserRolesEnum::ROLE_ADMINISTRATOR),
             'active' => $module_id == 'rbac',
-            'id'=>'rbac',
+            'id' => 'rbac',
             'type' => MenuWidget::type_item,
             'items' => [
 //                [
@@ -86,7 +88,7 @@ class Menu
                     'url' => ['/admin/rbac/auth-item'],
                     'active' => $controller_id == 'auth-item',
                 ],
-                   [
+                [
                     'label' => translate("Items child"),
                     'url' => ['/admin/rbac/auth-item-child'],
                     'active' => $controller_id == 'auth-item-child',
