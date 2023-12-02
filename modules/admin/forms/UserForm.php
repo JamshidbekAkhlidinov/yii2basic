@@ -50,12 +50,10 @@ class UserForm extends Model
 
             [['status'], 'integer'],
             [['roles'], 'each',
-                'rule' => [
-                    'in', 'range' => ArrayHelper::getColumn(
-                        authManager()->getRoles(),
-                        'name'
-                    )
-                ]
+                'rule' => ['in', 'range' => ArrayHelper::getColumn(
+                    authManager()->getRoles(),
+                    'name'
+                )]
             ],
         ];
     }
