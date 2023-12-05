@@ -76,8 +76,16 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
-        // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+        'generators' => [
+            'crud' => [
+                'class' => yii\gii\generators\crud\Generator::class,
+                'templates' => [
+                    'ustadev-uz' => dirname(__DIR__) . "/views/_gii/templates",
+                ],
+                'template' => 'ustadev-uz',
+                'messageCategory' => 'app',
+            ],
+        ],
     ];
 }
 
