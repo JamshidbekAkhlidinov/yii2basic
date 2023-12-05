@@ -2,6 +2,9 @@
 
 namespace app\modules\admin\modules\rbac;
 
+use app\modules\admin\enums\UserRolesEnum;
+use yii\filters\AccessControl;
+
 /**
  * rbac module definition class
  */
@@ -18,7 +21,22 @@ class Module extends \yii\base\Module
     public function init()
     {
         parent::init();
+    }
 
-        // custom initialization code goes here
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => [
+                            UserRolesEnum::ROLE_ADMINISTRATOR,
+                        ],
+                    ],
+                ],
+            ],
+        ];
     }
 }

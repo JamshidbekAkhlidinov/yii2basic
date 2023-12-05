@@ -167,7 +167,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                             </div>
 
                             <div class="text-center pt-3 pb-1">
-                                <a href="pages-search-results.html" class="btn btn-primary btn-sm">View All Results <i
+                                <a href="pages-search-results" class="btn btn-primary btn-sm">View All Results <i
                                             class="ri-arrow-right-line ms-1"></i></a>
                             </div>
                         </div>
@@ -362,7 +362,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                                             </div>
                                         </div>
                                         <h5 class="mb-3">Your Cart is Empty!</h5>
-                                        <a href="apps-ecommerce-products.html" class="btn btn-success w-md mb-3">Shop
+                                        <a href="apps-ecommerce-products" class="btn btn-success w-md mb-3">Shop
                                             Now</a>
                                     </div>
                                     <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
@@ -371,7 +371,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                                                  class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                             <div class="flex-grow-1">
                                                 <h6 class="mt-0 mb-1 fs-14">
-                                                    <a href="apps-ecommerce-product-details.html" class="text-reset">Branded
+                                                    <a href="apps-ecommerce-product-details" class="text-reset">Branded
                                                         T-Shirts</a>
                                                 </h6>
                                                 <p class="mb-0 fs-12 text-muted">
@@ -395,7 +395,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                                                  class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                             <div class="flex-grow-1">
                                                 <h6 class="mt-0 mb-1 fs-14">
-                                                    <a href="apps-ecommerce-product-details.html" class="text-reset">Bentwood
+                                                    <a href="apps-ecommerce-product-details" class="text-reset">Bentwood
                                                         Chair</a>
                                                 </h6>
                                                 <p class="mb-0 fs-12 text-muted">
@@ -419,7 +419,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                                                  class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                             <div class="flex-grow-1">
                                                 <h6 class="mt-0 mb-1 fs-14">
-                                                    <a href="apps-ecommerce-product-details.html" class="text-reset">
+                                                    <a href="apps-ecommerce-product-details" class="text-reset">
                                                         Borosil Paper Cup</a>
                                                 </h6>
                                                 <p class="mb-0 fs-12 text-muted">
@@ -443,7 +443,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                                                  class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                             <div class="flex-grow-1">
                                                 <h6 class="mt-0 mb-1 fs-14">
-                                                    <a href="apps-ecommerce-product-details.html" class="text-reset">Gray
+                                                    <a href="apps-ecommerce-product-details" class="text-reset">Gray
                                                         Styled T-Shirt</a>
                                                 </h6>
                                                 <p class="mb-0 fs-12 text-muted">
@@ -468,7 +468,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                                                  class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                             <div class="flex-grow-1">
                                                 <h6 class="mt-0 mb-1 fs-14">
-                                                    <a href="apps-ecommerce-product-details.html" class="text-reset">Stillbird
+                                                    <a href="apps-ecommerce-product-details" class="text-reset">Stillbird
                                                         Helmet</a>
                                                 </h6>
                                                 <p class="mb-0 fs-12 text-muted">
@@ -496,7 +496,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                                     </div>
                                 </div>
 
-                                <a href="apps-ecommerce-checkout.html" class="btn btn-success text-center w-100">
+                                <a href="apps-ecommerce-checkout" class="btn btn-success text-center w-100">
                                     Checkout
                                 </a>
                             </div>
@@ -845,27 +845,27 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                         <div class="dropdown-menu dropdown-menu-end">
                             <!-- item-->
                             <h6 class="dropdown-header">Welcome Anna!</h6>
-                            <a class="dropdown-item" href="pages-profile.html"><i
+                            <a class="dropdown-item" href="pages-profile"><i
                                         class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Profile</span></a>
-                            <a class="dropdown-item" href="apps-chat.html"><i
+                            <a class="dropdown-item" href="apps-chat"><i
                                         class="mdi mdi-message-text-outline text-muted fs-16 align-middle me-1"></i>
                                 <span class="align-middle">Messages</span></a>
-                            <a class="dropdown-item" href="apps-tasks-kanban.html"><i
+                            <a class="dropdown-item" href="apps-tasks-kanban"><i
                                         class="mdi mdi-calendar-check-outline text-muted fs-16 align-middle me-1"></i>
                                 <span class="align-middle">Taskboard</span></a>
-                            <a class="dropdown-item" href="pages-faqs.html"><i
+                            <a class="dropdown-item" href="pages-faqs"><i
                                         class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Help</span></a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="pages-profile.html"><i
+                            <a class="dropdown-item" href="pages-profile"><i
                                         class="mdi mdi-wallet text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Balance : <b>$5971.67</b></span></a>
-                            <a class="dropdown-item" href="pages-profile-settings.html"><span
+                            <a class="dropdown-item" href="pages-profile-settings"><span
                                         class="badge bg-success-subtle text-success mt-1 float-end">New</span><i
                                         class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Settings</span></a>
-                            <a class="dropdown-item" href="auth-lockscreen-basic.html"><i
+                            <a class="dropdown-item" href="auth-lockscreen-basic"><i
                                         class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Lock screen</span></a>
                             <?= Html::a(
@@ -997,11 +997,11 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 <div class="row">
                     <div class="col-sm-6">
                         <script>document.write(new Date().getFullYear())</script>
-                        © Velzon.
+                        ©
+                        Created by <?= Html::a("<b>ustadev.uz</b>", 'https://ustadev.uz', ['target' => '_blank']) ?>
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">
-                            Design & Develop by Themesbrand
                         </div>
                     </div>
                 </div>
