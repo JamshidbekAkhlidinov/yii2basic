@@ -13,6 +13,10 @@
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 
+$this->title = translate("Update Profile");
+Yii::$app->params['breadcrumbs'][] = translate("User");
+Yii::$app->params['breadcrumbs'][] = $this->title;
+
 ?>
 
 
@@ -25,7 +29,7 @@ use yii\bootstrap5\Html;
         <?= $form->field($model, 'password') ?>
         <?= $form->field($model, 'confirm_password') ?>
 
-        <?= Html::submitButton(translate("Save"),['class'=>'btn btn-success']) ?>
+        <?= Html::submitButton(translate("Save"), ['class' => 'btn btn-success']) ?>
 
         <?php ActiveForm::end(); ?>
 

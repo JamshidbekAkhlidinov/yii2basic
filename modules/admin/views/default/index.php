@@ -2,6 +2,8 @@
 
 $this->title = translate("Admin dashboard");
 
+Yii::$app->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="admin-default-index">
     <h1><?= $this->context->action->uniqueId ?></h1>

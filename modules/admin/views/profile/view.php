@@ -7,7 +7,12 @@
  */
 
 
-use yii\bootstrap5\Html; ?>
+use yii\bootstrap5\Html;
+
+$this->title = translate("Profile");
+Yii::$app->params['breadcrumbs'][] = translate("User");
+Yii::$app->params['breadcrumbs'][] = $this->title;
+?>
 
 
 <div class="card">

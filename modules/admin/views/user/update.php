@@ -10,9 +10,9 @@ use yii\helpers\Html;
 $this->title = Yii::t('app', 'Update User: {name}', [
     'name' => $model->model->username,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Users'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->model->id, 'url' => ['view', 'id' => $model->model->id]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Users'), 'url' => ['index']];
+Yii::$app->params['breadcrumbs'][] = ['label' => $model->model->username, 'url' => ['view', 'id' => $model->model->id]];
+Yii::$app->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="user-update card">
     <div class="card-header d-flex justify-content-between">

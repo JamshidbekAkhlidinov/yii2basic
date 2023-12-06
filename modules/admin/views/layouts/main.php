@@ -14,6 +14,7 @@
 use app\modules\admin\assets\AdminAsset;
 use app\modules\admin\components\menu\Menu;
 use app\modules\admin\widgets\MenuWidget;
+use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 use yii\helpers\Url;
 
@@ -849,7 +850,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                             <a class="dropdown-item" href="<?= Url::to(['/admin/profile']) ?>">
                                 <i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Profile</span></a>
-                            <a class="dropdown-item" href="<?=Url::to(['profile/update'])?>"><span
+                            <a class="dropdown-item" href="<?= Url::to(['profile/update']) ?>"><span
                                         class="badge bg-success-subtle text-success mt-1 float-end">New</span><i
                                         class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Settings</span></a>
@@ -955,14 +956,20 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0">Starter</h4>
+                            <h4 class="mb-sm-0"><?= $this->title ?></h4>
 
-                            <div class="page-title-right">
-                                <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Pages</a></li>
-                                    <li class="breadcrumb-item active">Starter</li>
-                                </ol>
-                            </div>
+                            <?php
+                            echo Breadcrumbs::widget([
+                                'homeLink' => [
+                                    'url' => '/admin',
+                                    'label' => translate("Home")
+                                ],
+                                'links' => Yii::$app->params['breadcrumbs'] ?? [],
+                                'options' => [
+                                    'class' => "m-0",
+                                ]
+                            ]);
+                            ?>
 
                         </div>
                     </div>
