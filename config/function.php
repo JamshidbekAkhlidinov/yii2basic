@@ -63,3 +63,17 @@ if (!function_exists('security')) {
         return Yii::$app->getSecurity();
     }
 }
+
+if (!function_exists('post')) {
+    function post($attribute = null)
+    {
+        return Yii::$app->request->post($attribute);
+    }
+}
+
+if (!function_exists('get')) {
+    function get($attribute = null)
+    {
+        return Yii::$app->request->get($attribute);
+    }
+}
