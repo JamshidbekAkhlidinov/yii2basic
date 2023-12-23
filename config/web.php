@@ -10,6 +10,8 @@ if (file_exists(__DIR__ . '/db_locale.php')) {
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
+    'language' => 'en',
+    'name' => "Yii2 basic",
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -60,6 +62,22 @@ $config = [
             'rules' => [
             ],
         ],
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/modules/admin/messages',
+                    'sourceLanguage' => 'en',
+                    'fileMap' => [
+                        'app' => 'app.php',
+                    ],
+                ],
+            ],
+        ],
+    ],
+    'as locale' => [
+        'class' => \app\modules\admin\behaviors\LocaleBehavior::class,
+        'enablePreferredLanguage' => true
     ],
     'params' => $params,
 ];

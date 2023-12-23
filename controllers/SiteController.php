@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use app\forms\ContactForm;
 use app\forms\LoginForm;
+use app\modules\admin\actions\SetLocaleAction;
+use app\modules\admin\enums\LanguageEnum;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -46,6 +48,10 @@ class SiteController extends Controller
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
+            ],
+            'set-locale' => [
+                'class' => SetLocaleAction::class,
+                'locales'=> array_keys(LanguageEnum::LABELS)
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
