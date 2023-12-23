@@ -77,7 +77,8 @@ $config = [
     ],
     'as locale' => [
         'class' => \app\modules\admin\behaviors\LocaleBehavior::class,
-        'enablePreferredLanguage' => true
+        'enablePreferredLanguage' => true,
+        'cookieName' => 'lang',
     ],
     'params' => $params,
 ];

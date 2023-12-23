@@ -21,8 +21,8 @@ interface LanguageEnum
     ];
 
     public const ICONS = [
-        self::EN => "fa fa-globe",
-        self::RU => "fa fa-globe",
-        self::UZ => "fa fa-globe",
+        self::EN => "/images/flags/us.svg",
+        self::RU => "/images/flags/russia.svg",
+        self::UZ => "/images/flags/uz.svg",
     ];
 }

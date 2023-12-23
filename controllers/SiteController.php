@@ -51,7 +51,8 @@ class SiteController extends Controller
             ],
             'set-locale' => [
                 'class' => SetLocaleAction::class,
-                'locales'=> array_keys(LanguageEnum::LABELS)
+                'locales'=> array_keys(LanguageEnum::LABELS),
+                'localeCookieName'=>'lang',
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
