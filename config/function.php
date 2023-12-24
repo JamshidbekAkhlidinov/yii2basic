@@ -106,3 +106,10 @@ if (!function_exists('icon')) {
 }
 
 
+if (!function_exists('env')) {
+    function env($attribute = null, $default = "")
+    {
+        return $_ENV[$attribute] ?? $default;
+    }
+}
+

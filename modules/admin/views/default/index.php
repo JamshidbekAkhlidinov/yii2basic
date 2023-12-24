@@ -22,4 +22,8 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
         'style' => 'font-size:30px',
         'class' => 'test'
     ]) ?>
+
+
+    <?= env('APP_NAME') ?>
+
 </div>
