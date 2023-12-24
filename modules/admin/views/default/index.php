@@ -1,5 +1,7 @@
 <?php
 
+use app\widgets\icon\Remix;
+
 $this->title = translate("Admin dashboard");
 
 Yii::$app->params['breadcrumbs'][] = $this->title;
@@ -14,6 +16,10 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
     </p>
     <p>
         You may customize this page by editing the following file:<br>
-        <code><?= __FILE__ ?></code>
     </p>
+    <?= icon('home-3', [
+        'type' => 'fill',
+        'style' => 'font-size:30px',
+        'class' => 'test'
+    ]) ?>
 </div>

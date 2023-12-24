@@ -77,3 +77,32 @@ if (!function_exists('get')) {
         return Yii::$app->request->get($attribute);
     }
 }
+
+
+if (!function_exists('icon')) {
+    function icon($name = null, $options = [])
+    {
+        $icon = 'ri';
+        $type = 'line';
+
+        if (isset($options['icon'])) {
+            $icon = $options['icon'];
+        }
+
+        if (isset($options['type'])) {
+            $type = $options['type'];
+        }
+
+        $name = $icon . '-' . $name . '-' . $type;
+
+        if (isset($options['class'])) {
+            $name .= ' ' . $options['class'];
+        }
+
+        $options['class'] = $name;
+
+        return \yii\helpers\Html::tag('i', '', $options);
+    }
+}
+
+
