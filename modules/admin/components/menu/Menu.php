@@ -61,6 +61,13 @@ class Menu
                         ],
                     ],
                 ],
+                [
+                    'label' => translate("File manager"),
+                    'type' => MenuWidget::type_item, //menu,item
+                    'icon' => 'las la-folder-open',
+                    'url' => ['/admin/file'],
+                    'active' => module()->id == 'file',
+                ],
                 self::getRbacMenu(),
             ]
         ]);

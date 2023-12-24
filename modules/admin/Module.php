@@ -26,6 +26,7 @@ class Module extends \yii\base\Module
         \Yii::$app->errorHandler->errorAction = '/admin/default/error';
         $this->modules = [
             'rbac' => \app\modules\admin\modules\rbac\Module::class,
+            'file' => \app\modules\admin\modules\file\Module::class,
         ];
     }
 
