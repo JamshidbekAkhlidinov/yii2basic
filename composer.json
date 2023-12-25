@@ -4,6 +4,7 @@
     "keywords": ["yii2", "framework", "basic", "project template","ustadev.uz","Jamshidbek Akhlidinov"],
     "homepage": "https://ustadev.uz/",
     "type": "project",
+    "license": "MIT",
     "minimum-stability": "stable",
     "require": {
         "php": ">=7.4.0",
