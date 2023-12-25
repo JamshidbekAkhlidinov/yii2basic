@@ -78,6 +78,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        $this->layout = 'auth';
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -88,7 +89,7 @@ class SiteController extends Controller
         }
 
         $model->password = '';
-        return $this->render('login', [
+        return $this->render('login2', [
             'model' => $model,
         ]);
     }
@@ -105,6 +106,12 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
+    public function actionSignup()
+    {
+        $this->layout = 'auth';
+
+        return $this->render('signup');
+    }
     /**
      * Displays contact page.
      *

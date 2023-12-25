@@ -11,6 +11,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'language' => 'en',
+    'layout'=>'velzon',
     'name' => env('APP_NAME', "Yii2 basic"),
     'bootstrap' => ['log'],
     'aliases' => [
