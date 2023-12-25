@@ -28,7 +28,7 @@ class AdminAsset extends AssetBundle
         'libs/feather-icons/feather.min.js',
         'js/pages/plugins/lord-icon-2.1.0.js',
         'js/plugins.js',
-        'js/app.js'
+        'js/app.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

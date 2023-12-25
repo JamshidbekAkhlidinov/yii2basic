@@ -18,12 +18,12 @@ $this->params['breadcrumbs'][] = ['label' => $model->model->title, 'url' => ['vi
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="post-update card">
-    <div class="card-header d-flex justify-content-between">
+
+    <div class="card card-header">
         <h1><?= Html::encode($this->title) ?></h1>
     </div>
-    <div class="card-header">
+
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
-    </div>
 </div>
