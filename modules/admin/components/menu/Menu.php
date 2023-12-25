@@ -36,7 +36,7 @@ class Menu
                     'type' => MenuWidget::type_item, //menu,item
                     'icon' => 'ri-dashboard-2-line',
                     'id' => 'test',
-                    'active' => true,
+                    'active' => false,
                     'items' => [
                         [
                             'label' => 'Login',
@@ -65,29 +65,29 @@ class Menu
                     'label' => translate("Content"),
                     'type' => MenuWidget::type_item, //menu,item
                     'icon' => 'ri-dashboard-2-line',
-                    'id' => 'test',
-                    'active' => true,
+                    'id' => 'test2',
+                    'active' => module()->id=="content",
                     'items' => [
                         [
                             'label' => 'Post category',
-                            'url' => ['/admin/content/category'],
+                            'url' => ['/admin/content/post-category'],
                             'icon' => 'ri-dashboard-2-line',
-                            'active' => true,
+                            'active' => controller()->id=="post-category",
+
                         ],
                         [
                             'label' => 'Tag',
-                            'url' => ['/admin/content/tag'],
+                            'url' => ['/admin/content/post-tag'],
                             'icon' => 'ri-dashboard-2-line',
+                            'active' => controller()->id=="post-tag",
+
                         ],
                         [
-                            'label' => 'child menu',
-                            'url' => ['/admin/default/index'],
+                            'label' => 'Post',
+                            'url' => ['/admin/content/post'],
                             'icon' => 'ri-dashboard-2-line',
-                        ],
-                        [
-                            'label' => 'child menu',
-                            'url' => ['/admin/default/index'],
-                            'icon' => 'ri-dashboard-2-line',
+                            'active' => controller()->id=="post",
+
                         ],
                     ],
                 ],

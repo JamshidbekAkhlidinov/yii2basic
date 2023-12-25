@@ -17,4 +17,9 @@ interface StatusEnum
         self::ACTIVE => "Active",
         self::INACTIVE => "Inactive",
     ];
+
+    public const COLORS = [
+        self::ACTIVE => "bg-success",
+        self::INACTIVE => "bg-warning",
+    ];
 }
