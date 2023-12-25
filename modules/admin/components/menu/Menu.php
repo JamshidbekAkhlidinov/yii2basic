@@ -62,6 +62,36 @@ class Menu
                     ],
                 ],
                 [
+                    'label' => translate("Content"),
+                    'type' => MenuWidget::type_item, //menu,item
+                    'icon' => 'ri-dashboard-2-line',
+                    'id' => 'test',
+                    'active' => true,
+                    'items' => [
+                        [
+                            'label' => 'Post category',
+                            'url' => ['/admin/content/category'],
+                            'icon' => 'ri-dashboard-2-line',
+                            'active' => true,
+                        ],
+                        [
+                            'label' => 'Tag',
+                            'url' => ['/admin/content/tag'],
+                            'icon' => 'ri-dashboard-2-line',
+                        ],
+                        [
+                            'label' => 'child menu',
+                            'url' => ['/admin/default/index'],
+                            'icon' => 'ri-dashboard-2-line',
+                        ],
+                        [
+                            'label' => 'child menu',
+                            'url' => ['/admin/default/index'],
+                            'icon' => 'ri-dashboard-2-line',
+                        ],
+                    ],
+                ],
+                [
                     'label' => translate("File manager"),
                     'type' => MenuWidget::type_item, //menu,item
                     'icon' => 'las la-folder-open',

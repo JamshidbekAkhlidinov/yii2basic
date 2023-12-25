@@ -27,6 +27,7 @@ class Module extends \yii\base\Module
         $this->modules = [
             'rbac' => \app\modules\admin\modules\rbac\Module::class,
             'file' => \app\modules\admin\modules\file\Module::class,
+            'content'=> \app\modules\admin\modules\content\Module::class,
         ];
     }
 
