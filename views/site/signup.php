@@ -1,5 +1,7 @@
 <?php
 
+use yii\helpers\Url;
+
 $this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -25,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="text-center mt-sm-5 mb-4 text-white-50">
                         <div>
                             <a href="index.html" class="d-inline-block auth-logo">
-                                <img src="assets/images/logo-light.png" alt="" height="20">
+                                <img src="/images/logo-light.png" alt="" height="20">
                             </a>
                         </div>
                         <p class="mt-3 fs-15 fw-medium">Premium Admin & Dashboard Template</p>
@@ -109,7 +111,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <!-- end card -->
 
                     <div class="mt-4 text-center">
-                        <p class="mb-0">Already have an account ? <a href="auth-signin-basic.html" class="fw-semibold text-primary text-decoration-underline"> Signin </a> </p>
+                        <p class="mb-0">Already have an account ? <a href="<?=Url::to(['site/login'])?>" class="fw-semibold text-primary text-decoration-underline"> Signin </a> </p>
                     </div>
 
                 </div>
@@ -119,21 +121,5 @@ $this->params['breadcrumbs'][] = $this->title;
         <!-- end container -->
     </div>
     <!-- end auth page content -->
-
-    <!-- footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center">
-                        <p class="mb-0 text-muted">&copy;
-                            <script>document.write(new Date().getFullYear())</script> Velzon. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- end Footer -->
 </div>
 <!-- end auth-page-wrapper -->
