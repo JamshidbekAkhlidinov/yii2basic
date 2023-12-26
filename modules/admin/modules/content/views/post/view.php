@@ -45,7 +45,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     },
                 ],
                 'sub_text',
-                'description',
+                [
+                    'format' => 'raw',
+                    'attribute' => 'description',
+                    'value' => function ($data) {
+                        return str_replace("<img src=","<img width='150px' height='' src=",$data->description);
+                    },
+                ],
                 [
                     'attribute' => 'status',
                     'format' => 'raw',
@@ -54,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'span',
                             StatusEnum::ALL[$model->status] ?? "",
                             [
-                                'class' => 'badge '.StatusEnum::COLORS[$model->status] ?? ""
+                                'class' => 'badge ' . StatusEnum::COLORS[$model->status] ?? ""
                             ]
                         );
                     }
