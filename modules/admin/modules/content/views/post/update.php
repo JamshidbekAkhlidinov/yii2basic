@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Posts'), 'url' => ['
 $this->params['breadcrumbs'][] = ['label' => $model->model->title, 'url' => ['view', 'id' => $model->model->id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
-<div class="post-update card">
+<div class="post-update">
 
     <div class="card card-header">
         <h1><?= Html::encode($this->title) ?></h1>
