@@ -128,7 +128,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                                     'span',
                                                                     StatusEnum::ALL[$model->status] ?? "",
                                                                     [
-                                                                        'class' => 'badge ' . StatusEnum::COLORS[$model->status] ?? ""
+                                                                        'class' => 'badge fs-12 ' . StatusEnum::COLORS[$model->status] ?? ""
                                                                     ]
                                                                 ); ?></div>
                                                         </div>
@@ -209,7 +209,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 <div class="text-muted">
                                                     <h6 class="mb-3 fw-semibold text-uppercase"><?= $model->title ?></h6>
                                                     <div class="">
-                                                        <p><?= str_replace("<img src=","<img width='700px' height='' src=",$model->description); ?></p>
+                                                        <p><?= str_replace("<img src=","<img width='100%' height='' src=",$model->description); ?></p>
                                                     </div>
 
                                                     <div>
@@ -244,7 +244,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                                             'span',
                                                                             StatusEnum::ALL[$model->status] ?? "",
                                                                             [
-                                                                                'class' => 'badge ' . StatusEnum::COLORS[$model->status] ?? ""
+                                                                                'class' => 'badge  fs-12 ' . StatusEnum::COLORS[$model->status] ?? ""
                                                                             ]
                                                                         ); ?></div>
                                                                 </div>

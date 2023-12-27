@@ -78,6 +78,9 @@ use yii\helpers\Html;
                         ]
                     ) ?>
                 </div>
+                <div class="col-md-12" style="border: 1px solid dimgrey">
+                    <img src="<?= $model->image ?>" alt="" style="width: 100%">
+                </div>
             </div>
 
             <div class="card card-footer">
