@@ -6,6 +6,7 @@ use app\forms\ContactForm;
 use app\forms\LoginForm;
 use app\modules\admin\actions\SetLocaleAction;
 use app\modules\admin\enums\LanguageEnum;
+use app\modules\admin\enums\UserRolesEnum;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -85,6 +86,11 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+
+            if(!user()->can(UserRolesEnum::ROLE_USER)){
+                return $this->redirect(['/admin']);
+            }
+
             return $this->goBack();
         }
 
