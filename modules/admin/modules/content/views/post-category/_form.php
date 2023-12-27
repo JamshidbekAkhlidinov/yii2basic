@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'name')->textInput(['maxlength' => 225]) ?>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-12">
             <?= $form->field($model, 'sub_text')->textarea(['maxlength' => true]) ?>
         </div>
         <div class="col-md-6 pt-2">

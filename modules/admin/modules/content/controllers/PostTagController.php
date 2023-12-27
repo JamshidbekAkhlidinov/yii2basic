@@ -89,7 +89,7 @@ class PostTagController extends Controller
         $form = new PostTagForm($model);
 
         if ($form->load($this->request->post()) && $form->validate() && $form->save()) {
-            return $this->redirect(['post-tag/index']);
+            return $this->redirect(['index']);
         }
         return $this->render($view, [
             'model' => $form,

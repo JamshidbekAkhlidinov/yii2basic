@@ -28,13 +28,9 @@ use yii\helpers\Html;
                         <div class="col-md-6">
                             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
                         </div>
-                        <div class="col-md-6">
-                            <?= $form->field($model, 'image')->widget(
-                                InputFile::class,
-                                [
-                                    'clientRoute' => '/admin/file/default/input',
-                                ]
-                            ) ?>
+
+                        <div class="col-md-12">
+                            <?= $form->field($model, 'sub_text')->textarea(['maxlength' => true]) ?>
                         </div>
 
                         <div class="col-md-12">
@@ -47,10 +43,6 @@ use yii\helpers\Html;
                                     ],
                                 ]
                             ) ?>
-                        </div>
-
-                        <div class="col-md-12">
-                            <?= $form->field($model, 'sub_text')->textarea(['maxlength' => true]) ?>
                         </div>
 
                     </div>
@@ -74,6 +66,17 @@ use yii\helpers\Html;
                         ModelRepository::getTags(),
                     ) ?>
 
+                </div>
+            </div>
+
+            <div class="card card-footer">
+                <div class="col-md-6">
+                    <?= $form->field($model, 'image')->widget(
+                        InputFile::class,
+                        [
+                            'clientRoute' => '/admin/file/default/input',
+                        ]
+                    ) ?>
                 </div>
             </div>
 
