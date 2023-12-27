@@ -62,13 +62,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                     ],
                                 ]); ?>
 
-                                <?= $form->field($model, 'username') ?>
+                                <?= $form->field($model, 'username')->textInput(['placeholder'=>"Enter username"]) ?>
 
                                 <div class="float-end">
                                     <a href="auth-pass-reset-basic.html" class="text-muted">Forgot password?</a>
                                 </div>
 
-                                <?= $form->field($model, 'password') ?>
+                                <?= $form->field($model, 'password')->passwordInput(['placeholder'=>"Enter password"]) ?>
 
                                 <?= $form->field($model, 'rememberMe')->checkbox([
                                     'template' => "<div class=\"form-check\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",

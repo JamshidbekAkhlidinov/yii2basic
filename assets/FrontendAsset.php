@@ -19,7 +19,7 @@ class FrontendAsset extends \yii\web\AssetBundle
         'libs/node-waves/waves.min.js',
         "libs/feather-icons/feather.min.js",
         "js/pages/plugins/lord-icon-2.1.0.js",
-        "js/plugins.js",
+        //"js/plugins.js",
         "libs/swiper/swiper-bundle.min.js",
         "js/pages/landing.init.js"
     ];

@@ -9,6 +9,7 @@
 namespace app\models;
 
 use app\models\query\UserQuery;
+use app\modules\admin\enums\UserRolesEnum;
 use Yii;
 use yii\base\Exception;
 use yii\behaviors\AttributeBehavior;
@@ -20,7 +21,6 @@ use yii\web\IdentityInterface;
 
 /**
  * User model
- *
  * @property integer $id
  * @property string $username
  * @property string $password_hash
@@ -252,9 +252,6 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->email;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function getId()
     {
         return $this->getPrimaryKey();
@@ -270,9 +267,11 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $profile = new UserProfile();
         $profile->user_id = $this->id;
-        $profile->locale = Yii::$app->language;
+        $profile->locale = app()->language;
         $profile->load($profileData, '');
         $profile->save();
+
+        authManager()->assign(authManager()->getRole(UserRolesEnum::ROLE_USER), $this->getId());
     }
 
 }

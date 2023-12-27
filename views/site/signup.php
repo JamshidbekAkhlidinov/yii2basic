@@ -1,6 +1,11 @@
 <?php
 
+use yii\bootstrap5\ActiveForm;
 use yii\helpers\Url;
+
+/**
+ * @var $model \app\forms\SignupForm
+ */
 
 $this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
@@ -46,33 +51,26 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <p class="text-muted">Get your free velzon account now</p>
                             </div>
                             <div class="p-2 mt-4">
-                                <form class="needs-validation" novalidate action="index.html">
 
-                                    <div class="mb-3">
-                                        <label for="useremail" class="form-label">Email <span class="text-danger">*</span></label>
-                                        <input type="email" class="form-control" id="useremail" placeholder="Enter email address" required>
-                                        <div class="invalid-feedback">
-                                            Please enter email
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="username" class="form-label">Username <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" id="username" placeholder="Enter username" required>
-                                        <div class="invalid-feedback">
-                                            Please enter username
-                                        </div>
-                                    </div>
+                                <?php $form = ActiveForm::begin([
+                                    'id' => 'login-form',
+                                    'fieldConfig' => [
+                                        'template' => "{label}\n{input}\n{error}",
+                                        'labelOptions' => ['class' => 'form-label'],
+                                        'inputOptions' => ['class' => 'form-control'],
+                                        'errorOptions' => ['class' => 'invalid-feedback'],
+                                    ],
+                                ]); ?>
 
-                                    <div class="mb-3">
-                                        <label class="form-label" for="password-input">Password</label>
-                                        <div class="position-relative auth-pass-inputgroup">
-                                            <input type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter password" id="password-input" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-                                            <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
-                                            <div class="invalid-feedback">
-                                                Please enter password
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                    <?= $form->field($model, 'email')->textInput(['placeholder'=>"Enter email"]) ?>
+
+                                    <?= $form->field($model, 'username')->textInput(['placeholder'=>"Enter username"]) ?>
+
+                                    <?= $form->field($model, 'password')->passwordInput(['placeholder'=>"Enter password"]) ?>
+
+                                    <?= $form->field($model, 'password_confirm')->passwordInput(['placeholder'=>"Enter password confirm"]) ?>
+
 
                                     <div class="mb-4">
                                         <p class="mb-0 fs-12 text-muted fst-italic">By registering you agree to the Velzon <a href="#" class="text-primary text-decoration-underline fst-normal fw-medium">Terms of Use</a></p>
@@ -102,7 +100,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <button type="button" class="btn btn-info btn-icon waves-effect waves-light"><i class="ri-twitter-fill fs-16"></i></button>
                                         </div>
                                     </div>
-                                </form>
+                                <?php ActiveForm::end() ?>
 
                             </div>
                         </div>

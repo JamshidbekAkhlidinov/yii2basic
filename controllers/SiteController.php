@@ -4,12 +4,13 @@ namespace app\controllers;
 
 use app\forms\ContactForm;
 use app\forms\LoginForm;
+use app\forms\SignupForm;
 use app\modules\admin\actions\SetLocaleAction;
 use app\modules\admin\enums\LanguageEnum;
 use app\modules\admin\enums\UserRolesEnum;
 use Yii;
+use yii\base\Exception;
 use yii\filters\AccessControl;
-use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\Response;
 
@@ -30,12 +31,11 @@ class SiteController extends Controller
                         'allow' => true,
                         'roles' => ['@'],
                     ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::class,
-                'actions' => [
-                    'logout' => ['post'],
+                    [
+                        'actions' => ['login','signup'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
                 ],
             ],
         ];
@@ -80,20 +80,13 @@ class SiteController extends Controller
     public function actionLogin()
     {
         $this->layout = 'auth';
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-
             if(!user()->can(UserRolesEnum::ROLE_USER)){
                 return $this->redirect(['/admin']);
             }
-
             return $this->goBack();
         }
-
         $model->password = '';
         return $this->render('login', [
             'model' => $model,
@@ -107,17 +100,30 @@ class SiteController extends Controller
      */
     public function actionLogout()
     {
-        Yii::$app->user->logout();
-
+        user()->logout();
         return $this->goHome();
     }
 
+
+    /**
+     * @throws Exception
+     */
     public function actionSignup()
     {
         $this->layout = 'auth';
-
-        return $this->render('signup');
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+            $user = $model->signup();
+            if ($user) {
+                Yii::$app->getUser()->login($user);
+                return $this->goHome();
+            }
+        }
+        return $this->render('signup', [
+            'model' => $model
+        ]);
     }
+
     /**
      * Displays contact page.
      *
@@ -128,7 +134,6 @@ class SiteController extends Controller
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
-
             return $this->refresh();
         }
         return $this->render('contact', [
