@@ -1,5 +1,7 @@
 <?php
 
+use app\modules\admin\widgets\slider\enums\SwiperTypeEnum;
+use app\modules\admin\widgets\slider\SwiperSliderWidget;
 use app\widgets\icon\Remix;
 
 $this->title = translate("Admin dashboard");
@@ -25,5 +27,14 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
 
 
     <?= env('APP_NAME') ?>
+
+    <div class="row col-md-12">
+        <?= SwiperSliderWidget::widget([
+            'type' => SwiperTypeEnum::TYPE_COVERFLOW,
+            'options' => [
+                "style" => "width:100%"
+            ]
+        ])?>
+    </div>
 
 </div>
