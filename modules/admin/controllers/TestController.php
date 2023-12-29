@@ -21,4 +21,9 @@ class TestController extends Controller
         ]);
     }
 
+    public function actionModal()
+    {
+        return "<h2>Jamshidbek Akhlidinov</h2>";
+    }
+
 }

@@ -1,8 +1,13 @@
 <?php
 
+/**
+ * @var View $this
+ */
+
+use app\modules\admin\widgets\modal\ModalWidget;
 use app\modules\admin\widgets\slider\enums\SwiperTypeEnum;
 use app\modules\admin\widgets\slider\SwiperSliderWidget;
-use app\widgets\icon\Remix;
+use yii\web\View;
 
 $this->title = translate("Admin dashboard");
 
@@ -11,11 +16,11 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="admin-default-index">
     <h1><?= $this->context->action->uniqueId ?></h1>
-    <p>
-        This is the view content for action "<?= $this->context->action->id ?>".
-        The action belongs to the controller "<?= get_class($this->context) ?>"
-        in the "<?= $this->context->module->id ?>" module.
-    </p>
+
+
+    <?=ModalWidget::widget()?>
+
+
     <p>
         You may customize this page by editing the following file:<br>
     </p>
