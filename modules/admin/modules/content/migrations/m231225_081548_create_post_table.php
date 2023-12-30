@@ -20,13 +20,13 @@ class m231225_081548_create_post_table extends Migration
             'id' => $this->primaryKey(),
             'title' => $this->string(),
             'image' => $this->string(),
-            'sub_text' => $this->string(),
-            'description' => $this->string(),
+            'sub_text' => $this->text(),
+            'description' => $this->text(),
             'status' => $this->integer(),
             'view_count' => $this->integer(),
-            'created_by' => $this->integer(),
             'created_at' => $this->datetime(),
             'updated_at' => $this->datetime(),
+            'created_by' => $this->integer(),
             'updated_by' => $this->integer(),
         ]);
 

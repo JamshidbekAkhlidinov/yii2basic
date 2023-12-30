@@ -19,7 +19,7 @@ class m231225_080809_create_post_category_table extends Migration
             'id' => $this->primaryKey(),
             'name' => $this->string(),
             'image' => $this->string(),
-            'sub_text' => $this->string(),
+            'sub_text' => $this->text(),
             'status' => $this->integer(),
             'created_at' => $this->datetime(),
             'created_by' => $this->integer(),
