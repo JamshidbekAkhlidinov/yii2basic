@@ -46,7 +46,7 @@ class PostCategoryController extends Controller
 
         $model = new PostCategory();
         $form = new PostCategoryForm($model);
-        if ($form->load($this->request->post()) && $form->validate()  && $form->save()) {
+        if ($form->load($this->request->post()) && $form->validate() && $form->save()) {
             return $this->redirect(['post-category/index']);
         }
 
@@ -80,17 +80,16 @@ class PostCategoryController extends Controller
         return $this->form($model, 'update',);
     }
 
-    public function form(PostCategory $model, $view){
-
+    public function form(PostCategory $model, $view)
+    {
         $form = new PostCategoryForm($model);
         if ($form->load($this->request->post()) && $form->save()) {
             return $this->redirect(['post-category/index']);
         }
 
-        return $this->render($view, [
+        return $this->renderAjax('_form', [
             'model' => $form,
         ]);
-
     }
 
 

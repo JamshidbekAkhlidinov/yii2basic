@@ -7,8 +7,7 @@
 
 use alexantr\elfinder\InputFile;
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-
+use yii\bootstrap5\ActiveForm;
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\content\models\PostCategory $model */
 /** @var yii\widgets\ActiveForm $form */

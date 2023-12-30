@@ -41,6 +41,7 @@ class PostCategoryForm extends Model
         return [
             [['status'], 'integer'],
             [['name', 'image', 'sub_text'], 'string', 'max' => 255],
+            [['name'], 'required'],
         ];
     }
 
