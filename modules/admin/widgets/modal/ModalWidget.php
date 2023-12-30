@@ -11,6 +11,7 @@ namespace app\modules\admin\widgets\modal;
 
 use yii\base\Widget;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 class ModalWidget extends Widget
 {
@@ -49,11 +50,12 @@ class ModalWidget extends Widget
     {
         $id = $this->button['id'];
         $modalId = $this->options['id'];
+        $url = Url::to($this->url);
         $js = <<<JS
            $("#$id").click(function (){
                let modal = $("#$modalId")
                $.ajax({
-                url: '$this->url',
+                url: '$url',
                 type: 'get',
                 success: function (data) {
                     console.log(data)
@@ -68,16 +70,15 @@ class ModalWidget extends Widget
            })
         JS;
 
-        $this->view->registerJs($js,\yii\web\View::POS_LOAD);
+        $this->view->registerJs($js, \yii\web\View::POS_LOAD);
     }
 
     public function initButtons()
     {
         $this->initJs();
         $button = $this->button;
-        return Html::tag(
-            $button['tag'] ?? 'button',
-            $button['label'] ?? "Open Modal",
+        $options = array_merge(
+            $button['options'] ?? [],
             [
                 'class' => [
                     $button['class'] ?? 'btn',
@@ -85,7 +86,12 @@ class ModalWidget extends Widget
                 'id' => $button['id'] ?? 'modal',
                 //'data-bs-toggle' => $button['data-bs-toggle'] ?? 'modal',
                 //'data-bs-target' => $button['data-bs-target'],
-            ]
+            ],
+        );
+        return Html::tag(
+            $button['tag'] ?? 'button',
+            $button['label'] ?? "Open Modal",
+            $options
         );
     }
 
