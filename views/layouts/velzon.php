@@ -13,11 +13,26 @@ FrontendAsset::register($this);
 $this->registerCsrfMetaTags();
 $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii::getAlias('@web/favicon.ico')]);
 
+$css = <<<CSS
+.dropdown-toggle::after {
+     content: "" !important; 
+}
+CSS;
+$this->registerCss($css);
+
+
 ?>
 <?php $this->beginPage() ?>
 <!doctype html>
-<html lang="<?= Yii::$app->language ?>" data-layout="vertical" data-topbar="light" data-sidebar="dark"
-      data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
+<html
+        lang="<?= Yii::$app->language ?>"
+        data-layout="vertical"
+        data-topbar="light"
+        data-sidebar="dark"
+        data-sidebar-size="lg"
+        data-sidebar-image="none"
+        data-preloader="disable"
+>
 
 <head>
     <meta charset="UTF-8">
@@ -74,10 +89,30 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                            class="btn btn-link fw-medium text-decoration-none text-body">Login</a>
                         <a href="<?= Url::to(['site/signup']) ?>" class="btn btn-primary">Sign Up</a>
                     <?php else: ?>
-                        <a href="<?= Url::to(['site/logout']) ?>" data-method="post" class="btn btn-primary">
-                            [<?= user()->identity->publicIdentity ?>]
-                            Logout
-                        </a>
+
+                        <div class="btn-group" role="group">
+                            <button
+                                    id="btnGroupDrop1"
+                                    type="button"
+                                    class="btn btn-primary dropdown-toggle"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                            >
+                                [ <?= user()->identity->publicIdentity ?>]
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <li>
+                                    <a class="dropdown-item" href="<?= Url::to(['/admin']) ?>">
+                                        Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="<?= Url::to(['site/logout']) ?>">
+                                        Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     <?php endif; ?>
                 </div>
             </div>
