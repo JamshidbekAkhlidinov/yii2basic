@@ -24,12 +24,6 @@ use yii\widgets\ActiveForm;
         </div>
 
         <div class="col-md-6">
-            <?= $form->field($model, 'sub_text')->textarea(['maxlength' => true]) ?>
-        </div>
-        <div class="col-md-6 pt-2">
-            <?= $form->field($model, 'status')->checkbox() ?>
-        </div>
-        <div class="col-md-6">
             <?= $form->field($model, 'image')->widget(
                 InputFile::class,
                 [
@@ -37,6 +31,16 @@ use yii\widgets\ActiveForm;
                 ]
             ) ?>
         </div>
+
+        <div class="col-md-12">
+            <?= $form->field($model, 'sub_text')->textarea(['maxlength' => true]) ?>
+        </div>
+
+
+        <div class="col-md-12 pt-2">
+            <?= $form->field($model, 'status')->checkbox() ?>
+        </div>
+
     </div>
     <div class="form-group pt-2">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

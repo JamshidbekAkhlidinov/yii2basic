@@ -44,9 +44,17 @@ class PostCategoryController extends Controller
         $searchModel = new PostCategorySearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
+        $model = new PostCategory();
+        $form = new PostCategoryForm($model);
+        if ($form->load($this->request->post()) && $form->validate()  && $form->save()) {
+            return $this->redirect(['post-category/index']);
+        }
+
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'model' => $form,
         ]);
     }
 
@@ -62,7 +70,7 @@ class PostCategoryController extends Controller
     public function actionCreate()
     {
         $model = new PostCategory();
-        return $this->form($model, 'create');
+        return $this->form($model, 'update');
     }
 
 
@@ -76,7 +84,7 @@ class PostCategoryController extends Controller
 
         $form = new PostCategoryForm($model);
         if ($form->load($this->request->post()) && $form->save()) {
-            return $this->redirect(['index']);
+            return $this->redirect(['post-category/index']);
         }
 
         return $this->render($view, [
@@ -100,6 +108,6 @@ class PostCategoryController extends Controller
             return $model;
         }
 
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        throw new NotFoundHttpException(translate('The requested page does not exist.'));
     }
 }

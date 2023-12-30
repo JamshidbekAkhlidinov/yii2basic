@@ -63,7 +63,7 @@ class PostController extends Controller
     public function actionCreate()
     {
         $model = new Post();
-        return $this->form($model,'create',);
+        return $this->form($model, 'create',);
     }
 
     public function actionUpdate($id)
@@ -72,7 +72,8 @@ class PostController extends Controller
         return $this->form($model, 'update');
     }
 
-    public function form(Post $model, $view){
+    public function form(Post $model, $view)
+    {
 
         $form = new PostForm($model);
         if ($form->load($this->request->post()) && $form->save()) {
@@ -97,6 +98,6 @@ class PostController extends Controller
             return $model;
         }
 
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        throw new NotFoundHttpException(translate('The requested page does not exist.'));
     }
 }

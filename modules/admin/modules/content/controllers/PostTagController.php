@@ -31,7 +31,7 @@ class PostTagController extends Controller
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [
-                       // 'delete' => ['POST'],
+                        'delete' => ['POST'],
                     ],
                 ],
             ]
@@ -89,7 +89,7 @@ class PostTagController extends Controller
         $form = new PostTagForm($model);
 
         if ($form->load($this->request->post()) && $form->validate() && $form->save()) {
-            return $this->redirect(['post-tag/index']);
+            return $this->redirect(['index']);
         }
         return $this->render($view, [
             'model' => $form,
@@ -112,6 +112,6 @@ class PostTagController extends Controller
             return $model;
         }
 
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+        throw new NotFoundHttpException(translate('The requested page does not exist.'));
     }
 }

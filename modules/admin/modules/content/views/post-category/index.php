@@ -5,18 +5,22 @@
  *   https://github.com/JamshidbekAkhlidinov
 */
 
+use alexantr\elfinder\InputFile;
 use app\modules\admin\enums\StatusEnum;
 use app\modules\admin\modules\content\models\PostCategory;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\content\search\PostCategorySearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
+/** @var app\modules\admin\modules\content\models\PostCategory $model */
+/** @var yii\widgets\ActiveForm $form */
 
-$this->title = Yii::t('app', 'Post Categories');
+$this->title = translate('Post Categories');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -24,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="card-header d-flex justify-content-between">
         <h1><?= Html::encode($this->title) ?></h1>
         <p>
-            <?= Html::a(Yii::t('app', 'Create Post Category'), ['create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a(translate('Create Post Category'), ['create'], ['class' => 'btn btn-success']) ?>
         </p>
     </div>
 
@@ -38,10 +42,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 // 'id',
                 [
-                        'attribute' => 'image',
+                    'attribute' => 'image',
                     'format' => 'raw',
-                    'value' => static function($model){
-                        return Html::img($model->image, ['width'=>'150px']);
+                    'value' => static function ($model) {
+                        return Html::img($model->image, ['width' => '150px']);
                     }
                 ],
                 [
@@ -65,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'span',
                             StatusEnum::ALL[$model->status] ?? "",
                             [
-                                'class' => 'badge '.StatusEnum::COLORS[$model->status] ?? ""
+                                'class' => 'badge ' . StatusEnum::COLORS[$model->status] ?? ""
                             ]
                         );
                     }

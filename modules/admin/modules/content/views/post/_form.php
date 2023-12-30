@@ -25,17 +25,10 @@ use yii\helpers\Html;
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
                         </div>
-                        <div class="col-md-6">
-                            <?= $form->field($model, 'image')->widget(
-                                InputFile::class,
-                                [
-                                    'clientRoute' => '/admin/file/default/input',
-                                ]
-                            ) ?>
-                        </div>
+
 
                         <div class="col-md-12">
                             <?= $form->field($model, 'description')->widget(
@@ -48,6 +41,7 @@ use yii\helpers\Html;
                                 ]
                             ) ?>
                         </div>
+
 
                         <div class="col-md-12">
                             <?= $form->field($model, 'sub_text')->textarea(['maxlength' => true]) ?>
@@ -78,6 +72,16 @@ use yii\helpers\Html;
             </div>
 
             <div class="card card-footer">
+                <?= $form->field($model, 'image')->widget(
+                    InputFile::class,
+                    [
+                        'clientRoute' => '/admin/file/default/input',
+                    ]
+                ) ?>
+                <img src="<?= $model->image ?>" alt="" style="width: 100%">
+            </div>
+
+            <div class="card card-footer">
                 <div class="form-group">
                     <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
                 </div>
@@ -86,8 +90,6 @@ use yii\helpers\Html;
         </div>
 
     </div>
-
-
 
 
     <?php ActiveForm::end(); ?>
