@@ -22,6 +22,9 @@ $config = [
         'admin' => [
             'class' => app\modules\admin\Module::class,
         ],
+        'telegram' => [
+            'class' => app\modules\telegram\Module::class,
+        ],
     ],
     'components' => [
         'authManager' => [
