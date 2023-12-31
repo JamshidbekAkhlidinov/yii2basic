@@ -11,7 +11,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'language' => 'en',
-    'layout'=>'velzon',
+    'layout' => 'velzon',
     'name' => env('APP_NAME', "Yii2 basic"),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -21,6 +21,11 @@ $config = [
     'modules' => [
         'admin' => [
             'class' => app\modules\admin\Module::class,
+        ],
+    ],
+    'container' => [
+        'definitions' => [
+            \yii\widgets\LinkPager::class => \yii\bootstrap5\LinkPager::class,
         ],
     ],
     'components' => [
