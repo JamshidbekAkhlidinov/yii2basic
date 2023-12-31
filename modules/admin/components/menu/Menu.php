@@ -10,8 +10,6 @@ namespace app\modules\admin\components\menu;
 
 use app\modules\admin\enums\UserRolesEnum;
 use app\modules\admin\widgets\MenuWidget;
-use rmrevin\yii\fontawesome\FA;
-use rmrevin\yii\fontawesome\FontAwesome;
 
 class Menu
 {
@@ -30,6 +28,7 @@ class Menu
                     'icon' => 'fa fa-users',
                     'url' => ['/admin/user'],
                     'active' => controller()->id == 'user',
+                    'visible' => can(UserRolesEnum::ROLE_ADMINISTRATOR)
                 ],
                 [
                     'label' => 'Main menu child',
@@ -66,27 +65,27 @@ class Menu
                     'type' => MenuWidget::type_item, //menu,item
                     'icon' => 'ri-dashboard-2-line',
                     'id' => 'test2',
-                    'active' => module()->id=="content",
+                    'active' => module()->id == "content",
                     'items' => [
                         [
                             'label' => 'Post category',
                             'url' => ['/admin/content/post-category'],
                             'icon' => 'ri-dashboard-2-line',
-                            'active' => controller()->id=="post-category",
+                            'active' => controller()->id == "post-category",
 
                         ],
                         [
                             'label' => 'Tag',
                             'url' => ['/admin/content/post-tag'],
                             'icon' => 'ri-dashboard-2-line',
-                            'active' => controller()->id=="post-tag",
+                            'active' => controller()->id == "post-tag",
 
                         ],
                         [
                             'label' => 'Post',
                             'url' => ['/admin/content/post'],
                             'icon' => 'ri-dashboard-2-line',
-                            'active' => controller()->id=="post",
+                            'active' => controller()->id == "post",
 
                         ],
                     ],

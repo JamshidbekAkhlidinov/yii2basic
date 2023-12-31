@@ -2,10 +2,12 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\enums\UserRolesEnum;
 use app\modules\admin\search\UserSearch;
 use app\modules\admin\forms\UserForm;
 use app\models\User;
 use Yii;
+use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
@@ -23,6 +25,17 @@ class UserController extends Controller
                 'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['post'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => [
+                            UserRolesEnum::ROLE_ADMINISTRATOR,
+                        ],
+                    ],
                 ],
             ],
         ];
