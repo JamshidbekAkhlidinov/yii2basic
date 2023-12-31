@@ -36,6 +36,8 @@ class m231225_082010_create_post_category_linker_table extends Migration
             'post_category_id',
             '{{%post_category}}',
             'id',
+            'CASCADE',
+            'CASCADE'
         );
 
         // creates index for column `post_id`
@@ -52,6 +54,8 @@ class m231225_082010_create_post_category_linker_table extends Migration
             'post_id',
             '{{%post}}',
             'id',
+            'CASCADE',
+            'CASCADE'
         );
     }
 
