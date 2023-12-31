@@ -19,7 +19,10 @@ use yii\helpers\Html;
 
     <div class="row">
         <div class="col-md-12">
-            <?= $form->field($model, 'name')->textInput(['placeholder'=>'tag1,  tag2, ...']) ?>
+            <?= $form->field($model, 'name')->textInput([
+                'placeholder' => 'tag1,  tag2, ...',
+                'data-choices data-choices-text-unique-true' => ""
+            ]) ?>
         </div>
     </div>
     <div class="form-group pt-2">

@@ -27,7 +27,10 @@ class AdminAsset extends AssetBundle
         'libs/node-waves/waves.min.js',
         'libs/feather-icons/feather.min.js',
         'js/pages/plugins/lord-icon-2.1.0.js',
-        'js/plugins.js',
+        'libs/choices.js/public/assets/scripts/choices.min.js',//for post category
+        //'js/plugins.js',
+        'libs/simplebar/simplebar.min.js', //for profile settings
+        'js/pages/profile-setting.init.js', //for profile settings
         'js/app.js',
     ];
     public $depends = [

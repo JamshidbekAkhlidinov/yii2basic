@@ -116,7 +116,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <div class="col-md-auto">
                                                 <div class="avatar-md">
                                                     <div class="avatar-title bg-white rounded-circle">
-                                                        <img src="assets/images/brands/slack.png" alt=""
+                                                        <img src="/images/brands/slack.png" alt=""
                                                              class="avatar-xs">
                                                     </div>
                                                 </div>
@@ -402,7 +402,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <div data-simplebar style="height: 300px;" class="px-3 mx-n3 mb-2">
                                                 <div class="d-flex mb-4">
                                                     <div class="flex-shrink-0">
-                                                        <img src="assets/images/users/avatar-8.jpg" alt=""
+                                                        <img src="/images/users/avatar-8.jpg" alt=""
                                                              class="avatar-xs rounded-circle"/>
                                                     </div>
                                                     <div class="flex-grow-1 ms-3">
@@ -415,7 +415,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                                     class="mdi mdi-reply"></i> Reply</a>
                                                         <div class="d-flex mt-4">
                                                             <div class="flex-shrink-0">
-                                                                <img src="assets/images/users/avatar-10.jpg" alt=""
+                                                                <img src="/images/users/avatar-10.jpg" alt=""
                                                                      class="avatar-xs rounded-circle"/>
                                                             </div>
                                                             <div class="flex-grow-1 ms-3">
@@ -434,7 +434,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 </div>
                                                 <div class="d-flex mb-4">
                                                     <div class="flex-shrink-0">
-                                                        <img src="assets/images/users/avatar-6.jpg" alt=""
+                                                        <img src="/images/users/avatar-6.jpg" alt=""
                                                              class="avatar-xs rounded-circle"/>
                                                     </div>
                                                     <div class="flex-grow-1 ms-3">
@@ -452,7 +452,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 </div>
                                                 <div class="d-flex">
                                                     <div class="flex-shrink-0">
-                                                        <img src="assets/images/users/avatar-10.jpg" alt=""
+                                                        <img src="/images/users/avatar-10.jpg" alt=""
                                                              class="avatar-xs rounded-circle"/>
                                                     </div>
                                                     <div class="flex-grow-1 ms-3">
@@ -466,11 +466,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                                             and more.</p>
                                                         <div class="row g-2 mb-3">
                                                             <div class="col-lg-1 col-sm-2 col-6">
-                                                                <img src="assets/images/small/img-4.jpg" alt=""
+                                                                <img src="/images/small/img-4.jpg" alt=""
                                                                      class="img-fluid rounded">
                                                             </div>
                                                             <div class="col-lg-1 col-sm-2 col-6">
-                                                                <img src="assets/images/small/img-5.jpg" alt=""
+                                                                <img src="/images/small/img-5.jpg" alt=""
                                                                      class="img-fluid rounded">
                                                             </div>
                                                         </div>
@@ -479,7 +479,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                                     class="mdi mdi-reply"></i> Reply</a>
                                                         <div class="d-flex mt-4">
                                                             <div class="flex-shrink-0">
-                                                                <img src="assets/images/users/avatar-6.jpg" alt=""
+                                                                <img src="/images/users/avatar-6.jpg" alt=""
                                                                      class="avatar-xs rounded-circle"/>
                                                             </div>
                                                             <div class="flex-grow-1 ms-3">
@@ -576,7 +576,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 <div class="vstack gap-3">
                                                     <div class="d-flex align-items-center">
                                                         <div class="avatar-xs flex-shrink-0 me-3">
-                                                            <img src="assets/images/users/avatar-2.jpg" alt=""
+                                                            <img src="/images/users/avatar-2.jpg" alt=""
                                                                  class="img-fluid rounded-circle">
                                                         </div>
                                                         <div class="flex-grow-1">
@@ -657,7 +657,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     <!-- end member item -->
                                                     <div class="d-flex align-items-center">
                                                         <div class="avatar-xs flex-shrink-0 me-3">
-                                                            <img src="assets/images/users/avatar-3.jpg" alt=""
+                                                            <img src="/images/users/avatar-3.jpg" alt=""
                                                                  class="img-fluid rounded-circle">
                                                         </div>
                                                         <div class="flex-grow-1">
@@ -697,7 +697,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     <!-- end member item -->
                                                     <div class="d-flex align-items-center">
                                                         <div class="avatar-xs flex-shrink-0 me-3">
-                                                            <img src="assets/images/users/avatar-4.jpg" alt=""
+                                                            <img src="/images/users/avatar-4.jpg" alt=""
                                                                  class="img-fluid rounded-circle">
                                                         </div>
                                                         <div class="flex-grow-1">
@@ -778,7 +778,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     <!-- end member item -->
                                                     <div class="d-flex align-items-center">
                                                         <div class="avatar-xs flex-shrink-0 me-3">
-                                                            <img src="assets/images/users/avatar-7.jpg" alt=""
+                                                            <img src="/images/users/avatar-7.jpg" alt=""
                                                                  class="img-fluid rounded-circle">
                                                         </div>
                                                         <div class="flex-grow-1">
@@ -1310,7 +1310,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div class="acitivity-timeline py-3">
                                         <div class="acitivity-item d-flex">
                                             <div class="flex-shrink-0">
-                                                <img src="assets/images/users/avatar-1.jpg" alt=""
+                                                <img src="/images/users/avatar-1.jpg" alt=""
                                                      class="avatar-xs rounded-circle acitivity-avatar"/>
                                             </div>
                                             <div class="flex-grow-1 ms-3">
@@ -1338,13 +1338,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     <a href="javascript: void(0);" class="avatar-group-item"
                                                        data-bs-toggle="tooltip" data-bs-placement="top" title=""
                                                        data-bs-original-title="Christi">
-                                                        <img src="assets/images/users/avatar-4.jpg" alt=""
+                                                        <img src="/images/users/avatar-4.jpg" alt=""
                                                              class="rounded-circle avatar-xs"/>
                                                     </a>
                                                     <a href="javascript: void(0);" class="avatar-group-item"
                                                        data-bs-toggle="tooltip" data-bs-placement="top" title=""
                                                        data-bs-original-title="Frank Hook">
-                                                        <img src="assets/images/users/avatar-3.jpg" alt=""
+                                                        <img src="/images/users/avatar-3.jpg" alt=""
                                                              class="rounded-circle avatar-xs"/>
                                                     </a>
                                                     <a href="javascript: void(0);" class="avatar-group-item"
@@ -1371,7 +1371,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         </div>
                                         <div class="acitivity-item py-3 d-flex">
                                             <div class="flex-shrink-0">
-                                                <img src="assets/images/users/avatar-2.jpg" alt=""
+                                                <img src="/images/users/avatar-2.jpg" alt=""
                                                      class="avatar-xs rounded-circle acitivity-avatar"/>
                                             </div>
                                             <div class="flex-grow-1 ms-3">
@@ -1383,17 +1383,17 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     <div class="col-xxl-4">
                                                         <div class="row border border-dashed gx-2 p-2 mb-2">
                                                             <div class="col-4">
-                                                                <img src="assets/images/small/img-2.jpg" alt=""
+                                                                <img src="/images/small/img-2.jpg" alt=""
                                                                      class="img-fluid rounded"/>
                                                             </div>
                                                             <!--end col-->
                                                             <div class="col-4">
-                                                                <img src="assets/images/small/img-3.jpg" alt=""
+                                                                <img src="/images/small/img-3.jpg" alt=""
                                                                      class="img-fluid rounded"/>
                                                             </div>
                                                             <!--end col-->
                                                             <div class="col-4">
-                                                                <img src="assets/images/small/img-4.jpg" alt=""
+                                                                <img src="/images/small/img-4.jpg" alt=""
                                                                      class="img-fluid rounded"/>
                                                             </div>
                                                             <!--end col-->
@@ -1406,7 +1406,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         </div>
                                         <div class="acitivity-item py-3 d-flex">
                                             <div class="flex-shrink-0">
-                                                <img src="assets/images/users/avatar-6.jpg" alt=""
+                                                <img src="/images/users/avatar-6.jpg" alt=""
                                                      class="avatar-xs rounded-circle acitivity-avatar"/>
                                             </div>
                                             <div class="flex-grow-1 ms-3">
@@ -1434,7 +1434,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         </div>
                                         <div class="acitivity-item py-3 d-flex">
                                             <div class="flex-shrink-0">
-                                                <img src="assets/images/users/avatar-7.jpg" alt=""
+                                                <img src="/images/users/avatar-7.jpg" alt=""
                                                      class="avatar-xs rounded-circle acitivity-avatar"/>
                                             </div>
                                             <div class="flex-grow-1 ms-3">
@@ -1465,7 +1465,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         </div>
                                         <div class="acitivity-item d-flex">
                                             <div class="flex-shrink-0">
-                                                <img src="assets/images/users/avatar-8.jpg" alt=""
+                                                <img src="/images/users/avatar-8.jpg" alt=""
                                                      class="avatar-xs rounded-circle acitivity-avatar"/>
                                             </div>
                                             <div class="flex-grow-1 ms-3">
@@ -1541,7 +1541,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <div class="col-lg-4 col">
                                                 <div class="team-profile-img">
                                                     <div class="avatar-lg img-thumbnail rounded-circle">
-                                                        <img src="assets/images/users/avatar-2.jpg" alt=""
+                                                        <img src="/images/users/avatar-2.jpg" alt=""
                                                              class="img-fluid d-block rounded-circle"/>
                                                     </div>
                                                     <div class="team-content">
@@ -1678,7 +1678,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <div class="col-lg-4 col">
                                                 <div class="team-profile-img">
                                                     <div class="avatar-lg img-thumbnail rounded-circle">
-                                                        <img src="assets/images/users/avatar-3.jpg" alt=""
+                                                        <img src="/images/users/avatar-3.jpg" alt=""
                                                              class="img-fluid d-block rounded-circle"/>
                                                     </div>
                                                     <div class="team-content">
@@ -1745,7 +1745,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <div class="col-lg-4 col">
                                                 <div class="team-profile-img">
                                                     <div class="avatar-lg img-thumbnail rounded-circle">
-                                                        <img src="assets/images/users/avatar-8.jpg" alt=""
+                                                        <img src="/images/users/avatar-8.jpg" alt=""
                                                              class="img-fluid d-block rounded-circle"/>
                                                     </div>
                                                     <div class="team-content">
@@ -1880,7 +1880,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <div class="col-lg-4 col">
                                                 <div class="team-profile-img">
                                                     <div class="avatar-lg img-thumbnail rounded-circle">
-                                                        <img src="assets/images/users/avatar-4.jpg" alt=""
+                                                        <img src="/images/users/avatar-4.jpg" alt=""
                                                              class="img-fluid d-block rounded-circle"/>
                                                     </div>
                                                     <div class="team-content">
@@ -2015,7 +2015,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <div class="col-lg-4 col">
                                                 <div class="team-profile-img">
                                                     <div class="avatar-lg img-thumbnail rounded-circle">
-                                                        <img src="assets/images/users/avatar-7.jpg" alt=""
+                                                        <img src="/images/users/avatar-7.jpg" alt=""
                                                              class="img-fluid d-block rounded-circle"/>
                                                     </div>
                                                     <div class="team-content">
@@ -2082,7 +2082,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <div class="col-lg-4 col">
                                                 <div class="team-profile-img">
                                                     <div class="avatar-lg img-thumbnail rounded-circle">
-                                                        <img src="assets/images/users/avatar-5.jpg" alt=""
+                                                        <img src="/images/users/avatar-5.jpg" alt=""
                                                              class="img-fluid d-block rounded-circle"/>
                                                     </div>
                                                     <div class="team-content">
