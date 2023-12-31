@@ -14,6 +14,25 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\content\forms\PostForm $model */
 /** @var yii\widgets\ActiveForm $form */
+
+$css = <<<CSS
+#postform-tags{
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+.form-check{
+    padding-right: 9px !important;
+}
+CSS;
+$js = <<<JS
+$('#post_image_input').change(function (e){
+    $('#post_image').attr('src', e.target.value);
+})
+JS;
+
+$this->registerJs($js);
+$this->registerCss($css);
+
 ?>
 
 <div class="post-form">
@@ -53,6 +72,27 @@ use yii\helpers\Html;
         </div>
 
         <div class="col-md-3">
+
+            <div class="card card-footer">
+                <?= $form->field($model, 'image')->widget(
+                    InputFile::class,
+                    [
+                        'clientRoute' => '/admin/file/default/input',
+                        'options' => [
+                            'id' => 'post_image_input',
+                        ]
+                    ]
+                ) ?>
+                <img src="<?= $model->image ?>" alt="" id="post_image" style="width: 100%">
+            </div>
+
+            <div class="card card-footer">
+                <div class="form-group">
+                    <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+                </div>
+            </div>
+
+
             <div class="card">
                 <div class="card-body">
 
@@ -68,22 +108,6 @@ use yii\helpers\Html;
                         ModelRepository::getTags(),
                     ) ?>
 
-                </div>
-            </div>
-
-            <div class="card card-footer">
-                <?= $form->field($model, 'image')->widget(
-                    InputFile::class,
-                    [
-                        'clientRoute' => '/admin/file/default/input',
-                    ]
-                ) ?>
-                <img src="<?= $model->image ?>" alt="" style="width: 100%">
-            </div>
-
-            <div class="card card-footer">
-                <div class="form-group">
-                    <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
                 </div>
             </div>
 

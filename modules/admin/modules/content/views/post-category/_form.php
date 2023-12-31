@@ -11,6 +11,13 @@ use yii\bootstrap5\ActiveForm;
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\content\models\PostCategory $model */
 /** @var yii\widgets\ActiveForm $form */
+$js = <<<JS
+$('#post_image_input').change(function (e){
+    $('#post_image').attr('src', e.target.value);
+})
+JS;
+
+$this->registerJs($js);
 ?>
 
 <div class="post-category-form">
@@ -27,14 +34,20 @@ use yii\bootstrap5\ActiveForm;
                 InputFile::class,
                 [
                     'clientRoute' => '/admin/file/default/input',
+                    'options' => [
+                        'id' => 'post_image_input',
+                    ]
                 ]
             ) ?>
         </div>
 
-        <div class="col-md-12">
-            <?= $form->field($model, 'sub_text')->textarea(['maxlength' => true]) ?>
+        <div class="col-md-6">
+            <?= $form->field($model, 'sub_text')->textarea(['rows' => 10]) ?>
         </div>
 
+        <div class="col-md-6" style="padding-top: 26px">
+            <img src="<?= $model->image ?>" alt="" id="post_image" style="height: 217px">
+        </div>
 
         <div class="col-md-12 pt-2">
             <?= $form->field($model, 'status')->checkbox() ?>
