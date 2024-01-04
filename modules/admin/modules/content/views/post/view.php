@@ -16,85 +16,88 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Posts'), 'url' => ['
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="post-view card">
-    <div class="card-header d-flex justify-content-between">
-        <h1><?= Html::encode($this->title) ?></h1>
-        <p>
-            <?= Html::a(Yii::t('app', 'Update'),
-                ['update', 'id' => $model->id],
-                ['class' => 'btn btn-primary']
-            ) ?>
-            <?= Html::a(
-                Yii::t('app', 'Delete'),
-                ['delete', 'id' => $model->id],
-                [
-                    'class' => 'btn btn-danger',
-                    'data' => [
-                        'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
-                        'method' => 'post',
-                    ],
-                ]
-            ) ?>
-        </p>
+<div class="container-fluid">
+    <div class="post-view card ribbon-box border shadow-none">
+        <div class="card-header d-flex justify-content-between" style="padding-top: 35px">
+            <div class="ribbon ribbon-primary round-shape">Title</div>
+            <h1><?= Html::encode($this->title) ?></h1>
+            <p>
+                <?= Html::a(Yii::t('app', 'Update'),
+                    ['update', 'id' => $model->id],
+                    ['class' => 'btn btn-primary']
+                ) ?>
+                <?= Html::a(
+                    Yii::t('app', 'Delete'),
+                    ['delete', 'id' => $model->id],
+                    [
+                        'class' => 'btn btn-danger',
+                        'data' => [
+                            'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                            'method' => 'post',
+                        ],
+                    ]
+                ) ?>
+            </p>
+        </div>
+        <!--    <div class="card-header">-->
+        <!--        --><?php //= DetailView::widget([
+        //            'model' => $model,
+        //            'attributes' => [
+        //                'id',
+        //                'title',
+        //                [
+        //                    'format' => 'raw',
+        //                    'attribute' => 'image',
+        //                    'value' => static function ($model) {
+        //                        return Html::img($model->image, ['width' => '100px']);
+        //                    },
+        //                ],
+        //                'sub_text',
+        //                [
+        //                    'format' => 'raw',
+        //                    'attribute' => 'description',
+        //                    'value' => function ($data) {
+        //                        return str_replace("<img src=","<img width='600px' height='' src=",$data->description);
+        //                    },
+        //                ],
+        //                [
+        //                    'attribute' => 'status',
+        //                    'format' => 'raw',
+        //                    'value' => static function ($model) {
+        //                        return Html::tag(
+        //                            'span',
+        //                            StatusEnum::ALL[$model->status] ?? "",
+        //                            [
+        //                                'class' => 'badge ' . StatusEnum::COLORS[$model->status] ?? ""
+        //                            ]
+        //                        );
+        //                    }
+        //                ],
+        //                'view_count',
+        //                'created_at',
+        //                'updated_at',
+        //                [
+        //                    'format' => 'raw',
+        //                    'attribute' => 'created_by',
+        //                    'value' => static function ($model) {
+        //                        if ($user = $model->createdBy) {
+        //                            return $user->publicIdentity;
+        //                        }
+        //                    },
+        //                ],
+        //                [
+        //                    'format' => 'raw',
+        //                    'attribute' => 'updated_by',
+        //                    'value' => static function ($model) {
+        //                        if ($user = $model->updatedBy) {
+        //                            return $user->publicIdentity;
+        //                        }
+        //                    },
+        //                ],
+        //            ],
+        //        ]) ?>
+        <!--    </div>-->
     </div>
-    <!--    <div class="card-header">-->
-    <!--        --><?php //= DetailView::widget([
-    //            'model' => $model,
-    //            'attributes' => [
-    //                'id',
-    //                'title',
-    //                [
-    //                    'format' => 'raw',
-    //                    'attribute' => 'image',
-    //                    'value' => static function ($model) {
-    //                        return Html::img($model->image, ['width' => '100px']);
-    //                    },
-    //                ],
-    //                'sub_text',
-    //                [
-    //                    'format' => 'raw',
-    //                    'attribute' => 'description',
-    //                    'value' => function ($data) {
-    //                        return str_replace("<img src=","<img width='600px' height='' src=",$data->description);
-    //                    },
-    //                ],
-    //                [
-    //                    'attribute' => 'status',
-    //                    'format' => 'raw',
-    //                    'value' => static function ($model) {
-    //                        return Html::tag(
-    //                            'span',
-    //                            StatusEnum::ALL[$model->status] ?? "",
-    //                            [
-    //                                'class' => 'badge ' . StatusEnum::COLORS[$model->status] ?? ""
-    //                            ]
-    //                        );
-    //                    }
-    //                ],
-    //                'view_count',
-    //                'created_at',
-    //                'updated_at',
-    //                [
-    //                    'format' => 'raw',
-    //                    'attribute' => 'created_by',
-    //                    'value' => static function ($model) {
-    //                        if ($user = $model->createdBy) {
-    //                            return $user->publicIdentity;
-    //                        }
-    //                    },
-    //                ],
-    //                [
-    //                    'format' => 'raw',
-    //                    'attribute' => 'updated_by',
-    //                    'value' => static function ($model) {
-    //                        if ($user = $model->updatedBy) {
-    //                            return $user->publicIdentity;
-    //                        }
-    //                    },
-    //                ],
-    //            ],
-    //        ]) ?>
-    <!--    </div>-->
 </div>
 
 <section>
@@ -103,87 +106,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="content">
         <div class="container-fluid">
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card mt-n4 mx-n4">
-                        <div class="bg-warning-subtle">
-                            <div class="card-body pb-0 px-4">
-                                <div class="row mb-3">
-                                    <div class="col-md-8">
-                                        <div class="row align-items-center g-3">
-                                            <div class="col-md-auto">
-                                                <div class="avatar-md">
-                                                    <div class="avatar-title bg-white rounded-circle">
-                                                        <img src="/images/brands/slack.png" alt=""
-                                                             class="avatar-xs">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md">
-                                                <div>
-                                                    <h4 class="fw-bold">User</h4>
-                                                    <div class="hstack gap-3 flex-wrap">
-                                                        <div><i class="ri-building-line align-bottom me-1"></i>
-                                                            Themesbrand
-                                                        </div>
-                                                        <div class="vr"></div>
-                                                        <div>Create Date : <span
-                                                                    class="fw-medium"><?= $model->created_at ?></span>
-                                                        </div>
-                                                        <div class="vr"></div>
-                                                        <div class="badge rounded-pill bg-info fs-12">New</div>
-                                                        <div class="badge fs-12"><?= Html::tag(
-                                                                'span',
-                                                                StatusEnum::ALL[$model->status] ?? "",
-                                                                [
-                                                                    'class' => 'badge fs-12 ' . StatusEnum::COLORS[$model->status] ?? ""
-                                                                ]
-                                                            ); ?></div>
-                                                    </div>
-                                                </div>
-                                                <div class="hstack gap-1 flex-wrap">
-                                                    <button type="button" class="btn py-0 fs-16 favourite-btn active">
-                                                        <i class="ri-star-fill"></i>
-                                                    </button>
-                                                    <button type="button" class="btn py-0 fs-16 text-body">
-                                                        <i class="ri-share-line"></i>
-                                                    </button>
-                                                    <button type="button" class="btn py-0 fs-16 text-body">
-                                                        <i class="ri-flag-line"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div>
-                                            <img src="<?= $model->image ?>" alt="..." style="width: 250px;">
-                                        </div>
-                                    </div>
-                                    <!--                                        <div class="col-md-auto">-->
-                                    <!--                                            <div class="hstack gap-1 flex-wrap">-->
-                                    <!--                                                <button type="button" class="btn py-0 fs-16 favourite-btn active">-->
-                                    <!--                                                    <i class="ri-star-fill"></i>-->
-                                    <!--                                                </button>-->
-                                    <!--                                                <button type="button" class="btn py-0 fs-16 text-body">-->
-                                    <!--                                                    <i class="ri-share-line"></i>-->
-                                    <!--                                                </button>-->
-                                    <!--                                                <button type="button" class="btn py-0 fs-16 text-body">-->
-                                    <!--                                                    <i class="ri-flag-line"></i>-->
-                                    <!--                                                </button>-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </div>-->
-                                </div>
-                            </div>
-                            <!-- end card body -->
-                        </div>
-                    </div>
-                    <!-- end card -->
-                </div>
-                <!-- end col -->
-            </div>
-            <!-- end row -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="tab-content text-muted">
@@ -193,9 +115,17 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="text-muted">
-                                                <h6 class="mb-3 fw-semibold text-uppercase"><?= $model->title ?></h6>
-                                                <div class="">
-                                                    <p><?= str_replace("<img src=", "<img width='100%' height='' src=", $model->description); ?></p>
+                                                <div class="card ribbon-box border shadow-none">
+                                                   <div class="card-body" style="padding-top: 35px">
+                                                       <div class="ribbon ribbon-primary round-shape">Sub title</div>
+                                                       <p><?= $model->sub_text ?></p>
+                                                   </div>
+                                                </div>
+                                                <div class="card ribbon-box border shadow-none">
+                                                    <div class="card-body" style="padding-top: 35px">
+                                                        <div class="ribbon ribbon-primary round-shape">Description</div>
+                                                        <p><?= str_replace("<img src=", "<img width='100%' height='' src=", $model->description); ?></p>
+                                                    </div>
                                                 </div>
 
                                                 <div>
@@ -421,111 +351,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                         </div>
                                         <!-- end card body -->
                                     </div>
-
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="pt-3 border-top border-top-dashed mt-4">
-                                                <h6 class="mb-3 fw-semibold text-uppercase">Resources</h6>
-                                                <div class="row g-3">
-                                                    <div class="col-4 col-lg-6">
-                                                        <div class="border rounded border-dashed p-2">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="flex-shrink-0 me-3">
-                                                                    <div class="avatar-sm">
-                                                                        <div class="avatar-title bg-light text-secondary rounded fs-24">
-                                                                            <i class="ri-folder-zip-line"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="flex-grow-1 overflow-hidden">
-                                                                    <h5 class="fs-13 mb-1"><a href="#"
-                                                                                              class="text-body text-truncate d-block">App
-                                                                            pages.zip</a></h5>
-                                                                    <div>2.2MB</div>
-                                                                </div>
-                                                                <div class="flex-shrink-0 ms-2">
-                                                                    <div class="d-flex gap-1">
-                                                                        <button type="button"
-                                                                                class="btn btn-icon text-muted btn-sm fs-18">
-                                                                            <i class="ri-download-2-line"></i>
-                                                                        </button>
-                                                                        <div class="dropdown">
-                                                                            <button class="btn btn-icon text-muted btn-sm fs-18 dropdown"
-                                                                                    type="button"
-                                                                                    data-bs-toggle="dropdown"
-                                                                                    aria-expanded="false">
-                                                                                <i class="ri-more-fill"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu">
-                                                                                <li><a class="dropdown-item"
-                                                                                       href="#"><i
-                                                                                                class="ri-pencil-fill align-bottom me-2 text-muted"></i>
-                                                                                        Rename</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                       href="#"><i
-                                                                                                class="ri-delete-bin-fill align-bottom me-2 text-muted"></i>
-                                                                                        Delete</a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- end col -->
-                                                    <div class="col-4 col-lg-6">
-                                                        <div class="border rounded border-dashed p-2">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="flex-shrink-0 me-3">
-                                                                    <div class="avatar-sm">
-                                                                        <div class="avatar-title bg-light text-secondary rounded fs-24">
-                                                                            <i class="ri-file-ppt-2-line"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="flex-grow-1 overflow-hidden">
-                                                                    <h5 class="fs-13 mb-1"><a href="#"
-                                                                                              class="text-body text-truncate d-block">Velzon
-                                                                            admin.ppt</a></h5>
-                                                                    <div>2.4MB</div>
-                                                                </div>
-                                                                <div class="flex-shrink-0 ms-2">
-                                                                    <div class="d-flex gap-1">
-                                                                        <button type="button"
-                                                                                class="btn btn-icon text-muted btn-sm fs-18">
-                                                                            <i class="ri-download-2-line"></i>
-                                                                        </button>
-                                                                        <div class="dropdown">
-                                                                            <button class="btn btn-icon text-muted btn-sm fs-18 dropdown"
-                                                                                    type="button"
-                                                                                    data-bs-toggle="dropdown"
-                                                                                    aria-expanded="false">
-                                                                                <i class="ri-more-fill"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu">
-                                                                                <li><a class="dropdown-item"
-                                                                                       href="#"><i
-                                                                                                class="ri-pencil-fill align-bottom me-2 text-muted"></i>
-                                                                                        Rename</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                       href="#"><i
-                                                                                                class="ri-delete-bin-fill align-bottom me-2 text-muted"></i>
-                                                                                        Delete</a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- end col -->
-                                                </div>
-                                                <!-- end row -->
-                                            </div>
-                                        </div>
-                                        <!-- end card body -->
-                                    </div>
-                                    <!-- end card -->
                                 </div>
                                 <!-- end col -->
                             </div>
