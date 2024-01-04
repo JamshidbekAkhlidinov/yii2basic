@@ -128,12 +128,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     </div>
                                                 </div>
 
-                                                <div>
-                                                    <button type="button" class="btn btn-link link-success p-0">Read
-                                                        more
-                                                    </button>
-                                                </div>
-
                                                 <div class="pt-3 border-top border-top-dashed mt-4">
                                                     <div class="row">
 
@@ -318,16 +312,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title mb-4">Categories</h5>
-                                            <ul style="display: flex;flex-wrap: wrap" class="fs-16">
+                                            <ul style="display: flex;flex-wrap: wrap; padding-left: 0" class="fs-16">
                                                 <?php $items = [] ?>
                                                 <?php foreach ($model->postCategoryLinkers as $linker) { ?>
                                                     <li class="badge fw-medium bg-secondary-subtle text-secondary m-1"><?= $items[] = $linker->postCategory->name ?></li>
-                                                    <!--                                                        <li class="badge fw-medium bg-secondary-subtle text-secondary">Figma</li>-->
-                                                    <!--                                                        <li class="badge fw-medium bg-secondary-subtle text-secondary">HTML</li>-->
-                                                    <!--                                                        <li class="badge fw-medium bg-secondary-subtle text-secondary">CSS</li>-->
-                                                    <!--                                                        <li class="badge fw-medium bg-secondary-subtle text-secondary">Javascript</li>-->
-                                                    <!--                                                        <li class="badge fw-medium bg-secondary-subtle text-secondary">C#</li>-->
-                                                    <!--                                                        <li class="badge fw-medium bg-secondary-subtle text-secondary">Nodejs</li>-->
                                                 <?php } ?>
                                             </ul>
                                         </div>
@@ -336,16 +324,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title mb-4">Tags</h5>
-                                            <ul style="display: flex;flex-wrap: wrap" class="fs-16">
+                                            <ul style="display: flex;flex-wrap: wrap; padding-left: 0" class="fs-16">
                                                 <?php $items = [] ?>
                                                 <?php foreach ($model->postTagLinkers as $linker) { ?>
                                                     <li class="badge fw-medium bg-secondary-subtle text-secondary m-1"><?= $items[] = $linker->tag->name ?></li>
-                                                    <!--                                                        <li class="badge fw-medium bg-secondary-subtle text-secondary">Figma</li>-->
-                                                    <!--                                                        <li class="badge fw-medium bg-secondary-subtle text-secondary">HTML</li>-->
-                                                    <!--                                                        <li class="badge fw-medium bg-secondary-subtle text-secondary">CSS</li>-->
-                                                    <!--                                                        <li class="badge fw-medium bg-secondary-subtle text-secondary">Javascript</li>-->
-                                                    <!--                                                        <li class="badge fw-medium bg-secondary-subtle text-secondary">C#</li>-->
-                                                    <!--                                                        <li class="badge fw-medium bg-secondary-subtle text-secondary">Nodejs</li>-->
                                                 <?php } ?>
                                             </ul>
                                         </div>
