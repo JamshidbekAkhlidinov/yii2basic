@@ -20,9 +20,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="card-header d-flex justify-content-between">
         <h1><?= Html::encode($this->title) ?></h1>
         <?= AuthItemButtons::create() ?>
-        <p>
-
-        </p>
     </div>
 
     <?php Pjax::begin(); ?>
@@ -55,6 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 //'updated_at',
                 [
                     'class' => ActionColumn::className(),
+                    'template' => '{delete}',
                     'urlCreator' => function ($action, AuthItem $model, $key, $index, $column) {
                         return Url::toRoute([$action, 'name' => $model->name]);
                     }

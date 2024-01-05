@@ -12,9 +12,11 @@ class AuthItemButtons
             'button' => [
                 'tag' => 'button',
                 'class' => 'btn btn-success',
-                'label' => 'Create Auth Item'
+                'label' => icon('folder-add'),
             ],
-            'url' => "<h2>" . translate("Auth Item Form") . "</h2>"
+            'header' => "<h2>" . translate("Auth Item Form") . "</h2>",
+            'url' => ['auth-item/create'],
+            'footer' => '',
         ]);
     }
 
@@ -31,7 +33,7 @@ class AuthItemButtons
                     ]
                 ]
             ],
-            'url' => ['auth-item/update'],
+            'url' => ['auth-item/update', 'name' => $text],
             'footer' => '',
             'header' => "<h2>" . translate("Auth Item Form") . "</h2   >"
         ]);
