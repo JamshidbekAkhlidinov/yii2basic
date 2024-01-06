@@ -9,34 +9,38 @@ class AuthAssignmentButtons
     public static function create()
     {
         return ModalWidget::widget([
-           'button' => [
-               'tag' => 'button',
-               'class' => 'btn btn-success',
-               'label' => icon('folder-add'),
-           ],
-           'header' => "<h2>" . translate("Auth Assignment Form") . "</h2>",
-           'url' => ['auth-assignment/create'],
-           'footer' => ''
+            'button' => [
+                'tag' => 'button',
+                'class' => 'btn btn-success',
+                'label' => icon('folder-add'),
+            ],
+            'header' => "<h2>" . translate("Auth Assignment Form") . "</h2>",
+            'url' => ['auth-assignment/create'],
+            'footer' => ''
 
         ]);
     }
 
-    public static function update($text)
+    public static function update($item_name, $user_id)
     {
         return ModalWidget::widget([
-           'button' => [
-               'tag' => 'span',
-               'class' => '',
-               'label' => $text,
-               'options' => [
-                   'style' => [
-                       'cursor' => 'pointer'
-                   ]
-               ]
-           ],
-           'url' => ['auth-assignment/update', 'name' => $text],
-           'footer' => '',
-           'header' => "<h2>" . translate("Auth Assignment Form") . "</h2>"
+            'button' => [
+                'tag' => 'span',
+                'class' => '',
+                'label' => $item_name,
+                'options' => [
+                    'style' => [
+                        'cursor' => 'pointer'
+                    ]
+                ]
+            ],
+            'url' => [
+                'auth-assignment/update',
+                'item_name' => $item_name,
+                'user_id' => $user_id
+            ],
+            'footer' => '',
+            'header' => "<h2>" . translate("Auth Assignment Form") . "</h2>"
         ]);
     }
 }

@@ -2,7 +2,7 @@
 
 use app\modules\admin\models\ModelToData;
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\rbac\models\AuthAssignment $model */
@@ -15,10 +15,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'item_name')->dropDownList(
         ModelToData::getAuthItems(),
+        [
+            'prompt' => translate("--Select--")
+        ]
     ) ?>
 
     <?= $form->field($model, 'user_id')->dropDownList(
         ModelToData::getUsers(),
+        [
+            'prompt' => translate("--Select--")
+        ]
     ) ?>
 
     <div class="form-group pt-2">
