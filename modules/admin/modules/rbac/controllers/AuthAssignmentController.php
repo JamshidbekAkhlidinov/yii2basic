@@ -4,6 +4,7 @@ namespace app\modules\admin\modules\rbac\controllers;
 
 use app\modules\admin\modules\rbac\models\AuthAssignment;
 use app\modules\admin\modules\rbac\search\AuthAssignmentSearch;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -78,7 +79,7 @@ class AuthAssignmentController extends Controller
             $model->loadDefaultValues();
         }
 
-        return $this->render('create', [
+        return $this->renderAjax('_form', [
             'model' => $model,
         ]);
     }
@@ -99,7 +100,7 @@ class AuthAssignmentController extends Controller
             return $this->redirect(['view', 'item_name' => $model->item_name, 'user_id' => $model->user_id]);
         }
 
-        return $this->render('update', [
+        return $this->renderAjax('_form', [
             'model' => $model,
         ]);
     }

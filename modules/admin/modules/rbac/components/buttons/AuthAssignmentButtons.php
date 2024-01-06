@@ -1,0 +1,42 @@
+<?php
+
+namespace app\modules\admin\modules\rbac\components\buttons;
+
+use app\modules\admin\widgets\modal\ModalWidget;
+
+class AuthAssignmentButtons
+{
+    public static function create()
+    {
+        return ModalWidget::widget([
+           'button' => [
+               'tag' => 'button',
+               'class' => 'btn btn-success',
+               'label' => icon('folder-add'),
+           ],
+           'header' => "<h2>" . translate("Auth Assignment Form") . "</h2>",
+           'url' => ['auth-assignment/create'],
+           'footer' => ''
+
+        ]);
+    }
+
+    public static function update($text)
+    {
+        return ModalWidget::widget([
+           'button' => [
+               'tag' => 'span',
+               'class' => '',
+               'label' => $text,
+               'options' => [
+                   'style' => [
+                       'cursor' => 'pointer'
+                   ]
+               ]
+           ],
+           'url' => ['auth-assignment/update', 'name' => $text],
+           'footer' => '',
+           'header' => "<h2>" . translate("Auth Assignment Form") . "</h2>"
+        ]);
+    }
+}

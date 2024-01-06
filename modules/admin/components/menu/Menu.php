@@ -68,21 +68,21 @@ class Menu
                     'active' => module()->id == "content",
                     'items' => [
                         [
-                            'label' => 'Post category',
+                            'label' => translate('Categories'),
                             'url' => ['/admin/content/post-category'],
                             'icon' => 'ri-dashboard-2-line',
                             'active' => controller()->id == "post-category",
 
                         ],
                         [
-                            'label' => 'Tag',
+                            'label' => translate("Tags"),
                             'url' => ['/admin/content/post-tag'],
                             'icon' => 'ri-dashboard-2-line',
                             'active' => controller()->id == "post-tag",
 
                         ],
                         [
-                            'label' => 'Post',
+                            'label' => translate("Posts"),
                             'url' => ['/admin/content/post'],
                             'icon' => 'ri-dashboard-2-line',
                             'active' => controller()->id == "post",

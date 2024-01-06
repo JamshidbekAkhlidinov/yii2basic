@@ -19,18 +19,19 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="container-fluid">
     <div class="post-view card ribbon-box border shadow-none">
         <div class="card-header d-flex justify-content-between" style="padding-top: 35px">
-            <div class="ribbon ribbon-primary round-shape">Title</div>
+            <div class="ribbon ribbon-primary round-shape"><?= translate('Title') ?></div>
             <h1><?= Html::encode($this->title) ?></h1>
             <p>
                 <?= Html::a(Yii::t('app', 'Update'),
                     ['update', 'id' => $model->id],
-                    ['class' => 'btn btn-primary']
+                    ['class' => 'btn btn-primary m-1']
                 ) ?>
                 <?= Html::a(
                     Yii::t('app', 'Delete'),
                     ['delete', 'id' => $model->id],
                     [
-                        'class' => 'btn btn-danger',
+                        'class' => 'btn btn-danger m-1
+                        ',
                         'data' => [
                             'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
                             'method' => 'post',
@@ -117,13 +118,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <div class="text-muted">
                                                 <div class="card ribbon-box border shadow-none">
                                                    <div class="card-body" style="padding-top: 35px">
-                                                       <div class="ribbon ribbon-primary round-shape">Sub title</div>
+                                                       <div class="ribbon ribbon-primary round-shape"><?= translate('Sub title') ?></div>
                                                        <p><?= $model->sub_text ?></p>
                                                    </div>
                                                 </div>
                                                 <div class="card ribbon-box border shadow-none">
                                                     <div class="card-body" style="padding-top: 35px">
-                                                        <div class="ribbon ribbon-primary round-shape">Description</div>
+                                                        <div class="ribbon ribbon-primary round-shape"><?= translate('Description') ?></div>
                                                         <p><?= str_replace("<img src=", "<img width='100%' height='' src=", $model->description); ?></p>
                                                     </div>
                                                 </div>
@@ -133,20 +134,20 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                                         <div class="col-lg-3 col-sm-6">
                                                             <div>
-                                                                <p class="mb-2 text-uppercase fw-medium">Create Date
+                                                                <p class="mb-2 text-uppercase fw-medium"><?= translate('Create date') ?>
                                                                     :</p>
                                                                 <h5 class="fs-15 mb-0"><?= $model->created_at ?></h5>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-3 col-sm-6">
                                                             <div>
-                                                                <p class="mb-2 text-uppercase fw-medium">Due Date :</p>
+                                                                <p class="mb-2 text-uppercase fw-medium"><?= translate('Update date') ?> :</p>
                                                                 <h5 class="fs-15 mb-0"><?= $model->updated_at ?></h5>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-3 col-sm-6">
                                                             <div>
-                                                                <p class="mb-2 text-uppercase fw-medium">Status :</p>
+                                                                <p class="mb-2 text-uppercase fw-medium"><?= translate('Status') ?></p>
                                                                 <div><?= Html::tag(
                                                                         'span',
                                                                         StatusEnum::ALL[$model->status] ?? "",
@@ -311,7 +312,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div class="col-xl-3 col-lg-4">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title mb-4">Categories</h5>
+                                            <h5 class="card-title mb-4"><?= translate('Categories') ?></h5>
                                             <ul style="display: flex;flex-wrap: wrap; padding-left: 0" class="fs-16">
                                                 <?php $items = [] ?>
                                                 <?php foreach ($model->postCategoryLinkers as $linker) { ?>
@@ -323,7 +324,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </div>
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title mb-4">Tags</h5>
+                                            <h5 class="card-title mb-4"><?= translate('Taglar') ?></h5>
                                             <ul style="display: flex;flex-wrap: wrap; padding-left: 0" class="fs-16">
                                                 <?php $items = [] ?>
                                                 <?php foreach ($model->postTagLinkers as $linker) { ?>

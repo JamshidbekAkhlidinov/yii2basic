@@ -42,7 +42,7 @@ class PostCategoryButtons
             ],
             'url' => ['post-category/update', 'id' => $id],
             'footer' => '',
-            'header' => "<h2>" . translate("Post Category Form") . "</h2>"
+            'header' => "<h2>" . translate("Post Category Update Form") . "</h2>"
         ]);
     }
 

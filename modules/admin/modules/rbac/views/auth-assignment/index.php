@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\admin\modules\rbac\components\buttons\AuthAssignmentButtons;
 use app\modules\admin\modules\rbac\models\AuthAssignment;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -13,34 +14,42 @@ use yii\widgets\Pjax;
 $this->title = Yii::t('app', 'Auth Assignments');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="auth-assignment-index">
+<div class="auth-assignment-index card">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Auth Assignment'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <div class="card-header d-flex justify-content-between">
+        <h1><?= Html::encode($this->title) ?></h1>
+        <?= AuthAssignmentButtons::create() ?>
+    </div>
 
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+    <div class="card-header">
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
 
-            'item_name',
-            'user_id',
-            'created_at',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, AuthAssignment $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'item_name' => $model->item_name, 'user_id' => $model->user_id]);
-                 }
+                [
+                    'attribute' => 'item_name',
+                    'format' => 'raw',
+                    'value' => function ($model) {
+                        return AuthAssignmentButtons::update($model->item_name);
+                    }
+                ],
+                'user_id',
+                'created_at',
+                [
+                    'class' => ActionColumn::className(),
+                    'template' => "{delete}",
+                    'urlCreator' => function ($action, AuthAssignment $model, $key, $index, $column) {
+                        return Url::toRoute([$action, 'item_name' => $model->item_name, 'user_id' => $model->user_id]);
+                    }
+                ],
             ],
-        ],
-    ]); ?>
+        ]); ?>
+    </div>
 
     <?php Pjax::end(); ?>
 

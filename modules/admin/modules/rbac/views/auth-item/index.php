@@ -22,7 +22,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= AuthItemButtons::create() ?>
     </div>
 
-    <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <div class="card-header">
@@ -60,7 +59,5 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]); ?>
     </div>
-
-    <?php Pjax::end(); ?>
 
 </div>

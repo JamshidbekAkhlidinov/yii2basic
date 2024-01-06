@@ -35,7 +35,7 @@ class AuthItemButtons
             ],
             'url' => ['auth-item/update', 'name' => $text],
             'footer' => '',
-            'header' => "<h2>" . translate("Auth Item Form") . "</h2   >"
+            'header' => "<h2>" . translate("Auth Item Form") . "</h2>"
         ]);
     }
 }
