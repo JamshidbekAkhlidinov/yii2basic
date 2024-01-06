@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'item_name',
                     'format' => 'raw',
                     'value' => function ($model) {
-                        return AuthAssignmentButtons::update($model->item_name);
+                        return AuthAssignmentButtons::update($model->item_name,$model->user_id);
                     }
                 ],
                 'user_id',

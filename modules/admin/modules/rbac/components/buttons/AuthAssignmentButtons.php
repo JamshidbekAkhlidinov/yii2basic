@@ -21,20 +21,23 @@ class AuthAssignmentButtons
         ]);
     }
 
-    public static function update($text)
+    public static function update($item_name, $user_id)
     {
         return ModalWidget::widget([
            'button' => [
                'tag' => 'span',
                'class' => '',
-               'label' => $text,
+               'label' => $item_name,
                'options' => [
                    'style' => [
                        'cursor' => 'pointer'
                    ]
                ]
            ],
-           'url' => ['auth-assignment/update', 'name' => $text],
+           'url' => ['auth-assignment/update',
+               'item_name' => $item_name,
+               'user_id' => $user_id
+               ],
            'footer' => '',
            'header' => "<h2>" . translate("Auth Assignment Update Form") . "</h2>"
         ]);
