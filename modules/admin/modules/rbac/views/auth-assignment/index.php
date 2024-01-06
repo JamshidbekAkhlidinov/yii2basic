@@ -1,5 +1,6 @@
 <?php
 
+use app\models\User;
 use app\modules\admin\modules\rbac\components\buttons\AuthAssignmentButtons;
 use app\modules\admin\modules\rbac\models\AuthAssignment;
 use yii\helpers\Html;
@@ -7,6 +8,7 @@ use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\rbac\search\AuthAssignmentSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
@@ -35,11 +37,17 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'item_name',
                     'format' => 'raw',
                     'value' => function ($model) {
-                        return AuthAssignmentButtons::update($model->item_name,$model->user_id);
+                        return AuthAssignmentButtons::update($model->item_name, $model->user_id);
                     }
                 ],
-                'user_id',
-                'created_at',
+                [
+                    'attribute' => 'user_id',
+                    'value' => function ($data) {
+                        $user = User::findOne(['id' => $data->user_id]);
+                        return $user->publicIdentity;
+                    },
+                ],
+                'created_at:datetime',
                 [
                     'class' => ActionColumn::className(),
                     'template' => "{delete}",

@@ -1,12 +1,14 @@
 <?php
 
 use app\modules\admin\modules\rbac\components\buttons\AuthAssignmentButtons;
+use app\modules\admin\modules\rbac\components\buttons\AuthItemChildButtons;
 use app\modules\admin\modules\rbac\models\AuthItemChild;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\rbac\search\AuthItemChildSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
@@ -19,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="card-header d-flex justify-content-between">
         <h1><?= Html::encode($this->title) ?></h1>
 
-        <?= AuthAssignmentButtons::create() ?>
+        <?= AuthItemChildButtons::create() ?>
     </div>
 
     <?php Pjax::begin(); ?>
@@ -36,12 +38,19 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'parent',
                     'format' => 'raw',
                     'value' => function ($model) {
-                        return AuthAssignmentButtons::update($model->parent0);
+                        return AuthItemChildButtons::update($model,$model->parent);
                     }
                 ],
-                'child',
+                [
+                    'attribute' => 'child',
+                    'format' => 'raw',
+                    'value' => function ($model) {
+                        return AuthItemChildButtons::update($model,$model->child);
+                    }
+                ],
                 [
                     'class' => ActionColumn::className(),
+                    'template' => '{delete}',
                     'urlCreator' => function ($action, AuthItemChild $model, $key, $index, $column) {
                         return Url::toRoute([$action, 'parent' => $model->parent, 'child' => $model->child]);
                     }
