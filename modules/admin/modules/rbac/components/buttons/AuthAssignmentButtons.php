@@ -36,7 +36,7 @@ class AuthAssignmentButtons
            ],
            'url' => ['auth-assignment/update', 'name' => $text],
            'footer' => '',
-           'header' => "<h2>" . translate("Auth Assignment Form") . "</h2>"
+           'header' => "<h2>" . translate("Auth Assignment Update Form") . "</h2>"
         ]);
     }
 }

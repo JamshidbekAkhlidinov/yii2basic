@@ -4,27 +4,27 @@ namespace app\modules\admin\modules\rbac\components\buttons;
 
 use app\modules\admin\widgets\modal\ModalWidget;
 
-class AuthItemButtons
+class AuthItemChildButtons
 {
     public static function create()
     {
         return ModalWidget::widget([
-            'button' => [
-                'tag' => 'button',
-                'class' => 'btn btn-success',
-                'label' => icon('folder-add'),
-            ],
-            'header' => "<h2>" . translate("Auth Item Form") . "</h2>",
-            'url' => ['auth-item/create'],
-            'footer' => '',
+           'button' => [
+               'type' => "button",
+               'class' => "btn btn-success",
+               'label' => icon("folder-add"),
+           ],
+           'url' => ['auth-item-child/create'],
+           'footer' => '',
+           'header' => "<h2>" . translate('Auth Item Child Form') . "</h2>"
         ]);
     }
 
     public static function update($text)
     {
         return ModalWidget::widget([
-            "button" => [
-                "tag" => "span",
+            'button' => [
+                'type' => 'span',
                 'class' => '',
                 'label' => $text,
                 'options' => [
@@ -33,9 +33,9 @@ class AuthItemButtons
                     ]
                 ]
             ],
-            'url' => ['auth-item/update', 'name' => $text],
+            'url' => ['auth-item-child/update', 'name' => $text],
             'footer' => '',
-            'header' => "<h2>" . translate("Auth Item Update Form") . "</h2>"
+            'header' => "<h2>" . translate("Auth Item Child Update Form") . "</h2>"
         ]);
     }
 }
