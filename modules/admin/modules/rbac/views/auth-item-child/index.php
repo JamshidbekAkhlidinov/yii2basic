@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\admin\modules\rbac\components\buttons\AuthAssignmentButtons;
 use app\modules\admin\modules\rbac\models\AuthItemChild;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -18,9 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="card-header d-flex justify-content-between">
         <h1><?= Html::encode($this->title) ?></h1>
 
-        <p>
-            <?= Html::a(Yii::t('app', 'Create Auth Item Child'), ['create'], ['class' => 'btn btn-success']) ?>
-        </p>
+        <?= AuthAssignmentButtons::create() ?>
     </div>
 
     <?php Pjax::begin(); ?>
@@ -33,7 +32,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
-                'parent',
+                [
+                    'attribute' => 'parent',
+                    'format' => 'raw',
+                    'value' => function ($model) {
+                        return AuthAssignmentButtons::update($model->parent0);
+                    }
+                ],
                 'child',
                 [
                     'class' => ActionColumn::className(),

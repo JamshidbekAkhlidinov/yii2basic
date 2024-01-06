@@ -78,7 +78,7 @@ class AuthItemChildController extends Controller
             $model->loadDefaultValues();
         }
 
-        return $this->render('create', [
+        return $this->renderAjax('_form', [
             'model' => $model,
         ]);
     }
@@ -99,7 +99,7 @@ class AuthItemChildController extends Controller
             return $this->redirect(['view', 'parent' => $model->parent, 'child' => $model->child]);
         }
 
-        return $this->render('update', [
+        return $this->renderAjax('_form', [
             'model' => $model,
         ]);
     }

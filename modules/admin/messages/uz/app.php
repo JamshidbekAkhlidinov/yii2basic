@@ -44,4 +44,6 @@ return [
     "Auth Assignments" => "Mallif topshiriqlari",
     "Item Name" => "Element nomi",
     "Created At" => "Yaratilgan sana",
+    "Auth Item Child Form" => "",
+    "Auth Item Child Update Form" => "",
 ];
