@@ -95,6 +95,17 @@ $this->registerJs($js);
     <div class="row col-md-12">
         <?= SwiperSliderWidget::widget([
             'type' => SwiperTypeEnum::TYPE_COVERFLOW,
+            'items' => [
+                "/images/small/img-1.jpg",
+                "/images/small/img-2.jpg",
+                "/images/small/img-3.jpg",
+                "/images/small/img-4.jpg",
+                "/images/small/img-5.jpg",
+                "/images/small/img-6.jpg",
+                "/images/small/img-7.jpg",
+                "/images/small/img-8.jpg",
+                 "/images/small/img-9.jpg",
+            ],
             'options' => [
                 "style" => "width:100%"
             ]

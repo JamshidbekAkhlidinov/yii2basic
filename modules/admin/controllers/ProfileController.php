@@ -8,6 +8,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\forms\ProfileForm;
 use app\modules\admin\forms\UserProfileForm;
 use yii\web\Controller;
 
@@ -30,4 +31,19 @@ class ProfileController extends Controller
             'model' => $form
         ]);
     }
+
+    public function actionUpdateData()
+    {
+        $form = new ProfileForm(
+            user()->identity->userProfile,
+        );
+        if ($form->load(post()) && $form->validate() && $form->save()) {
+            return $this->redirect(['index']);
+        }
+        return $this->render('data', [
+            'model' => $form
+        ]);
+    }
+
+
 }
