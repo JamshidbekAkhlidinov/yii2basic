@@ -56,4 +56,6 @@ return [
     "Velzon is a fully responsive, multipurpose and premium Bootstrap 5 Admin & Dashboard Template built in multiple frameworks." => "Velzon - bu to'liq javob beruvchi, ko'p maqsadli va yuqori darajadagi Bootstrap 5 Admin & Dashboard andozasi bir nechta ramkalarda qurilgan.",
     "Get Started" => "Boshlash",
     "View Plans" => "Rejalarni ko'rish",
+    "Update Profile Data" => "Profil ma'lumotlarini tahrirlash",
+    "Firstname" => "Ism"
 ];
