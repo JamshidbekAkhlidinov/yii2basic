@@ -8,8 +8,10 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\UserProfile;
 use app\modules\admin\forms\ProfileForm;
 use app\modules\admin\forms\UserProfileForm;
+use yii\base\Model;
 use yii\web\Controller;
 
 class ProfileController extends Controller

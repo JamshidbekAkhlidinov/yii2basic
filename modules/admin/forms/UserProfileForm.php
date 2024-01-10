@@ -46,6 +46,7 @@ class UserProfileForm extends Model
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
+            [['ph_number', 'birthday'], 'string'],
             ['email', 'unique',
                 'targetClass' => User::class,
                 'message' => translate('This email has already been taken.'),

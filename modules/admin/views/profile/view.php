@@ -77,7 +77,7 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
                                             <tbody>
                                             <tr>
                                                 <th class="ps-0" scope="row">Full Name :</th>
-                                                <td class="text-muted">Anna Adame</td>
+                                                <td class="text-muted"><?= user()->identity->publicIdentity ?></td>
                                             </tr>
                                             <tr>
                                                 <th class="ps-0" scope="row">Mobile :</th>
@@ -85,7 +85,7 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
                                             </tr>
                                             <tr>
                                                 <th class="ps-0" scope="row">E-mail :</th>
-                                                <td class="text-muted">daveadame@velzon.com</td>
+                                                <td class="text-muted"></td>
                                             </tr>
                                             <tr>
                                                 <th class="ps-0" scope="row">Location :</th>

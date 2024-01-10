@@ -21,31 +21,38 @@ class ProfileForm extends Model
 
     public $email;
 
+    public $ph_number;
+    public $birthday;
+
     public function __construct(UserProfile $model, $config = [])
     {
         $this->model = $model;
         $this->email = $model->user->email;
+        $this->ph_number = $model->ph_number;
+        $this->birthday = $model->birthday;
         $this->firstName = $model->firstname;
         $this->lastName = $model->lastname;
         parent::__construct($config);
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
-            [['firstName', 'lastName'], 'string'],
+            [['firstName', 'lastName', 'ph_number', 'birthday'], 'string'],
             [['email'], 'required'],
             [['email'], 'email'],
         ];
     }
 
-    public function save()
+    public function save(): bool
     {
         $model = $this->model;
         $user = $model->user;
         $user->email = $this->email;
         $user->save();
         $model->firstname = $this->firstName;
+        $model->ph_number = $this->ph_number;
+        $model->birthday = $this->birthday;
         $model->lastname = $this->lastName;
         return $model->save();
     }
