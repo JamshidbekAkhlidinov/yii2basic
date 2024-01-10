@@ -8,6 +8,7 @@
 
 /**
  * @var $model app\modules\admin\forms\ProfileForm
+ * @var $password_form app\modules\admin\forms\ProfileForm
  */
 
 use kartik\date\DatePicker;
@@ -272,6 +273,7 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
                     <div class="tab-pane" id="changePassword" role="tabpanel">
                         <form action="javascript:void(0);">
                             <div class="row g-2">
+                                <?php $form2 = ActiveForm::begin() ?>
                                 <div class="col-lg-4">
                                     <div>
                                         <label for="oldpasswordInput" class="form-label">Old Password*</label>
@@ -282,17 +284,13 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
                                 <!--end col-->
                                 <div class="col-lg-4">
                                     <div>
-                                        <label for="newpasswordInput" class="form-label">New Password*</label>
-                                        <input type="password" class="form-control" id="newpasswordInput"
-                                               placeholder="Enter new password">
+                                        <?= $form2->field($password_form, 'password') ?>
                                     </div>
                                 </div>
                                 <!--end col-->
                                 <div class="col-lg-4">
                                     <div>
-                                        <label for="confirmpasswordInput" class="form-label">Confirm Password*</label>
-                                        <input type="password" class="form-control" id="confirmpasswordInput"
-                                               placeholder="Confirm password">
+                                        <?= $form->field($password_form, 'confirm_password') ?>
                                     </div>
                                 </div>
                                 <!--end col-->
@@ -305,9 +303,11 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
                                 <!--end col-->
                                 <div class="col-lg-12">
                                     <div class="text-end">
-                                        <button type="submit" class="btn btn-success">Change Password</button>
+                                        <?= Html::submitButton(translate("Change password"), ['class' => 'btn btn-success']) ?>
+
                                     </div>
                                 </div>
+                                <?php ActiveForm::end() ?>
                                 <!--end col-->
                             </div>
                             <!--end row-->
