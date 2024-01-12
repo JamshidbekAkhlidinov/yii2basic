@@ -10,7 +10,7 @@ namespace app\modules\admin\enums;
 
 interface LandingElementEnum
 {
-    public const LOGO = 1000;
+    public const HEADER = 1000;
 
 
     /**

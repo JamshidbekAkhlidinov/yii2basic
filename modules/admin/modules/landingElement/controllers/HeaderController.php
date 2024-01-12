@@ -8,40 +8,15 @@
 
 namespace app\modules\admin\modules\landingElement\controllers;
 
-use app\modules\admin\enums\LandingElementEnum;
+use app\modules\admin\modules\landingElement\base\BaseController;
 use app\modules\admin\modules\landingElement\forms\HeaderForm;
-use app\modules\admin\modules\landingElement\models\LandingElement;
-use yii\web\Controller;
 
-class HeaderController extends Controller
+class HeaderController extends BaseController
 {
     public function actionForm()
     {
-        $formModel = new HeaderForm(
-            $this->getModel(LandingElementEnum::LOGO)
+        return $this->return(
+            new HeaderForm(),
         );
-        if ($formModel->load(post()) && $formModel->save()) {
-            return $this->redirect(['header/form']);
-        }
-        return $this->render('form', [
-            'formModel' => $formModel
-        ]);
-    }
-
-    /**
-     * @param $key
-     * @return LandingElement
-     */
-    private function getModel($key): LandingElement
-    {
-        $model = LandingElement::findOne([
-            'key' => $key
-        ]);
-        if (!$model) {
-            $model = new LandingElement([
-                'key' => $key
-            ]);
-        }
-        return $model;
     }
 }

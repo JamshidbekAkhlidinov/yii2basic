@@ -3,6 +3,7 @@
 namespace app\modules\admin\modules\landingElement\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "landing_element".
@@ -29,43 +30,17 @@ class LandingElement extends \yii\db\ActiveRecord
         return 'landing_element';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function rules()
+    public function behaviors()
     {
         return [
-            [['key', 'order'], 'integer'],
-            [['title', 'description', 'sub_text', 'value', 'files'], 'string'],
-            [['created_at'], 'safe'],
-            [['icon', 'url'], 'string', 'max' => 255],
+            [
+                'class' => TimestampBehavior::class,
+                'value' => date('Y-m-d H:i:s'),
+                'updatedAtAttribute' => false
+            ]
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id' => Yii::t('app', 'ID'),
-            'key' => Yii::t('app', 'Key'),
-            'title' => Yii::t('app', 'Title'),
-            'icon' => Yii::t('app', 'Icon'),
-            'description' => Yii::t('app', 'Description'),
-            'sub_text' => Yii::t('app', 'Sub Text'),
-            'value' => Yii::t('app', 'Value'),
-            'files' => Yii::t('app', 'Files'),
-            'url' => Yii::t('app', 'Url'),
-            'order' => Yii::t('app', 'Order'),
-            'created_at' => Yii::t('app', 'Created At'),
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     * @return LandingElementQuery the active query used by this AR class.
-     */
     public static function find()
     {
         return new LandingElementQuery(get_called_class());

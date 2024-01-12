@@ -22,10 +22,10 @@ class LandingElementMenu
             'active' => module()->id == "landingElement",
             'items' => [
                 [
-                    'label' => 'Default',
-                    'url' => ['/admin/landingElement/default'],
+                    'label' => translate("Header"),
+                    'url' => ['/admin/landingElement/header/form'],
                     'icon' => 'ri-dashboard-2-line',
-                    'active' => controller()->id == "default",
+                    'active' => controller()->id == "header",
 
                 ],
                 [

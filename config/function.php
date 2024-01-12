@@ -87,7 +87,7 @@ if (!function_exists('session')) {
 }
 
 if (!function_exists('params')) {
-    function params()
+    function &params()
     {
         return Yii::$app->params;
     }
