@@ -31,7 +31,10 @@ class AdminAsset extends AssetBundle
         //'js/plugins.js',
         'libs/simplebar/simplebar.min.js', //for profile settings
         'js/pages/profile-setting.init.js', //for profile settings
+        "libs/sortablejs/Sortable.min.js", //sortable
+        "js/pages/nestable.init.js", // nestable
         'js/app.js',
+
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -1,18 +1,11 @@
 <?php
-/*
- *   Jamshidbek Akhlidinov
- *   30 - 12 2023 22:37:35
- *   https://ustadev.uz
- *   https://github.com/JamshidbekAkhlidinov
- */
 
-namespace app\modules\admin\modules\content\components\buttons;
+namespace app\modules\admin\modules\rbac\components\buttons;
 
 use app\modules\admin\widgets\modal\ModalWidget;
 
-class PostCategoryButtons
+class AuthItemButtons
 {
-
     public static function create()
     {
         return ModalWidget::widget([
@@ -21,17 +14,17 @@ class PostCategoryButtons
                 'class' => 'btn btn-success',
                 'label' => icon('folder-add'),
             ],
-            'url' => ['post-category/create'],
+            'header' => "<h2>" . translate("Auth Item Form") . "</h2>",
+            'url' => ['auth-item/create'],
             'footer' => '',
-            'header' => "<h2>" . translate("Post Category Form") . "</h2>"
         ]);
     }
 
-    public static function update($id, $text)
+    public static function update($text)
     {
         return ModalWidget::widget([
-            'button' => [
-                'tag' => 'span',
+            "button" => [
+                "tag" => "span",
                 'class' => '',
                 'label' => $text,
                 'options' => [
@@ -40,11 +33,9 @@ class PostCategoryButtons
                     ]
                 ]
             ],
-            'url' => ['post-category/update', 'id' => $id],
+            'url' => ['auth-item/update', 'name' => $text],
             'footer' => '',
-            'header' => "<h2>" . translate("Post Category Update Form") . "</h2>"
+            'header' => "<h2>" . translate("Auth Item Update Form") . "</h2>"
         ]);
     }
-
-
 }

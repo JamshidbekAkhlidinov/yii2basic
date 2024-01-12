@@ -46,7 +46,12 @@ $this->registerJs($js);
         </div>
 
         <div class="col-md-6" style="padding-top: 26px">
-            <img src="<?= $model->image ?>" alt="" id="post_image" style="height: 217px">
+            <img
+                    src="<?= $model->image ?>"
+                    alt=""
+                    id="post_image"
+                    style="width:100%;"
+            >
         </div>
 
         <div class="col-md-12 pt-2">

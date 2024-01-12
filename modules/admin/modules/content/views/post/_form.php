@@ -48,6 +48,9 @@ $this->registerCss($css);
                             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
                         </div>
 
+                        <div class="col-md-12">
+                            <?= $form->field($model, 'sub_text')->textarea(['maxlength' => true]) ?>
+                        </div>
 
                         <div class="col-md-12">
                             <?= $form->field($model, 'description')->widget(
@@ -62,9 +65,6 @@ $this->registerCss($css);
                         </div>
 
 
-                        <div class="col-md-12">
-                            <?= $form->field($model, 'sub_text')->textarea(['maxlength' => true]) ?>
-                        </div>
 
                     </div>
                 </div>
@@ -86,13 +86,6 @@ $this->registerCss($css);
                 <img src="<?= $model->image ?>" alt="" id="post_image" style="width: 100%">
             </div>
 
-            <div class="card card-footer">
-                <div class="form-group">
-                    <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
-                </div>
-            </div>
-
-
             <div class="card">
                 <div class="card-body">
 
@@ -108,6 +101,13 @@ $this->registerCss($css);
                         ModelRepository::getTags(),
                     ) ?>
 
+                </div>
+            </div>
+
+
+            <div class="card card-footer">
+                <div class="form-group">
+                    <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
                 </div>
             </div>
 
