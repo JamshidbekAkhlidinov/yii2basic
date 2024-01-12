@@ -43,7 +43,7 @@ class UserProfileForm extends Model
                 }")
             ],
             ['old_password', 'validateOldPassword'],
-            ['confirm_password', 'compare', 'compareAttribute' => 'password', 'skipOnEmpty' => false],
+            ['confirm_password', 'compare', 'compareAttribute' => 'password', 'message' => translate("Passwords do not match"), 'skipOnEmpty' => false],
         ];
     }
 

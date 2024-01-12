@@ -61,6 +61,7 @@ class ProfileForm extends Model
             'gender' => translate('Gender'),
             'ph_number' => translate('Phone number'),
             'birthday' => translate('Birthday'),
+            'old_password' => translate('Old password'),
         ];
     }
 
