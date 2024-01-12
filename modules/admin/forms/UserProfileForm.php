@@ -16,8 +16,7 @@ class UserProfileForm extends Model
 {
     public User $model;
 
-    public $username;
-    public $email;
+    public $old_password;
     public $password;
     public $confirm_password;
 
@@ -25,40 +24,16 @@ class UserProfileForm extends Model
     public function __construct(User $model, $config = [])
     {
         $this->model = $model;
-        $this->username = $model->username;
-        $this->email = $model->email;
         parent::__construct($config);
     }
 
     public function rules()
     {
         return [
-            ['username', 'filter', 'filter' => 'trim'],
-            ['username', 'required'],
-            ['username', 'unique',
-                'targetClass' => User::class,
-                'message' => translate('This username has already been taken.'),
-                'filter' => function ($query) {
-                    $query->andWhere(['not', ['id' => user()->id]]);
-                }
-            ],
-            ['username', 'string', 'min' => 1, 'max' => 255],
-            ['email', 'filter', 'filter' => 'trim'],
-            ['email', 'required'],
-            ['email', 'email'],
-            [['ph_number', 'birthday'], 'string'],
 
-            ['email', 'unique',
-                'targetClass' => User::class,
-                'message' => translate('This email has already been taken.'),
-                'filter' => function ($query) {
-                    $query->andWhere(['not', ['id' => user()->getId()]]);
-                }
-            ],
-            [['email', 'username'], 'required'],
-            ['password', 'string'],
+            [['old_password', 'password'], 'string'],
             [
-                'confirm_password',
+                ['old_password','confirm_password'],
                 'required',
                 'when' => function ($model) {
                     return !empty($model->password);
@@ -67,15 +42,24 @@ class UserProfileForm extends Model
                     return $('#userprofileform-password').val().length > 0;
                 }")
             ],
+            ['old_password', 'validateOldPassword'],
             ['confirm_password', 'compare', 'compareAttribute' => 'password', 'skipOnEmpty' => false],
         ];
     }
 
+    public function validateOldPassword($attribute)
+    {
+        $oldPassword = $this->{$attribute};
+        if (!$this->model->validatePassword($oldPassword)) {
+            $this->addError($attribute, translate("Old password error!!"));
+        }
+        return;
+    }
+
+
     public function save()
     {
         $model = $this->model;
-        $model->username = $this->username;
-        $model->email = $this->email;
         if ($password = $this->password) {
             $model->setPassword($password);
         }

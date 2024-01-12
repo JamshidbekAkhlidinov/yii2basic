@@ -18,7 +18,10 @@ class ProfileController extends Controller
 {
     public function actionIndex()
     {
-        return $this->render('view');
+        $users = new UserProfile();
+        return $this->render('view', [
+            'model' => $users
+        ]);
     }
 
     public function actionUpdate()
@@ -39,7 +42,9 @@ class ProfileController extends Controller
         $form = new ProfileForm(
             user()->identity->userProfile,
         );
-        $password_form = new UserProfileForm(user()->identity);
+        $password_form = new UserProfileForm(
+            user()->identity
+        );
 
         if ($form->load(post()) && $form->validate() && $form->save()) {
             return $this->redirect(['index']);

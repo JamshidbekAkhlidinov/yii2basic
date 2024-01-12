@@ -8,13 +8,20 @@
 
 /**
  * @var $model app\modules\admin\forms\ProfileForm
- * @var $password_form app\modules\admin\forms\ProfileForm
+ * @var $password_form app\modules\admin\forms\UserProfileForm
  */
 
-use kartik\date\DatePicker;
+use alexantr\elfinder\InputFile;
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 
+$js = <<<JS
+$('#avatar_path_input').change(function (e){
+    $('#avatar_path').attr('src', e.target.value);
+})
+JS;
+
+$this->registerJs($js);
 $this->title = translate("Update Profile Data");
 Yii::$app->params['breadcrumbs'][] = translate("User");
 Yii::$app->params['breadcrumbs'][] = $this->title;
@@ -42,17 +49,10 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
         <div class="card mt-n5">
             <div class="card-body p-4">
                 <div class="text-center">
-                    <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                        <img src="assets/images/users/avatar-1.jpg"
-                             class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image">
-                        <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
-                            <input id="profile-img-file-input" type="file" class="profile-img-file-input">
-                            <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
-                                                    <span class="avatar-title rounded-circle bg-light text-body">
-                                                        <i class="ri-camera-fill"></i>
-                                                    </span>
-                            </label>
-                        </div>
+                    <div class="profile-user position-relative d-inline-block mx-auto  mb-4 profile-img-path">
+                        <img src="<?= $model->avatar_path ?>"
+                             class="rounded-circle avatar-xl img-thumbnail user-profile-image" id="avatar_path"
+                             alt="user-profile-image">
                     </div>
                     <h5 class="fs-16 mb-1">Anna Adame</h5>
                     <p class="text-muted mb-0">Lead Designer / Developer</p>
@@ -156,162 +156,181 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
                 </ul>
             </div>
             <div class="card-body p-4">
-                <?php $form = ActiveForm::begin(); ?>
                 <div class="tab-content">
                     <div class="tab-pane active" id="personalDetails" role="tabpanel">
-                        <form action="javascript:void(0);">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <?= $form->field($model, 'firstName') ?>
+                        <?php $form = ActiveForm::begin(); ?>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <?= $form->field($model, 'firstName') ?>
 
-                                    </div>
                                 </div>
-                                <!--end col-->
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <?= $form->field($model, 'lastName') ?>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <?= $form->field($model, 'ph_number') ?>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <?= $form->field($model, 'email') ?>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <?= $form->field($model, 'birthday') ?>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label for="skillsInput" class="form-label">Skills</label>
-                                        <select class="form-control" name="skillsInput" data-choices
-                                                data-choices-text-unique-true multiple id="skillsInput">
-                                            <option value="illustrator">Illustrator</option>
-                                            <option value="photoshop">Photoshop</option>
-                                            <option value="css">CSS</option>
-                                            <option value="html">HTML</option>
-                                            <option value="javascript" selected>Javascript</option>
-                                            <option value="python">Python</option>
-                                            <option value="php">PHP</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="designationInput" class="form-label">Designation</label>
-                                        <input type="text" class="form-control" id="designationInput"
-                                               placeholder="Designation" value="Lead Designer / Developer">
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="websiteInput1" class="form-label">Website</label>
-                                        <input type="text" class="form-control" id="websiteInput1"
-                                               placeholder="www.example.com" value="www.velzon.com"/>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-4">
-                                    <div class="mb-3">
-                                        <label for="cityInput" class="form-label">City</label>
-                                        <input type="text" class="form-control" id="cityInput" placeholder="City"
-                                               value="California"/>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-4">
-                                    <div class="mb-3">
-                                        <label for="countryInput" class="form-label">Country</label>
-                                        <input type="text" class="form-control" id="countryInput" placeholder="Country"
-                                               value="United States"/>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-4">
-                                    <div class="mb-3">
-                                        <label for="zipcodeInput" class="form-label">Zip Code</label>
-                                        <input type="text" class="form-control" minlength="5" maxlength="6"
-                                               id="zipcodeInput" placeholder="Enter zipcode" value="90011">
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-12">
-                                    <div class="mb-3 pb-2">
-                                        <label for="exampleFormControlTextarea" class="form-label">Description</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea"
-                                                  placeholder="Enter your description" rows="3">Hi I'm Anna Adame,It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is European languages are members of the same family.</textarea>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-12">
-                                    <div class="hstack gap-2 justify-content-end">
-                                        <?= Html::submitButton(translate("Save"), ['class' => 'btn btn-success']) ?>
-                                        <button type="button" class="btn btn-soft-success">Cancel</button>
-                                    </div>
-                                </div>
-                                <!--end col-->
                             </div>
-                            <!--end row-->
-                        </form>
+                            <!--end col-->
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <?= $form->field($model, 'lastName') ?>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <?= $form->field($model, 'ph_number') ?>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <?= $form->field($model, 'email') ?>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <?= $form->field($model, 'birthday') ?>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <?= $form->field($model, 'username') ?>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <?php
+                                    echo $form->field($model, 'avatar_path')->widget(
+                                        InputFile::class,
+                                        [
+                                            'name' => 'avatar_path',
+                                            'clientRoute' => '/admin/file/default/input',
+                                            'filter' => ['image'],
+                                            'id' => 'avatar_path_input',
+                                            'preview' => function ($value) {
+                                                return yii\helpers\Html::img($value, ['width' => 200, 'id'=>'avatar_path']);
+                                            },
+                                        ]
+                                    ) ;
+                                    ?>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <label for="skillsInput" class="form-label">Skills</label>
+                                    <select class="form-control" name="skillsInput" data-choices
+                                            data-choices-text-unique-true multiple id="skillsInput">
+                                        <option value="illustrator">Illustrator</option>
+                                        <option value="photoshop">Photoshop</option>
+                                        <option value="css">CSS</option>
+                                        <option value="html">HTML</option>
+                                        <option value="javascript" selected>Javascript</option>
+                                        <option value="python">Python</option>
+                                        <option value="php">PHP</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="designationInput" class="form-label">Designation</label>
+                                    <input type="text" class="form-control" id="designationInput"
+                                           placeholder="Designation" value="Lead Designer / Developer">
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="websiteInput1" class="form-label">Website</label>
+                                    <input type="text" class="form-control" id="websiteInput1"
+                                           placeholder="www.example.com" value="www.velzon.com"/>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-4">
+                                <div class="mb-3">
+                                    <label for="cityInput" class="form-label">City</label>
+                                    <input type="text" class="form-control" id="cityInput" placeholder="City"
+                                           value="California"/>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-4">
+                                <div class="mb-3">
+                                    <label for="countryInput" class="form-label">Country</label>
+                                    <input type="text" class="form-control" id="countryInput" placeholder="Country"
+                                           value="United States"/>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-4">
+                                <div class="mb-3">
+                                    <label for="zipcodeInput" class="form-label">Zip Code</label>
+                                    <input type="text" class="form-control" minlength="5" maxlength="6"
+                                           id="zipcodeInput" placeholder="Enter zipcode" value="90011">
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-12">
+                                <div class="mb-3 pb-2">
+                                    <label for="exampleFormControlTextarea" class="form-label">Description</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea"
+                                              placeholder="Enter your description" rows="3">Hi I'm Anna Adame,It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is European languages are members of the same family.</textarea>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-12">
+                                <div class="hstack gap-2 justify-content-end">
+                                    <?= Html::submitButton(translate("Save"), ['class' => 'btn btn-success']) ?>
+                                    <button type="button" class="btn btn-soft-success">Cancel</button>
+                                </div>
+                            </div>
+                            <!--end col-->
+                        </div>
+                        <!--end row-->
                         <?php ActiveForm::end(); ?>
 
                     </div>
                     <!--end tab-pane-->
                     <div class="tab-pane" id="changePassword" role="tabpanel">
-                        <form action="javascript:void(0);">
-                            <div class="row g-2">
-                                <?php $form2 = ActiveForm::begin() ?>
-                                <div class="col-lg-4">
-                                    <div>
-                                        <label for="oldpasswordInput" class="form-label">Old Password*</label>
-                                        <input type="password" class="form-control" id="oldpasswordInput"
-                                               placeholder="Enter current password">
-                                    </div>
+                        <?php $form2 = ActiveForm::begin() ?>
+                        <div class="row g-2">
+                            <div class="col-lg-4">
+                                <div>
+                                    <?= $form2->field($password_form, 'old_password')->textInput(['placeholder' => "Enter current password"]) ?>
                                 </div>
-                                <!--end col-->
-                                <div class="col-lg-4">
-                                    <div>
-                                        <?= $form2->field($password_form, 'password') ?>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-4">
-                                    <div>
-                                        <?= $form->field($password_form, 'confirm_password') ?>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <a href="javascript:void(0);" class="link-primary text-decoration-underline">Forgot
-                                            Password ?</a>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-lg-12">
-                                    <div class="text-end">
-                                        <?= Html::submitButton(translate("Change password"), ['class' => 'btn btn-success']) ?>
-
-                                    </div>
-                                </div>
-                                <?php ActiveForm::end() ?>
-                                <!--end col-->
                             </div>
-                            <!--end row-->
-                        </form>
+                            <!--end col-->
+                            <div class="col-lg-4">
+                                <div>
+                                    <?= $form2->field($password_form, 'password')->textInput(['placeholder' => "Enter current password"]) ?>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-4">
+                                <div>
+                                    <?= $form2->field($password_form, 'confirm_password') ?>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <a href="javascript:void(0);" class="link-primary text-decoration-underline">Forgot
+                                        Password ?</a>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-12">
+                                <div class="text-end">
+                                    <?= Html::submitButton(translate("Change password"), ['class' => 'btn btn-success']) ?>
+                                </div>
+                            </div>
+
+                            <!--end col-->
+                        </div>
+                        <!--end row-->
+                        <?php ActiveForm::end() ?>
                         <div class="mt-4 mb-3 border-bottom pb-2">
                             <div class="float-end">
                                 <a href="javascript:void(0);" class="link-primary">All Logout</a>

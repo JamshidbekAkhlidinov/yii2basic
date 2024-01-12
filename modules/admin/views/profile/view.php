@@ -10,6 +10,10 @@
 use yii\bootstrap5\Html;
 use yii\helpers\Url;
 
+/**
+ * @var $model app\modules\admin\forms\ProfileForm
+*/
+
 $this->title = translate("Profile");
 Yii::$app->params['breadcrumbs'][] = translate("User");
 Yii::$app->params['breadcrumbs'][] = $this->title;
@@ -24,9 +28,9 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
 <div class="pt-4 mb-4 mb-lg-3 pb-lg-4 profile-wrapper">
     <div class="row g-4">
         <div class="col-auto">
-            <div class="avatar-lg">
-                <img src="/images/users/avatar-1.jpg" alt="user-img" class="img-thumbnail rounded-circle"/>
-            </div>
+                <div class="avatar-lg">
+                    <img src="" alt="user-img" class="img-thumbnail rounded-circle">
+                </div>
         </div>
         <!--end col-->
         <div class="col">
@@ -59,8 +63,8 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
     <div class="col-lg-12">
 
         <div class="flex-shrink-0" style="text-align: right">
-            <a href="<?= Url::to(['/admin/profile/update']) ?>" class="btn btn-success">
-                <i class="ri-edit-box-line align-bottom"></i> Edit Profile</a>
+            <a href="<?= Url::to(['/admin/profile/update-data']) ?>" class="btn btn-success">
+                <i class="ri-edit-box-line align-bottom"></i><?= translate("Edit Profile") ?></a>
         </div>
 
         <div>

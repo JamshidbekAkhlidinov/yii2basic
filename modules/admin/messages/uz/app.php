@@ -57,5 +57,12 @@ return [
     "Get Started" => "Boshlash",
     "View Plans" => "Rejalarni ko'rish",
     "Update Profile Data" => "Profil ma'lumotlarini tahrirlash",
-    "Firstname" => "Ism"
+    "Firstname" => "Ism",
+    "Profile" => "Profil ma'lumotlari",
+    "Edit Profile" => "Profil tahrirlash",
+    "Username" => "Foydalanuvchi nomi",
+    "E-mail" => "Pochta manzili",
+    "Avatar Path" => "Profil rasmi",
+    "Birthday" => "Tug'ilgan sana",
+    "Phone number" => "Telefon raqam"
 ];
