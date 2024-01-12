@@ -29,7 +29,7 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
     <div class="row g-4">
         <div class="col-auto">
                 <div class="avatar-lg">
-                    <img src="" alt="user-img" class="img-thumbnail rounded-circle">
+                    <img src="<?= user()->identity->userProfile->avatar_path ?>" alt="user-img" class="img-thumbnail rounded-circle avatar-lg">
                 </div>
         </div>
         <!--end col-->
@@ -75,21 +75,21 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
                         <div class="col-xxl-3">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title mb-3">Info</h5>
+                                    <h5 class="card-title mb-3"><?= translate("Info") ?></h5>
                                     <div class="table-responsive">
                                         <table class="table table-borderless mb-0">
                                             <tbody>
                                             <tr>
-                                                <th class="ps-0" scope="row">Full Name :</th>
+                                                <th class="ps-0" scope="row"><?= translate("Full Name") ?> :</th>
                                                 <td class="text-muted"><?= user()->identity->publicIdentity ?></td>
                                             </tr>
                                             <tr>
-                                                <th class="ps-0" scope="row">Mobile :</th>
-                                                <td class="text-muted">+(1) 987 6543</td>
+                                                <th class="ps-0" scope="row"><?= translate("Mobile") ?> :</th>
+                                                <td class="text-muted"><?= user()->identity->userProfile->ph_number ?></td>
                                             </tr>
                                             <tr>
-                                                <th class="ps-0" scope="row">E-mail :</th>
-                                                <td class="text-muted"></td>
+                                                <th class="ps-0" scope="row"><?= translate("E-mail") ?> :</th>
+                                                <td class="text-muted"><?= user()->identity->email ?></td>
                                             </tr>
                                             <tr>
                                                 <th class="ps-0" scope="row">Location :</th>
@@ -97,8 +97,8 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th class="ps-0" scope="row">Joining Date</th>
-                                                <td class="text-muted">24 Nov 2021</td>
+                                                <th class="ps-0" scope="row"><?= translate("Birthday") ?></th>
+                                                <td class="text-muted"><?= user()->identity->userProfile->birthday ?></td>
                                             </tr>
                                             </tbody>
                                         </table>

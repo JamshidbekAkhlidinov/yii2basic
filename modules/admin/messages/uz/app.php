@@ -64,5 +64,12 @@ return [
     "E-mail" => "Pochta manzili",
     "Avatar Path" => "Profil rasmi",
     "Birthday" => "Tug'ilgan sana",
-    "Phone number" => "Telefon raqam"
+    "Phone number" => "Telefon raqam",
+    "Full Name" => "Ism sharfi",
+    "Mobile" => "Tel. raqami",
+    "Info" => "Ma'lumot",
+    "Old password" => "Eski parolingiz",
+    "Enter current old password" => "Joriy eski parolni kiriting",
+    "Enter new password" => "Yangi parolni kiriting",
+    "Enter new confirm password" => "Yangi tasdiqlash parolini kiriting",
 ];

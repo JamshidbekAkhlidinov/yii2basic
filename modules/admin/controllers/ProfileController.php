@@ -8,20 +8,15 @@
 
 namespace app\modules\admin\controllers;
 
-use app\models\UserProfile;
 use app\modules\admin\forms\ProfileForm;
 use app\modules\admin\forms\UserProfileForm;
-use yii\base\Model;
 use yii\web\Controller;
 
 class ProfileController extends Controller
 {
     public function actionIndex()
     {
-        $users = new UserProfile();
-        return $this->render('view', [
-            'model' => $users
-        ]);
+        return $this->render('view');
     }
 
     public function actionUpdate()

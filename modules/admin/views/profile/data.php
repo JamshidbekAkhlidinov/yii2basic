@@ -14,6 +14,7 @@
 use alexantr\elfinder\InputFile;
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
+use yii\helpers\Url;
 
 $js = <<<JS
 $('#avatar_path_input').change(function (e){
@@ -54,7 +55,7 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
                              class="rounded-circle avatar-xl img-thumbnail user-profile-image" id="avatar_path"
                              alt="user-profile-image">
                     </div>
-                    <h5 class="fs-16 mb-1">Anna Adame</h5>
+                    <h5 class="fs-16 mb-1"><?= user()->identity->publicIdentity ?></h5>
                     <p class="text-muted mb-0">Lead Designer / Developer</p>
                 </div>
             </div>
@@ -207,9 +208,6 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
                                             'clientRoute' => '/admin/file/default/input',
                                             'filter' => ['image'],
                                             'id' => 'avatar_path_input',
-                                            'preview' => function ($value) {
-                                                return yii\helpers\Html::img($value, ['width' => 200, 'id'=>'avatar_path']);
-                                            },
                                         ]
                                     ) ;
                                     ?>
@@ -298,25 +296,25 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
                         <div class="row g-2">
                             <div class="col-lg-4">
                                 <div>
-                                    <?= $form2->field($password_form, 'old_password')->textInput(['placeholder' => "Enter current password"]) ?>
+                                    <?= $form2->field($password_form, 'old_password')->textInput(['placeholder' => translate("Enter current old password")]) ?>
                                 </div>
                             </div>
                             <!--end col-->
                             <div class="col-lg-4">
                                 <div>
-                                    <?= $form2->field($password_form, 'password')->textInput(['placeholder' => "Enter current password"]) ?>
+                                    <?= $form2->field($password_form, 'password')->textInput(['placeholder' => translate("Enter new password")]) ?>
                                 </div>
                             </div>
                             <!--end col-->
                             <div class="col-lg-4">
                                 <div>
-                                    <?= $form2->field($password_form, 'confirm_password') ?>
+                                    <?= $form2->field($password_form, 'confirm_password')->textInput(['placeholder' => translate("Enter new confirm password")]) ?>
                                 </div>
                             </div>
                             <!--end col-->
                             <div class="col-lg-12">
                                 <div class="mb-3">
-                                    <a href="javascript:void(0);" class="link-primary text-decoration-underline">Forgot
+                                    <a href="<?= Url::to('lost-password') ?>" class="link-primary text-decoration-underline">Forgot
                                         Password ?</a>
                                 </div>
                             </div>
