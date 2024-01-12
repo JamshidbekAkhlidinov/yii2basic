@@ -3,6 +3,7 @@
 /** @var string $content */
 
 use app\assets\FrontendAsset;
+use app\widgets\LanguageSwitcherWidget;
 use app\widgets\Alert;
 use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
@@ -61,25 +62,28 @@ $this->registerCss($css);
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mt-2 mt-lg-0" id="navbar-example">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#hero">Home</a>
+                        <a class="nav-link active" href="#hero"><?= translate("Home") ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
+                        <a class="nav-link" href="#services"><?= translate("Services") ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#features">Features</a>
+                        <a class="nav-link" href="#features"><?= translate("Features") ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#plans">Plans</a>
+                        <a class="nav-link" href="#plans"><?= translate("Plans") ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#reviews">Reviews</a>
+                        <a class="nav-link" href="#reviews"><?= translate("Reviews") ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#team">Team</a>
+                        <a class="nav-link" href="#team"><?= translate("Team") ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="#contact"><?= translate("Contact") ?></a>
+                    </li>
+                    <li>
+                        <?= LanguageSwitcherWidget::widget()?>
                     </li>
                 </ul>
 

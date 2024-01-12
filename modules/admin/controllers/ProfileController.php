@@ -37,13 +37,21 @@ class ProfileController extends Controller
         $form = new ProfileForm(
             user()->identity->userProfile,
         );
+        $password_form = new UserProfileForm(
+            user()->identity
+        );
+
         if ($form->load(post()) && $form->validate() && $form->save()) {
             return $this->redirect(['index']);
         }
+
+        if ($password_form->load(post()) && $password_form->validate() && $password_form->save()) {
+            return $this->redirect(['index']);
+        }
+
         return $this->render('data', [
-            'model' => $form
+            'model' => $form,
+            'password_form' => $password_form
         ]);
     }
-
-
 }

@@ -550,7 +550,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                             <a class="dropdown-item" href="<?= Url::to(['/admin/profile']) ?>">
                                 <i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Profile</span></a>
-                            <a class="dropdown-item" href="<?= Url::to(['/admin/profile/update']) ?>"><span
+                            <a class="dropdown-item" href="<?= Url::to(['/admin/profile/update-data']) ?>"><span
                                         class="badge bg-success-subtle text-success mt-1 float-end">New</span><i
                                         class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Settings</span></a>

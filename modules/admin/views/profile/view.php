@@ -10,6 +10,10 @@
 use yii\bootstrap5\Html;
 use yii\helpers\Url;
 
+/**
+ * @var $model app\modules\admin\forms\ProfileForm
+*/
+
 $this->title = translate("Profile");
 Yii::$app->params['breadcrumbs'][] = translate("User");
 Yii::$app->params['breadcrumbs'][] = $this->title;
@@ -24,9 +28,9 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
 <div class="pt-4 mb-4 mb-lg-3 pb-lg-4 profile-wrapper">
     <div class="row g-4">
         <div class="col-auto">
-            <div class="avatar-lg">
-                <img src="/images/users/avatar-1.jpg" alt="user-img" class="img-thumbnail rounded-circle"/>
-            </div>
+                <div class="avatar-lg">
+                    <img src="<?= user()->identity->userProfile->avatar_path ?>" alt="user-img" class="img-thumbnail rounded-circle avatar-lg">
+                </div>
         </div>
         <!--end col-->
         <div class="col">
@@ -59,8 +63,8 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
     <div class="col-lg-12">
 
         <div class="flex-shrink-0" style="text-align: right">
-            <a href="<?= Url::to(['/admin/profile/update']) ?>" class="btn btn-success">
-                <i class="ri-edit-box-line align-bottom"></i> Edit Profile</a>
+            <a href="<?= Url::to(['/admin/profile/update-data']) ?>" class="btn btn-success">
+                <i class="ri-edit-box-line align-bottom"></i><?= translate("Edit Profile") ?></a>
         </div>
 
         <div>
@@ -71,21 +75,21 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
                         <div class="col-xxl-3">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title mb-3">Info</h5>
+                                    <h5 class="card-title mb-3"><?= translate("Info") ?></h5>
                                     <div class="table-responsive">
                                         <table class="table table-borderless mb-0">
                                             <tbody>
                                             <tr>
-                                                <th class="ps-0" scope="row">Full Name :</th>
-                                                <td class="text-muted">Anna Adame</td>
+                                                <th class="ps-0" scope="row"><?= translate("Full Name") ?> :</th>
+                                                <td class="text-muted"><?= user()->identity->publicIdentity ?></td>
                                             </tr>
                                             <tr>
-                                                <th class="ps-0" scope="row">Mobile :</th>
-                                                <td class="text-muted">+(1) 987 6543</td>
+                                                <th class="ps-0" scope="row"><?= translate("Mobile") ?> :</th>
+                                                <td class="text-muted"><?= user()->identity->userProfile->ph_number ?></td>
                                             </tr>
                                             <tr>
-                                                <th class="ps-0" scope="row">E-mail :</th>
-                                                <td class="text-muted">daveadame@velzon.com</td>
+                                                <th class="ps-0" scope="row"><?= translate("E-mail") ?> :</th>
+                                                <td class="text-muted"><?= user()->identity->email ?></td>
                                             </tr>
                                             <tr>
                                                 <th class="ps-0" scope="row">Location :</th>
@@ -93,8 +97,8 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th class="ps-0" scope="row">Joining Date</th>
-                                                <td class="text-muted">24 Nov 2021</td>
+                                                <th class="ps-0" scope="row"><?= translate("Birthday") ?></th>
+                                                <td class="text-muted"><?= user()->identity->userProfile->birthday ?></td>
                                             </tr>
                                             </tbody>
                                         </table>
