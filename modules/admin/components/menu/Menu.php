@@ -90,6 +90,7 @@ class Menu
                         ],
                     ],
                 ],
+                LandingElementMenu::getMenu(),
                 [
                     'label' => translate("File manager"),
                     'type' => MenuWidget::type_item, //menu,item
