@@ -87,7 +87,7 @@ abstract class LandingModel extends \yii\base\Model
     public function saveAttributes(): bool
     {
         $transaction = app()->db->beginTransaction();
-        $isSave = true;
+        $isSave = false;
         try {
             foreach ($this->dataRules() as $rule) {
                 $model = $this->getModel($rule['key'] ?? []);
@@ -105,13 +105,12 @@ abstract class LandingModel extends \yii\base\Model
                         $model->{$modelAttribute} = $this->{$thisAttribute};
                     }
                 }
-                $isSave = $isSave && $model->save(false);
+                $isSave = $model->save(false);
             }
             if ($isSave) {
                 $transaction->commit();
             }
         } catch (\Throwable $exception) {
-            dd($exception->getMessage());
             $transaction->rollBack();
         }
         return $isSave;
