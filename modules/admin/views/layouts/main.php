@@ -15,14 +15,16 @@ use app\modules\admin\assets\AdminAsset;
 use app\modules\admin\components\menu\Menu;
 use app\modules\admin\widgets\LanguageSwitcherWidget;
 use app\modules\admin\widgets\MenuWidget;
+use yii\bootstrap5\Alert;
 use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
 AdminAsset::register($this);
 
 $this->registerCsrfMetaTags();
-$this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');
+$this->registerMetaTag(['charset' => app()->charset], 'charset');
 $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1, shrink-to-fit=no']);
 $this->registerMetaTag(['name' => 'description', 'content' => $this->params['meta_description'] ?? '']);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
@@ -32,7 +34,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>" data-layout="vertical" data-topbar="light" data-sidebar="dark"
+<html lang="<?= app()->language ?>" data-layout="vertical" data-topbar="light" data-sidebar="dark"
       data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
 <head>
@@ -199,8 +201,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                         </div>
                     </div>
 
-                   <?=LanguageSwitcherWidget::widget()?>
-
+                    <?= LanguageSwitcherWidget::widget() ?>
 
 
                     <div class="ms-1 header-item d-none d-sm-flex">
@@ -663,7 +664,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                                     'url' => '/admin',
                                     'label' => translate("Home")
                                 ],
-                                'links' => Yii::$app->params['breadcrumbs'] ?? [],
+                                'links' => params()['breadcrumbs'] ?? [],
                                 'options' => [
                                     'class' => "m-0",
                                 ]
@@ -674,7 +675,18 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     </div>
                 </div>
 
-
+                <?php if (session()->hasFlash('alert')) : ?>
+                    <?php echo Alert::widget([
+                        'body' => ArrayHelper::getValue(
+                            session()->getFlash('alert'),
+                            'body'
+                        ),
+                        'options' => ArrayHelper::getValue(
+                            session()->getFlash('alert'),
+                            'options'
+                        ),
+                    ]) ?>
+                <?php endif; ?>
                 <?= $content ?>
                 <!-- end page title -->
 

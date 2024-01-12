@@ -79,6 +79,21 @@ if (!function_exists('get')) {
 }
 
 
+if (!function_exists('session')) {
+    function session()
+    {
+        return Yii::$app->session;
+    }
+}
+
+if (!function_exists('params')) {
+    function params()
+    {
+        return Yii::$app->params;
+    }
+}
+
+
 if (!function_exists('icon')) {
     function icon($name = null, $options = [])
     {
