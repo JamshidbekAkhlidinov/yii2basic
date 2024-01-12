@@ -108,7 +108,10 @@ if (!function_exists('icon')) {
             $type = $options['type'];
         }
 
-        $name = $icon . '-' . $name . '-' . $type;
+        $name = $icon . ' ' . $name;
+        if ($icon == 'ri') {
+            $name = $icon . '-' . $name . '-' . $type;
+        }
 
         if (isset($options['class'])) {
             $name .= ' ' . $options['class'];
