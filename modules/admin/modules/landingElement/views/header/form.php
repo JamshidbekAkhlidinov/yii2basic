@@ -20,15 +20,13 @@ params()['breadcrumbs'][] = ['label' => translate("Landing Element"), 'url' => [
 params()['breadcrumbs'][] = $this->title;
 
 $js = <<<JS
-$('#landing_logo_input').change(function (e){
-    $('#landing_logo').attr('src', e.target.value);
+$('#header_logo_input').change(function (e){
+    $('#header_logo').attr('src', e.target.value);
+    console.log(e.target.value);
 })
 JS;
-
-$this->registerJs($js);
-
+$this->registerJs($js, \yii\web\View::POS_END);
 ?>
-
 <div class="card">
     <div class="card-header">
         <h3><?= translate("Header settings") ?></h3>
@@ -46,32 +44,31 @@ $this->registerJs($js);
             </div>
         </div>
     </div>
-
     <div class="col-6">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header d-flex flex-column">
                 <?php
                 echo $form->field($formModel, 'logo')->widget(
                     InputFile::class,
                     [
                         'clientRoute' => '/admin/file/default/input',
                         'options' => [
-                            'id' => 'landing_logo_input',
+                            'id' => 'header_logo_input',
                         ]
                     ]
                 );
-                echo "<div style='margin-top: -3px'>" . Html::img($formModel->logo, [
+                echo Html::img($formModel->logo, [
                     'width' => 130,
-                    'options' => [
-                        'id' => 'landing_logo',
-                    ]
-                ]) . "</div>";
-
-                echo Html::submitButton(
-                    translate("Save"),
-                    ['class' => 'btn btn-primary mt-2']
-                );
+                    'id' => "header_logo",
+                ]);
                 ?>
+                <div>
+                    <?= Html::submitButton(
+                        translate("Save"),
+                        ['class' => 'btn btn-primary mt-2']
+                    );
+                    ?>
+                </div>
             </div>
         </div>
     </div>
