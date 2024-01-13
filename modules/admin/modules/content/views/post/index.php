@@ -16,8 +16,13 @@ use yii\grid\GridView;
 /** @var app\modules\admin\modules\content\search\PostSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
+$this->title = translate("Posts");
+params()['breadcrumbs'][] = ['label' => translate("Content"), 'url' => ['/admin/content']];
+params()['breadcrumbs'][] = $this->title;
+
 $this->title = Yii::t('app', 'Posts');
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="post-index card">
     <div class="card-header d-flex justify-content-between">

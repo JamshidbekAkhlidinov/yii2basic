@@ -18,37 +18,56 @@ use yii\bootstrap5\Html;
 $this->title = translate("Header settings");
 params()['breadcrumbs'][] = ['label' => translate("Landing Element"), 'url' => ['/admin/landingElement']];
 params()['breadcrumbs'][] = $this->title;
+
+$js = <<<JS
+$('#landing_logo_input').change(function (e){
+    $('#landing_logo').attr('src', e.target.value);
+})
+JS;
+
+$this->registerJs($js);
+
 ?>
 
 <div class="card">
     <div class="card-header">
         <h3><?= translate("Header settings") ?></h3>
     </div>
-    <div class="card-body">
-        <?php
-        $form = ActiveForm::begin();
+</div>
+<?php $form = ActiveForm::begin(); ?>
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                <?php
+                echo $form->field($formModel, 'title');
+                echo $form->field($formModel, 'description');
+                ?>
+            </div>
+        </div>
+    </div>
 
-        echo $form->field($formModel, 'logo')->widget(
-            InputFile::class,
-            [
-                'clientRoute' => '/admin/file/default/input',
-                'options' => [
-                    'id' => 'post_image_input',
-                ]
-            ]
-        );
-        echo $form->field($formModel, 'title');
-        echo $form->field($formModel, 'description');
-
-        echo Html::submitButton(
-            translate("Save"),
-            ['class' => 'btn btn-primary']
-        );
-
-        ActiveForm::end();
-        ?>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                <?= alexantr\elfinder\InputFile::widget([
+                    'name' => 'attributeName',
+                    'clientRoute' => '/admin/file/default/input',
+                    'filter' => ['image'],
+                    'preview' => function ($value) {
+                        return yii\helpers\Html::img($value, ['width' => 200]);
+                    },
+                ]) ?>
+                <?php
+                echo Html::submitButton(
+                    translate("Save"),
+                    ['class' => 'btn btn-primary mt-2']
+                );
+                ?>
+            </div>
+        </div>
     </div>
 </div>
-
+<?php ActiveForm::end(); ?>
 
 

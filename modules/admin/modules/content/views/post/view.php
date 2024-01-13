@@ -11,10 +11,16 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\content\models\Post $model */
 
+$this->title = translate("Post View");
+params()['breadcrumbs'][] = ['label' => translate("Posts"), 'url' => ['/admin/content/post']];
+params()['breadcrumbs'][] = $this->title;
+
+
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Posts'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
+
 ?>
 <div class="container-fluid">
     <div class="post-view card ribbon-box border shadow-none">
