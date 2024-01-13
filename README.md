@@ -15,6 +15,7 @@ features to your application.
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/ustadev/yii2basic.svg)](https://packagist.org/packages/ustadev/yii2basic)
 [![Total Downloads](https://img.shields.io/packagist/dt/ustadev/yii2basic.svg)](https://packagist.org/packages/ustadev/yii2basic)
+[![wakatime](https://wakatime.com/badge/user/d3110f77-d926-4238-8cdc-a8991b6685c0/project/018bf14f-2399-4fc4-865a-8d0f8cceccab.svg)](https://wakatime.com/badge/user/d3110f77-d926-4238-8cdc-a8991b6685c0/project/018bf14f-2399-4fc4-865a-8d0f8cceccab)
 
 [//]: # ([![build]&#40;https://github.com/yiisoft/yii2-app-basic/workflows/build/badge.svg&#41;]&#40;https://github.com/yiisoft/yii2-app-basic/actions?query=workflow%3Abuild&#41;)
 
