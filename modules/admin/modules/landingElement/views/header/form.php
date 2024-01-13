@@ -51,11 +51,9 @@ $this->registerJs($js);
         <div class="card">
             <div class="card-header">
                 <?php
-                echo "<div>";
                 echo $form->field($formModel, 'logo')->widget(
                     InputFile::class,
                     [
-                        'class' => 'mt-0',
                         'clientRoute' => '/admin/file/default/input',
                         'options' => [
                             'id' => 'landing_logo_input',
@@ -69,7 +67,6 @@ $this->registerJs($js);
                     ]
                 ]) . "</div>";
 
-                echo "</div>";
                 echo Html::submitButton(
                     translate("Save"),
                     ['class' => 'btn btn-primary mt-2']
