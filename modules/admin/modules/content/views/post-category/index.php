@@ -21,6 +21,10 @@ use yii\widgets\ActiveForm;
 /** @var app\modules\admin\modules\content\models\PostCategory $model */
 /** @var yii\widgets\ActiveForm $form */
 
+$this->title = translate("Post Categories");
+params()['breadcrumbs'][] = ['label' => translate("Content"), 'url' => ['/admin/landingElement']];
+params()['breadcrumbs'][] = $this->title;
+
 $this->title = translate('Post Categories');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
