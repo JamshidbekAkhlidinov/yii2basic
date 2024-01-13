@@ -50,15 +50,26 @@ $this->registerJs($js);
     <div class="col-6">
         <div class="card">
             <div class="card-header">
-                <?= alexantr\elfinder\InputFile::widget([
-                    'name' => 'attributeName',
-                    'clientRoute' => '/admin/file/default/input',
-                    'filter' => ['image'],
-                    'preview' => function ($value) {
-                        return yii\helpers\Html::img($value, ['width' => 200]);
-                    },
-                ]) ?>
                 <?php
+                echo "<div>";
+                echo $form->field($formModel, 'logo')->widget(
+                    InputFile::class,
+                    [
+                        'class' => 'mt-0',
+                        'clientRoute' => '/admin/file/default/input',
+                        'options' => [
+                            'id' => 'landing_logo_input',
+                        ]
+                    ]
+                );
+                echo "<div style='margin-top: -3px'>" . Html::img($formModel->logo, [
+                    'width' => 130,
+                    'options' => [
+                        'id' => 'landing_logo',
+                    ]
+                ]) . "</div>";
+
+                echo "</div>";
                 echo Html::submitButton(
                     translate("Save"),
                     ['class' => 'btn btn-primary mt-2']
