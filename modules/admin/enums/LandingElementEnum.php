@@ -14,8 +14,11 @@ interface LandingElementEnum
 
     public const SERVICE = 2000;
 
+    public const QUESTION = 3000;
+
     public const MULTIPLE_ENUMS = [
         self::SERVICE,
+        self::QUESTION,
     ];
 
 

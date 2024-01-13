@@ -1,8 +1,13 @@
 <?php
 
-/** @var string $content */
+/**
+ * @var string $content
+ * $this View
+ */
 
 use app\assets\FrontendAsset;
+use app\modules\admin\components\view\LandingElementSelector;
+use app\modules\admin\enums\LandingElementEnum;
 use app\widgets\LanguageSwitcherWidget;
 use app\widgets\Alert;
 use yii\bootstrap5\Breadcrumbs;
@@ -21,7 +26,9 @@ $css = <<<CSS
 CSS;
 $this->registerCss($css);
 
-
+$selector = new LandingElementSelector();
+$header = $selector->getElement(LandingElementEnum::HEADER);
+$this->title = $header->title;
 ?>
 <?php $this->beginPage() ?>
 <!doctype html>
@@ -49,7 +56,7 @@ $this->registerCss($css);
     <nav class="navbar navbar-expand-lg navbar-landing fixed-top" id="navbar">
         <div class="container">
             <a class="navbar-brand" href="<?= Url::home() ?>">
-                <img src="/images/logo-dark.png" class="card-logo card-logo-dark" alt="logo dark" height="17">
+                <img src="<?=$header->files?>" class="card-logo card-logo-dark" alt="logo dark" height="17">
                 <img src="/images/logo-light.png" class="card-logo card-logo-light" alt="logo light" height="17">
             </a>
             <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
@@ -146,12 +153,13 @@ $this->registerCss($css);
                 <div class="col-lg-4 mt-4">
                     <div>
                         <div>
-                            <img src="/images/logo-light.png" alt="logo light" height="17">
+                            <img src="<?=$header->files?>" alt="logo light" height="17">
                         </div>
                         <div class="mt-4 fs-13">
-                            <p>Premium Multipurpose Admin & Dashboard Template</p>
-                            <p class="ff-secondary">You can build any type of web application like eCommerce, CRM, CMS,
-                                Project management apps, Admin Panels, etc using Velzon.</p>
+                            <p><?=$header->title?></p>
+                            <p class="ff-secondary">
+                                <?=$header->description?>
+                            </p>
                         </div>
                     </div>
                 </div>

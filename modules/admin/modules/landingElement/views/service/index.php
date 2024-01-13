@@ -18,7 +18,7 @@ use yii\grid\SerialColumn;
 
 $this->title = translate("Services");
 params()['breadcrumbs'][] = ['label' => translate("Landing Element"), 'url' => ['/admin/landingElement']];
-params()['breadcrumb'][] = $this->title;
+params()['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="card">
