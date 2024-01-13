@@ -29,18 +29,10 @@ class LandingElementMenu
 
                 ],
                 [
-                    'label' => 'Tag',
-                    'url' => ['/admin/content/post-tag'],
+                    'label' => translate("Services"),
+                    'url' => ['/admin/landingElement/service'],
                     'icon' => 'ri-dashboard-2-line',
-                    'active' => controller()->id == "post-tag",
-
-                ],
-                [
-                    'label' => 'Post',
-                    'url' => ['/admin/content/post'],
-                    'icon' => 'ri-dashboard-2-line',
-                    'active' => controller()->id == "post",
-
+                    'active' => controller()->id == "service",
                 ],
             ],
         ];

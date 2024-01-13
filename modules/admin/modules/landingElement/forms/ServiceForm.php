@@ -42,9 +42,6 @@ class ServiceForm extends LandingModel
     {
         return [
             [
-                'key' => [
-                    'key' => LandingElementEnum::HEADER,
-                ],
                 'type' => self::TYPE_STRING,
                 'attributes' => [
                     'title' => 'title',
