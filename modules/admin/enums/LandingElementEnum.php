@@ -12,6 +12,12 @@ interface LandingElementEnum
 {
     public const HEADER = 1000;
 
+    public const SERVICE = 2000;
+
+    public const MULTIPLE_ENUMS = [
+        self::SERVICE,
+    ];
+
 
     /**
      * id

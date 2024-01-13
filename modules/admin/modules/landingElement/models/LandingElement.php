@@ -30,6 +30,7 @@ class LandingElement extends \yii\db\ActiveRecord
         return 'landing_element';
     }
 
+
     public function behaviors()
     {
         return [
@@ -45,4 +46,25 @@ class LandingElement extends \yii\db\ActiveRecord
     {
         return new LandingElementQuery(get_called_class());
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => Yii::t('app', 'ID'),
+            'key' => Yii::t('app', 'Key'),
+            'title' => Yii::t('app', 'Title'),
+            'icon' => Yii::t('app', 'Icon'),
+            'description' => Yii::t('app', 'Description'),
+            'sub_text' => Yii::t('app', 'Sub Text'),
+            'value' => Yii::t('app', 'Value'),
+            'files' => Yii::t('app', 'Files'),
+            'url' => Yii::t('app', 'Url'),
+            'order' => Yii::t('app', 'Order'),
+            'created_at' => Yii::t('app', 'Created At'),
+        ];
+    }
+
 }

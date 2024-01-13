@@ -23,5 +23,6 @@ trait SaveStatusAlertTrait
                 'body' => $failMessage
             ]);
         }
+        return $isSaved;
     }
 }
