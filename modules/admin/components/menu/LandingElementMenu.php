@@ -29,10 +29,29 @@ class LandingElementMenu
 
                 ],
                 [
+                    'label' => translate("Header Title"),
+                    'url' => ['/admin/landingElement/header-title/form'],
+                    'icon' => 'ri-dashboard-2-line',
+                    'active' => controller()->id == "header-title",
+
+                ],
+                [
+                    'label' => translate("Services Tile"),
+                    'url' => ['/admin/landingElement/service-title/form'],
+                    'icon' => 'ri-dashboard-2-line',
+                    'active' => controller()->id == "service-title",
+                ],
+                [
                     'label' => translate("Services"),
                     'url' => ['/admin/landingElement/service'],
                     'icon' => 'ri-dashboard-2-line',
                     'active' => controller()->id == "service",
+                ],
+                [
+                    'label' => translate("Create Title"),
+                    'url' => ['/admin/landingElement/create-title/form'],
+                    'icon' => 'ri-dashboard-2-line',
+                    'active' => controller()->id == "create-title",
                 ],
             ],
         ];
