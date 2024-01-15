@@ -1,3 +1,5 @@
+
+
 <?php
 
 use app\modules\admin\modules\rbac\components\buttons\AuthItemButtons;
@@ -13,7 +15,7 @@ use yii\widgets\Pjax;
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = Yii::t('app', 'Auth Items');
-$this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="auth-item-index card">
 

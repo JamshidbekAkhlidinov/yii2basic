@@ -22,9 +22,6 @@ params()['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="card">
-    <div class="card-header">
-        <h3><?= translate("Service form") ?></h3>
-    </div>
     <div class="card-body">
         <?php
         $form = ActiveForm::begin();

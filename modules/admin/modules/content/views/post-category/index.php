@@ -5,15 +5,14 @@
  *   https://github.com/JamshidbekAkhlidinov
 */
 
-use alexantr\elfinder\InputFile;
 use app\modules\admin\enums\StatusEnum;
 use app\modules\admin\modules\content\components\buttons\PostCategoryButtons;
+use app\modules\admin\modules\content\components\buttons\ServiceButtons;
 use app\modules\admin\modules\content\models\PostCategory;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
-use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\content\search\PostCategorySearch $searchModel */
@@ -55,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'name',
                     'format' => 'raw',
                     'value' => function ($model) {
-                        return PostCategoryButtons::update($model->id, $model->name);
+                        return ServiceButtons::update($model->id, $model->name);
                     }
                 ],
                 // 'sub_text',
