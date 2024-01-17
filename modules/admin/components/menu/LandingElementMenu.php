@@ -53,6 +53,12 @@ class LandingElementMenu
                     'icon' => 'ri-dashboard-2-line',
                     'active' => controller()->id == "create-title",
                 ],
+                [
+                    'label' => translate("Partner"),
+                    'url' => ['/admin/landingElement/partner'],
+                    'icon' => 'ri-dashboard-2-line',
+                    'active' => controller()->id == "partner",
+                ],
             ],
         ];
     }

@@ -56,7 +56,7 @@ $this->title = $header->title;
     <nav class="navbar navbar-expand-lg navbar-landing fixed-top" id="navbar">
         <div class="container">
             <a class="navbar-brand" href="<?= Url::home() ?>">
-                <img src="<?=$header->files?>" class="card-logo card-logo-dark" alt="logo dark" height="17">
+                <img src="<?=$header->files?>" class="card-logo card-logo-dark" alt="logo dark" height="40">
                 <img src="/images/logo-light.png" class="card-logo card-logo-light" alt="logo light" height="17">
             </a>
             <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
