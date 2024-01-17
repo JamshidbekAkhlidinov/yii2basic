@@ -7,7 +7,6 @@
 
 use app\modules\admin\enums\StatusEnum;
 use app\modules\admin\modules\content\components\buttons\PostCategoryButtons;
-use app\modules\admin\modules\content\components\buttons\ServiceButtons;
 use app\modules\admin\modules\content\models\PostCategory;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -54,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'name',
                     'format' => 'raw',
                     'value' => function ($model) {
-                        return ServiceButtons::update($model->id, $model->name);
+                        return PostCategoryButtons::update($model->id, $model->name);
                     }
                 ],
                 // 'sub_text',
