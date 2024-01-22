@@ -2,17 +2,27 @@
 
 /** @var yii\web\View $this */
 
+
+use app\modules\admin\components\view\LandingElementSelector;
+use app\modules\admin\enums\LandingElementEnum;
+use yii\helpers\Html;
+
+$selector = new LandingElementSelector();
+$headerTitle = $selector->getElement(LandingElementEnum::HEADER_TITLE);
+$serviceTitle = $selector->getElement(LandingElementEnum::SERVICE_TITLE);
+$createTitle = $selector->getElement(LandingElementEnum::CREATE_TITLE);
+
 $this->title = 'My Yii Application';
 ?>
 <!-- start hero section -->
-<section class="section pb-0 hero-section" id="hero">
-    <div class="bg-overlay bg-overlay-pattern"></div>
+<section class="section pb-0" id="hero">
+    <div class="bg-overlay bg-overlay-pattern" style="height: 100vh;background-image: url('<?= $headerTitle->files ?>') !important"> </div>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-sm-10">
                 <div class="text-center mt-lg-5 pt-5">
-                        <h1 class="display-6 fw-semibold mb-3 lh-base"><?= translate("The better way to manage your website with Velzon") ?></h1>
-                    <p class="lead text-muted lh-base"><?= translate("Velzon is a fully responsive, multipurpose and premium Bootstrap 5 Admin & Dashboard Template built in multiple frameworks.") ?></p>
+                        <h1 class="display-6 fw-semibold mb-3 lh-base"><?= $headerTitle->title ?></h1>
+                    <p class="lead text-muted lh-base"><?= $headerTitle->description ?></p>
 
                     <div class="d-flex gap-2 justify-content-center mt-4">
                         <a href="auth-signup-basic.html" class="btn btn-primary"><?= translate("Get Started") ?> <i class="ri-arrow-right-line align-middle ms-1"></i></a>
@@ -20,38 +30,7 @@ $this->title = 'My Yii Application';
                     </div>
                 </div>
 
-                <div class="mt-4 mt-sm-5 pt-sm-5 mb-sm-n5 demo-carousel">
-                    <div class="demo-img-patten-top d-none d-sm-block">
-                        <img src="/images/landing/img-pattern.png" class="d-block img-fluid" alt="...">
-                    </div>
-                    <div class="demo-img-patten-bottom d-none d-sm-block">
-                        <img src="/images/landing/img-pattern.png" class="d-block img-fluid" alt="...">
-                    </div>
-                    <div class="carousel slide carousel-fade" data-bs-ride="carousel">
-                        <div class="carousel-inner shadow-lg p-2 bg-white rounded">
-                            <div class="carousel-item active" data-bs-interval="2000">
-                                <img src="/images/demos/default.png" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="2000">
-                                <img src="/images/demos/saas.png" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="2000">
-                                <img src="/images/demos/material.png" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="2000">
-                                <img src="/images/demos/minimal.png" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="2000">
-                                <img src="/images/demos/creative.png" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="2000">
-                                <img src="/images/demos/modern.png" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="2000">
-                                <img src="/images/demos/interactive.png" class="d-block w-100" alt="...">
-                            </div>
-                        </div>
-                    </div>
+                <div class="mt-4 mt-sm-5 pt-sm-5 mb-sm-n5">
                 </div>
             </div>
         </div>
@@ -130,8 +109,8 @@ $this->title = 'My Yii Application';
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="text-center mb-5">
-                    <h1 class="mb-3 ff-secondary fw-semibold lh-base">A Digital web design studio creating modern & engaging online</h1>
-                    <p class="text-muted">To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce the grammar</p>
+                    <h1 class="mb-3 ff-secondary fw-semibold lh-base"><?= $serviceTitle->title ?></h1>
+                    <p class="text-muted"><?= $serviceTitle->description ?></p>
                 </div>
             </div>
             <!-- end col -->
@@ -374,13 +353,13 @@ $this->title = 'My Yii Application';
         <div class="row align-items-center gy-4">
             <div class="col-sm">
                 <div>
-                    <h4 class="text-white mb-0 fw-semibold">Build your web App/SaaS with Velzon dashboard</h4>
+                    <h4 class="text-white mb-0 fw-semibold"><?= $createTitle->title ?></h4>
                 </div>
             </div>
             <!-- end col -->
             <div class="col-sm-auto">
                 <div>
-                    <a href="https://1.envato.market/velzon-admin" target="_blank" class="btn bg-gradient btn-danger"><i class="ri-shopping-cart-2-line align-middle me-1"></i> Buy Now</a>
+                    <a href="<?= $createTitle->url ?>" target="_blank" class="btn bg-gradient btn-danger"><i class="ri-shopping-cart-2-line align-middle me-1"></i> Buy Now</a>
                 </div>
             </div>
             <!-- end col -->
@@ -1498,13 +1477,13 @@ $this->title = 'My Yii Application';
         <div class="row align-items-center gy-4">
             <div class="col-sm">
                 <div>
-                    <h4 class="text-white mb-0 fw-semibold">Build your web App/SaaS with Velzon dashboard</h4>
+                    <h4 class="text-white mb-0 fw-semibold"><?= $createTitle->title ?></h4>
                 </div>
             </div>
             <!-- end col -->
             <div class="col-sm-auto">
                 <div>
-                    <a href="https://1.envato.market/velzon-admin" target="_blank" class="btn bg-gradient btn-danger"><i class="ri-shopping-cart-2-line align-middle me-1"></i> Buy Now</a>
+                    <a href="<?= $createTitle->url ?>" target="_blank" class="btn bg-gradient btn-danger"><i class="ri-shopping-cart-2-line align-middle me-1"></i> Buy Now</a>
                 </div>
             </div>
             <!-- end col -->
