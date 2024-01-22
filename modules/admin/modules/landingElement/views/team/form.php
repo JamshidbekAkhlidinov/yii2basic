@@ -62,27 +62,19 @@ $this->registerJs($js, \yii\web\View::POS_END);
             </div>
             <div class="col-md-3">
                 <div class="avatar mx-auto bg-white">
-                    <?php if (!empty($formModel->avatar)) : ?>
-                        <?= Html::img($formModel->avatar, [
+                    <?= Html::img(
+                        $formModel->element->isNewRecord ?
+                            Yii::getAlias('@web/images/avatar.jpg') :
+                            $formModel->avatar,
+                        [
                             'width' => 100,
                             'id' => "team_member_avatar",
                             'class' => 'rounded-circle avatar-lg img-fluid',
                             'style' => [
                                 'object-fit' => 'cover'
                             ]
-                        ]); ?>
-                    <?php else : ?>
-                        <img src="<?= Yii::getAlias('@web/images/avatar.jpg') ?>" alt="" class="rounded-circle avatar-lg img-fluid">
-                    <?php endif; ?>
-<!--                    --><?php //= Html::img($formModel->avatar, [
-//                        'width' => 100,
-//                        'id' => "team_member_avatar",
-//                        'class' => 'rounded-circle avatar-lg img-fluid',
-//                        'style' => [
-//                                'object-fit' => 'cover'
-//                        ]
-//                    ]); ?>
-                    <!--                    <img src="" alt="" class="rounded-circle avatar-xl img-thumbnail user-profile-image">-->
+                        ]
+                    ); ?>
                 </div>
             </div>
         </div>
