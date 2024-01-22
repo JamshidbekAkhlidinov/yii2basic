@@ -8,6 +8,7 @@
 use alexantr\elfinder\InputFile;
 use app\modules\admin\enums\StatusEnum;
 use app\modules\admin\modules\content\components\buttons\PartnerButtons;
+use app\modules\admin\modules\content\components\buttons\PostCategoryButtons;
 use app\modules\admin\modules\content\models\PostCategory;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -28,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="post-category-index card">
     <div class="card-header d-flex justify-content-between">
         <h1><?= Html::encode($this->title) ?></h1>
-        <?= PartnerButtons::create() ?>
+        <?= PostCategoryButtons::create() ?>
     </div>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -51,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'name',
                     'format' => 'raw',
                     'value' => function ($model) {
-                        return PartnerButtons::update($model->id, $model->name);
+                        return PostCategoryButtons  ::update($model->id, $model->name);
                     }
                 ],
                 // 'sub_text',

@@ -24,10 +24,13 @@ interface LandingElementEnum
 
     public const PARTNER = 4000;
 
+    public const TEAM = 20000;
+
     public const MULTIPLE_ENUMS = [
         self::SERVICE,
         self::QUESTION,
         self::PARTNER,
+        self::TEAM,
     ];
 
 
