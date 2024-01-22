@@ -10,6 +10,7 @@ namespace app\modules\admin\modules\landingElement\controllers;
 
 use app\modules\admin\enums\LandingElementEnum;
 use app\modules\admin\modules\landingElement\base\BaseController;
+use app\modules\admin\modules\landingElement\forms\HeaderForm;
 use app\modules\admin\modules\landingElement\forms\ServiceForm;
 use app\modules\admin\modules\landingElement\models\LandingElement;
 use app\modules\admin\modules\landingElement\search\ServiceSearch;
@@ -26,7 +27,7 @@ class ServiceController extends BaseController
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
-            'searchModel' => $searchModel
+            'searchModel' => $searchModel,
         ]);
     }
 
@@ -65,7 +66,7 @@ class ServiceController extends BaseController
                 return $this->redirect(['service/index']);
             }
         }
-        return $this->render('form', [
+        return $this->renderAjax('form', [
             'formModel' => $form
         ]);
     }

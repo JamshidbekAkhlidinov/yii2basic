@@ -5,22 +5,25 @@
  *   https://github.com/JamshidbekAkhlidinov
 */
 
-use alexantr\elfinder\InputFile;
 use app\modules\admin\enums\StatusEnum;
 use app\modules\admin\modules\content\components\buttons\PartnerButtons;
 use app\modules\admin\modules\content\components\buttons\PostCategoryButtons;
+use app\modules\admin\modules\content\components\buttons\ServiceButtons;
 use app\modules\admin\modules\content\models\PostCategory;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
-use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\content\search\PostCategorySearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 /** @var app\modules\admin\modules\content\models\PostCategory $model */
 /** @var yii\widgets\ActiveForm $form */
+
+$this->title = translate("Post Categories");
+params()['breadcrumbs'][] = ['label' => translate("Content"), 'url' => ['/admin/landingElement']];
+params()['breadcrumbs'][] = $this->title;
 
 $this->title = translate('Post Categories');
 $this->params['breadcrumbs'][] = $this->title;

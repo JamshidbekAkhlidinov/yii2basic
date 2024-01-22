@@ -15,6 +15,10 @@ use yii\grid\GridView;
 /** @var app\modules\admin\modules\content\search\PostTagSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
+$this->title = translate("Post Tags");
+params()['breadcrumbs'][] = ['label' => translate("Content"), 'url' => ['/admin/landingElement']];
+params()['breadcrumbs'][] = $this->title;
+
 $this->title = Yii::t('app', 'Post Tags');
 $this->params['breadcrumbs'][] = $this->title;
 ?>

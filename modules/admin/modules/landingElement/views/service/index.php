@@ -12,6 +12,7 @@
  * @var $this yii\web\View
  */
 
+use app\modules\admin\modules\landingElement\components\buttons\ServiceButtons;
 use yii\bootstrap5\Html;
 use yii\grid\ActionColumn;
 use yii\grid\SerialColumn;
@@ -24,13 +25,7 @@ params()['breadcrumbs'][] = $this->title;
 <div class="card">
     <div class="card-header d-flex justify-content-between">
         <h2><?= $this->title ?></h2>
-        <?= Html::a(
-            icon('fa-plus', ['icon' => 'fa']),
-            ['service/create'],
-            [
-                'class' => 'btn btn-primary'
-            ]
-        ) ?>
+        <?= ServiceButtons::create() ?>
     </div>
     <div class="card-body">
         <?php
@@ -45,10 +40,7 @@ params()['breadcrumbs'][] = $this->title;
                     'attribute' => 'title',
                     'format' => 'raw',
                     'value' => function ($data) {
-                        return Html::a(
-                            $data->title,
-                            ['service/update', 'id' => $data->id],
-                        );
+                        return ServiceButtons::update($data);
                     },
                 ],
                 'description',

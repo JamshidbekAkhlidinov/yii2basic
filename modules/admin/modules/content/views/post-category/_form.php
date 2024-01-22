@@ -11,6 +11,7 @@ use yii\bootstrap5\ActiveForm;
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\content\models\PostCategory $model */
 /** @var yii\widgets\ActiveForm $form */
+
 $js = <<<JS
 $('#post_image_input').change(function (e){
     $('#post_image').attr('src', e.target.value);
