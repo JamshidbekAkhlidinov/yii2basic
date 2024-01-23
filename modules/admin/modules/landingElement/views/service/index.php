@@ -37,6 +37,16 @@ params()['breadcrumbs'][] = $this->title;
                     'class' => SerialColumn::class,
                 ],
                 [
+                    'attribute' => 'files',
+                    'format' => 'raw',
+                    'value' => static function ($model) {
+                        return Html::img($model->files,
+                        [
+                                'width'  => '130'
+                        ]);
+                    }
+                ],
+                [
                     'attribute' => 'title',
                     'format' => 'raw',
                     'value' => function ($data) {
@@ -44,7 +54,6 @@ params()['breadcrumbs'][] = $this->title;
                     },
                 ],
                 'description',
-                'files',
                 [
                     'class' => ActionColumn::class,
                     'template' => '{delete}',

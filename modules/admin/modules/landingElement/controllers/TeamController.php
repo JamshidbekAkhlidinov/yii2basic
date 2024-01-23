@@ -65,7 +65,7 @@ class TeamController extends BaseController
                 return $this->redirect(['team/index']);
             }
         }
-        return $this->render('form', [
+        return $this->renderAjax('form', [
             'formModel' => $form
         ]);
     }

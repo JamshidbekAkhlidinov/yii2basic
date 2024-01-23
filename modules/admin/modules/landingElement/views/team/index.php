@@ -12,6 +12,7 @@
  * @var $this yii\web\View
  */
 
+use app\modules\admin\modules\landingElement\components\buttons\TeamButtons;
 use yii\bootstrap5\Html;
 use yii\grid\ActionColumn;
 use yii\grid\SerialColumn;
@@ -24,13 +25,7 @@ params()['breadcrumbs'][] = $this->title;
 <div class="card">
     <div class="card-header d-flex justify-content-between">
         <h2><?= $this->title ?></h2>
-        <?= Html::a(
-            icon('fa-plus', ['icon' => 'fa']),
-            ['team/create'],
-            [
-                'class' => 'btn btn-primary'
-            ]
-        ) ?>
+        <?= TeamButtons::create() ?>
     </div>
     <div class="card-body">
         <?php
@@ -44,18 +39,21 @@ params()['breadcrumbs'][] = $this->title;
                 [
                     'attribute' => 'files',
                     'format' => 'raw',
-                    'value' => static function($model) {
-                        return Html::img($model->files, ['class' => 'rounded-circle avatar-lg user-profile-image']);
+                    'value' => static function ($model) {
+                        return Html::img($model->files,
+                            [
+                                'class' => 'rounded-circle avatar-lg user-profile-image',
+                                'style' => [
+                                    'object-fit' => 'cover'
+                                ]
+                            ]);
                     }
                 ],
                 [
                     'attribute' => 'title',
                     'format' => 'raw',
                     'value' => function ($data) {
-                        return Html::a(
-                            $data->title,
-                            ['team/update', 'id' => $data->id],
-                        );
+                        return TeamButtons::update($data);
                     },
                 ],
                 'description',

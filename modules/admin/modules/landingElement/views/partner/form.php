@@ -30,43 +30,36 @@ $this->registerJs($js, \yii\web\View::POS_END);
 
 ?>
 
-<div class="card">
-    <div class="card-header">
-        <h3><?= translate("Partner form") ?></h3>
-    </div>
+<div>
 
     <?php $form = ActiveForm::begin(); ?>
-        <div class="row">
-                <div class="col-6">
-                    <div class="card-header">
-                        <?php
-                        echo $form->field($formModel, 'logo')->widget(
-                            InputFile::class,
-                            [
-                                'clientRoute' => '/admin/file/default/input',
-                                'options' => [
-                                    'id' => 'partner_file_input',
-                                ]
-                            ]
-                        );
+    <div class="row">
+        <div class="col-6">
+            <?php
+            echo $form->field($formModel, 'logo')->widget(
+                InputFile::class,
+                [
+                    'clientRoute' => '/admin/file/default/input',
+                    'options' => [
+                        'id' => 'partner_file_input',
+                    ]
+                ]
+            );
 
-                        echo Html::img($formModel->logo, [
-                            'width' => 130,
-                            'id' => "partner_file",
-                        ]);
-                        ?>
-                    </div>
-                </div>
-
-                <div class="col-6">
-                    <div class="card-body">
-                        <?php echo Html::submitButton(
-                            translate("Save"),
-                            ['class' => 'btn btn-primary mt-2']
-                        ); ?>
-                    </div>
-                </div>
+            echo Html::img($formModel->logo, [
+                'width' => 130,
+                'id' => "partner_file",
+            ]);
+            ?>
         </div>
+
+        <div class="col-6">
+            <?php echo Html::submitButton(
+                translate("Save"),
+                ['class' => 'btn btn-primary mt-2']
+            ); ?>
+        </div>
+    </div>
     <?php ActiveForm::end(); ?>
 </div>
 

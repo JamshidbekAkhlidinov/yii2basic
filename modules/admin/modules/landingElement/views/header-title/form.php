@@ -15,7 +15,7 @@ use alexantr\elfinder\InputFile;
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 
-$this->title = translate("Header Title settings");
+$this->title = translate("Header Title Settings");
 params()['breadcrumbs'][] = ['label' => translate("Landing Element"), 'url' => ['/admin/landingElement']];
 params()['breadcrumbs'][] = $this->title;
 
@@ -27,13 +27,22 @@ $('#header_title_background_input').change(function (e){
 JS;
 $this->registerJs($js, \yii\web\View::POS_END);
 ?>
-<div class="card">
-    <div class="card-header">
-        <h3><?= translate("Header Title settings") ?></h3>
+
+<?php $form = ActiveForm::begin(); ?>
+
+<div class="card" style="margin-top: -10px">
+    <div class="card-header d-flex justify-content-between">
+        <h3><?= translate("Header Title Settings") ?></h3>
+        <p>
+            <?= Html::submitButton(
+                translate("Save"),
+                ['class' => 'btn btn-primary']
+            );
+            ?>
+        </p>
     </div>
 </div>
-<?php $form = ActiveForm::begin(); ?>
-<div class="row">
+<div class="row" style="margin-top: -10px">
     <div class="col-6">
         <div class="card">
             <div class="card-header">
@@ -62,13 +71,6 @@ $this->registerJs($js, \yii\web\View::POS_END);
                     'id' => "header_title_background",
                 ]);
                 ?>
-                <div>
-                    <?= Html::submitButton(
-                        translate("Save"),
-                        ['class' => 'btn btn-primary mt-2']
-                    );
-                    ?>
-                </div>
             </div>
         </div>
     </div>

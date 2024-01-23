@@ -15,7 +15,7 @@ use alexantr\elfinder\InputFile;
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 
-$this->title = translate("Service Title settings");
+$this->title = translate("Service Title Settings");
 params()['breadcrumbs'][] = ['label' => translate("Landing Element"), 'url' => ['/admin/landingElement']];
 params()['breadcrumbs'][] = $this->title;
 
@@ -27,13 +27,13 @@ $('#header_title_background_input').change(function (e){
 JS;
 $this->registerJs($js, \yii\web\View::POS_END);
 ?>
-<div class="card">
+<div class="card" style="margin-top: -10px">
     <div class="card-header d-flex justify-content-between">
-        <h3><?= translate("Service Title settings") ?></h3>
+        <h3><?= translate("Service Title Settings") ?></h3>
     </div>
 </div>
 <?php $form = ActiveForm::begin(); ?>
-<div class="row">
+<div class="row" style="margin-top: -10px">
     <div class="col">
         <div class="card">
             <div class="card-header">

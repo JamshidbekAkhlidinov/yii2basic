@@ -75,4 +75,12 @@ return [
     "Enter current old password" => "Joriy eski parolni kiriting",
     "Enter new password" => "Yangi parolni kiriting",
     "Enter new confirm password" => "Yangi tasdiqlash parolini kiriting",
+    "Create Title" => 'Buyurtma sarlavhasi',
+    "Create Title settings" => 'Buyurtma sarlavhasini sozlash',
+    "Partners" => "Hamkorlar",
+    "Services Title" => "Xizmatlar sarlavhasi",
+    "Service Title Settings" => "Xizmatlar sarlavhasini sozlash",
+    "Header Title" => "Asosiy sahifa sarlavhasi",
+    "Header Title Settings" => "Asosiy sahifa sarlavhasi sozlash",
+    "Site Config" => "Sayt sozlanmasi",
 ];

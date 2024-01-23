@@ -29,11 +29,7 @@ JS;
 $this->registerJs($js, \yii\web\View::POS_END);
 ?>
 
-<div class="card">
-    <div class="card-header">
-        <h3><?= translate("Team form") ?></h3>
-    </div>
-    <div class="card-body">
+<div>
         <?php $form = ActiveForm::begin(); ?>
 
         <div class="row">
@@ -87,7 +83,6 @@ $this->registerJs($js, \yii\web\View::POS_END);
         </div>
 
         <?php ActiveForm::end(); ?>
-    </div>
 </div>
 
 

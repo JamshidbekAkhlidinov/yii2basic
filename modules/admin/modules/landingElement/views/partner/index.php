@@ -40,18 +40,12 @@ params()['breadcrumbs'][] = $this->title;
                     'attribute' => 'files',
                     'format' => 'raw',
                     'value' => function ($data) {
-                        return Html::img(
-                            $data->files,
-                            [
-                                'id' => $data->id,
-                                'width' => '150px'
-                            ],
-                        );
-                    },
+                        return PartnerButtons::update($data);
+                   },
                 ],
                 [
                     'class' => ActionColumn::class,
-                    'template' => '{delete} {update}',
+                    'template' => '{delete}',
                 ]
             ]
         ]);

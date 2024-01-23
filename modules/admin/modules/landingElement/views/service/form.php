@@ -21,8 +21,7 @@ params()['breadcrumbs'][] = ['label' => translate("Services"), 'url' => ['/admin
 params()['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="card">
-    <div class="card-body">
+<div>
         <?php
         $form = ActiveForm::begin();
 
@@ -43,7 +42,6 @@ params()['breadcrumbs'][] = $this->title;
 
         ActiveForm::end();
         ?>
-    </div>
 </div>
 
 

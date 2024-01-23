@@ -26,13 +26,21 @@ $('#header_title_background_input').change(function (e){
 JS;
 $this->registerJs($js, \yii\web\View::POS_END);
 ?>
-<div class="card">
-    <div class="card-header">
+
+<?php $form = ActiveForm::begin(); ?>
+<div class="card" style="margin-top: -10px">
+    <div class="card-header d-flex justify-content-between">
         <h3><?= translate("Create Title settings") ?></h3>
+        <p>
+            <?= Html::submitButton(
+                translate("Save"),
+                ['class' => 'btn btn-primary']
+            );
+            ?>
+        </p>
     </div>
 </div>
-<?php $form = ActiveForm::begin(); ?>
-<div class="row">
+<div class="row" style="margin-top: -10px">
     <div class="col-6">
         <div class="card">
             <div class="card-header">
@@ -47,15 +55,6 @@ $this->registerJs($js, \yii\web\View::POS_END);
             <div class="card-header">
                 <?php echo $form->field($formModel, 'url'); ?>
             </div>
-        </div>
-    </div>
-    <div class="col-2">
-        <div class="card">
-            <?= Html::submitButton(
-                translate("Save"),
-                ['class' => 'btn btn-primary mt-2']
-            );
-            ?>
         </div>
     </div>
 </div>

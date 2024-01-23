@@ -22,7 +22,7 @@ class LandingElementMenu
             'active' => module()->id == "landingElement",
             'items' => [
                 [
-                    'label' => translate("Header"),
+                    'label' => translate("Site Config"),
                     'url' => ['/admin/landingElement/header/form'],
                     'icon' => 'ri-dashboard-2-line',
                     'active' => controller()->id == "header",
@@ -36,7 +36,7 @@ class LandingElementMenu
 
                 ],
                 [
-                    'label' => translate("Services Tile"),
+                    'label' => translate("Services Title"),
                     'url' => ['/admin/landingElement/service-title/form'],
                     'icon' => 'ri-dashboard-2-line',
                     'active' => controller()->id == "service-title",
@@ -54,7 +54,7 @@ class LandingElementMenu
                     'active' => controller()->id == "create-title",
                 ],
                 [
-                    'label' => translate("Partner"),
+                    'label' => translate("Partners"),
                     'url' => ['/admin/landingElement/partner'],
                     'icon' => 'ri-dashboard-2-line',
                     'active' => controller()->id == "partner",
