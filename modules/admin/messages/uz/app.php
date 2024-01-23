@@ -83,4 +83,6 @@ return [
     "Header Title" => "Asosiy sahifa sarlavhasi",
     "Header Title Settings" => "Asosiy sahifa sarlavhasi sozlash",
     "Site Config" => "Sayt sozlanmasi",
+    "Design" => "Dizayn",
+    "Structure" => "Tuzilish",
 ];

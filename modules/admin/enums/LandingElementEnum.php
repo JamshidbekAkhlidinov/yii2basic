@@ -26,6 +26,9 @@ interface LandingElementEnum
 
     public const TEAM = 20000;
 
+    public const DESIGN = 22000;
+    public const STRUCTURE = 30000;
+
     public const MULTIPLE_ENUMS = [
         self::SERVICE,
         self::QUESTION,

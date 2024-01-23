@@ -11,6 +11,11 @@ $selector = new LandingElementSelector();
 $headerTitle = $selector->getElement(LandingElementEnum::HEADER_TITLE);
 $serviceTitle = $selector->getElement(LandingElementEnum::SERVICE_TITLE);
 $createTitle = $selector->getElement(LandingElementEnum::CREATE_TITLE);
+$projectDesign = $selector->getElement(LandingElementEnum::DESIGN);
+$projectDesignDescription = explode("\n", $projectDesign->description);
+$projectStructure = $selector->getElement(LandingElementEnum::STRUCTURE);
+$projectStructureDescription = explode("\n", $projectStructure->description);
+
 
 $this->title = 'My Yii Application';
 ?>
@@ -376,83 +381,33 @@ $this->title = 'My Yii Application';
         <div class="row align-items-center gy-4">
             <div class="col-lg-6 order-2 order-lg-1">
                 <div class="text-muted">
-                    <h5 class="fs-12 text-uppercase text-success">Design</h5>
-                    <h4 class="mb-3">Well Designed Dashboards</h4>
-                    <p class="mb-4 ff-secondary">Quality Dashboards (QD) is a condition-specific, actionable web-based application for quality reporting and population management that is integrated into the Electronic Health Record (EHR).</p>
+                    <h5 class="fs-12 text-uppercase text-success"><?= translate("Design") ?></h5>
+                    <h4 class="mb-3"><?= $projectDesign->title ?></h4>
+                    <p class="mb-4 ff-secondary"><?= $projectDesign->sub_text ?></p>
 
                     <div class="row">
-                        <div class="col-sm-5">
-                            <div class="vstack gap-2">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-2">
-                                        <div class="avatar-xs icon-effect">
-                                            <div class="avatar-title bg-transparent text-success rounded-circle h2">
-                                                <i class="ri-check-fill"></i>
+                        <?php foreach ($projectDesignDescription as $descriptionItem): ?>
+                            <div class="col-sm-5">
+                                <div class="vstack gap-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 me-2">
+                                                <div class="avatar-xs icon-effect">
+                                                    <div class="avatar-title bg-transparent text-success rounded-circle h2">
+                                                        <i class="ri-check-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h5 class="fs-14 mb-0"><?= $descriptionItem ?></h5>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <h5 class="fs-14 mb-0">Ecommerce</h5>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-2">
-                                        <div class="avatar-xs icon-effect">
-                                            <div class="avatar-title bg-transparent text-success rounded-circle h2">
-                                                <i class="ri-check-fill"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <h5 class="fs-14 mb-0">Analytics</h5>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-2">
-                                        <div class="avatar-xs icon-effect">
-                                            <div class="avatar-title bg-transparent text-success rounded-circle h2">
-                                                <i class="ri-check-fill"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <h5 class="fs-14 mb-0">CRM</h5>
-                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-5">
-                            <div class="vstack gap-2">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-2">
-                                        <div class="avatar-xs icon-effect">
-                                            <div class="avatar-title bg-transparent text-success rounded-circle h2">
-                                                <i class="ri-check-fill"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <h5 class="fs-14 mb-0">Crypto</h5>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-2">
-                                        <div class="avatar-xs icon-effect">
-                                            <div class="avatar-title bg-transparent text-success rounded-circle h2">
-                                                <i class="ri-check-fill"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <h5 class="fs-14 mb-0">Projects</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
 
                     <div class="mt-4">
-                        <a href="index.html" class="btn btn-primary">Learn More <i class="ri-arrow-right-line align-middle ms-1"></i></a>
+                        <a href="<?= $projectDesign->url ?>" class="btn btn-primary"><?= translate("Learn More") ?> <i class="ri-arrow-right-line align-middle ms-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -473,48 +428,26 @@ $this->title = 'My Yii Application';
             </div>
             <div class="col-lg-6">
                 <div class="text-muted ps-lg-5">
-                    <h5 class="fs-12 text-uppercase text-success">structure</h5>
-                    <h4 class="mb-3">Well Documented</h4>
-                    <p class="mb-4">used to describe something that is known about or known to be true because there are many documents that describe it, prove it, etc.</p>
+                    <h5 class="fs-12 text-uppercase text-success"><?= translate("Structure") ?></h5>
+                    <h4 class="mb-3"><?= $projectStructure->title ?></h4>
+                    <p class="mb-4"><?= $projectStructure->sub_text ?></p>
 
-                    <div class="vstack gap-2">
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-2">
-                                <div class="avatar-xs icon-effect">
-                                    <div class="avatar-title bg-transparent text-success rounded-circle h2">
-                                        <i class="ri-check-fill"></i>
+                    <?php foreach ($projectStructureDescription as $descriptionItem) : ?>
+                        <div class="vstack gap-2">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0 me-2">
+                                    <div class="avatar-xs icon-effect">
+                                        <div class="avatar-title bg-transparent text-success rounded-circle h2">
+                                            <i class="ri-check-fill"></i>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="flex-grow-1">
-                                <p class="mb-0">Dynamic Conetnt</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-2">
-                                <div class="avatar-xs icon-effect">
-                                    <div class="avatar-title bg-transparent text-success rounded-circle h2">
-                                        <i class="ri-check-fill"></i>
-                                    </div>
+                                <div class="flex-grow-1">
+                                    <p class="mb-0"><?= $descriptionItem ?></p>
                                 </div>
                             </div>
-                            <div class="flex-grow-1">
-                                <p class="mb-0">Setup plugin's information.</p>
-                            </div>
                         </div>
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-2">
-                                <div class="avatar-xs icon-effect">
-                                    <div class="avatar-title bg-transparent text-success rounded-circle h2">
-                                        <i class="ri-check-fill"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1">
-                                <p class="mb-0">Themes customization information</p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
             <!-- end col -->
