@@ -21,7 +21,9 @@ class FrontendAsset extends \yii\web\AssetBundle
         "js/pages/plugins/lord-icon-2.1.0.js",
         //"js/plugins.js",
         "libs/swiper/swiper-bundle.min.js",
-        "js/pages/landing.init.js"
+        "js/pages/landing.init.js",
+        "libs/particles.js/particles.js",
+        "js/pages/particles.app.js"
     ];
     public $depends = [
         'yii\web\YiiAsset',

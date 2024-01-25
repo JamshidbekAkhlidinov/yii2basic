@@ -56,7 +56,7 @@ $this->title = $header->title;
     <nav class="navbar navbar-expand-lg navbar-landing fixed-top" id="navbar">
         <div class="container">
             <a class="navbar-brand" href="<?= Url::home() ?>">
-                <img src="<?=$header->files?>" class="card-logo card-logo-dark" alt="logo dark" height="40">
+                <img src="<?= $header->files ?>" class="card-logo card-logo-dark" alt="logo dark" height="40">
                 <img src="/images/logo-light.png" class="card-logo card-logo-light" alt="logo light" height="17">
             </a>
             <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
@@ -90,7 +90,7 @@ $this->title = $header->title;
                         <a class="nav-link" href="#contact"><?= translate("Contact") ?></a>
                     </li>
                     <li>
-                        <?= LanguageSwitcherWidget::widget()?>
+                        <?= LanguageSwitcherWidget::widget() ?>
                     </li>
                 </ul>
 
@@ -153,12 +153,12 @@ $this->title = $header->title;
                 <div class="col-lg-4 mt-4">
                     <div>
                         <div>
-                            <img src="<?=$header->files?>" alt="logo light" height="17">
+                            <img src="<?= $header->files ?>" alt="logo light" height="17">
                         </div>
                         <div class="mt-4 fs-13">
-                            <p><?=$header->title?></p>
+                            <p><?= $header->title ?></p>
                             <p class="ff-secondary">
-                                <?=$header->description?>
+                                <?= $header->description ?>
                             </p>
                         </div>
                     </div>
@@ -209,7 +209,14 @@ $this->title = $header->title;
                     <div>
                         <p class="copy-rights mb-0">
                             <script> document.write(new Date().getFullYear()) </script>
-                            © Velzon - Themesbrand
+                            © <?= Html::a(
+                                "ustadev.uz",
+                                "https://ustadev.uz",
+                                [
+                                    'class' => 'text-white',
+                                    'target' => '_blank',
+                                ]
+                            ) ?>
                         </p>
                     </div>
                 </div>

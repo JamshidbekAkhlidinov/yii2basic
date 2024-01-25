@@ -15,7 +15,16 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 ?>
 <?php $this->beginPage() ?>
 <!doctype html>
-<html lang="<?= Yii::$app->language ?>" class="h-100">
+<html
+        lang="<?= Yii::$app->language ?>"
+        data-layout="vertical"
+        data-topbar="light"
+        data-sidebar="dark"
+        data-sidebar-size="lg"
+        data-sidebar-image="none"
+        data-preloader="disable"
+>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -24,7 +33,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbar-example">
 <?php $this->beginBody() ?>
 
 
