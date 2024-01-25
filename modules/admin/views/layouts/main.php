@@ -30,12 +30,23 @@ $this->registerMetaTag(['name' => 'description', 'content' => $this->params['met
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
 $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii::getAlias('@web/favicon.ico')]);
 
+
+
+
+
 ?>
+
 
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= app()->language ?>" data-layout="vertical" data-topbar="light" data-sidebar="dark"
-      data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
+<html lang="<?= app()->language ?>"
+      data-layout="vertical"
+      data-topbar="light"
+      data-sidebar="dark"
+      data-sidebar-size="lg"
+      data-sidebar-image="none"
+      data-preloader="disable"
+>
 
 <head>
     <meta charset="utf-8"/>
