@@ -77,6 +77,12 @@ class LandingElementMenu
                     'icon' => 'ri-dashboard-2-line',
                     'active' => controller()->id == "question",
                 ],
+                [
+                    'label' => translate("Contact"),
+                    'url' => ['/admin/landingElement/contact/form'],
+                    'icon' => 'ri-dashboard-2-line',
+                    'active' => controller()->id == "contact",
+                ],
             ],
         ];
     }

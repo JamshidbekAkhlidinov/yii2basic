@@ -29,7 +29,7 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
     <div class="row g-4">
         <div class="col-auto">
                 <div class="avatar-lg">
-                    <img src="<?= user()->identity->userProfile->avatar_path ?>" alt="user-img" class="img-thumbnail rounded-circle avatar-lg">
+                    <img src="<?= user()->identity->userProfile->avatar_path ?>" alt="user-img" class="img-thumbnail rounded-circle avatar-lg" style="object-fit: cover">
                 </div>
         </div>
         <!--end col-->
