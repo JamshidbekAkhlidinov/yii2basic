@@ -66,36 +66,13 @@ $this->title = 'My Yii Application';
                     <!-- Swiper -->
                     <div class="swiper trusted-client-slider mt-sm-5 mt-4 mb-sm-5 mb-4" dir="ltr">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="client-images">
-                                    <img src="/images/clients/amazon.svg" alt="client-img" class="mx-auto img-fluid d-block">
+                            <?php foreach ($selector->getElements(LandingElementEnum::PARTNER) as $element): ?>
+                                <div class="swiper-slide">
+                                    <div class="client-images">
+                                        <img src="<?=$element->files?>" alt="client-img" class="mx-auto img-fluid d-block">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="client-images">
-                                    <img src="/images/clients/walmart.svg" alt="client-img" class="mx-auto img-fluid d-block">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="client-images">
-                                    <img src="/images/clients/lenovo.svg" alt="client-img" class="mx-auto img-fluid d-block">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="client-images">
-                                    <img src="/images/clients/paypal.svg" alt="client-img" class="mx-auto img-fluid d-block">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="client-images">
-                                    <img src="/images/clients/shopify.svg" alt="client-img" class="mx-auto img-fluid d-block">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="client-images">
-                                    <img src="/images/clients/verizon.svg" alt="client-img" class="mx-auto img-fluid d-block">
-                                </div>
-                            </div>
+                            <?php endforeach;?>
                         </div>
                     </div>
                 </div>
