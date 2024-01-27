@@ -71,6 +71,12 @@ class LandingElementMenu
                     'icon' => 'ri-dashboard-2-line',
                     'active' => controller()->id == "project",
                 ],
+                [
+                    'label' => translate("Question"),
+                    'url' => ['/admin/landingElement/question/index'],
+                    'icon' => 'ri-dashboard-2-line',
+                    'active' => controller()->id == "question",
+                ],
             ],
         ];
     }

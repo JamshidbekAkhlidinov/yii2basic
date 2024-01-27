@@ -63,6 +63,9 @@ $this->registerJs($js, \yii\web\View::POS_END);
             </div>
             <div class="col-6">
                 <div>
+                    <?php echo $form->field($formModel, 'icon') ?>
+                </div>
+                <div>
                     <?php echo $form->field($formModel, 'sub_text')->textarea(['rows' => 3]); ?>
                 </div>
                 <div class="d-flex flex-column">
@@ -100,6 +103,9 @@ $this->registerJs($js, \yii\web\View::POS_END);
                 ?>
             </div>
             <div class="col-6">
+                <div>
+                    <?php echo $form->field($formModel, 'icon2') ?>
+                </div>
                 <div>
                     <?php echo $form->field($formModel, 'sub_text2')->textarea(['rows' => 3]); ?>
                 </div>
