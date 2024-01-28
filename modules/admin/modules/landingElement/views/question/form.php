@@ -26,7 +26,7 @@ params()['breadcrumbs'][] = $this->title;
         $form = ActiveForm::begin();
 
         echo $form->field($formModel, 'title');
-        echo $form->field($formModel, 'description');
+        echo $form->field($formModel, 'description')->textarea(['rows' => 5]);
 
         echo Html::submitButton(
             translate("Save"),

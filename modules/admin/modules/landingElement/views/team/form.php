@@ -29,58 +29,64 @@ JS;
 $this->registerJs($js, \yii\web\View::POS_END);
 ?>
 
-<div>
+<div class="card">
         <?php $form = ActiveForm::begin(); ?>
 
-        <div class="row">
-            <div class="col-md-6">
-                <?= $form->field($formModel, 'full_name') ?>
-            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <?= $form->field($formModel, 'full_name') ?>
+                    </div>
 
-            <div class="col-md-6">
-                <?= $form->field($formModel, 'level'); ?>
-            </div>
+                    <div class="col-md-6">
+                        <?= $form->field($formModel, 'level'); ?>
+                    </div>
 
-            <div class="col-md-6">
-                <?= $form->field($formModel, 'email'); ?>
-            </div>
+                    <div class="col-md-6">
+                        <?= $form->field($formModel, 'email'); ?>
+                    </div>
 
-            <div class="col-md-3">
-                <?= $form->field($formModel, 'avatar')->widget(
-                    InputFile::class,
-                    [
-                        'clientRoute' => '/admin/file/default/input',
-                        'options' => [
-                            'id' => 'team_member_avatar_input',
-                        ]
-                    ]
-                ); ?>
-            </div>
-            <div class="col-md-3">
-                <div class="avatar mx-auto bg-white">
-                    <?= Html::img(
-                        $formModel->element->isNewRecord ?
-                            Yii::getAlias('@web/images/avatar.jpg') :
-                            $formModel->avatar,
-                        [
-                            'width' => 100,
-                            'id' => "team_member_avatar",
-                            'class' => 'rounded-circle avatar-lg img-fluid',
-                            'style' => [
-                                'object-fit' => 'cover'
+                    <div class="col-md-3">
+                        <?= $form->field($formModel, 'avatar')->widget(
+                            InputFile::class,
+                            [
+                                'clientRoute' => '/admin/file/default/input',
+                                'options' => [
+                                    'id' => 'team_member_avatar_input',
+                                ]
                             ]
-                        ]
+                        ); ?>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="avatar mx-auto bg-white">
+                            <?= Html::img(
+                                $formModel->element->isNewRecord ?
+                                    Yii::getAlias('@web/images/avatar.jpg') :
+                                    $formModel->avatar,
+                                [
+                                    'width' => 100,
+                                    'id' => "team_member_avatar",
+                                    'class' => 'rounded-circle avatar-lg img-fluid',
+                                    'style' => [
+                                        'object-fit' => 'cover'
+                                    ]
+                                ]
+                            ); ?>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <?= $form->field($formModel, 'statistic')->textarea(['rows' => 3]); ?>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <?= Html::submitButton(
+                        translate("Save"),
+                        ['class' => 'btn btn-primary']
                     ); ?>
                 </div>
             </div>
-        </div>
-
-        <div class="card-footer">
-            <?= Html::submitButton(
-                translate("Save"),
-                ['class' => 'btn btn-primary']
-            ); ?>
-        </div>
 
         <?php ActiveForm::end(); ?>
 </div>

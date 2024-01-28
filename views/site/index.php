@@ -18,6 +18,9 @@ $projectStructureDescription = explode("\n", $projectStructure->description);
 $contactTitle = $selector->getElement(LandingElementEnum::CONTACT);
 $contactDescription = explode("\n", $contactTitle->description);
 $contactValue = explode("\n", $contactTitle->value);
+$widgetStatics = $selector->getElement(LandingElementEnum::WIDGETS);
+$widgetItem = explode("\n", $widgetStatics->description);
+
 
 
 $this->title = 'My Yii Application';
@@ -74,42 +77,14 @@ $this->title = 'My Yii Application';
                     <!-- Swiper -->
                     <div class="swiper trusted-client-slider mt-sm-5 mt-4 mb-sm-5 mb-4" dir="ltr">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
+                            <?php foreach ($partnerLogo = $selector->getElements(LandingElementEnum::PARTNER) as $partnerItem) : ?>
+                                <div class="swiper-slide">
                                 <div class="client-images">
-                                    <img src="/images/clients/amazon.svg" alt="client-img"
+                                    <img src="<?= $partnerItem->files ?>" alt="client-img"
                                          class="mx-auto img-fluid d-block">
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="client-images">
-                                    <img src="/images/clients/walmart.svg" alt="client-img"
-                                         class="mx-auto img-fluid d-block">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="client-images">
-                                    <img src="/images/clients/lenovo.svg" alt="client-img"
-                                         class="mx-auto img-fluid d-block">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="client-images">
-                                    <img src="/images/clients/paypal.svg" alt="client-img"
-                                         class="mx-auto img-fluid d-block">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="client-images">
-                                    <img src="/images/clients/shopify.svg" alt="client-img"
-                                         class="mx-auto img-fluid d-block">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="client-images">
-                                    <img src="/images/clients/verizon.svg" alt="client-img"
-                                         class="mx-auto img-fluid d-block">
-                                </div>
-                            </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
@@ -137,196 +112,27 @@ $this->title = 'My Yii Application';
         <!-- end row -->
 
         <div class="row g-3">
-            <div class="col-lg-4">
+            <?php foreach ($serviceItems = $selector->getElements(LandingElementEnum::SERVICE) as $Item) : ?>
+                <div class="col-lg-4">
                 <div class="d-flex p-3">
                     <div class="flex-shrink-0 me-3">
                         <div class="avatar-sm icon-effect">
                             <div class="avatar-title bg-transparent text-success rounded-circle">
-                                <i class="ri-pencil-ruler-2-line fs-36"></i>
+                                <img style="width: 50px" src="<?= $Item->files ?>">
                             </div>
                         </div>
                     </div>
                     <div class="flex-grow-1">
-                        <h5 class="fs-18">Creative Design</h5>
-                        <p class="text-muted my-3 ff-secondary">The creative design includes designs that are unique,
-                            effective and memorable.</p>
+                        <h5 class="fs-18"><?= $Item->title ?></h5>
+                        <p class="text-muted my-3 ff-secondary"><?= $Item->description ?></p>
                         <div>
-                            <a href="#" class="fs-13 fw-medium">Learn More <i
+                            <a href="<?= $Item->url ?>" class="fs-13 fw-medium">Learn More <i
                                         class="ri-arrow-right-s-line align-bottom"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- end col -->
-            <div class="col-lg-4">
-                <div class="d-flex p-3">
-                    <div class="flex-shrink-0 me-3">
-                        <div class="avatar-sm icon-effect">
-                            <div class="avatar-title bg-transparent text-success rounded-circle">
-                                <i class="ri-palette-line fs-36"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-grow-1">
-                        <h5 class="fs-18">Unlimited Colors</h5>
-                        <p class="text-muted my-3 ff-secondary">The collection of rules and guidelines which designers
-                            use to communicate with users through appealing.</p>
-                        <div>
-                            <a href="#" class="fs-13 fw-medium">Learn More <i
-                                        class="ri-arrow-right-s-line align-bottom"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end col -->
-            <div class="col-lg-4">
-                <div class="d-flex p-3">
-                    <div class="flex-shrink-0 me-3">
-                        <div class="avatar-sm icon-effect">
-                            <div class="avatar-title bg-transparent text-success rounded-circle">
-                                <i class="ri-lightbulb-flash-line fs-36"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-grow-1">
-                        <h5 class="fs-18">Strategy Solutions</h5>
-                        <p class="text-muted my-3 ff-secondary">Business development firm that provides strategic
-                            planning, market research services and project.</p>
-                        <div>
-                            <a href="#" class="fs-13 fw-medium">Learn More <i
-                                        class="ri-arrow-right-s-line align-bottom"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end col -->
-            <div class="col-lg-4">
-                <div class="d-flex p-3">
-                    <div class="flex-shrink-0 me-3">
-                        <div class="avatar-sm icon-effect">
-                            <div class="avatar-title bg-transparent text-success rounded-circle">
-                                <i class="ri-customer-service-line fs-36"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-grow-1">
-                        <h5 class="fs-18">Awesome Support</h5>
-                        <p class="text-muted my-3 ff-secondary">Awesome Support is the most versatile and feature-rich
-                            support plugin for all version.</p>
-                        <div>
-                            <a href="#" class="fs-13 fw-medium">Learn More <i
-                                        class="ri-arrow-right-s-line align-bottom"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end col -->
-            <div class="col-lg-4">
-                <div class="d-flex p-3">
-                    <div class="flex-shrink-0 me-3">
-                        <div class="avatar-sm icon-effect">
-                            <div class="avatar-title bg-transparent text-success rounded-circle">
-                                <i class="ri-stack-line fs-36"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-grow-1">
-                        <h5 class="fs-18">Truly Multipurpose</h5>
-                        <p class="text-muted my-3 ff-secondary">You usually get a broad range of options to play with.
-                            This enables you to use a single theme across multiple.</p>
-                        <div>
-                            <a href="#" class="fs-13 fw-medium">Learn More <i
-                                        class="ri-arrow-right-s-line align-bottom"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end col -->
-            <div class="col-lg-4">
-                <div class="d-flex p-3">
-                    <div class="flex-shrink-0 me-3">
-                        <div class="avatar-sm icon-effect">
-                            <div class="avatar-title bg-transparent text-success rounded-circle">
-                                <i class="ri-settings-2-line fs-36"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-grow-1">
-                        <h5 class="fs-18">Easy to customize</h5>
-                        <p class="text-muted my-3 ff-secondary">Personalise your own website, no matter what theme and
-                            what customization options.</p>
-                        <div>
-                            <a href="#" class="fs-13 fw-medium">Learn More <i
-                                        class="ri-arrow-right-s-line align-bottom"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end col -->
-
-            <div class="col-lg-4">
-                <div class="d-flex p-3">
-                    <div class="flex-shrink-0 me-3">
-                        <div class="avatar-sm icon-effect">
-                            <div class="avatar-title bg-transparent text-success rounded-circle">
-                                <i class="ri-slideshow-line fs-36"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-grow-1">
-                        <h5 class="fs-18">Responsive & Clean Design</h5>
-                        <p class="text-muted my-3 ff-secondary">Responsive design is a graphic user interface (GUI)
-                            design approach used to create content.</p>
-                        <div>
-                            <a href="#" class="fs-13 fw-medium">Learn More <i
-                                        class="ri-arrow-right-s-line align-bottom"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end col -->
-            <div class="col-lg-4">
-                <div class="d-flex p-3">
-                    <div class="flex-shrink-0 me-3">
-                        <div class="avatar-sm icon-effect">
-                            <div class="avatar-title bg-transparent text-success rounded-circle">
-                                <i class="ri-google-fill fs-36"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-grow-1">
-                        <h5 class="fs-18">Google Font Collection</h5>
-                        <p class="text-muted my-3 ff-secondary">Google Fonts is a collection of 915 fonts, all available
-                            to use for free on your website.</p>
-                        <div>
-                            <a href="#" class="fs-13 fw-medium">Learn More <i
-                                        class="ri-arrow-right-s-line align-bottom"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end col -->
-            <div class="col-lg-4">
-                <div class="d-flex p-3">
-                    <div class="flex-shrink-0 me-3">
-                        <div class="avatar-sm icon-effect">
-                            <div class="avatar-title bg-transparent text-success rounded-circle">
-                                <i class="ri-briefcase-5-line fs-36"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-grow-1">
-                        <h5 class="fs-18">Top Industry Specialists</h5>
-                        <p class="text-muted my-3 ff-secondary">An industrial specialist works with industrial
-                            operations to ensure that manufacturing facilities work.</p>
-                        <div>
-                            <a href="#" class="fs-13 fw-medium">Learn More <i
-                                        class="ri-arrow-right-s-line align-bottom"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end col -->
+            <?php endforeach; ?>
         </div>
         <!-- end row -->
     </div>
@@ -340,40 +146,30 @@ $this->title = 'My Yii Application';
         <div class="row align-items-center gy-4">
             <div class="col-lg-6 col-sm-7 mx-auto">
                 <div>
-                    <img src="/images/landing/features/img-1.png" alt="" class="img-fluid mx-auto">
+                    <img src="<?= $widgetStatics->files ?>" alt="" class="img-fluid mx-auto">
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="text-muted">
                     <div class="avatar-sm icon-effect mb-4">
                         <div class="avatar-title bg-transparent rounded-circle text-success h1">
-                            <i class="ri-collage-line fs-36"></i>
+                            <img src="<?= $widgetStatics->icon ?>" alt="..." style="width: 40px">
                         </div>
                     </div>
-                    <h3 class="mb-3 fs-20">Huge collection of widgets</h3>
-                    <p class="mb-4 ff-secondary fs-16">Collection widgets specialize in displaying many elements of the
-                        same type, such as a collection of pictures from a collection of articles from a news app or a
-                        collection of messages from a communication app.</p>
+                    <h3 class="mb-3 fs-20"><?= $widgetStatics->title ?></h3>
+                    <p class="mb-4 ff-secondary fs-16"><?= $widgetStatics->sub_text ?></p>
 
                     <div class="row pt-3">
+                        <?php foreach ($widgetItem as $item) :
+                            $widgetItemArray = explode(":", $item)
+                        ?>
                         <div class="col-3">
                             <div class="text-center">
-                                <h4>5</h4>
-                                <p>Dashboards</p>
+                                <h4><?= $widgetItemArray[1] ?? "" ?></h4>
+                                <p><?= $widgetItemArray[0] ?? "" ?></p>
                             </div>
                         </div>
-                        <div class="col-3">
-                            <div class="text-center">
-                                <h4>150+</h4>
-                                <p>Pages</p>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="text-center">
-                                <h4>7+</h4>
-                                <p>Functional Apps</p>
-                            </div>
-                        </div>
+                        <?php endforeach;?>
                     </div>
                 </div>
             </div>
@@ -874,78 +670,23 @@ $this->title = 'My Yii Application';
                 </div>
                 <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box"
                      id="genques-accordion">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="genques-headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#genques-collapseOne" aria-expanded="true"
-                                    aria-controls="genques-collapseOne">
-                                What is the purpose of using themes ?
-                            </button>
-                        </h2>
-                        <div id="genques-collapseOne" class="accordion-collapse collapse show"
-                             aria-labelledby="genques-headingOne" data-bs-parent="#genques-accordion">
-                            <div class="accordion-body ff-secondary">
-                                A theme is a set of colors, fonts, effects, and more that can be applied to your entire
-                                presentation to give it a
-                                consistent, professional look. You've already been using a theme, even if you didn't
-                                know it: the default Office theme, which consists.
+                    <?php foreach ($question = $selector->getElements(LandingElementEnum::QUESTION) as $Itam) : ?>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="genques-headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#genques-collapseFour" aria-expanded="false"
+                                        aria-controls="genques-collapseFour">
+                                    <?= $Itam->title ?>
+                                </button>
+                            </h2>
+                            <div id="genques-collapseFour" class="accordion-collapse collapse"
+                                 aria-labelledby="genques-headingFour" data-bs-parent="#genques-accordion">
+                                <div class="accordion-body ff-secondary">
+                                    <?= $Itam->description ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="genques-headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#genques-collapseTwo" aria-expanded="false"
-                                    aria-controls="genques-collapseTwo">
-                                Can a theme have more than one theme?
-                            </button>
-                        </h2>
-                        <div id="genques-collapseTwo" class="accordion-collapse collapse"
-                             aria-labelledby="genques-headingTwo" data-bs-parent="#genques-accordion">
-                            <div class="accordion-body ff-secondary">
-                                A story can have as many themes as the reader can identify based on recurring patterns
-                                and parallels within the story
-                                itself. In looking at ways to separate themes into a hierarchy, we might find it useful
-                                to follow the example of a single book.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="genques-headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#genques-collapseThree" aria-expanded="false"
-                                    aria-controls="genques-collapseThree">
-                                What are theme features?
-                            </button>
-                        </h2>
-                        <div id="genques-collapseThree" class="accordion-collapse collapse"
-                             aria-labelledby="genques-headingThree" data-bs-parent="#genques-accordion">
-                            <div class="accordion-body ff-secondary">
-                                Theme features is a set of specific functionality that may be enabled by theme authors.
-                                Themes must register each
-                                individual Theme Feature that the author wishes to support. Theme support functions
-                                should be called in the theme's functions.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="genques-headingFour">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#genques-collapseFour" aria-expanded="false"
-                                    aria-controls="genques-collapseFour">
-                                What is simple theme?
-                            </button>
-                        </h2>
-                        <div id="genques-collapseFour" class="accordion-collapse collapse"
-                             aria-labelledby="genques-headingFour" data-bs-parent="#genques-accordion">
-                            <div class="accordion-body ff-secondary">
-                                Simple is a free WordPress theme, by Themify, built exactly what it is named for:
-                                simplicity. Immediately upgrade the
-                                quality of your WordPress site with the simple theme To use the built-in Chrome theme
-                                editor.
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
                 <!--end accordion-->
 
@@ -1257,12 +998,13 @@ $this->title = 'My Yii Application';
         </div>
         <!-- end row -->
         <div class="row">
+            <?php foreach ($teamMember = $selector->getElements(LandingElementEnum::TEAM) as $teamItem) : ?>
             <div class="col-lg-3 col-sm-6">
                 <div class="card">
                     <div class="card-body text-center p-4">
                         <div class="avatar-xl mx-auto mb-4 position-relative">
-                            <img src="/images/users/avatar-2.jpg" alt="" class="img-fluid rounded-circle">
-                            <a href="apps-mailbox.html"
+                            <img src="<?= $teamItem->files ?>" alt="" class="rounded-circle avatar-xl user-profile-image object-fit-cover">
+                            <a href="<?= $teamItem->url ?>"
                                class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
                                 <div class="avatar-title bg-transparent">
                                     <i class="ri-mail-fill align-bottom"></i>
@@ -1270,159 +1012,14 @@ $this->title = 'My Yii Application';
                             </a>
                         </div>
                         <!-- end card body -->
-                        <h5 class="mb-1"><a href="pages-profile.html" class="text-body">Nancy Martino</a></h5>
-                        <p class="text-muted mb-0 ff-secondary">Team Leader</p>
+                        <h5 class="mb-1"><a href="pages-profile.html" class="text-body"><?= $teamItem->title ?></a></h5>
+                        <p class="text-muted mb-0 ff-secondary"><?= $teamItem->description ?></p>
                     </div>
                 </div>
                 <!-- end card -->
             </div>
-            <!-- end col -->
-            <div class="col-lg-3 col-sm-6">
-                <div class="card">
-                    <div class="card-body text-center p-4">
-                        <div class="avatar-xl mx-auto mb-4 position-relative">
-                            <img src="/images/users/avatar-10.jpg" alt="" class="img-fluid rounded-circle">
-                            <a href="apps-mailbox.html"
-                               class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
-                                <div class="avatar-title bg-transparent">
-                                    <i class="ri-mail-fill align-bottom"></i>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- end card body -->
-                        <h5 class="mb-1"><a href="pages-profile.html" class="text-body">Henry Baird</a></h5>
-                        <p class="text-muted mb-0 ff-secondary">Full Stack Developer</p>
-                    </div>
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
-            <div class="col-lg-3 col-sm-6">
-                <div class="card">
-                    <div class="card-body text-center p-4">
-                        <div class="avatar-xl mx-auto mb-4 position-relative">
-                            <img src="/images/users/avatar-3.jpg" alt="" class="img-fluid rounded-circle">
-                            <a href="apps-mailbox.html"
-                               class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
-                                <div class="avatar-title bg-transparent">
-                                    <i class="ri-mail-fill align-bottom"></i>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- end card body -->
-                        <h5 class="mb-1"><a href="pages-profile.html" class="text-body">Frank Hook</a></h5>
-                        <p class="text-muted mb-0 ff-secondary">Project Manager</p>
-                    </div>
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
-            <div class="col-lg-3 col-sm-6">
-                <div class="card">
-                    <div class="card-body text-center p-4">
-                        <div class="avatar-xl mx-auto mb-4 position-relative">
-                            <img src="/images/users/avatar-8.jpg" alt="" class="img-fluid rounded-circle">
-                            <a href="apps-mailbox.html"
-                               class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
-                                <div class="avatar-title bg-transparent">
-                                    <i class="ri-mail-fill align-bottom"></i>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- end card body -->
-                        <h5 class="mb-1"><a href="pages-profile.html" class="text-body">Donald Palmer</a></h5>
-                        <p class="text-muted mb-0 ff-secondary">UI/UX Designer</p>
-                    </div>
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
+            <?php endforeach; ?>
         </div>
-        <!-- end row -->
-        <div class="row">
-            <div class="col-lg-3 col-sm-6">
-                <div class="card">
-                    <div class="card-body text-center p-4">
-                        <div class="avatar-xl mx-auto mb-4 position-relative">
-                            <img src="/images/users/avatar-5.jpg" alt="" class="img-fluid rounded-circle">
-                            <a href="apps-mailbox.html"
-                               class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
-                                <div class="avatar-title bg-transparent">
-                                    <i class="ri-mail-fill align-bottom"></i>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- end card body -->
-                        <h5 class="mb-1"><a href="pages-profile.html" class="text-body">Erica Kernan</a></h5>
-                        <p class="text-muted mb-0 ff-secondary">Web Designer</p>
-                    </div>
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
-            <div class="col-lg-3 col-sm-6">
-                <div class="card">
-                    <div class="card-body text-center p-4">
-                        <div class="avatar-xl mx-auto mb-4 position-relative">
-                            <img src="/images/users/avatar-4.jpg" alt="" class="img-fluid rounded-circle">
-                            <a href="apps-mailbox.html"
-                               class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
-                                <div class="avatar-title bg-transparent">
-                                    <i class="ri-mail-fill align-bottom"></i>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- end card body -->
-                        <h5 class="mb-1"><a href="pages-profile.html" class="text-body">Alexis Clarke</a></h5>
-                        <p class="text-muted mb-0 ff-secondary">Backend Developer</p>
-                    </div>
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
-            <div class="col-lg-3 col-sm-6">
-                <div class="card">
-                    <div class="card-body text-center p-4">
-                        <div class="avatar-xl mx-auto mb-4 position-relative">
-                            <img src="/images/users/avatar-6.jpg" alt="" class="img-fluid rounded-circle">
-                            <a href="apps-mailbox.html"
-                               class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
-                                <div class="avatar-title bg-transparent">
-                                    <i class="ri-mail-fill align-bottom"></i>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- end card body -->
-                        <h5 class="mb-1"><a href="pages-profile.html" class="text-body">Marie Ward</a></h5>
-                        <p class="text-muted mb-0 ff-secondary">Full Stack Developer</p>
-                    </div>
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
-
-            <div class="col-lg-3 col-sm-6">
-                <div class="card">
-                    <div class="card-body text-center p-4">
-                        <div class="avatar-xl mx-auto mb-4 position-relative">
-                            <img src="/images/users/avatar-7.jpg" alt="" class="img-fluid rounded-circle">
-                            <a href="apps-mailbox.html"
-                               class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
-                                <div class="avatar-title bg-transparent">
-                                    <i class="ri-mail-fill align-bottom"></i>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- end card body -->
-                        <h5 class="mb-1"><a href="pages-profile.html" class="text-body">Jack Gough</a></h5>
-                        <p class="text-muted mb-0 ff-secondary">React Js Developer</p>
-                    </div>
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end col -->
-        </div>
-        <!-- end row -->
         <div class="row">
             <div class="col-lg-12">
                 <div class="text-center mt-2">

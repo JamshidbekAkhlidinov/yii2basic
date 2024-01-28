@@ -25,11 +25,13 @@ class TeamForm extends LandingModel
 
     public $email;
 
+    public $statistic;
+
     public function rules()
     {
         return [
             [['avatar', 'full_name', 'email'], 'required'],
-            [['level'], 'string'],
+            [['level', 'statistic'], 'string'],
         ];
     }
 
@@ -48,6 +50,7 @@ class TeamForm extends LandingModel
                     'level' => 'description',
                     'avatar' => 'files',
                     'email' => 'url',
+                    'statistic' => 'value',
                 ]
             ],
         ];
@@ -60,6 +63,7 @@ class TeamForm extends LandingModel
             'full_name' => translate('Full Name'),
             'level' => translate('Level'),
             'email' => translate('Email'),
+            'statistic' => translate('Statistic'),
         ];
     }
 

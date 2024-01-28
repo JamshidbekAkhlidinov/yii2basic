@@ -9,6 +9,7 @@
 /**
  * @var $dataProvider yii\data\ActiveDataProvider
  * @var $searchModel app\modules\admin\modules\landingElement\search\TeamSearch
+ * @var $models app\modules\admin\modules\landingElement\controllers\TeamController
  * @var $this yii\web\View
  */
 
@@ -25,45 +26,26 @@ params()['breadcrumbs'][] = $this->title;
 <div class="card">
     <div class="card-header d-flex justify-content-between">
         <h2><?= $this->title ?></h2>
-        <?= TeamButtons::create() ?>
+        <?= Html::a(
+            translate("Add Members"),
+            ['team/create'],
+            ['class' => 'btn btn-primary']
+        ) ?>
     </div>
-    <div class="card-body">
-        <?php
-        echo \yii\grid\GridView::widget([
-            'dataProvider' => $dataProvider,
-            'filterModel' => $searchModel,
-            'columns' => [
-                [
-                    'class' => SerialColumn::class,
-                ],
-                [
-                    'attribute' => 'files',
-                    'format' => 'raw',
-                    'value' => static function ($model) {
-                        return Html::img($model->files,
-                            [
-                                'class' => 'rounded-circle avatar-lg user-profile-image',
-                                'style' => [
-                                    'object-fit' => 'cover'
-                                ]
-                            ]);
-                    }
-                ],
-                [
-                    'attribute' => 'title',
-                    'format' => 'raw',
-                    'value' => function ($data) {
-                        return TeamButtons::update($data);
-                    },
-                ],
-                'description',
-                'url',
-                [
-                    'class' => ActionColumn::class,
-                    'template' => '{delete}',
-                ]
-            ]
-        ]);
-        ?>
-    </div>
+</div>
+<div id="teamlist">
+    <?php
+    echo \yii\widgets\ListView::widget([
+        'itemView' => '_item',
+        'dataProvider' => $dataProvider,
+        'itemOptions' => [
+            'tag' => false
+        ],
+        'options' => [
+            'class' => 'team-list grid-view-filter row',
+            'id' => 'team-member-list'
+        ],
+    ])
+
+    ?>
 </div>

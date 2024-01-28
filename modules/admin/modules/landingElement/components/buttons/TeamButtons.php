@@ -10,6 +10,7 @@ namespace app\modules\admin\modules\landingElement\components\buttons;
 
 use app\modules\admin\modules\landingElement\models\LandingElement;
 use app\modules\admin\widgets\modal\ModalWidget;
+use yii\web\NotFoundHttpException;
 
 class TeamButtons
 {
@@ -33,16 +34,17 @@ class TeamButtons
             'button' => [
                 'tag' => 'span',
                 'class' => '',
-                'label' => $model->title,
+                'icon' => icon('ri-pencil-line', ['icon' => 'ri-pencil']),
+                'label' => 'Edit',
                 'options' => [
                     'style' => [
-                        'cursor' => 'pointer'
+                        'cursor' => 'pointer' 
                     ]
                 ]
             ],
             'url' => ['team/update', 'id' => $model->id],
             'footer' => '',
-            'header' => "<h2>" . translate("Service Update Form") . "</h2>"
+            'header' => "<h2>" . translate("Team Update Form") . "</h2>"
         ]);
     }
 

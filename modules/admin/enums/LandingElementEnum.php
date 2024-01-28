@@ -31,6 +31,8 @@ interface LandingElementEnum
 
     public const CONTACT = 40000;
 
+    public const WIDGETS = 50000;
+
     public const MULTIPLE_ENUMS = [
         self::SERVICE,
         self::QUESTION,

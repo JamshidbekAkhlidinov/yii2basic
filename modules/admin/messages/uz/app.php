@@ -85,4 +85,5 @@ return [
     "Site Config" => "Sayt sozlanmasi",
     "Design" => "Dizayn",
     "Structure" => "Tuzilish",
+    "Add Members" => "Qo'shish"
 ];

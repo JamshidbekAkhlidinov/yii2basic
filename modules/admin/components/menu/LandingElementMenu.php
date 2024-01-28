@@ -42,6 +42,12 @@ class LandingElementMenu
                     'active' => controller()->id == "service-title",
                 ],
                 [
+                    'label' => translate("Widgets"),
+                    'url' => ['/admin/landingElement/widgets/form'],
+                    'icon' => 'ri-dashboard-2-line',
+                    'active' => controller()->id == "widgets",
+                ],
+                [
                     'label' => translate("Services"),
                     'url' => ['/admin/landingElement/service'],
                     'icon' => 'ri-dashboard-2-line',
