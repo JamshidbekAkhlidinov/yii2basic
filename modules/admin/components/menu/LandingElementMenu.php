@@ -48,6 +48,12 @@ class LandingElementMenu
                     'active' => controller()->id == "widgets",
                 ],
                 [
+                    'label' => translate("Product"),
+                    'url' => ['/admin/landingElement/product'],
+                    'icon' => 'ri-dashboard-2-line',
+                    'active' => controller()->id == "product",
+                ],
+                [
                     'label' => translate("Services"),
                     'url' => ['/admin/landingElement/service'],
                     'icon' => 'ri-dashboard-2-line',
@@ -76,6 +82,12 @@ class LandingElementMenu
                     'url' => ['/admin/landingElement/project/form'],
                     'icon' => 'ri-dashboard-2-line',
                     'active' => controller()->id == "project",
+                ],
+                [
+                    'label' => translate("Opinions"),
+                    'url' => ['/admin/landingElement/opinion/form'],
+                    'icon' => 'ri-dashboard-2-line',
+                    'active' => controller()->id == "opinion",
                 ],
                 [
                     'label' => translate("Question"),

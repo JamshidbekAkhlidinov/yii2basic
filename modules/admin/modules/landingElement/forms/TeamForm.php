@@ -17,6 +17,8 @@ class TeamForm extends LandingModel
 {
     public LandingElement $element;
 
+    public $header_image;
+
     public $avatar;
 
     public $full_name;
@@ -32,6 +34,7 @@ class TeamForm extends LandingModel
         return [
             [['avatar', 'full_name', 'email'], 'required'],
             [['level', 'statistic'], 'string'],
+            ['header_image', 'safe']
         ];
     }
 
@@ -51,6 +54,7 @@ class TeamForm extends LandingModel
                     'avatar' => 'files',
                     'email' => 'url',
                     'statistic' => 'value',
+                    'header_image' => 'icon'
                 ]
             ],
         ];
@@ -64,6 +68,7 @@ class TeamForm extends LandingModel
             'level' => translate('Level'),
             'email' => translate('Email'),
             'statistic' => translate('Statistic'),
+            'header_image' => translate("Header Image"),
         ];
     }
 

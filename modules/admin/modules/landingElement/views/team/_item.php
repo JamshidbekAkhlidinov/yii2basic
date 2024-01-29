@@ -11,7 +11,7 @@ use yii\bootstrap5\Html;
 
 <div class="col">
     <div class="card team-box">
-        <div class="team-cover"><img src="/images/small/img-9.jpg" alt="" class="img-fluid"></div>
+        <div class="team-cover"><img src="<?= $model->icon ?>" alt="" class="img-fluid"></div>
         <div class="card-body p-4">
             <div class="row align-items-center team-row">
                 <div class="col team-settings">
@@ -24,7 +24,7 @@ use yii\bootstrap5\Html;
                             </div>
                         </div>
                         <div class="col text-end dropdown">
-                            <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="ri-more-fill fs-17"></i> </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li>

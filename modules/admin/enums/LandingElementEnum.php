@@ -33,11 +33,16 @@ interface LandingElementEnum
 
     public const WIDGETS = 50000;
 
+    public const PRODUCT = 5000;
+
+    public const OPINION = 60000;
+
     public const MULTIPLE_ENUMS = [
         self::SERVICE,
         self::QUESTION,
         self::PARTNER,
         self::TEAM,
+        self::PRODUCT,
     ];
 
 

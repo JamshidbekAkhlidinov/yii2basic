@@ -25,6 +25,11 @@ $('#team_member_avatar_input').change(function (e){
     $('#team_member_avatar').attr('src', e.target.value);
     console.log(e.target.value);
 })
+
+$('#header_image_input').change(function (e){
+    $('#header_image').attr('src', e.target.value);
+    console.log(e.target.value);
+})
 JS;
 $this->registerJs($js, \yii\web\View::POS_END);
 ?>
@@ -77,6 +82,30 @@ $this->registerJs($js, \yii\web\View::POS_END);
 
                     <div class="col-md-6">
                         <?= $form->field($formModel, 'statistic')->textarea(['rows' => 3]); ?>
+                    </div>
+
+                    <div class="col-md-3">
+                        <?= $form->field($formModel, 'header_image')->widget(
+                            InputFile::class,
+                            [
+                                'clientRoute' => '/admin/file/default/input',
+                                'options' => [
+                                    'id' => 'header_image_input',
+                                ]
+                            ]
+                        ); ?>
+                    </div>
+
+                    <div class="col-md-3 mt-4">
+                        <?= Html::img($formModel->header_image,
+                            [
+                                'width' => 150,
+                                'id' => "header_image",
+                                'style' => [
+                                    'object-fit' => 'cover'
+                                ]
+                            ]
+                        ) ?>
                     </div>
                 </div>
 
