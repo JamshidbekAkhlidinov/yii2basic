@@ -32,11 +32,14 @@ class ProductForm extends LandingModel
 
     public $order;
 
+    public $chekout;
+
     public function rules()
     {
         return [
             [['icon', 'title', 'url', 'sub_text'], 'required'],
             [['description', 'price', 'value'], 'string'],
+            ['chekout', 'integer']
         ];
     }
 
@@ -58,7 +61,8 @@ class ProductForm extends LandingModel
                     'sub_text' => 'sub_text',
                     'price' => 'created_at',
                     'value' => 'value',
-                    'order' => 'order'
+                    'order' => 'order',
+                    'chekout' => 'icon'
                 ]
             ],
         ];
@@ -75,6 +79,7 @@ class ProductForm extends LandingModel
             'value' => translate("Value"),
             'sub_text' => translate("Type"),
             'order' => translate("Order"),
+            'chekout' => translate("Month or Year"),
         ];
     }
 

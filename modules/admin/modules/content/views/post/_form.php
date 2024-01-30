@@ -83,7 +83,7 @@ $this->registerCss($css);
                         ]
                     ]
                 ) ?>
-                <img src="<?= $model->image ?>" alt="" id="post_image" style="width: 100%">
+                <img src="<?= $model->image ?>" alt="" id="post_image" style="width: 100%; object-fit: cover">
             </div>
 
             <div class="card">

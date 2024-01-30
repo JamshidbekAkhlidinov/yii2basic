@@ -30,16 +30,7 @@ class ServiceTitleForm extends LandingModel
     public function dataRules(): array
     {
         return [
-            [
-                'key' => [
-                    'key' => LandingElementEnum::SERVICE_TITLE,
-                ],
-                'type' => self::TYPE_STRING,
-                'attributes' => [
-                    'title' => 'title',
-                    'description' => 'description',
-                ]
-            ],
+
         ];
     }
 

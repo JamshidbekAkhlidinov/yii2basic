@@ -12,6 +12,7 @@
  */
 
 use alexantr\elfinder\InputFile;
+use app\modules\admin\enums\ProductEnum;
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 
@@ -90,6 +91,21 @@ $this->registerJs($js, \yii\web\View::POS_END);
                 </div>
                 <div class="col-md-6">
                     <?php echo $form->field($formModel, 'value')->textarea(['rows' => 5]); ?>
+                </div>
+
+                <div class="col-md-6">
+                    <?php echo $form->field($formModel, 'chekout')->radioList(
+                        array_map(
+                            function ($label) {
+                                return translate($label);
+                            },
+                            ProductEnum::LABELS
+                        ),
+                        [
+                            'style' => 'display: flex; justify-content: start; gap: 13px;',
+                        ],
+                    ); ?>
+
                 </div>
 
                 <div class="card-footer">

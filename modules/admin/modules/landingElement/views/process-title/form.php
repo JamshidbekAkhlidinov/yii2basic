@@ -7,7 +7,7 @@
  */
 
 /**
- * @var $formModel app\modules\admin\modules\landingElement\forms\ServiceTitleForm
+ * @var $formModel app\modules\admin\modules\landingElement\forms\ProcessTitleForm
  * @var $this yii\web\View
  */
 
@@ -15,26 +15,16 @@ use alexantr\elfinder\InputFile;
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 
-$this->title = translate("Service Title Settings");
+$this->title = translate("Process Title Settings");
 params()['breadcrumbs'][] = ['label' => translate("Landing Element"), 'url' => ['/admin/landingElement']];
 params()['breadcrumbs'][] = $this->title;
-
-$js = <<<JS
-$('#header_title_background_input').change(function (e){
-    $('#header_title_background').attr('src', e.target.value);
-    console.log(e.target.value);
-})
-JS;
-$this->registerJs($js, \yii\web\View::POS_END);
 ?>
-
-<?php $form = ActiveForm::begin(); ?>
 <div class="card" style="margin-top: -10px">
     <div class="card-header d-flex justify-content-between">
-        <h3><?= translate("Service Title Settings") ?></h3>
+        <h3><?= translate("Process Title Settings") ?></h3>
     </div>
 </div>
-
+<?php $form = ActiveForm::begin(); ?>
 <div class="row" style="margin-top: -10px">
     <div class="col">
         <div class="card">
@@ -43,7 +33,7 @@ $this->registerJs($js, \yii\web\View::POS_END);
                 echo $form->field($formModel, 'title');
                 ?>
                 <?php
-                echo $form->field($formModel, 'description')->textarea();
+                echo $form->field($formModel, 'description')->textarea(['rows' => 4]);
                 ?>
                 <?= Html::submitButton(
                         translate("Save"),

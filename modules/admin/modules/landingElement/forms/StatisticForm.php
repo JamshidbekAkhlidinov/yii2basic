@@ -13,20 +13,20 @@ use app\modules\admin\enums\LandingElementEnum;
 use app\modules\admin\modules\landingElement\base\LandingModel;
 use app\modules\admin\modules\landingElement\models\LandingElement;
 
-class OpinionForm extends LandingModel
+class StatisticForm extends LandingModel
 {
     public LandingElement $element;
 
-    public $sub_text;
 
     public $name;
 
     public $description;
 
+
     public function rules()
     {
         return [
-            [['sub_text', 'name'], 'required'],
+            [['name', 'description'], 'required'],
             [['description'], 'string'],
         ];
     }
@@ -40,24 +40,19 @@ class OpinionForm extends LandingModel
     {
         return [
             [
-                'key' => [
-                    'key' => LandingElementEnum::OPINION,
-                ],
                 'type' => self::TYPE_STRING,
                 'attributes' => [
                     'name' => 'title',
                     'description' => 'description',
-                    'sub_text' => 'sub_text',
                 ]
             ],
         ];
     }
 
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
-            'sub_text' => translate('Sub Text'),
-            'title' => translate('Name'),
+            'name' => translate('Name'),
             'description' => translate('Description'),
         ];
     }

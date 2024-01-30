@@ -20,6 +20,9 @@ interface LandingElementEnum
     public const SERVICE = 2000;
     public const SERVICE_TITLE = 2200;
 
+    public const PROCESS_TITLE = 200;
+    public const PROCESS = 300;
+
     public const QUESTION = 3000;
 
     public const PARTNER = 4000;
@@ -37,12 +40,16 @@ interface LandingElementEnum
 
     public const OPINION = 60000;
 
+    public const STATISTIC = 66000;
+
     public const MULTIPLE_ENUMS = [
         self::SERVICE,
         self::QUESTION,
         self::PARTNER,
         self::TEAM,
         self::PRODUCT,
+        self::OPINION,
+        self::STATISTIC,
     ];
 
 

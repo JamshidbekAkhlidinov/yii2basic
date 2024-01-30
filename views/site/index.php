@@ -659,7 +659,7 @@ $this->title = 'My Yii Application';
         <!-- end row -->
 
         <div class="row g-lg-5 g-4">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div class="d-flex align-items-center mb-2">
                     <div class="flex-shrink-0 me-1">
                         <i class="ri-question-line fs-24 align-middle text-success me-1"></i>
@@ -670,118 +670,29 @@ $this->title = 'My Yii Application';
                 </div>
                 <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box"
                      id="genques-accordion">
-                    <?php foreach ($question = $selector->getElements(LandingElementEnum::QUESTION) as $Itam) : ?>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="genques-headingFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#genques-collapseFour" aria-expanded="false"
-                                        aria-controls="genques-collapseFour">
-                                    <?= $Itam->title ?>
-                                </button>
-                            </h2>
-                            <div id="genques-collapseFour" class="accordion-collapse collapse"
-                                 aria-labelledby="genques-headingFour" data-bs-parent="#genques-accordion">
-                                <div class="accordion-body ff-secondary">
-                                    <?= $Itam->description ?>
+                    <div class="row">
+                        <?php foreach ($selector->getElements(LandingElementEnum::QUESTION) as $question) : ?>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="<?= $question->id ?>">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#<?= $question->id ?>-collapse" aria-expanded="false"
+                                            aria-controls="<?= $question->id ?>-collapse">
+                                        <?= $question->title ?>
+                                    </button>
+                                </h2>
+                                <div id="<?= $question->id ?>-collapse" class="accordion-collapse collapse"
+                                     aria-labelledby="<?= $question->id ?>" data-bs-parent="#genques-accordion">
+                                    <div class="accordion-body ff-secondary">
+                                        <?= $question->description ?>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
                 <!--end accordion-->
 
             </div>
-            <!-- end col -->
-            <div class="col-lg-6">
-                <div class="d-flex align-items-center mb-2">
-                    <div class="flex-shrink-0 me-1">
-                        <i class="ri-shield-keyhole-line fs-24 align-middle text-success me-1"></i>
-                    </div>
-                    <div class="flex-grow-1">
-                        <h5 class="mb-0 fw-semibold">Privacy &amp; Security</h5>
-                    </div>
-                </div>
-
-                <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box"
-                     id="privacy-accordion">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="privacy-headingOne">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#privacy-collapseOne" aria-expanded="false"
-                                    aria-controls="privacy-collapseOne">
-                                Does Word have night mode?
-                            </button>
-                        </h2>
-                        <div id="privacy-collapseOne" class="accordion-collapse collapse"
-                             aria-labelledby="privacy-headingOne" data-bs-parent="#privacy-accordion">
-                            <div class="accordion-body ff-secondary">
-                                You can run Microsoft Word in dark mode, which uses a dark color palette to help reduce
-                                eye strain in low light
-                                settings. You can choose to make the document white or black using the Switch Modes
-                                button in the ribbon's View tab.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="privacy-headingTwo">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#privacy-collapseTwo" aria-expanded="true"
-                                    aria-controls="privacy-collapseTwo">
-                                Is theme an opinion?
-                            </button>
-                        </h2>
-                        <div id="privacy-collapseTwo" class="accordion-collapse collapse show"
-                             aria-labelledby="privacy-headingTwo" data-bs-parent="#privacy-accordion">
-                            <div class="accordion-body ff-secondary">
-                                A theme is an opinion the author expresses on the subject, for instance, the author's
-                                dissatisfaction with the narrow
-                                confines of French bourgeois marriage during that period theme is an idea that a writer
-                                repeats.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="privacy-headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#privacy-collapseThree" aria-expanded="false"
-                                    aria-controls="privacy-collapseThree">
-                                How do you develop a theme?
-                            </button>
-                        </h2>
-                        <div id="privacy-collapseThree" class="accordion-collapse collapse"
-                             aria-labelledby="privacy-headingThree" data-bs-parent="#privacy-accordion">
-                            <div class="accordion-body ff-secondary">
-                                A short story, novella, or novel presents a narrative to its reader. Perhaps that
-                                narrative involves mystery, terror,
-                                romance, comedy, or all of the above. These works of fiction may also contain memorable
-                                characters, vivid
-                                world-building, literary devices.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="privacy-headingFour">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#privacy-collapseFour" aria-expanded="false"
-                                    aria-controls="privacy-collapseFour">
-                                Do stories need themes?
-                            </button>
-                        </h2>
-                        <div id="privacy-collapseFour" class="accordion-collapse collapse"
-                             aria-labelledby="privacy-headingFour" data-bs-parent="#privacy-accordion">
-                            <div class="accordion-body ff-secondary">
-                                A story can have as many themes as the reader can identify based on recurring patterns
-                                and parallels within the story
-                                itself. In looking at ways to separate themes into a hierarchy, we might find it useful
-                                to follow the example of a
-                                single book.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end accordion-->
-            </div>
-            <!-- end col -->
         </div>
         <!-- end row -->
     </div>
@@ -804,58 +715,22 @@ $this->title = 'My Yii Application';
                     <!-- Swiper -->
                     <div class="swiper client-review-swiper rounded" dir="ltr">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
+                            <?php foreach ($opinionItems = $selector->getElements(LandingElementEnum::OPINION) as $Item) : ?>
+                                <div class="swiper-slide">
                                 <div class="row justify-content-center">
                                     <div class="col-10">
                                         <div class="text-white-50">
-                                            <p class="fs-20 ff-secondary mb-4">" I am givng 5 stars. Theme is great and
-                                                everyone one stuff everything in theme. Future request should not affect
-                                                current state of theme. "</p>
+                                            <p class="fs-20 ff-secondary mb-4">" <?= $Item->description ?> "</p>
 
                                             <div>
-                                                <h5 class="text-white">gregoriusus</h5>
-                                                <p>- Skote User</p>
+                                                <h5 class="text-white"><?= $Item->title ?></h5>
+                                                <p>- <?= $Item->sub_text ?></p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- end slide -->
-                            <div class="swiper-slide">
-                                <div class="row justify-content-center">
-                                    <div class="col-10">
-                                        <div class="text-white-50">
-                                            <p class="fs-20 ff-secondary mb-4">" Awesome support. Had few issues while
-                                                setting up because of my device, the support team helped me fix them up
-                                                in a day. Everything looks clean and good. Highly recommended! "</p>
-
-                                            <div>
-                                                <h5 class="text-white">GeekyGreenOwl</h5>
-                                                <p>- Skote User</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end slide -->
-                            <div class="swiper-slide">
-                                <div class="row justify-content-center">
-                                    <div class="col-10">
-                                        <div class="text-white-50">
-                                            <p class="fs-20 ff-secondary mb-4">" Amazing template, Redux store and
-                                                components is nicely designed. It's a great start point for an admin
-                                                based project. Clean Code and good documentation. Template is completely
-                                                in React and absolutely no usage of jQuery "</p>
-
-                                            <div>
-                                                <h5 class="text-white">sreeks456</h5>
-                                                <p>- Veltrix User</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end slide -->
+                            <?php endforeach; ?>
                         </div>
                         <div class="swiper-button-next bg-white rounded-circle"></div>
                         <div class="swiper-button-prev bg-white rounded-circle"></div>
@@ -876,36 +751,14 @@ $this->title = 'My Yii Application';
 <section class="py-5 position-relative bg-light">
     <div class="container">
         <div class="row text-center gy-4">
-            <div class="col-lg-3 col-6">
-                <div>
-                    <h2 class="mb-2"><span class="counter-value" data-target="100">0</span>+</h2>
-                    <div class="text-muted">Projects Completed</div>
+            <?php foreach ($stattisticItems = $selector->getElements(LandingElementEnum::STATISTIC) as $statistic) : ?>
+                <div class="col-lg-3 col-6">
+                    <div>
+                        <h2 class="mb-2"><?= $statistic->description ?></h2>
+                        <div class="text-muted"><?= $statistic->title ?></div>
+                    </div>
                 </div>
-            </div>
-            <!-- end col -->
-
-            <div class="col-lg-3 col-6">
-                <div>
-                    <h2 class="mb-2"><span class="counter-value" data-target="24">0</span></h2>
-                    <div class="text-muted">Win Awards</div>
-                </div>
-            </div>
-            <!-- end col -->
-
-            <div class="col-lg-3 col-6">
-                <div>
-                    <h2 class="mb-2"><span class="counter-value" data-target="20.3">0</span>k</h2>
-                    <div class="text-muted">Satisfied Clients</div>
-                </div>
-            </div>
-            <!-- end col -->
-            <div class="col-lg-3 col-6">
-                <div>
-                    <h2 class="mb-2"><span class="counter-value" data-target="50">0</span></h2>
-                    <div class="text-muted">Employees</div>
-                </div>
-            </div>
-            <!-- end col -->
+            <?php endforeach; ?>
         </div>
         <!-- end row -->
     </div>

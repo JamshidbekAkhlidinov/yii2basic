@@ -10,18 +10,18 @@ namespace app\modules\admin\modules\landingElement\controllers;
 
 use app\modules\admin\enums\LandingElementEnum;
 use app\modules\admin\modules\landingElement\base\BaseController;
-use app\modules\admin\modules\landingElement\forms\OpinionForm;
+use app\modules\admin\modules\landingElement\forms\StatisticForm;
 use app\modules\admin\modules\landingElement\models\LandingElement;
-use app\modules\admin\modules\landingElement\search\OpinionSearch;
+use app\modules\admin\modules\landingElement\search\StatisticSearch;
 use Exception;
 use yii\db\StaleObjectException;
 use yii\helpers\Html;
 
-class OpinionController extends BaseController
+class StatisticController extends BaseController
 {
     public function actionIndex()
     {
-        $searchModel = new OpinionSearch();
+        $searchModel = new StatisticSearch();
         $dataProvider = $searchModel->search(app()->request->queryParams);
 
         return $this->render('index', [
@@ -35,7 +35,7 @@ class OpinionController extends BaseController
     {
         return $this->form(
             new LandingElement([
-                'key' => LandingElementEnum::OPINION
+                'key' => LandingElementEnum::STATISTIC
             ])
         );
     }
@@ -52,7 +52,7 @@ class OpinionController extends BaseController
 
     public function form(LandingElement $model)
     {
-        $form = new OpinionForm([
+        $form = new StatisticForm([
             'element' => $model,
         ]);
         if ($form->load(post()) && $form->validate()) {
@@ -62,10 +62,10 @@ class OpinionController extends BaseController
                 Html::errorSummary($form),
             );
             if ($isSave) {
-                return $this->redirect(['opinion/index']);
+                return $this->redirect(['statistic/index']);
             }
         }
-        return $this->render('form', [
+        return $this->renderAjax('form', [
             'formModel' => $form
         ]);
     }
@@ -88,10 +88,10 @@ class OpinionController extends BaseController
     {
         $model = LandingElement::findOne([
             'id' => $id,
-            'key' => LandingElementEnum::OPINION
+            'key' => LandingElementEnum::STATISTIC
         ]);
         if (!$model) {
-            throw new Exception(translate("Service not found"));
+            throw new Exception(translate("Statistic not found"));
         }
         return $model;
     }

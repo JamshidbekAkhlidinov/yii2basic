@@ -10,18 +10,18 @@ namespace app\modules\admin\modules\landingElement\controllers;
 
 use app\modules\admin\enums\LandingElementEnum;
 use app\modules\admin\modules\landingElement\base\BaseController;
-use app\modules\admin\modules\landingElement\forms\OpinionForm;
+use app\modules\admin\modules\landingElement\forms\ProcessForm;
 use app\modules\admin\modules\landingElement\models\LandingElement;
-use app\modules\admin\modules\landingElement\search\OpinionSearch;
+use app\modules\admin\modules\landingElement\search\ProcessSearch;
 use Exception;
 use yii\db\StaleObjectException;
 use yii\helpers\Html;
 
-class OpinionController extends BaseController
+class ProcessController extends BaseController
 {
     public function actionIndex()
     {
-        $searchModel = new OpinionSearch();
+        $searchModel = new ProcessSearch();
         $dataProvider = $searchModel->search(app()->request->queryParams);
 
         return $this->render('index', [
@@ -35,7 +35,7 @@ class OpinionController extends BaseController
     {
         return $this->form(
             new LandingElement([
-                'key' => LandingElementEnum::OPINION
+                'key' => LandingElementEnum::PROCESS
             ])
         );
     }
@@ -52,7 +52,7 @@ class OpinionController extends BaseController
 
     public function form(LandingElement $model)
     {
-        $form = new OpinionForm([
+        $form = new ProcessForm([
             'element' => $model,
         ]);
         if ($form->load(post()) && $form->validate()) {
@@ -62,10 +62,10 @@ class OpinionController extends BaseController
                 Html::errorSummary($form),
             );
             if ($isSave) {
-                return $this->redirect(['opinion/index']);
+                return $this->redirect(['process/index']);
             }
         }
-        return $this->render('form', [
+        return $this->renderAjax('form', [
             'formModel' => $form
         ]);
     }
@@ -88,7 +88,7 @@ class OpinionController extends BaseController
     {
         $model = LandingElement::findOne([
             'id' => $id,
-            'key' => LandingElementEnum::OPINION
+            'key' => LandingElementEnum::PROCESS
         ]);
         if (!$model) {
             throw new Exception(translate("Service not found"));

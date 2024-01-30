@@ -72,6 +72,18 @@ class LandingElementMenu
                     'active' => controller()->id == "partner",
                 ],
                 [
+                    'label' => translate("Process"),
+                    'url' => ['/admin/landingElement/process/index'],
+                    'icon' => 'ri-dashboard-2-line',
+                    'active' => controller()->id == "process",
+                ],
+                [
+                    'label' => translate("Process Title"),
+                    'url' => ['/admin/landingElement/process-title/form'],
+                    'icon' => 'ri-dashboard-2-line',
+                    'active' => controller()->id == "process-title",
+                ],
+                [
                     'label' => translate("Team"),
                     'url' => ['/admin/landingElement/team/index'],
                     'icon' => 'ri-dashboard-2-line',
@@ -85,9 +97,15 @@ class LandingElementMenu
                 ],
                 [
                     'label' => translate("Opinions"),
-                    'url' => ['/admin/landingElement/opinion/form'],
+                    'url' => ['/admin/landingElement/opinion'],
                     'icon' => 'ri-dashboard-2-line',
                     'active' => controller()->id == "opinion",
+                ],
+                [
+                    'label' => translate("Statistic"),
+                    'url' => ['/admin/landingElement/statistic/index'],
+                    'icon' => 'ri-dashboard-2-line',
+                    'active' => controller()->id == "statistic",
                 ],
                 [
                     'label' => translate("Question"),
