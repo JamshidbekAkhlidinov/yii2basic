@@ -36,18 +36,6 @@ class LandingElementMenu
 
                 ],
                 [
-                    'label' => translate("Services Title"),
-                    'url' => ['/admin/landingElement/service-title/form'],
-                    'icon' => 'ri-dashboard-2-line',
-                    'active' => controller()->id == "service-title",
-                ],
-                [
-                    'label' => translate("Widgets"),
-                    'url' => ['/admin/landingElement/widgets/form'],
-                    'icon' => 'ri-dashboard-2-line',
-                    'active' => controller()->id == "widgets",
-                ],
-                [
                     'label' => translate("Product"),
                     'url' => ['/admin/landingElement/product'],
                     'icon' => 'ri-dashboard-2-line',
@@ -58,12 +46,6 @@ class LandingElementMenu
                     'url' => ['/admin/landingElement/service'],
                     'icon' => 'ri-dashboard-2-line',
                     'active' => controller()->id == "service",
-                ],
-                [
-                    'label' => translate("Create Title"),
-                    'url' => ['/admin/landingElement/create-title/form'],
-                    'icon' => 'ri-dashboard-2-line',
-                    'active' => controller()->id == "create-title",
                 ],
                 [
                     'label' => translate("Partners"),
@@ -78,22 +60,10 @@ class LandingElementMenu
                     'active' => controller()->id == "process",
                 ],
                 [
-                    'label' => translate("Process Title"),
-                    'url' => ['/admin/landingElement/process-title/form'],
-                    'icon' => 'ri-dashboard-2-line',
-                    'active' => controller()->id == "process-title",
-                ],
-                [
                     'label' => translate("Team"),
                     'url' => ['/admin/landingElement/team/index'],
                     'icon' => 'ri-dashboard-2-line',
                     'active' => controller()->id == "team",
-                ],
-                [
-                    'label' => translate("Project"),
-                    'url' => ['/admin/landingElement/project/form'],
-                    'icon' => 'ri-dashboard-2-line',
-                    'active' => controller()->id == "project",
                 ],
                 [
                     'label' => translate("Opinions"),

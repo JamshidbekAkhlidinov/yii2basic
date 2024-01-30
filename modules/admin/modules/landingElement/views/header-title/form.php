@@ -154,12 +154,11 @@ $this->registerJs($js, \yii\web\View::POS_END);
 
 <!--Create Title-->
 <section>
-    <div class="bg-overlay bg-overlay-pattern opacity-50"></div>
     <div class="card position-relative py-5 bg-primary">
         <div class="bg-overlay bg-overlay-pattern opacity-50"></div>
 
-        <div class="card-header d-flex justify-content-between" style="background: none; padding: 0; margin: 0">
-            <h3><?= translate("Create Title settings") ?></h3>
+        <div class="card-header d-flex justify-content-between" style="background: none; padding: 0; margin: 0; padding-left: 20px">
+            <h3 style="color: white !important;"><?= translate("Create Title settings") ?></h3>
         </div>
         <div class="card-body">
             <div class="row" style="margin-top: -10px">
