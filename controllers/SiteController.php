@@ -10,37 +10,10 @@ use app\modules\admin\enums\LanguageEnum;
 use app\modules\admin\enums\UserRolesEnum;
 use Yii;
 use yii\base\Exception;
-use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\web\Response;
 
-class SiteController extends Controller
+class SiteController extends BaseController
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::class,
-                'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                    [
-                        'actions' => ['login','signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                ],
-            ],
-        ];
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -52,8 +25,8 @@ class SiteController extends Controller
             ],
             'set-locale' => [
                 'class' => SetLocaleAction::class,
-                'locales'=> array_keys(LanguageEnum::LABELS),
-                'localeCookieName'=>'lang',
+                'locales' => array_keys(LanguageEnum::LABELS),
+                'localeCookieName' => 'lang',
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
@@ -61,6 +34,7 @@ class SiteController extends Controller
             ],
         ];
     }
+
 
     /**
      * Displays homepage.
@@ -82,7 +56,7 @@ class SiteController extends Controller
         $this->layout = 'auth';
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            if(!user()->can(UserRolesEnum::ROLE_USER)){
+            if (!user()->can(UserRolesEnum::ROLE_USER)) {
                 return $this->redirect(['/admin']);
             }
             return $this->goBack();
@@ -150,4 +124,12 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+
+    public function actionTurnOff()
+    {
+        $this->layout = 'auth';
+        return $this->render('turn');
+    }
+
 }
