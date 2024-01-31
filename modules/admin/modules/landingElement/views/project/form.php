@@ -56,21 +56,21 @@ $this->registerJs($js, \yii\web\View::POS_END);
         <div class="row" style="margin-top: -10px">
             <div class="col-6">
                 <?php
-                echo $form->field($formModel, 'title');
-                echo $form->field($formModel, 'description')->textarea(['rows' => 6]);
-                echo $form->field($formModel, 'url');
+                echo $form->field($formModel, 'design_type');
+                echo $form->field($formModel, 'design_description')->textarea(['rows' => 6]);
+                echo $form->field($formModel, 'design_url');
                 ?>
             </div>
             <div class="col-6">
                 <div>
-                    <?php echo $form->field($formModel, 'icon') ?>
+                    <?php echo $form->field($formModel, 'design_type') ?>
                 </div>
                 <div>
-                    <?php echo $form->field($formModel, 'sub_text')->textarea(['rows' => 3]); ?>
+                    <?php echo $form->field($formModel, 'design_sub_text')->textarea(['rows' => 3]); ?>
                 </div>
                 <div class="d-flex flex-column">
                     <?php
-                    echo $form->field($formModel, 'first_image')->widget(
+                    echo $form->field($formModel, 'design_image')->widget(
                         InputFile::class,
                         [
                             'clientRoute' => '/admin/file/default/input',
@@ -79,7 +79,7 @@ $this->registerJs($js, \yii\web\View::POS_END);
                             ]
                         ]
                     );
-                    echo Html::img($formModel->first_image, [
+                    echo Html::img($formModel->design_image, [
                         'width' => 130,
                         'id' => "first_image",
                     ]);
@@ -98,20 +98,20 @@ $this->registerJs($js, \yii\web\View::POS_END);
         <div class="row" style="margin-top: -10px">
             <div class="col-6">
                 <?php
-                echo $form->field($formModel, 'title2');
-                echo $form->field($formModel, 'description2')->textarea(['rows' => 6]);
+                echo $form->field($formModel, 'structure_title');
+                echo $form->field($formModel, 'structure_description')->textarea(['rows' => 6]);
                 ?>
             </div>
             <div class="col-6">
                 <div>
-                    <?php echo $form->field($formModel, 'icon2') ?>
+                    <?php echo $form->field($formModel, 'structure_type') ?>
                 </div>
                 <div>
-                    <?php echo $form->field($formModel, 'sub_text2')->textarea(['rows' => 3]); ?>
+                    <?php echo $form->field($formModel, 'structure_sub_text')->textarea(['rows' => 3]); ?>
                 </div>
                 <div class="d-flex flex-column">
                     <?php
-                    echo $form->field($formModel, 'second_image')->widget(
+                    echo $form->field($formModel, 'structure_image')->widget(
                         InputFile::class,
                         [
                             'clientRoute' => '/admin/file/default/input',
@@ -120,7 +120,7 @@ $this->registerJs($js, \yii\web\View::POS_END);
                             ]
                         ]
                     );
-                    echo Html::img($formModel->second_image, [
+                    echo Html::img($formModel->structure_image, [
                         'width' => 130,
                         'id' => "second_image",
                     ]);

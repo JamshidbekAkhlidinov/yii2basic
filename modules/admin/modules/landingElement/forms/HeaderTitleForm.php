@@ -114,20 +114,20 @@ class HeaderTitleForm extends LandingModel
             'title' => translate('Title'),
             'description' => translate('Description'),
             # Service Title
-            'service_title' => translate(""),
-            'service_description' => translate(""),
+            'service_title' => translate("Title"),
+            'service_description' => translate("Description"),
             # Widget
-            'widget_title' => translate(""),
-            'widget_description' => translate(""),
-            'widget_sub_text' => translate(""),
-            'widget_image' => translate(""),
-            'widget_icon' => translate(""),
+            'widget_title' => translate("Title"),
+            'widget_description' => translate("Description"),
+            'widget_sub_text' => translate("Sub Text"),
+            'widget_image' => translate("Image"),
+            'widget_icon' => translate("Icon"),
             # Create Title
-            'create_title' => translate(""),
-            'create_url' => translate(""),
+            'create_title' => translate("Title"),
+            'create_url' => translate("Url"),
             # Process Title
-            'process_title' => translate(""),
-            'process_description' => translate(""),
+            'process_title' => translate("Title"),
+            'process_description' => translate("Description"),
         ];
     }
 

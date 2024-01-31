@@ -72,6 +72,12 @@ class LandingElementMenu
                     'active' => controller()->id == "opinion",
                 ],
                 [
+                    'label' => translate("Project"),
+                    'url' => ['/admin/landingElement/project/form'],
+                    'icon' => 'ri-dashboard-2-line',
+                    'active' => controller()->id == "project",
+                ],
+                [
                     'label' => translate("Statistic"),
                     'url' => ['/admin/landingElement/statistic/index'],
                     'icon' => 'ri-dashboard-2-line',

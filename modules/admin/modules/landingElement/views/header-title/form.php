@@ -15,13 +15,23 @@ use alexantr\elfinder\InputFile;
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 
-$this->title = translate("Header Title Settings");
+$this->title = translate("Main Home Page Config");
 params()['breadcrumbs'][] = ['label' => translate("Landing Element"), 'url' => ['/admin/landingElement']];
 params()['breadcrumbs'][] = $this->title;
 
 $js = <<<JS
 $('#header_title_background_input').change(function (e){
     $('#header_title_background').attr('src', e.target.value);
+    console.log(e.target.value);
+})
+
+$('#widget_image_input').change(function (e){
+    $('#widget_image').attr('src', e.target.value);
+    console.log(e.target.value);
+})
+
+$('#widget_icon_input').change(function (e){
+    $('#widget_icon').attr('src', e.target.value);
     console.log(e.target.value);
 })
 JS;
@@ -32,7 +42,7 @@ $this->registerJs($js, \yii\web\View::POS_END);
 
 <div class="card" style="margin-top: -10px">
     <div class="card-header d-flex justify-content-between">
-        <h3><?= translate("Main Home Page Settings") ?></h3>
+        <h3><?= translate("Main Home Page Config") ?></h3>
         <p>
             <?= Html::submitButton(
                 translate("Save"),
@@ -161,7 +171,7 @@ $this->registerJs($js, \yii\web\View::POS_END);
             <h3 style="color: white !important;"><?= translate("Create Title settings") ?></h3>
         </div>
         <div class="card-body">
-            <div class="row" style="margin-top: -10px">
+            <div class="row" style="margin-top: -10px; color: white !important;">
                 <div class="col-6">
                     <?php
                     echo $form->field($formModel, 'create_title');
