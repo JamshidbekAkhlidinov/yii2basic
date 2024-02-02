@@ -29,14 +29,18 @@ class HeaderTitleForm extends LandingModel
     public $widget_icon;
     public $create_title;
     public $create_url;
+    public $question_title;
+    public $question_description;
     public $process_title;
     public $process_description;
+    public $product_title;
+    public $product_description;
 
     public function rules()
     {
         return [
-            [['background', 'title', 'service_title', 'widget_title', 'create_title', 'process_title'], 'required'],
-            [['description', 'service_description', 'widget_description', 'widget_sub_text', 'create_url', 'process_description'], 'string'],
+            [['background', 'title', 'service_title', 'widget_title', 'create_title', 'widget_icon', 'question_title', 'product_title', 'process_title'], 'required'],
+            [['description', 'service_description', 'widget_description', 'widget_sub_text', 'create_url', 'question_description', 'product_description', 'process_description'], 'string'],
             [['widget_image', 'widget_icon'], 'safe']
         ];
     }
@@ -93,6 +97,29 @@ class HeaderTitleForm extends LandingModel
                 ]
             ],
 
+            # Question Title
+            [
+                'key' => [
+                    'key' => LandingElementEnum::QUESTION_TITLE,
+                ],
+                'type' => self::TYPE_STRING,
+                'attributes' => [
+                    'question_title' => 'title',
+                    'question_description' => 'description',
+                ]
+            ],
+            # Product Title
+            [
+                'key' => [
+                    'key' => LandingElementEnum::PRODUCT_TITLE,
+                ],
+                'type' => self::TYPE_STRING,
+                'attributes' => [
+                    'product_title' => 'title',
+                    'product_description' => 'description',
+                ]
+            ],
+
             #Process Title
             [
                 'key' => [
@@ -125,9 +152,15 @@ class HeaderTitleForm extends LandingModel
             # Create Title
             'create_title' => translate("Title"),
             'create_url' => translate("Url"),
+            # Question Title
+            'question_title' => translate("Title"),
+            'question_description' => translate("Description"),
             # Process Title
             'process_title' => translate("Title"),
             'process_description' => translate("Description"),
+            # Product Title
+            'product_title' => translate("Title"),
+            'product_description' => translate("Description"),
         ];
     }
 

@@ -24,6 +24,7 @@ interface LandingElementEnum
     public const PROCESS = 300;
 
     public const QUESTION = 3000;
+    public const QUESTION_TITLE = 3300;
 
     public const PARTNER = 4000;
 
@@ -37,6 +38,7 @@ interface LandingElementEnum
     public const WIDGETS = 50000;
 
     public const PRODUCT = 5000;
+    public const PRODUCT_TITLE = 5500;
 
     public const OPINION = 60000;
 

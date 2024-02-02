@@ -11,6 +11,8 @@ $selector = new LandingElementSelector();
 $headerTitle = $selector->getElement(LandingElementEnum::HEADER_TITLE);
 $serviceTitle = $selector->getElement(LandingElementEnum::SERVICE_TITLE);
 $createTitle = $selector->getElement(LandingElementEnum::CREATE_TITLE);
+$questionTitle = $selector->getElement(LandingElementEnum::QUESTION_TITLE);
+$productTitle = $selector->getElement(LandingElementEnum::PRODUCT_TITLE);
 $projectDesign = $selector->getElement(LandingElementEnum::DESIGN);
 $projectDesignDescription = explode("\n", $projectDesign->description);
 $projectStructure = $selector->getElement(LandingElementEnum::STRUCTURE);
@@ -297,8 +299,8 @@ $this->title = 'My Yii Application';
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="text-center mb-5">
-                    <h3 class="mb-3 fw-semibold">Choose the plan that's right for you</h3>
-                    <p class="text-muted mb-4">Simple pricing. No hidden fees. Advanced features for you business.</p>
+                    <h3 class="mb-3 fw-semibold"><?= $productTitle->title ?></h3>
+                    <p class="text-muted mb-4"><?= $productTitle->description ?></p>
 
                     <div class="d-flex justify-content-center align-items-center">
                         <div>
@@ -640,9 +642,8 @@ $this->title = 'My Yii Application';
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="text-center mb-5">
-                    <h3 class="mb-3 fw-semibold">Frequently Asked Questions</h3>
-                    <p class="text-muted mb-4 ff-secondary">If you can not find answer to your question in our FAQ, you
-                        can always contact us or email us. We will answer you shortly!</p>
+                    <h3 class="mb-3 fw-semibold"><?= $questionTitle->title ?></h3>
+                    <p class="text-muted mb-4 ff-secondary"><?= $questionTitle->description ?></p>
 
                     <div class="hstack gap-2 justify-content-center">
                         <button type="button" class="btn btn-primary btn-label rounded-pill"><i

@@ -185,6 +185,48 @@ $this->registerJs($js, \yii\web\View::POS_END);
     </div>
 </section>
 
+<!--Question Title-->
+<section>
+    <div class="row" style="margin-top: -10px">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <h3><?= translate("Question Title Config") ?></h3>
+                </div>
+                <div class="card-body">
+                    <?php
+                    echo $form->field($formModel, 'question_title');
+                    ?>
+                    <?php
+                    echo $form->field($formModel, 'question_description')->textarea(['rows' => 3]);
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Product Title-->
+<section>
+    <div class="row" style="margin-top: -10px">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <h3><?= translate("Product Config") ?></h3>
+                </div>
+                <div class="card-body">
+                    <?php
+                    echo $form->field($formModel, 'product_title');
+                    ?>
+                    <?php
+                    echo $form->field($formModel, 'product_description')->textarea(['rows' => 3]);
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!--Process Title-->
 <section>
     <div class="row" style="margin-top: -10px">
