@@ -7,6 +7,7 @@
 
 use app\modules\admin\modules\content\models\Post;
 use app\modules\admin\modules\content\models\PostCategory;
+use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -23,6 +24,13 @@ params()['breadcrumbs'][] = $this->title;
 $this->title = Yii::t('app', 'Posts');
 $this->params['breadcrumbs'][] = $this->title;
 
+$query = Post::find()
+    ->orderBy(['created_at' => SORT_DESC]); // created_at bo'yicha tartiblash
+
+// Ma'lumotlarni olish
+$dataProvider = new ActiveDataProvider([
+    'query' => $query,
+]);
 ?>
 <div class="post-index card">
     <div class="card-header d-flex justify-content-between">

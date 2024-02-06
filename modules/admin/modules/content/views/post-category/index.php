@@ -8,6 +8,7 @@
 use app\modules\admin\enums\StatusEnum;
 use app\modules\admin\modules\content\components\buttons\PostCategoryButtons;
 use app\modules\admin\modules\content\models\PostCategory;
+use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -25,6 +26,14 @@ params()['breadcrumbs'][] = $this->title;
 
 $this->title = translate('Post Categories');
 $this->params['breadcrumbs'][] = $this->title;
+
+$query = PostCategory::find()
+    ->orderBy(['created_at' => SORT_DESC]); // created_at bo'yicha tartiblash
+
+// Ma'lumotlarni olish
+$dataProvider = new ActiveDataProvider([
+    'query' => $query,
+]);
 ?>
 
 <div class="post-category-index card">

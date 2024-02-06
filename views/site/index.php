@@ -25,8 +25,11 @@ $contactValue = explode("\n", $contactTitle->value);
 $widgetStatics = $selector->getElement(LandingElementEnum::WIDGETS);
 $widgetItem = explode("\n", $widgetStatics->description);
 
+$currentDateTime = new \DateTime('now', new DateTimeZone('Asia/Tashkent'));
+$currentDateTimeString = $currentDateTime->format('Y-m-d H:i:s');
+
 $posts = Post::find()
-    ->where(['<', 'publish_at', date('Y-m-d H:i:s')])
+    ->where(['<', 'publish_at', $currentDateTimeString])
     ->orderBy(['publish_at' => SORT_DESC])
     ->limit(3)
     ->all();
