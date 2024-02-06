@@ -16,6 +16,7 @@ class PostForm extends Model
     public $sub_text;
     public $description;
     public $status;
+    public $publish_at;
 
     public $tags;
     public $categories;
@@ -28,6 +29,7 @@ class PostForm extends Model
         $this->sub_text = $model->sub_text;
         $this->description = $model->description;
         $this->status = $model->status;
+        $this->publish_at = $model->publish_at;
         $this->tags = $this->initTags();
         $this->categories = $this->initCategories();
         parent::__construct($config);
@@ -37,9 +39,9 @@ class PostForm extends Model
     {
         return [
             [['status'], 'integer'],
-            [['title', 'sub_text', 'description', 'image'], 'string'],
+            [['title', 'sub_text', 'description', 'image', 'publish_at'], 'string'],
             [['tags', 'categories'], 'safe'],
-            [['tags', 'categories'], 'required'],
+            [['tags', 'categories', 'publish_at'], 'required'],
         ];
     }
 
@@ -60,6 +62,7 @@ class PostForm extends Model
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
             'updated_by' => Yii::t('app', 'Updated By'),
+            'publish_at' => Yii::t('app', 'Publish At'),
         ];
     }
 
@@ -72,6 +75,7 @@ class PostForm extends Model
         $model->sub_text = $this->sub_text;
         $model->description = $this->description;
         $model->status = $this->status;
+        $model->publish_at = $this->publish_at;
 
         $isSave = $model->save();
 

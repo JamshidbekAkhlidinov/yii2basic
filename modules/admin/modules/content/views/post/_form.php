@@ -73,17 +73,10 @@ $this->registerCss($css);
 
         <div class="col-md-3">
 
-            <div class="card card-footer">
-                <?= $form->field($model, 'image')->widget(
-                    InputFile::class,
-                    [
-                        'clientRoute' => '/admin/file/default/input',
-                        'options' => [
-                            'id' => 'post_image_input',
-                        ]
-                    ]
-                ) ?>
-                <img src="<?= $model->image ?>" alt="" id="post_image" style="width: 100%; object-fit: cover">
+            <div class="card">
+                <div class="card-body">
+                    <?= $form->field($model, 'publish_at') ?>
+                </div>
             </div>
 
             <div class="card">
@@ -102,6 +95,19 @@ $this->registerCss($css);
                     ) ?>
 
                 </div>
+            </div>
+
+            <div class="card card-footer">
+                <?= $form->field($model, 'image')->widget(
+                    InputFile::class,
+                    [
+                        'clientRoute' => '/admin/file/default/input',
+                        'options' => [
+                            'id' => 'post_image_input',
+                        ]
+                    ]
+                ) ?>
+                <img src="<?= $model->image ?>" alt="" id="post_image" style="width: 100%; object-fit: cover">
             </div>
 
 

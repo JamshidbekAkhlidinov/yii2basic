@@ -16,6 +16,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string|null $sub_text
  * @property string|null $description
  * @property int|null $status
+ * @property string|null $publish_at
  * @property int|null $view_count
  * @property int|null $created_by
  * @property string|null $created_at

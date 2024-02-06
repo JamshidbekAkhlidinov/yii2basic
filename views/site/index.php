@@ -5,6 +5,8 @@
 
 use app\modules\admin\components\view\LandingElementSelector;
 use app\modules\admin\enums\LandingElementEnum;
+use app\modules\admin\modules\content\models\Post;
+use yii\db\Expression;
 use yii\helpers\Html;
 
 $selector = new LandingElementSelector();
@@ -23,6 +25,11 @@ $contactValue = explode("\n", $contactTitle->value);
 $widgetStatics = $selector->getElement(LandingElementEnum::WIDGETS);
 $widgetItem = explode("\n", $widgetStatics->description);
 
+$posts = Post::find()
+    ->where(['<', 'publish_at', date('Y-m-d H:i:s')])
+    ->orderBy(['publish_at' => SORT_DESC])
+    ->limit(3)
+    ->all();
 
 
 $this->title = 'My Yii Application';
@@ -81,11 +88,11 @@ $this->title = 'My Yii Application';
                         <div class="swiper-wrapper">
                             <?php foreach ($partnerLogo = $selector->getElements(LandingElementEnum::PARTNER) as $partnerItem) : ?>
                                 <div class="swiper-slide">
-                                <div class="client-images">
-                                    <img src="<?= $partnerItem->files ?>" alt="client-img"
-                                         class="mx-auto img-fluid d-block">
+                                    <div class="client-images">
+                                        <img src="<?= $partnerItem->files ?>" alt="client-img"
+                                             class="mx-auto img-fluid d-block">
+                                    </div>
                                 </div>
-                            </div>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -116,24 +123,24 @@ $this->title = 'My Yii Application';
         <div class="row g-3">
             <?php foreach ($serviceItems = $selector->getElements(LandingElementEnum::SERVICE) as $Item) : ?>
                 <div class="col-lg-4">
-                <div class="d-flex p-3">
-                    <div class="flex-shrink-0 me-3">
-                        <div class="avatar-sm icon-effect">
-                            <div class="avatar-title bg-transparent text-success rounded-circle">
-                                <img style="width: 50px" src="<?= $Item->files ?>">
+                    <div class="d-flex p-3">
+                        <div class="flex-shrink-0 me-3">
+                            <div class="avatar-sm icon-effect">
+                                <div class="avatar-title bg-transparent text-success rounded-circle">
+                                    <img style="width: 50px" src="<?= $Item->files ?>">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h5 class="fs-18"><?= $Item->title ?></h5>
+                            <p class="text-muted my-3 ff-secondary"><?= $Item->description ?></p>
+                            <div>
+                                <a href="<?= $Item->url ?>" class="fs-13 fw-medium">Learn More <i
+                                            class="ri-arrow-right-s-line align-bottom"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="flex-grow-1">
-                        <h5 class="fs-18"><?= $Item->title ?></h5>
-                        <p class="text-muted my-3 ff-secondary"><?= $Item->description ?></p>
-                        <div>
-                            <a href="<?= $Item->url ?>" class="fs-13 fw-medium">Learn More <i
-                                        class="ri-arrow-right-s-line align-bottom"></i></a>
-                        </div>
-                    </div>
                 </div>
-            </div>
             <?php endforeach; ?>
         </div>
         <!-- end row -->
@@ -141,6 +148,43 @@ $this->title = 'My Yii Application';
     <!-- end container -->
 </section>
 <!-- end services -->
+
+<!--Post section-->
+<section>
+    <div class="container">
+        <div class="d-flex justify-content-between mt-3 mb-lg-3">
+            <h3><?= translate("Posts") ?></h3>
+            <p><a href="#"><?= translate("All") ?></a></p>
+        </div>
+        <div class="row mb-lg-3">
+            <?php foreach ($posts as $post) : ?>
+                <div class="col-xxl-4 col-lg-6">
+                    <div class="card card-overlay">
+                        <img class="card-img" src="<?= $post->image ?>" alt="Card image"
+                             style="max-width: 100%; height: 300px; object-fit: cover">
+                        <div class="card-img-overlay p-0 d-flex flex-column">
+                            <div class="card-header bg-transparent">
+                                <a href="#">
+                                    <h4 class="card-title text-white mb-0"><?= $post->title ?></h4>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text text-white mb-2"><?= $post->sub_text ?></p>
+                                <p class="card-text">
+                                    <small class="text-white">Last updated 3 mins ago</small>
+                                </p>
+                            </div>
+                            <div class="card-footer bg-transparent text-center">
+                                <a href="javascript:void(0);" class="link-light">Read More <i
+                                            class="ri-arrow-right-s-line align-middle ms-1 lh-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
 
 <!-- start features -->
 <section class="section bg-light py-5" id="features">
@@ -164,14 +208,14 @@ $this->title = 'My Yii Application';
                     <div class="row pt-3">
                         <?php foreach ($widgetItem as $item) :
                             $widgetItemArray = explode(":", $item)
-                        ?>
-                        <div class="col-3">
-                            <div class="text-center">
-                                <h4><?= $widgetItemArray[1] ?? "" ?></h4>
-                                <p><?= $widgetItemArray[0] ?? "" ?></p>
+                            ?>
+                            <div class="col-3">
+                                <div class="text-center">
+                                    <h4><?= $widgetItemArray[1] ?? "" ?></h4>
+                                    <p><?= $widgetItemArray[0] ?? "" ?></p>
+                                </div>
                             </div>
-                        </div>
-                        <?php endforeach;?>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
@@ -718,19 +762,19 @@ $this->title = 'My Yii Application';
                         <div class="swiper-wrapper">
                             <?php foreach ($opinionItems = $selector->getElements(LandingElementEnum::OPINION) as $Item) : ?>
                                 <div class="swiper-slide">
-                                <div class="row justify-content-center">
-                                    <div class="col-10">
-                                        <div class="text-white-50">
-                                            <p class="fs-20 ff-secondary mb-4">" <?= $Item->description ?> "</p>
+                                    <div class="row justify-content-center">
+                                        <div class="col-10">
+                                            <div class="text-white-50">
+                                                <p class="fs-20 ff-secondary mb-4">" <?= $Item->description ?> "</p>
 
-                                            <div>
-                                                <h5 class="text-white"><?= $Item->title ?></h5>
-                                                <p>- <?= $Item->sub_text ?></p>
+                                                <div>
+                                                    <h5 class="text-white"><?= $Item->title ?></h5>
+                                                    <p>- <?= $Item->sub_text ?></p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             <?php endforeach; ?>
                         </div>
                         <div class="swiper-button-next bg-white rounded-circle"></div>
@@ -853,25 +897,27 @@ $this->title = 'My Yii Application';
         <!-- end row -->
         <div class="row">
             <?php foreach ($teamMember = $selector->getElements(LandingElementEnum::TEAM) as $teamItem) : ?>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card">
-                    <div class="card-body text-center p-4">
-                        <div class="avatar-xl mx-auto mb-4 position-relative">
-                            <img src="<?= $teamItem->files ?>" alt="" class="rounded-circle avatar-xl user-profile-image object-fit-cover">
-                            <a href="<?= $teamItem->url ?>"
-                               class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
-                                <div class="avatar-title bg-transparent">
-                                    <i class="ri-mail-fill align-bottom"></i>
-                                </div>
-                            </a>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card">
+                        <div class="card-body text-center p-4">
+                            <div class="avatar-xl mx-auto mb-4 position-relative">
+                                <img src="<?= $teamItem->files ?>" alt=""
+                                     class="rounded-circle avatar-xl user-profile-image object-fit-cover">
+                                <a href="<?= $teamItem->url ?>"
+                                   class="btn btn-success btn-sm position-absolute bottom-0 end-0 rounded-circle avatar-xs">
+                                    <div class="avatar-title bg-transparent">
+                                        <i class="ri-mail-fill align-bottom"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- end card body -->
+                            <h5 class="mb-1"><a href="pages-profile.html" class="text-body"><?= $teamItem->title ?></a>
+                            </h5>
+                            <p class="text-muted mb-0 ff-secondary"><?= $teamItem->description ?></p>
                         </div>
-                        <!-- end card body -->
-                        <h5 class="mb-1"><a href="pages-profile.html" class="text-body"><?= $teamItem->title ?></a></h5>
-                        <p class="text-muted mb-0 ff-secondary"><?= $teamItem->description ?></p>
                     </div>
+                    <!-- end card -->
                 </div>
-                <!-- end card -->
-            </div>
             <?php endforeach; ?>
         </div>
         <div class="row">
@@ -906,7 +952,7 @@ $this->title = 'My Yii Application';
                 <div>
                     <?php foreach ($contactDescription as $contactItem) :
                         $contactItemArray = explode(":", $contactItem)
-                    ?>
+                        ?>
                         <div class="mt-4">
                             <h5 class="fs-13 text-muted text-uppercase"><?= $contactItemArray[0] ?? "" ?>:</h5>
                             <div class="ff-secondary fw-semibold"><?= $contactItemArray[1] ?? "" ?></div>
@@ -917,11 +963,11 @@ $this->title = 'My Yii Application';
                     <?php foreach ($contactValue as $contactItem) :
                         $contactItemArray = explode("=", $contactItem)
 
-                    ?>
-                    <div class="mt-4">
-                        <h5 class="fs-13 text-muted text-uppercase"><?= $contactItemArray[0] ?? "" ?>:</h5>
-                        <div class="ff-secondary fw-semibold"><?= $contactItemArray[1] ?? "" ?></div>
-                    </div>
+                        ?>
+                        <div class="mt-4">
+                            <h5 class="fs-13 text-muted text-uppercase"><?= $contactItemArray[0] ?? "" ?>:</h5>
+                            <div class="ff-secondary fw-semibold"><?= $contactItemArray[1] ?? "" ?></div>
+                        </div>
                     <?php endforeach; ?>
                 </div>
             </div>

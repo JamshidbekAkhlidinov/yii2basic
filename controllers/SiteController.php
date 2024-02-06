@@ -8,6 +8,7 @@ use app\forms\SignupForm;
 use app\modules\admin\actions\SetLocaleAction;
 use app\modules\admin\enums\LanguageEnum;
 use app\modules\admin\enums\UserRolesEnum;
+use app\modules\admin\modules\content\models\Post;
 use Yii;
 use yii\base\Exception;
 use yii\web\Response;
