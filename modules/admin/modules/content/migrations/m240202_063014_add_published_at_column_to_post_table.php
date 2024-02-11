@@ -1,7 +1,5 @@
 <?php
 
-namespace app\modules\admin\modules\content\migrations;
-
 use yii\db\Migration;
 
 /**
@@ -14,7 +12,7 @@ class m240202_063014_add_published_at_column_to_post_table extends Migration
      */
     public function safeUp()
     {
-        $this->addColumn('{{%post}}', 'publish_at', $this->string());
+        $this->addColumn('{{%post}}', 'publish_at', $this->dateTime());
     }
 
     /**
