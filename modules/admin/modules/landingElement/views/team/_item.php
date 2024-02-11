@@ -53,13 +53,15 @@ use yii\bootstrap5\Html;
                 </div>
                 <div class="col-lg-4 col">
                     <div class="team-profile-img">
-                        <div class="avatar-lg img-thumbnail rounded-circle">
+                        <div class="avatar-lg img-thumbnail rounded-circle flex-shrink-0">
                             <?php
                             echo Html::img($model->files,
                                 [
-                                    'class' => 'rounded-circle avatar-lg user-profile-image',
+                                    'class' => 'member-img img-fluid d-block rounded-circle',
                                     'style' => [
-                                        'object-fit' => 'cover'
+                                        'object-fit' => 'cover',
+                                        'height' => "100%",
+                                        'width' => "100%",
                                     ]
                                 ]);
                             ?>

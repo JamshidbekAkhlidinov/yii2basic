@@ -34,7 +34,7 @@ $this->registerJs($js, \yii\web\View::POS_END);
 
     <?php $form = ActiveForm::begin(); ?>
     <div class="row">
-        <div class="col-6">
+        <div class="col-12">
             <?php
             echo $form->field($formModel, 'logo')->widget(
                 InputFile::class,
@@ -53,7 +53,7 @@ $this->registerJs($js, \yii\web\View::POS_END);
             ?>
         </div>
 
-        <div class="col-6">
+        <div class="col-12">
             <?php echo Html::submitButton(
                 translate("Save"),
                 ['class' => 'btn btn-primary mt-2']

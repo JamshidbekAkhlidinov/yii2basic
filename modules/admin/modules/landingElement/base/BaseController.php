@@ -24,6 +24,7 @@ class BaseController extends Controller
                 translate('Saved'),
                 Html::errorSummary($form)
             );
+            return $this->redirect([$this->action->id]);
         }
         return $this->render($filename, [
             $modelName => $form

@@ -30,25 +30,25 @@ $this->registerJs($js, \yii\web\View::POS_END);
 
 <?php $form = ActiveForm::begin(); ?>
 
-<div class="card" style="margin-top: -10px">
+<div class="card">
     <div class="card-header d-flex justify-content-between">
         <h3><?= translate("Site Config") ?></h3>
-        <p>
+        <div>
             <?= Html::submitButton(
                 translate("Save"),
                 ['class' => 'btn btn-primary']
             );
             ?>
-        </p>
+        </div>
     </div>
 </div>
-<div class="row" style="margin-top: -10px">
+<div class="row">
     <div class="col-6">
         <div class="card">
             <div class="card-header">
                 <?php
                 echo $form->field($formModel, 'title');
-                echo $form->field($formModel, 'description');
+                echo $form->field($formModel, 'description')->textarea();
                 ?>
             </div>
         </div>

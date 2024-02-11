@@ -14,6 +14,7 @@
 use alexantr\elfinder\InputFile;
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
+use yii\web\View;
 
 $this->title = translate("Main Home Page Config");
 params()['breadcrumbs'][] = ['label' => translate("Landing Element"), 'url' => ['/admin/landingElement']];
@@ -35,21 +36,21 @@ $('#widget_icon_input').change(function (e){
     console.log(e.target.value);
 })
 JS;
-$this->registerJs($js, \yii\web\View::POS_END);
+$this->registerJs($js, View::POS_END);
 ?>
 
 <?php $form = ActiveForm::begin(); ?>
 
-<div class="card" style="margin-top: -10px">
+<div class="card">
     <div class="card-header d-flex justify-content-between">
         <h3><?= translate("Main Home Page Config") ?></h3>
-        <p>
+        <div>
             <?= Html::submitButton(
                 translate("Save"),
                 ['class' => 'btn btn-primary']
             );
             ?>
-        </p>
+        </div>
     </div>
 </div>
 <div class="card">
@@ -87,27 +88,6 @@ $this->registerJs($js, \yii\web\View::POS_END);
     </div>
 </div>
 
-<!--Service Title-->
-<section>
-    <div class="card">
-        <div class="card-header">
-            <h3><?= translate("Service Title Settings") ?></h3>
-        </div>
-        <div class="card-body">
-            <div class="row" style="margin-top: -10px">
-                <div class="col">
-                    <?php
-                    echo $form->field($formModel, 'service_title');
-                    ?>
-                    <?php
-                    echo $form->field($formModel, 'service_description')->textarea(['rows' => 3]);
-                    ?>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
 
 <!--Widget Title-->
 <section>
@@ -116,7 +96,7 @@ $this->registerJs($js, \yii\web\View::POS_END);
             <h3><?= translate("Widget Config") ?></h3>
         </div>
         <div class="card-body">
-            <div class="row" style="margin-top: -10px">
+            <div class="row">
                 <div class="col-6">
                     <?php
                     echo $form->field($formModel, 'widget_title');
@@ -164,17 +144,18 @@ $this->registerJs($js, \yii\web\View::POS_END);
 
 <!--Create Title-->
 <section>
-    <div class="card position-relative py-5 bg-primary">
+    <div class="card position-relative py-2 bg-primary">
         <div class="bg-overlay bg-overlay-pattern opacity-50"></div>
 
-        <div class="card-header d-flex justify-content-between" style="background: none; padding: 0; margin: 0; padding-left: 20px">
+        <div class="card-header d-flex justify-content-between"
+             style="background: none; padding: 0; margin: 0; padding-left: 20px">
             <h3 style="color: white !important;"><?= translate("Create Title settings") ?></h3>
         </div>
         <div class="card-body">
-            <div class="row" style="margin-top: -10px; color: white !important;">
+            <div class="row" style="color: white !important;">
                 <div class="col-6">
                     <?php
-                    echo $form->field($formModel, 'create_title');
+                     echo $form->field($formModel, 'create_title');
                     ?>
                 </div>
                 <div class="col-6">
@@ -186,67 +167,74 @@ $this->registerJs($js, \yii\web\View::POS_END);
 </section>
 
 <!--Question Title-->
-<section>
-    <div class="row" style="margin-top: -10px">
-        <div class="col">
-            <div class="card">
-                <div class="card-header">
-                    <h3><?= translate("Question Title Config") ?></h3>
-                </div>
-                <div class="card-body">
-                    <?php
-                    echo $form->field($formModel, 'question_title');
-                    ?>
-                    <?php
-                    echo $form->field($formModel, 'question_description')->textarea(['rows' => 3]);
-                    ?>
-                </div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h3><?= translate("Question Title Config") ?></h3>
+            </div>
+            <div class="card-body">
+                <?php
+                echo $form->field($formModel, 'question_title');
+                ?>
+                <?php
+                echo $form->field($formModel, 'question_description')->textarea(['rows' => 3]);
+                ?>
             </div>
         </div>
     </div>
-</section>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h3><?= translate("Product Config") ?></h3>
+            </div>
+            <div class="card-body">
+                <?php
+                echo $form->field($formModel, 'product_title');
+                ?>
+                <?php
+                echo $form->field($formModel, 'product_description')->textarea(['rows' => 3]);
+                ?>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h3><?= translate("Service Title Settings") ?></h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <?php
+                        echo $form->field($formModel, 'service_title');
+                        ?>
+                        <?php
+                        echo $form->field($formModel, 'service_description')->textarea(['rows' => 3]);
+                        ?>
+                    </div>
 
-<!--Product Title-->
-<section>
-    <div class="row" style="margin-top: -10px">
-        <div class="col">
-            <div class="card">
-                <div class="card-header">
-                    <h3><?= translate("Product Config") ?></h3>
-                </div>
-                <div class="card-body">
-                    <?php
-                    echo $form->field($formModel, 'product_title');
-                    ?>
-                    <?php
-                    echo $form->field($formModel, 'product_description')->textarea(['rows' => 3]);
-                    ?>
                 </div>
             </div>
         </div>
     </div>
-</section>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h3><?= translate("Process Config") ?></h3>
+            </div>
+            <div class="card-body">
+                <?php
+                echo $form->field($formModel, 'process_title');
+                ?>
+                <?php
+                echo $form->field($formModel, 'process_description')->textarea(['rows' => 3]);
+                ?>
+            </div>
+        </div>
+    </div>
+</div>
 
-<!--Process Title-->
-<section>
-    <div class="row" style="margin-top: -10px">
-        <div class="col">
-            <div class="card">
-                <div class="card-header">
-                    <h3><?= translate("Process Config") ?></h3>
-                </div>
-                <div class="card-body">
-                    <?php
-                    echo $form->field($formModel, 'process_title');
-                    ?>
-                    <?php
-                    echo $form->field($formModel, 'process_description')->textarea(['rows' => 3]);
-                    ?>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <?php ActiveForm::end(); ?>
 
 

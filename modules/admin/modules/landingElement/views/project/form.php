@@ -35,16 +35,16 @@ $this->registerJs($js, \yii\web\View::POS_END);
 
 <?php $form = ActiveForm::begin(); ?>
 
-<div class="card" style="margin-top: -10px">
+<div class="card">
     <div class="card-header d-flex justify-content-between">
         <h3><?= translate("Project Config") ?></h3>
-        <p>
+        <div>
             <?= Html::submitButton(
                 translate("Save"),
                 ['class' => 'btn btn-primary']
             );
             ?>
-        </p>
+        </div>
     </div>
 </div>
 
@@ -57,7 +57,7 @@ $this->registerJs($js, \yii\web\View::POS_END);
             <div class="col-6">
                 <?php
                 echo $form->field($formModel, 'design_type');
-                echo $form->field($formModel, 'design_description')->textarea(['rows' => 6]);
+                echo $form->field($formModel, 'design_description')->textarea(['rows' => 3]);
                 echo $form->field($formModel, 'design_url');
                 ?>
             </div>
@@ -99,7 +99,7 @@ $this->registerJs($js, \yii\web\View::POS_END);
             <div class="col-6">
                 <?php
                 echo $form->field($formModel, 'structure_title');
-                echo $form->field($formModel, 'structure_description')->textarea(['rows' => 6]);
+                echo $form->field($formModel, 'structure_description')->textarea(['rows' => 3]);
                 ?>
             </div>
             <div class="col-6">

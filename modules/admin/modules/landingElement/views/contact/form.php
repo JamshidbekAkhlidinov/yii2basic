@@ -22,34 +22,34 @@ params()['breadcrumbs'][] = $this->title;
 
 <?php $form = ActiveForm::begin(); ?>
 
-<div class="card" style="margin-top: -10px">
+<div class="card">
     <div class="card-header d-flex justify-content-between">
         <h3><?= translate("Contact Config") ?></h3>
-        <p>
+        <div>
             <?= Html::submitButton(
                 translate("Save"),
                 ['class' => 'btn btn-primary']
             );
             ?>
-        </p>
+        </div>
     </div>
 </div>
-<div class="row" style="margin-top: -10px">
-    <div class="col-6">
+<div class="row">
+    <div class="col-md-6">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header ">
                 <?php
                 echo $form->field($formModel, 'title');
                 echo $form->field($formModel, 'description')->textarea(['rows' => 5]);
-                 ?>
+                ?>
             </div>
         </div>
     </div>
-    <div class="col-6">
-        <div class="card">
+    <div class="col-md-6">
+        <div class="card ">
             <div class="card-header d-flex flex-column">
                 <?php echo $form->field($formModel, 'sub_text')->textarea(['rows' => 2]) ?>
-                <?php echo $form->field($formModel, 'work_order')->textarea(['rows' => 5]); ?>
+                <?php echo $form->field($formModel, 'work_order')->textarea(['rows' => 4]); ?>
             </div>
         </div>
     </div>

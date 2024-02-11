@@ -17,7 +17,7 @@ use yii\bootstrap5\Html;
 use yii\grid\ActionColumn;
 use yii\grid\SerialColumn;
 
-$this->title = translate("Services");
+$this->title = translate("Process");
 params()['breadcrumbs'][] = ['label' => translate("Landing Element"), 'url' => ['/admin/landingElement']];
 params()['breadcrumbs'][] = $this->title;
 ?>
