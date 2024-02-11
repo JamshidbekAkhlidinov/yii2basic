@@ -2,6 +2,7 @@
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+$assetManager = require __DIR__ . '/assetManager.php';
 
 if (file_exists(__DIR__ . '/db_locale.php')) {
     $db = require __DIR__ . '/db_locale.php';
@@ -68,6 +69,7 @@ $config = [
             'rules' => [
             ],
         ],
+        'assetManager' => $assetManager,
         'i18n' => [
             'translations' => [
                 'app*' => [
