@@ -41,7 +41,9 @@ class AuthItem extends AuthItemModel
     public function search($params)
     {
         $query = AuthItemModel::find();
-
+        if ($type = $this->type) {
+            $query->andWhere(['type' => $type]);
+        }
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([

@@ -42,6 +42,10 @@ class AuthAssignmentSearch extends AuthAssignment
     {
         $query = AuthAssignment::find();
 
+        $query->select(['user_id','count(user_id) as count']);
+
+        $query->groupBy(['user_id']);
+
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([

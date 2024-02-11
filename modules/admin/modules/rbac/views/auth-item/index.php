@@ -1,7 +1,6 @@
-
-
 <?php
 
+use app\modules\admin\enums\AuthItemTypeEnum;
 use app\modules\admin\modules\rbac\components\buttons\AuthItemButtons;
 use app\modules\admin\modules\rbac\models\AuthItem;
 use yii\helpers\Html;
@@ -42,8 +41,15 @@ $this->title = Yii::t('app', 'Auth Items');
                 ],
                 [
                     'attribute' => 'type',
+                    'format' => 'raw',
                     'value' => static function ($item) {
-                        return $item->type == 1 ? 'Role' : 'Permission';
+                        return Html::a(
+                            AuthItemTypeEnum::ALL[$item->type] ?? "",
+                            [
+                                'auth-item-child/index',
+                                'parent' => $item->name
+                            ]
+                        );
                     }
                 ],
                 'description:ntext',

@@ -36,9 +36,9 @@ class AuthItemChildController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex($parent = null)
     {
-        $searchModel = new AuthItemChildSearch();
+        $searchModel = new AuthItemChildSearch(['parent' => $parent]);
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -66,13 +66,13 @@ class AuthItemChildController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
-    public function actionCreate()
+    public function actionCreate($parent = null)
     {
         $model = new AuthItemChild();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['index']);
+                return $this->redirect(['index', 'parent' => $parent]);
             }
         } else {
             $model->loadDefaultValues();
@@ -80,6 +80,7 @@ class AuthItemChildController extends Controller
 
         return $this->renderAjax('_form', [
             'model' => $model,
+            'parent' => $parent,
         ]);
     }
 

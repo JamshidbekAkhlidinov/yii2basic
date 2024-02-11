@@ -8,6 +8,7 @@
 
 namespace app\modules\admin\components\menu;
 
+use app\modules\admin\enums\AuthItemTypeEnum;
 use app\modules\admin\enums\UserRolesEnum;
 use app\modules\admin\widgets\MenuWidget;
 
@@ -122,26 +123,28 @@ class Menu
             'id' => 'rbac',
             'type' => MenuWidget::type_item,
             'items' => [
-//                [
-//                    'label' => translate("Rules"),
-//                    'url' => ['/admin/rbac/auth-rule'],
-//                    'class' => $controller_id == 'auth-rule',
-//                ],
                 [
-                    'label' => translate("Items"),
-                    'url' => ['/admin/rbac/auth-item'],
-                    'active' => $controller_id == 'auth-item',
+                    'label' => translate("Roles"),
+                    'url' => ['/admin/rbac/auth-item', 'type' => AuthItemTypeEnum::ROLE],
+                    'active' => $controller_id == 'auth-item' && get('type') == AuthItemTypeEnum::ROLE,
                 ],
                 [
-                    'label' => translate("Items child"),
+                    'label' => translate("Permissions"),
+                    'url' => ['/admin/rbac/auth-item', 'type' => AuthItemTypeEnum::PERMISSION],
+                    'active' => $controller_id == 'auth-item' && get('type') == AuthItemTypeEnum::PERMISSION,
+                ],
+                [
+                    'label' => translate("Items childs"),
                     'url' => ['/admin/rbac/auth-item-child'],
                     'active' => $controller_id == 'auth-item-child',
                 ],
+                /*
                 [
-                    'label' => translate("Assignment"),
+                    'label' => translate("Assignments"),
                     'url' => ['/admin/rbac/auth-assignment'],
                     'active' => $controller_id == 'auth-assignment',
                 ],
+                */
             ]
         ];
     }

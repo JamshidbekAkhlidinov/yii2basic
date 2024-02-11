@@ -15,7 +15,7 @@ class AuthItemChildButtons
                 'class' => "btn btn-success",
                 'label' => icon("folder-add"),
             ],
-            'url' => ['auth-item-child/create'],
+            'url' => ['auth-item-child/create', 'parent' => get('parent')],
             'footer' => '',
             'header' => "<h2>" . translate('Auth Item Child Form') . "</h2>"
         ]);

@@ -2,6 +2,10 @@
 
 namespace app\modules\admin\modules\rbac\query;
 
+use app\modules\admin\enums\AuthItemTypeEnum;
+use app\modules\admin\enums\UserRolesEnum;
+use Cassandra\Type\UserType;
+
 /**
  * This is the ActiveQuery class for [[\app\modules\admin\modules\rbac\models\AuthItem]].
  *
@@ -9,10 +13,15 @@ namespace app\modules\admin\modules\rbac\query;
  */
 class AuthItemQuery extends \yii\db\ActiveQuery
 {
-    /*public function active()
+    public function roles()
     {
-        return $this->andWhere('[[status]]=1');
-    }*/
+        return $this->andWhere(['type' => AuthItemTypeEnum::ROLE]);
+    }
+
+    public function permissions()
+    {
+        return $this->andWhere(['type' => AuthItemTypeEnum::PERMISSION]);
+    }
 
     /**
      * {@inheritdoc}

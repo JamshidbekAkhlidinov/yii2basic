@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\modules\rbac\controllers;
 
+use app\modules\admin\enums\AuthItemTypeEnum;
 use app\modules\admin\modules\rbac\models\AuthItem;
 use app\modules\admin\modules\rbac\search\AuthItem as AuthItemSearch;
 use yii\web\Controller;
@@ -36,9 +37,9 @@ class AuthItemController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex($type = AuthItemTypeEnum::ROLE)
     {
-        $searchModel = new AuthItemSearch();
+        $searchModel = new AuthItemSearch(['type' => $type]);
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [

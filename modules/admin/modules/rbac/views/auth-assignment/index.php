@@ -34,18 +34,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['class' => 'yii\grid\SerialColumn'],
 
                 [
-                    'attribute' => 'item_name',
-                    'format' => 'raw',
-                    'value' => function ($model) {
-                        return AuthAssignmentButtons::update($model->item_name, $model->user_id);
-                    }
-                ],
-                [
                     'attribute' => 'user_id',
                     'value' => function ($data) {
                         $user = User::findOne(['id' => $data->user_id]);
                         return $user->publicIdentity;
                     },
+                ],
+                [
+                    'attribute' => 'item_name',
+                    'format' => 'raw',
+                    'value' => function ($model) {
+                        return AuthAssignmentButtons::update($model->item_name, $model->user_id);
+                    }
                 ],
                 'created_at:datetime',
                 [
