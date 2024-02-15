@@ -542,7 +542,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                         <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                         <span class="d-flex align-items-center">
-                            <img class="rounded-circle header-profile-user" src="<?= user()->identity->userProfile->avatar_path ?>"
+                            <img class="rounded-circle header-profile-user" src="<?= user()->identity->userProfile->avatar ?>"
                                  alt="Header Avatar" style="object-fit: cover">
                             <span class="text-start ms-xl-2">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
