@@ -83,11 +83,11 @@ $config = [
             ],
         ],
     ],
-    'as locale' => [
-        'class' => \app\modules\admin\behaviors\LocaleBehavior::class,
-        'enablePreferredLanguage' => true,
-        'cookieName' => 'lang',
-    ],
+//    'as locale' => [
+//        'class' => \app\modules\admin\behaviors\LocaleBehavior::class,
+//        'enablePreferredLanguage' => true,
+//        'cookieName' => 'lang',
+//    ],
     'params' => $params,
 ];
 

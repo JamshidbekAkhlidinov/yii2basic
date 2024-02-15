@@ -85,7 +85,7 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
                                             </tr>
                                             <tr>
                                                 <th class="ps-0" scope="row"><?= translate("Mobile") ?> :</th>
-                                                <td class="text-muted"><?= user()->identity->userProfile->ph_number ?></td>
+                                                <td class="text-muted"><?= user()->identity->userProfile->phone_number ?></td>
                                             </tr>
                                             <tr>
                                                 <th class="ps-0" scope="row"><?= translate("E-mail") ?> :</th>

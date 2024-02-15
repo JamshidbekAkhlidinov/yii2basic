@@ -176,7 +176,7 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
                             <!--end col-->
                             <div class="col-lg-6">
                                 <div class="mb-3">
-                                    <?= $form->field($model, 'ph_number') ?>
+                                    <?= $form->field($model, 'phone_number') ?>
                                 </div>
                             </div>
                             <!--end col-->
