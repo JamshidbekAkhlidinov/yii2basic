@@ -56,7 +56,7 @@ $this->registerJs($js, \yii\web\View::POS_END);
         <div class="row" style="margin-top: -10px">
             <div class="col-6">
                 <?php
-                echo $form->field($formModel, 'design_type');
+                echo $form->field($formModel, 'design_title');
                 echo $form->field($formModel, 'design_description')->textarea(['rows' => 3]);
                 echo $form->field($formModel, 'design_url');
                 ?>

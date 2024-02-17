@@ -23,6 +23,9 @@ use yii\behaviors\TimestampBehavior;
  */
 class PostCategory extends \yii\db\ActiveRecord
 {
+    const STATUS_ACTIVE = 1;
+    const STATUS_INACTIVE = 0;
+
     /**
      * {@inheritdoc}
      */

@@ -26,6 +26,9 @@ use yii\behaviors\TimestampBehavior;
  */
 class Page extends \yii\db\ActiveRecord
 {
+    const STATUS_PUBLISHED = 1;
+    const STATUS_INACTIVE = 0;
+
     /**
      * {@inheritdoc}
      */

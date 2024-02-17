@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\modules\landingElement\models;
 
+use app\modules\admin\modules\landingElement\models\query\LandingElementQuery;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 

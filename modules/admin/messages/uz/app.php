@@ -85,5 +85,7 @@ return [
     "Site Config" => "Sayt sozlanmasi",
     "Design" => "Dizayn",
     "Structure" => "Tuzilish",
-    "Add Members" => "Qo'shish"
+    "Add Members" => "Qo'shish",
+    "Main menu information" => "Asosiy menu ma'lumotlari",
+    "Other settings" => "Boshqa sozlanmalar"
 ];
