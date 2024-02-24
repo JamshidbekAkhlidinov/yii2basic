@@ -7,11 +7,11 @@
 
 use app\modules\admin\enums\StatusEnum;
 use app\modules\admin\modules\landingElement\models\Menu;
-use yii\data\ActiveDataProvider;
-use yii\helpers\Html;
-use yii\helpers\Url;
+use app\modules\admin\modules\landingElement\widgets\MenuGroupButtonWidget;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\landingElement\search\MenuSearch $searchModel */
@@ -19,23 +19,18 @@ use yii\grid\GridView;
 
 $this->title = Yii::t('app', 'Menus');
 $this->params['breadcrumbs'][] = $this->title;
-
-$query = Menu::find()
-    ->orderBy(['created_at' => SORT_DESC]); // created_at bo'yicha tartiblash
-
-// Ma'lumotlarni olish
-
-$dataProvider = new ActiveDataProvider([
-    'query' => $query,
-]);
 ?>
 <div class="menu-index card">
-    <div class="card-header d-flex justify-content-between">
-        <h1><?= Html::encode($this->title) ?></h1>
-        <p>
-            <?= Html::a(Yii::t('app', 'Create Menu'), ['create'], ['class' => 'btn btn-success']) ?>
-        </p>
+    <div class="card-header">
+        <div class=" d-flex justify-content-between">
+            <h1><?= Html::encode($this->title) ?></h1>
+            <p>
+                <?= Html::a(Yii::t('app', 'Create Menu'), ['create'], ['class' => 'btn btn-success']) ?>
+            </p>
+        </div>
+        <?=MenuGroupButtonWidget::widget()?>
     </div>
+
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
     <div class="card-header">
@@ -45,7 +40,7 @@ $dataProvider = new ActiveDataProvider([
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'name',
 //            'order',
             [
@@ -58,7 +53,8 @@ $dataProvider = new ActiveDataProvider([
                     );
                 }
             ],
-//            'icon',
+            'item',
+            //'icon',
             //'parent_id',
             //'type',
             //'position_menu',

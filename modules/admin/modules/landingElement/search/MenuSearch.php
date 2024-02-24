@@ -23,7 +23,7 @@ class MenuSearch extends Menu
     {
         return [
             [['id', 'order', 'status', 'parent_id', 'type', 'position_menu', 'label_position'], 'integer'],
-            [['name', 'icon', 'created_at', 'updated_at', 'slug'], 'safe'],
+            [['name', 'icon', 'created_at', 'updated_at', 'slug','item'], 'safe'],
         ];
     }
 
@@ -47,6 +47,13 @@ class MenuSearch extends Menu
     {
         $query = Menu::find();
 
+        if ($this->position_menu) {
+            $query->andWhere(['position_menu' => $this->position_menu]);
+        }
+
+        $query->orderBy([
+            'created_at' => SORT_DESC,
+        ]);
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
@@ -68,7 +75,7 @@ class MenuSearch extends Menu
             'status' => $this->status,
             'parent_id' => $this->parent_id,
             'type' => $this->type,
-            'position_menu' => $this->position_menu,
+            'item' => $this->item,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'label_position' => $this->label_position,

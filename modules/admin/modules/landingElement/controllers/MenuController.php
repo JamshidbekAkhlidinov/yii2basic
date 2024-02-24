@@ -7,6 +7,7 @@
 
 namespace app\modules\admin\modules\landingElement\controllers;
 
+use app\modules\admin\enums\PositionMenuEnum;
 use app\modules\admin\enums\TypeEnum;
 use app\modules\admin\modules\landingElement\forms\MenuForm;
 use app\modules\admin\modules\landingElement\models\DataToArray;
@@ -45,9 +46,9 @@ class MenuController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex($position_menu = null)
     {
-        $searchModel = new MenuSearch();
+        $searchModel = new MenuSearch(['position_menu' => $position_menu]);
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [

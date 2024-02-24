@@ -94,7 +94,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'value' => static function ($model) {
                         return Html::tag(
                             'span',
-                            PositionMenuEnum::ALL[$model->position_menu] ?? ""
+                            PositionMenuEnum::LABELS[$model->position_menu] ?? ""
                         );
                     }
                 ],

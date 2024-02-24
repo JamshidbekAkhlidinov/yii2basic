@@ -71,7 +71,7 @@ use yii\helpers\Url;
                 </div>
                 <div class="card-body">
                     <?= $form->field($model, 'position_menu')->dropDownList(PositionMenuEnum::LABELS) ?>
-                    <?= $form->field($model, 'parent_id')->textInput() ?>
+                    <?= $form->field($model, 'parent_id') ?>
                     <?= $form->field($model, 'order')->textInput() ?>
                     <?= $form->field($model, 'label_position')->dropDownList(MenuLabelView::LABELS) ?>
                     <?= $form->field($model, 'status')->checkbox() ?>
