@@ -107,7 +107,7 @@ class MenuController extends Controller
                 if ($data_s != null) {
                     foreach ($data_s as $id => $data) {
                         $out[$id]['id'] = $data->slug;
-                        $out[$id]['name'] = $data->name;
+                        $out[$id]['name'] = $data->title;
                     }
                 }
                 return ['output' => $out, 'selected' => 'test'];

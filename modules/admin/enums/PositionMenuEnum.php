@@ -22,4 +22,12 @@ interface PositionMenuEnum
         self::FOOTER_EXPLORE => "Footer Additional",
     ];
 
+    public const ALL = [
+        self::HEADER => "Header",
+        self::TOP => "Top",
+        self::FOOTER_LINKS => "Footer links",
+        self::FOOTER_EXPLORE => "Footer explore",
+        self::SIDEBAR_1 => "Sidebar 1",
+        self::SIDEBAR_2 => "Sidebar 2",
+    ];
 }

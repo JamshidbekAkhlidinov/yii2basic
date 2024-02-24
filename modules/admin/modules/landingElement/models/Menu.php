@@ -7,6 +7,7 @@ use app\modules\admin\modules\content\models\Page;
 use app\modules\admin\modules\content\models\Post;
 use app\modules\admin\modules\content\models\PostCategory;
 use Yii;
+use yii\behaviors\SluggableBehavior;
 
 /**
  * This is the model class for table "menu".
@@ -38,6 +39,18 @@ class Menu extends \yii\db\ActiveRecord
         return 'menu';
     }
 
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => SluggableBehavior::class,
+                'attribute' => 'name',
+                'slugAttribute' => 'slug',
+                'immutable' => true,
+            ],
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -46,6 +59,8 @@ class Menu extends \yii\db\ActiveRecord
         return [
             [['order', 'status', 'parent_id', 'type', 'position_menu', 'label_position'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
+            [['slug'], 'unique'],
+            [['slug'], 'string', 'max' => 255],
             [['name', 'icon', 'slug', 'item'], 'string', 'max' => 255],
             [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => Menu::class, 'targetAttribute' => ['parent_id' => 'id']],
         ];

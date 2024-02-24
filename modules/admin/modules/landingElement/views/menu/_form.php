@@ -8,10 +8,11 @@
 use alexantr\elfinder\InputFile;
 use app\modules\admin\enums\MenuLabelView;
 use app\modules\admin\enums\PositionMenuEnum;
+use app\modules\admin\enums\StatusEnum;
 use app\modules\admin\enums\TypeEnum;
-use app\modules\admin\models\ModelToData;
 use app\modules\admin\modules\landingElement\models\DataToArray;
 use kartik\depdrop\DepDrop;
+use kartik\select2\Select2;
 use yii\helpers\Html;
 use yii\bootstrap5\ActiveForm;
 use yii\helpers\Url;
@@ -21,27 +22,39 @@ use yii\helpers\Url;
 /** @var yii\widgets\ActiveForm $form */
 
 $js = <<<JS
-$("#type").on('change', function () {
-    var type_id = $(this).val();
-    if (type_id === 2000) {
-        $(".item2-select2").css(
-            'display', 'block'
-        );
-        $("#w0 > div.row > div.col-md-8 > div > div > div:nth-child(4)").css(
-            'display', 'none'
-        );
+$('#type-radio-list input[type="radio"]').change(function() {
+    // 'item-dep-drop' ID'siga ega DepDrop widgeti
+    var depdrop = $('#item-dep-drop');
+    
+    // Form elementlarining qiymatlarini to'g'irlash
+    var typeValue = $(this).val();
+    
+    // DepDrop widgetini yangilash
+    depdrop.depdrop('disable');
+    depdrop.val(null).trigger('change');
+    depdrop.depdrop('enable');
+    depdrop.depdrop('refresh', {params: {type: typeValue}});
+});
+
+// 'item-dep-drop' ID'siga ega DepDrop widgeti uchun onchange funksiyasi
+$('#item-dep-drop').change(function() {
+    // Form elementining qiymatini olish
+    var value = $(this).val();
+    
+    // Agar qiymatlar bo'sh bo'lsa, yoki qiymatlar massiv bo'lsa, 'item2-select2' ID'siga ega elementni ko'rsatish
+    if (!value || value instanceof Array && value.length === 0) {
+        $('#item2-select2').show();
     } else {
-        $(".item2-select2").css(
-            'display', 'none'
-        );
-        $("#w0 > div.row > div.col-md-8 > div > div > div:nth-child(4)").css(
-            'display', 'block'
-        );
+        $('#item2-select2').hide();
     }
 });
 JS;
 
 $this->registerJs($js);
+
+if ($model->model->isNewRecord) {
+    $model->status = StatusEnum::ACTIVE;
+}
 ?>
 
 <div class="menu-form">
@@ -49,22 +62,29 @@ $this->registerJs($js);
     <?php $form = ActiveForm::begin(); ?>
     <div class="row my-4">
         <div class="col-4">
-<!--            <div class="d-flex justify-content-between">-->
+            <div class="d-flex justify-content-between">
+                <!--                --><?php //echo $form->field($model, 'type')->dropdownList(TypeEnum::LABELS,
+                //                    [
+                //                        'prompt' => Yii::t('app', '--Select--'),
+                //                        'id' => 'type',
+                //                    ]
+                //                ) ?>
                 <?= $form->field($model, 'type')->radioList(
                     array_map(
                         function ($label) {
                             return translate($label);
                         },
                         TypeEnum::LABELS, [
-                            'id' => 'type',
                         ]
                     ),
                     [
+                        'id' => 'type-radio-list',
                         'style' => 'display: flex; justify-content: start; gap: 13px;',
-                    ],
+                        'encode' => false, // Bu parametrni qo'shib ko'rsating
+                    ]
 
                 )->label(false); ?>
-<!--            </div>-->
+            </div>
         </div>
         <div class="col-2 d-flex align-items-center">
             <?= $form->field($model, 'status')->checkbox() ?>
@@ -81,9 +101,10 @@ $this->registerJs($js);
 
                     <?= $form->field($model, 'name') ?>
 
-                    <?= $form->field($model, 'item[]')->widget(DepDrop::class,[
+                    <?= $form->field($model, 'item')->widget(DepDrop::class, [
                         'data' => !empty($model->type) ? DataToArray::getListMenu($model->type) : [],
                         'options' => [
+                            'id' => "item-dep-drop",
                             'prompt' => Yii::t('app', '--Select--'),
                             'class' => 'item-select2',
                         ],
@@ -105,6 +126,7 @@ $this->registerJs($js);
 
                     <?php echo $form->field($model, 'item[]')->textInput(
                         [
+                            'id' => 'item2-select2',
                             'style' => 'display:none',
                             'class' => 'item2-select2 form-control',
                         ]
@@ -121,20 +143,24 @@ $this->registerJs($js);
                 </div>
                 <div class="card-body">
                     <?= $form->field($model, 'position_menu')->dropDownList(PositionMenuEnum::LABELS) ?>
-                    <?= $form->field($model, 'parent_id')->textInput() ?>
+                    <?= $form->field($model, 'parent_id')->widget(Select2::class, [
+                        'data' => DataToArray::getParentMenu($model->model->id),
+                        'options' => [
+                            'placeholder' => Yii::t('app', '--Select--')
+                        ],
+                        'pluginOptions' => [
+                            'allowClear' => true
+                        ],
+                    ]) ?>
                     <?= $form->field($model, 'order')->textInput() ?>
                     <?= $form->field($model, 'label_position')->dropDownList(MenuLabelView::LABELS) ?>
-                    <?= $form->field($model, 'icon')->widget(
-                        InputFile::class,
-                        [
-                            'clientRoute' => '/admin/file/default/input',
-                            'options' => [
-                                'id' => 'menu_icon_input',
-                            ]
+                    <?= $form->field($model, 'icon')->widget(InputFile::class, [
+                        'clientRoute' => '/admin/file/default/input',
+                        'options' => [
+                            'id' => 'menu_icon_input',
                         ]
-                    ); ?>
-
-
+                    ]) ?>
+                    <img src="<?= $model->icon ?>" alt="" id="menu_icon" style="width: 50px; object-fit: cover">
                 </div>
             </div>
 

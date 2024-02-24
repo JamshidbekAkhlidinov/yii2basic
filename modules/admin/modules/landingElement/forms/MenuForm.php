@@ -29,10 +29,10 @@ class MenuForm extends Model
         $this->icon = $model->icon;
         $this->parent_id = $model->parent_id;
         $this->type = $model->type;
+        $this->item = $model->item;
         $this->position_menu = $model->position_menu;
         $this->label_position = $model->label_position;
         $this->slug = $model->slug;
-        $this->item = $model->item;
         parent::__construct($config);
     }
 
@@ -43,7 +43,11 @@ class MenuForm extends Model
             [['order', 'status', 'parent_id', 'type', 'position_menu', 'label_position'], 'integer'],
             [['icon', 'item'], 'string', 'max' => 255],
             [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => Menu::class, 'targetAttribute' => ['parent_id' => 'id']],
-            [['name', 'type', 'position_menu'], 'required'],];
+            [['name', 'type', 'position_menu'], 'required'],
+            [['slug'], 'unique'],
+            [['slug'], 'string', 'max' => 255],
+        ];
+
     }
 
     public function attributeLabels()

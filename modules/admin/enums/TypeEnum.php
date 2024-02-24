@@ -22,4 +22,18 @@ interface TypeEnum
 //        self::COACHING => "Coaching",
 
     ];
+
+    public const ALL = [
+        self::PAGE => "Page",
+        self::LINK => "Link",
+        self::CATEGORY => "Category",
+        self::POST => "Post",
+    ];
+
+    public const COLORS = [
+        self::PAGE => "bg-success",
+        self::LINK => "bg-success",
+        self::CATEGORY => "bg-success",
+        self::POST => "bg-success",
+    ];
 }

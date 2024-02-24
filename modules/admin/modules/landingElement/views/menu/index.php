@@ -5,7 +5,9 @@
  *   https://github.com/JamshidbekAkhlidinov
 */
 
+use app\modules\admin\enums\StatusEnum;
 use app\modules\admin\modules\landingElement\models\Menu;
+use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -17,6 +19,15 @@ use yii\grid\GridView;
 
 $this->title = Yii::t('app', 'Menus');
 $this->params['breadcrumbs'][] = $this->title;
+
+$query = Menu::find()
+    ->orderBy(['created_at' => SORT_DESC]); // created_at bo'yicha tartiblash
+
+// Ma'lumotlarni olish
+
+$dataProvider = new ActiveDataProvider([
+    'query' => $query,
+]);
 ?>
 <div class="menu-index card">
     <div class="card-header d-flex justify-content-between">
@@ -36,9 +47,18 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'name',
-            'order',
-            'status',
-            'icon',
+//            'order',
+            [
+                'attribute' => 'status',
+                'format' => 'raw',
+                'value' => static function ($model) {
+                    return Html::tag(
+                        'span',
+                        StatusEnum::ALL[$model->status] ?? "",
+                    );
+                }
+            ],
+//            'icon',
             //'parent_id',
             //'type',
             //'position_menu',
