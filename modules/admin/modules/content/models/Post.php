@@ -30,10 +30,6 @@ use yii\behaviors\TimestampBehavior;
  */
 class Post extends \yii\db\ActiveRecord
 {
-
-    const STATUS_PUBLISHED = 1;
-    const STATUS_DRAFT = 0;
-
     public function behaviors()
     {
         return [

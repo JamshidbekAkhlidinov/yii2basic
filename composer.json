@@ -25,7 +25,7 @@
     "alexantr/yii2-elfinder": "^1.8",
     "alexantr/yii2-tinymce": "^1.0",
     "kartik-v/yii2-widget-depdrop": "@dev",
-    "kartik-v/yii2-widget-select2": "^2.2",
+    "kartik-v/yii2-widget-select2": "^2.2"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.1.0",

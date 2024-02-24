@@ -3,6 +3,7 @@
 namespace app\modules\admin\modules\landingElement\models;
 
 
+use app\modules\admin\enums\StatusEnum;
 use app\modules\admin\enums\TypeEnum;
 use app\modules\admin\modules\content\models\Page;
 use app\modules\admin\modules\content\models\Post;
@@ -17,22 +18,22 @@ class DataToArray
         if ($enum == TypeEnum::POST) {
             $model = Post::find()
                 ->andWhere([
-                    'status' => Post::STATUS_PUBLISHED
+                    'status' => StatusEnum::ACTIVE
                 ])
                 ->all();
         } elseif ($enum == TypeEnum::CATEGORY) {
             $model = PostCategory::find()
                 ->andWhere([
-                    'status' => PostCategory::STATUS_ACTIVE,
+                    'status' => StatusEnum::ACTIVE
                 ])
                 ->all();
         } elseif ($enum == TypeEnum::PAGE) {
             $model = Page::find()
                 ->andWhere([
-                    'status' => Page::STATUS_PUBLISHED,
+                    'status' => StatusEnum::ACTIVE
                 ])
                 ->all();
-        } elseif ($enum == TypeEnum::LINK) {
+        } else {
             $model = null;
         }
         return $model;
@@ -47,7 +48,7 @@ class DataToArray
             self::getModel($enum),
             'slug',
             function ($data) {
-                return $data->getTranslation('title');
+                return $data->name;
             },
         );
     }

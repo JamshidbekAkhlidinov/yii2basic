@@ -74,7 +74,7 @@ class MenuForm extends Model
         $model->position_menu = $this->position_menu;
         $model->label_position = $this->label_position;
         $model->slug = $this->slug;
-        $model->item = $this->saveItem();
+        $model->item = $this->item;
         if ($model->isNewRecord) {
             $model->created_at = date('Y-m-d H:i:s');
         }
@@ -83,14 +83,4 @@ class MenuForm extends Model
 
     }
 
-    public function saveItem()
-    {
-        if (isset($this->item[0]) && !empty($this->item[0])) {
-            return $this->item[0];
-        }
-        if (isset($this->item[1]) && !empty($this->item[1])) {
-            return $this->item[1];
-        }
-        return $this->model->item;
-    }
 }
