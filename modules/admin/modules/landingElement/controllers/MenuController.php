@@ -7,6 +7,7 @@
 
 namespace app\modules\admin\modules\landingElement\controllers;
 
+use app\modules\admin\enums\TypeEnum;
 use app\modules\admin\modules\landingElement\forms\MenuForm;
 use app\modules\admin\modules\landingElement\models\DataToArray;
 use app\modules\admin\modules\landingElement\models\Menu;
@@ -100,14 +101,18 @@ class MenuController extends Controller
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $out = [];
         if (isset($_POST['depdrop_parents'])) {
-            $parents = $_POST['depdrop_parents'];
+            $parents = $_POST['depdrop_all_params'];
             if ($parents != null) {
-                $cat_id = $parents[0];
+                $cat_id = $parents['type'];
                 $data_s = DataToArray::getModel($cat_id);
                 if ($data_s != null) {
                     foreach ($data_s as $id => $data) {
-                        $out[$id]['id'] = $data->slug;
-                        $out[$id]['name'] = $data->title;
+                        $out[$id]['id'] = $data->id;
+                        if ($cat_id == TypeEnum::CATEGORY) {
+                            $out[$id]['name'] = $data->name;
+                        } else {
+                            $out[$id]['name'] = $data->title;
+                        }
                     }
                 }
                 return ['output' => $out, 'selected' => 'test'];
