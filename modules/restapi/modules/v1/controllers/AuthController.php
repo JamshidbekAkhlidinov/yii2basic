@@ -62,6 +62,10 @@ class AuthController extends BaseController
         );
     }
 
+    /**
+     * @throws HttpException
+     * @throws BadRequestHttpException
+     */
     public function actionResetPassword($code)
     {
         try {
@@ -79,7 +83,7 @@ class AuthController extends BaseController
      * @throws HttpException
      * @throws BadRequestHttpException
      */
-    public function actionVerifyEmail($code)
+    public function actionVerifyEmail($code): \app\modules\restapi\base\BaseRequest
     {
         try {
             $model = new VerifyEmailForm($code);
@@ -94,7 +98,7 @@ class AuthController extends BaseController
     }
 
 
-    public function actionResendVerificationEmail()
+    public function actionResendVerificationEmail(): \app\modules\restapi\base\BaseRequest
     {
         $model = new ResendVerificationEmailForm();
 

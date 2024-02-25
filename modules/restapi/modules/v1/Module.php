@@ -18,7 +18,7 @@ class Module extends \yii\base\Module
     /**
      * {@inheritdoc}
      */
-    public $controllerNamespace = 'app\modules\restapi\controllers\modules\v1';
+    public $controllerNamespace = 'app\modules\restapi\modules\v1\controllers';
 
     /**
      * {@inheritdoc}

@@ -19,7 +19,7 @@ class ResetPasswordForm extends BaseRequest
     public $password;
 
     /**
-     * @var \app\models\User
+     * @var $_user User
      */
     private $_user;
 
@@ -50,7 +50,7 @@ class ResetPasswordForm extends BaseRequest
     {
         return [
             ['password', 'required'],
-            ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
+            ['password', 'string', 'min' => 6],
         ];
     }
 

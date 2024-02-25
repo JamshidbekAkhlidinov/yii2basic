@@ -26,6 +26,9 @@ class Module extends \yii\base\Module
         Yii::$app->errorHandler->errorAction = '/restapi/default/error';
         Yii::$app->user->enableSession = false;
         Yii::$app->user->loginUrl = null;
+        $this->modules = [
+            'v1' => \app\modules\restapi\modules\v1\Module::class,
+        ];
     }
 
     public function behaviors()

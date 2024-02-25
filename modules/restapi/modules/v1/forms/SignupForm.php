@@ -33,17 +33,17 @@ class SignupForm extends FormRequest
         return [
             ['username', 'trim'],
             //['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This username has already been taken.'],
+            ['username', 'unique', 'targetClass' => User::class, 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
             ['email', 'trim'],
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => User::class, 'message' => 'This email address has already been taken.'],
 
             ['password', 'required'],
-            ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
+            ['password', 'string', 'min' => 6],
 
             [['first_name', 'last_name', 'patronymic', 'full_name'], 'string'],
         ];
@@ -56,7 +56,7 @@ class SignupForm extends FormRequest
         }
 
         $user = new User();
-        $user->username = $this->email;
+        $user->username = $this->username;
         $user->email = $this->email;
         $profile = new UserProfile();
         $profile->firstname = $this->first_name;

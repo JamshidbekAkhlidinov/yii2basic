@@ -21,7 +21,7 @@ class UserResource extends User
             //'auth_key',
             'status',
             'status' => static function (User $model) {
-                return User::statuses()[$model->\restapi\] ?? '';
+                return User::statuses()[$model->status] ?? '';
             },
             'first_name',
             'last_name',

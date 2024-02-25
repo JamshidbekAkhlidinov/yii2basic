@@ -37,6 +37,8 @@ use yii\web\IdentityInterface;
  * @property string $password write-only password
  *
  * @property \app\models\UserProfile $userProfile
+ * @property mixed|null $verification_token
+ * @property int|null $password_reset_token
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -271,7 +273,12 @@ class User extends ActiveRecord implements IdentityInterface
         $profile->load($profileData, '');
         $profile->save();
 
-        authManager()->assign(authManager()->getRole(UserRolesEnum::ROLE_USER), $this->getId());
+        authManager()->assign(
+            authManager()->getRole(
+                UserRolesEnum::ROLE_USER
+            ),
+            $this->getId()
+        );
     }
 
     public function generateAccessToken()
@@ -284,7 +291,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function generateEmailVerificationToken()
     {
-        $this->auth_key = rand(100000, 999999);
+        $this->verification_token = rand(100000, 999999);
     }
 
     public static function isPasswordResetTokenValid($token)
