@@ -23,6 +23,9 @@ $config = [
         'admin' => [
             'class' => app\modules\admin\Module::class,
         ],
+        'restapi' => [
+            'class' => app\modules\restapi\Module::class,
+        ],
     ],
     'container' => [
         'definitions' => [
