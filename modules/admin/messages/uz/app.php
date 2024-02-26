@@ -87,5 +87,15 @@ return [
     "Structure" => "Tuzilish",
     "Add Members" => "Qo'shish",
     "Main menu information" => "Asosiy menu ma'lumotlari",
-    "Other settings" => "Boshqa sozlanmalar"
+    "Other settings" => "Boshqa sozlanmalar",
+    "Main Home Page Config" => "Bosh sahifani sozlash",
+    "Home Page Title" => "Bosh sahifa sarlavhasi",
+    "Widget Config" => "Vidjet konfiguratsiyasi",
+    "Team Section Config" => "Jamoa bo'limi konfiguratsiyasi",
+    "Button Title" => "Button Sarlavhasi",
+    "Question Title Config" => "Savol sarlavhasi konfiguratsiyasi",
+    "Product Config" => "Product konfiguratsiyasi",
+    "Process Config" => "Jarayon konfiguratsiyasi",
+    "Statistic Section" => "Statistik bo'lim",
+    "Opinion Section" => "Fikrlar bo'limi"
 ];

@@ -54,8 +54,11 @@ $this->registerJs($js, View::POS_END);
     </div>
 </div>
 <div class="card">
-    <div class="card-header">
+    <div class="card-header d-flex justify-content-between">
         <h3><?= translate("Home Page Title") ?></h3>
+        <div style="padding-right: 15px">
+            <?php echo $form->field($formModel, 'status')->checkbox(); ?>
+        </div>
     </div>
     <div class="card-body">
         <div class="row">
@@ -81,8 +84,11 @@ $this->registerJs($js, View::POS_END);
                     'width' => 130,
                     'id' => "header_title_background",
                 ]);
+                echo $form->field($formModel, 'order');
+
 
                 ?>
+
             </div>
         </div>
     </div>
@@ -94,6 +100,9 @@ $this->registerJs($js, View::POS_END);
     <div class="card">
         <div class="card-header d-flex justify-content-between">
             <h3><?= translate("Widget Config") ?></h3>
+            <div style="padding-right: 15px">
+                <?php echo $form->field($formModel, 'widget_status')->checkbox(); ?>
+            </div>
         </div>
         <div class="card-body">
             <div class="row">
@@ -102,6 +111,7 @@ $this->registerJs($js, View::POS_END);
                     echo $form->field($formModel, 'widget_title');
                     echo $form->field($formModel, 'widget_sub_text');
                     echo $form->field($formModel, 'widget_description')->textarea(['rows' => 5]);
+                    echo $form->field($formModel, 'widget_order');
                     ?>
                 </div>
                 <div class="col-6">
@@ -150,16 +160,62 @@ $this->registerJs($js, View::POS_END);
         <div class="card-header d-flex justify-content-between"
              style="background: none; padding: 0; margin: 0; padding-left: 20px">
             <h3 style="color: white !important;"><?= translate("Create Title settings") ?></h3>
+            <div style="padding-right: 15px; color: white !important;">
+                <?php echo $form->field($formModel, 'create_status')->checkbox(); ?>
+            </div>
         </div>
         <div class="card-body">
             <div class="row" style="color: white !important;">
                 <div class="col-6">
                     <?php
-                     echo $form->field($formModel, 'create_title');
+                    echo $form->field($formModel, 'create_title');
                     ?>
                 </div>
                 <div class="col-6">
                     <?php echo $form->field($formModel, 'create_url'); ?>
+                </div>
+                <div class="col-6">
+                    <?php echo $form->field($formModel, 'create_order'); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="card">
+        <div class="card-header d-flex justify-content-between">
+            <h3><?= translate("Team Section Config") ?></h3>
+            <div style="padding-right: 15px">
+                <?php echo $form->field($formModel, 'team_status')->checkbox(); ?>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <?php
+                    echo $form->field($formModel, 'team_title');
+                    ?>
+                </div>
+                <div class="col-md-6">
+                    <?php
+                    echo $form->field($formModel, 'team_button');
+                    ?>
+                </div>
+                <div class="col-md-6">
+                    <?php
+                    echo $form->field($formModel, 'team_button_title');
+                    ?>
+                </div>
+                <div class="col-md-6">
+                    <?php
+                    echo $form->field($formModel, 'team_order');
+                    ?>
+                </div>
+                <div class="col-md-6">
+                    <?php
+                    echo $form->field($formModel, 'team_description')->textarea(['rows' => 3]);
+                    ?>
                 </div>
             </div>
         </div>
@@ -170,8 +226,11 @@ $this->registerJs($js, View::POS_END);
 <div class="row">
     <div class="col-md-6">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header d-flex justify-content-between">
                 <h3><?= translate("Question Title Config") ?></h3>
+                <div style="padding-right: 15px">
+                    <?php echo $form->field($formModel, 'question_status')->checkbox(); ?>
+                </div>
             </div>
             <div class="card-body">
                 <?php
@@ -180,13 +239,19 @@ $this->registerJs($js, View::POS_END);
                 <?php
                 echo $form->field($formModel, 'question_description')->textarea(['rows' => 3]);
                 ?>
+                <?php
+                echo $form->field($formModel, 'question_order');
+                ?>
             </div>
         </div>
     </div>
     <div class="col-md-6">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header  d-flex justify-content-between">
                 <h3><?= translate("Product Config") ?></h3>
+                <div style="padding-right: 15px">
+                    <?php echo $form->field($formModel, 'product_status')->checkbox(); ?>
+                </div>
             </div>
             <div class="card-body">
                 <?php
@@ -195,13 +260,19 @@ $this->registerJs($js, View::POS_END);
                 <?php
                 echo $form->field($formModel, 'product_description')->textarea(['rows' => 3]);
                 ?>
+                <?php
+                echo $form->field($formModel, 'product_order');
+                ?>
             </div>
         </div>
     </div>
     <div class="col-md-6">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header d-flex justify-content-between">
                 <h3><?= translate("Service Title Settings") ?></h3>
+                <div style="padding-right: 15px">
+                    <?php echo $form->field($formModel, 'service_status')->checkbox(); ?>
+                </div>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -212,6 +283,9 @@ $this->registerJs($js, View::POS_END);
                         <?php
                         echo $form->field($formModel, 'service_description')->textarea(['rows' => 3]);
                         ?>
+                        <?php
+                        echo $form->field($formModel, 'service_order');
+                        ?>
                     </div>
 
                 </div>
@@ -220,8 +294,11 @@ $this->registerJs($js, View::POS_END);
     </div>
     <div class="col-md-6">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header d-flex justify-content-between">
                 <h3><?= translate("Process Config") ?></h3>
+                <div style="padding-right: 15px">
+                    <?php echo $form->field($formModel, 'process_status')->checkbox(); ?>
+                </div>
             </div>
             <div class="card-body">
                 <?php
@@ -229,6 +306,39 @@ $this->registerJs($js, View::POS_END);
                 ?>
                 <?php
                 echo $form->field($formModel, 'process_description')->textarea(['rows' => 3]);
+                ?>
+                <?php
+                echo $form->field($formModel, 'process_order');
+                ?>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between">
+                <h3><?= translate("Statistic Section") ?></h3>
+                <div style="padding-right: 15px">
+                    <?php echo $form->field($formModel, 'statistic_status')->checkbox(); ?>
+                </div>
+            </div>
+            <div class="card-body">
+                <?php
+                echo $form->field($formModel, 'statistic_order');
+                ?>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between">
+                <h3><?= translate("Opinion Section") ?></h3>
+                <div style="padding-right: 15px">
+                    <?php echo $form->field($formModel, 'opinion_status')->checkbox(); ?>
+                </div>
+            </div>
+            <div class="card-body">
+                <?php
+                echo $form->field($formModel, 'opinion_order');
                 ?>
             </div>
         </div>

@@ -13,6 +13,23 @@ use yii\helpers\ArrayHelper;
 class DataToArray
 {
 
+    public static function getParentMenu($id = null)
+    {
+        $model = Menu::find();
+        if ($id != null) {
+            $model->andWhere([
+                '!=', 'id', $id
+            ]);
+        }
+        return ArrayHelper::map(
+            $model->all(),
+            'id',
+            function (Menu $model) {
+                return $model->name;
+            }
+        );
+    }
+
     public static function getModel($enum)
     {
         if ($enum == TypeEnum::POST) {
@@ -44,12 +61,21 @@ class DataToArray
         if (self::getModel($enum) == null) {
             return [];
         }
-        return ArrayHelper::map(
-            self::getModel($enum),
-            'slug',
-            function ($data) {
-                return $data->name;
-            },
-        );
+        if ($enum == TypeEnum::CATEGORY) {
+            return ArrayHelper::map(
+                self::getModel($enum),
+                'id',
+                'name'
+            );
+        } else {
+            return ArrayHelper::map(
+                self::getModel($enum),
+                'id',
+                'title'
+            );
+        }
+
     }
+
+
 }

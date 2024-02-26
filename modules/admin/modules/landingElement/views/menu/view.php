@@ -69,9 +69,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::tag(
                             'span',
                             isset($model->parent) ? $model->parent->name : "",
-                            [
-                                'class' => 'badge bg-success'
-                            ]
                         );
                     }
                 ],
@@ -95,6 +92,17 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::tag(
                             'span',
                             PositionMenuEnum::LABELS[$model->position_menu] ?? ""
+                        );
+                    }
+                ],
+                [
+                    'attribute' => 'item',
+                    'format' => 'raw',
+                    'value' => static function ($model) {
+                        return Html::tag(
+                            'span',
+                            !empty($model->item) ? $model->item : $model->id,
+                            ['style' => !empty($model->item) ? '' : 'display:none;']
                         );
                     }
                 ],

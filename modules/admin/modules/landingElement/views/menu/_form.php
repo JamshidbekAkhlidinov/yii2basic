@@ -11,6 +11,7 @@ use app\modules\admin\enums\PositionMenuEnum;
 use app\modules\admin\enums\TypeEnum;
 use app\modules\admin\modules\landingElement\models\DataToArray;
 use kartik\depdrop\DepDrop;
+use kartik\select2\Select2;
 use yii\helpers\Html;
 use yii\bootstrap5\ActiveForm;
 use yii\helpers\Url;
@@ -43,7 +44,7 @@ use yii\helpers\Url;
                     )->label(false); ?>
 
                     <?= $form->field($model, 'item')->widget(DepDrop::class, [
-                        //'data' => !empty($model->type) ? DataToArray::getListMenu($model->type) : [],
+                        'data' => !empty($model->type) ? DataToArray::getListMenu($model->type) : [],
                         'pluginOptions' => [
                             'depends' => ['type'],
                             'placeholder' => Yii::t('app', '--Select--'),
@@ -71,7 +72,15 @@ use yii\helpers\Url;
                 </div>
                 <div class="card-body">
                     <?= $form->field($model, 'position_menu')->dropDownList(PositionMenuEnum::LABELS) ?>
-                    <?= $form->field($model, 'parent_id') ?>
+                    <?= $form->field($model, 'parent_id')->widget(Select2::class, [
+                        'data' => DataToArray::getParentMenu($model->model->id),
+                        'options' => [
+                            'placeholder' => Yii::t('app', '--Select--')
+                        ],
+                        'pluginOptions' => [
+                            'allowClear' => true
+                        ],
+                    ]) ?>
                     <?= $form->field($model, 'order')->textInput() ?>
                     <?= $form->field($model, 'label_position')->dropDownList(MenuLabelView::LABELS) ?>
                     <?= $form->field($model, 'status')->checkbox() ?>

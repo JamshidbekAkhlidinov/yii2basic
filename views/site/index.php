@@ -16,6 +16,7 @@ $createTitle = $selector->getElement(LandingElementEnum::CREATE_TITLE);
 $questionTitle = $selector->getElement(LandingElementEnum::QUESTION_TITLE);
 $productTitle = $selector->getElement(LandingElementEnum::PRODUCT_TITLE);
 $projectDesign = $selector->getElement(LandingElementEnum::DESIGN);
+$teamTitle = $selector->getElement(LandingElementEnum::TEAM_TITLE);
 $projectDesignDescription = explode("\n", $projectDesign->description);
 $projectStructure = $selector->getElement(LandingElementEnum::STRUCTURE);
 $projectStructureDescription = explode("\n", $projectStructure->description);
@@ -161,10 +162,10 @@ $this->title = 'My Yii Application';
         </div>
         <div class="row mb-lg-3">
             <?php foreach ($posts as $post) : ?>
-                <div class="col-xxl-4 col-lg-6">
+                <div class=" col-lg-4">
                     <div class="card card-overlay">
                         <img class="card-img" src="<?= $post->image ?>" alt="Card image"
-                             style="max-width: 100%; height: 300px; object-fit: cover">
+style="max-width: 100%; height: 300px; object-fit: cover">
                         <div class="card-img-overlay p-0 d-flex flex-column">
                             <div class="card-header bg-transparent">
                                 <a href="#">
@@ -891,9 +892,8 @@ $this->title = 'My Yii Application';
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="text-center mb-5">
-                    <h3 class="mb-3 fw-semibold">Our <span class="text-danger">Team</span></h3>
-                    <p class="text-muted mb-4 ff-secondary">To achieve this, it would be necessary to have uniform
-                        grammar, pronunciation and more common words. If several languages coalesce the grammar.</p>
+                    <h3 class="mb-3 fw-semibold"><?= $teamTitle->title ?></h3>
+                    <p class="text-muted mb-4 ff-secondary"><?= $teamTitle->description ?></p>
                 </div>
             </div>
         </div>
@@ -926,7 +926,7 @@ $this->title = 'My Yii Application';
         <div class="row">
             <div class="col-lg-12">
                 <div class="text-center mt-2">
-                    <a href="pages-team.html" class="btn btn-primary">View All Members <i
+                    <a href="<?= $teamTitle->url ?>" class="btn btn-primary"><?= $teamTitle->sub_text ?> <i
                                 class="ri-arrow-right-line ms-1 align-bottom"></i></a>
                 </div>
             </div>
