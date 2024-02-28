@@ -3,6 +3,7 @@
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 $assetManager = require __DIR__ . '/assetManager.php';
+$mailer = require __DIR__ . '/_mailer.php';
 
 if (file_exists(__DIR__ . '/db_locale.php')) {
     $db = require __DIR__ . '/db_locale.php';
@@ -50,12 +51,7 @@ $config = [
         'errorHandler' => [
             'errorAction' => '/site/error',
         ],
-        'mailer' => [
-            'class' => \yii\symfonymailer\Mailer::class,
-            'viewPath' => '@app/mail',
-            // send all mails to a file by default.
-            'useFileTransport' => true,
-        ],
+        'mailer' => $mailer,
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
