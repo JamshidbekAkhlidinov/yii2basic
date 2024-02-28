@@ -26,7 +26,7 @@ class PasswordResetRequestForm extends BaseRequest
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'exist',
-                'targetClass' => '\app\models\User',
+                'targetClass' => User::class,
                 'filter' => ['status' => User::STATUS_ACTIVE],
                 'message' => 'There is no user with this email address.'
             ],
