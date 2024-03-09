@@ -1,4 +1,5 @@
 <?php
+
 namespace app\assets;
 
 class FrontendAsset extends \yii\web\AssetBundle
@@ -23,7 +24,7 @@ class FrontendAsset extends \yii\web\AssetBundle
         "libs/swiper/swiper-bundle.min.js",
         "js/pages/landing.init.js",
         "libs/particles.js/particles.js",
-        "js/pages/particles.app.js"
+        "js/pages/particles.app.js",
     ];
     public $depends = [
         'yii\web\YiiAsset',
