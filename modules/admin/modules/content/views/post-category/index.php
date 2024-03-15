@@ -74,7 +74,10 @@ $dataProvider = new ActiveDataProvider([
                             'span',
                             StatusEnum::ALL[$model->status] ?? "",
                             [
-                                'class' => 'badge ' . StatusEnum::COLORS[$model->status] ?? ""
+                                'class' => [
+                                    'badge ',
+                                    StatusEnum::COLORS[$model->status] ?? ""
+                                ]
                             ]
                         );
                     }

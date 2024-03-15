@@ -8,10 +8,6 @@
 
 namespace app\modules\restapi\base;
 
-class FilterRequest extends BaseRequest
+abstract class FilterRequest extends BaseRequest
 {
-    public function getResult()
-    {
-        // TODO: Implement getResult() method.
-    }
 }

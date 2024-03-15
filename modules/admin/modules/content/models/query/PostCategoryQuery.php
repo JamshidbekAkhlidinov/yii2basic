@@ -2,6 +2,8 @@
 
 namespace app\modules\admin\modules\content\models\query;
 
+use app\modules\admin\enums\StatusEnum;
+
 /**
  * This is the ActiveQuery class for [[\app\modules\admin\modules\content\models\PostCategory]].
  *
@@ -9,10 +11,10 @@ namespace app\modules\admin\modules\content\models\query;
  */
 class PostCategoryQuery extends \yii\db\ActiveQuery
 {
-    /*public function active()
+    public function active()
     {
-        return $this->andWhere('[[status]]=1');
-    }*/
+        return $this->andWhere(['status' => StatusEnum::ACTIVE]);
+    }
 
     /**
      * {@inheritdoc}
