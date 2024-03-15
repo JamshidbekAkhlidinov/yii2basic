@@ -24,7 +24,7 @@
     "vlucas/phpdotenv": "^5.6",
     "alexantr/yii2-elfinder": "^1.8",
     "alexantr/yii2-tinymce": "^1.0",
-    "kartik-v/yii2-widget-depdrop": "@dev",
+    "kartik-v/yii2-widget-depdrop": "^1.0.6",
     "kartik-v/yii2-widget-select2": "^2.2"
   },
   "require-dev": {
