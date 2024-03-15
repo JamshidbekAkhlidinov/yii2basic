@@ -9,8 +9,8 @@
 namespace app\models;
 
 use app\models\query\UserQuery;
+use app\modules\admin\enums\StatusEnum;
 use app\modules\admin\enums\UserRolesEnum;
-use Yii;
 use yii\base\Exception;
 use yii\behaviors\AttributeBehavior;
 use yii\behaviors\TimestampBehavior;
@@ -37,6 +37,8 @@ use yii\web\IdentityInterface;
  * @property string $password write-only password
  *
  * @property \app\models\UserProfile $userProfile
+ * @property mixed|null $verification_token
+ * @property int|null $password_reset_token
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -271,7 +273,81 @@ class User extends ActiveRecord implements IdentityInterface
         $profile->load($profileData, '');
         $profile->save();
 
-        authManager()->assign(authManager()->getRole(UserRolesEnum::ROLE_USER), $this->getId());
+        authManager()->assign(
+            authManager()->getRole(
+                UserRolesEnum::ROLE_USER
+            ),
+            $this->getId()
+        );
+    }
+
+    public function generateAccessToken()
+    {
+        $this->access_token = security()->generateRandomString();
+    }
+
+    /**
+     * Generates new token for email verification
+     */
+    public function generateEmailVerificationToken()
+    {
+        $this->verification_token = rand(100000, 999999);
+    }
+
+    public static function isPasswordResetTokenValid($token)
+    {
+        if (empty($token)) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Finds user by password reset token
+     *
+     * @param string $token password reset token
+     * @return static|null
+     */
+    public static function findByPasswordResetToken($token)
+    {
+        if (!static::isPasswordResetTokenValid($token)) {
+            return null;
+        }
+
+        return static::findOne([
+            'password_reset_token' => $token,
+            'status' => self::STATUS_ACTIVE,
+        ]);
+    }
+
+    /**
+     * Finds user by verification email token
+     *
+     * @param string $token verify email token
+     * @return static|null
+     */
+    public static function findByVerificationToken($token): ?User
+    {
+        return static::findOne([
+            'verification_token' => $token,
+            'status' => StatusEnum::ACTIVE
+        ]);
+    }
+
+    /**
+     * Generates new password reset token
+     */
+    public function generatePasswordResetToken()
+    {
+        $this->password_reset_token = rand(100000, 999999);
+    }
+
+    /**
+     * Removes password reset token
+     */
+    public function removePasswordResetToken()
+    {
+        $this->password_reset_token = null;
     }
 
 }
