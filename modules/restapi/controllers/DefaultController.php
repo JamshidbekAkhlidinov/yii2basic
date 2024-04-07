@@ -8,6 +8,8 @@
 
 namespace app\modules\restapi\controllers;
 
+use Yii;
+
 class DefaultController extends BaseController
 {
 
@@ -27,5 +29,17 @@ class DefaultController extends BaseController
         ];
     }
 
+    public function actionSend()
+    {
+        return Yii::$app
+            ->mailer
+            ->compose()
+            ->setFrom(["jamshidbekaxlidinovtatu@gmail.com" => Yii::$app->name . ' robot'])
+            ->setTo('jamshidbekakhlidinov@gmail.com')
+            ->setSubject('Subject of the email')
+            ->setTextBody('Plain text content')
+            ->setHtmlBody('<b>HTML content</b>')
+            ->send();
+    }
 
 }
