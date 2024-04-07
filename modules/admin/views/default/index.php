@@ -26,12 +26,18 @@ new NestedSort({
     listClassNames: 'list-group', // a Bootstrap specific class name for list elements
   listItemClassNames: 'list-group-item' // a Bootstrap specific class name for list item elements
 })
+
+
 JS;
-$this->registerJs($js);
+$this->registerJs($js,View::POS_READY);
+
 
 ?>
+
 <div class="admin-default-index">
     <h1><?= $this->context->action->uniqueId ?></h1>
+
+
 
 
     <div class="row">
@@ -81,7 +87,6 @@ $this->registerJs($js);
 
 
     <p>
-        You may customize this page by editing the following file:<br>
     </p>
     <?= icon('home-3', [
         'type' => 'fill',

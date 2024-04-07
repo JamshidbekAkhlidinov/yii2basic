@@ -31,7 +31,7 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
 
 <div class="position-relative mx-n4 mt-n4">
     <div class="profile-wid-bg profile-setting-img">
-        <img src="assets/images/profile-bg.jpg" class="profile-wid-img" alt="">
+        <img src="/images/profile-bg.jpg" class="profile-wid-img" alt="">
         <div class="overlay-content">
             <div class="text-end p-3">
                 <div class="p-0 ms-auto rounded-circle profile-photo-edit">
@@ -51,7 +51,7 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
             <div class="card-body p-4">
                 <div class="text-center">
                     <div class="profile-user position-relative d-inline-block mx-auto  mb-4 profile-img-path">
-                        <img src="<?= $model->avatar_path ?>"
+                        <img src="<?= $model->model->avatar ?>"
                              class="rounded-circle avatar-xl img-thumbnail user-profile-image" id="avatar_path"
                              alt="user-profile-image">
                     </div>
@@ -176,7 +176,7 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
                             <!--end col-->
                             <div class="col-lg-6">
                                 <div class="mb-3">
-                                    <?= $form->field($model, 'ph_number') ?>
+                                    <?= $form->field($model, 'phone_number') ?>
                                 </div>
                             </div>
                             <!--end col-->

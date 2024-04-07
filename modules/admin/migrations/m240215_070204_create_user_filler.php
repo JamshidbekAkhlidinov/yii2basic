@@ -6,9 +6,9 @@ use app\modules\admin\enums\UserRolesEnum;
 use yii\db\Migration;
 
 /**
- * Class m231129_125802_create_user_filler
+ * Class m240215_070204_create_user_filler
  */
-class m231129_125802_create_user_filler extends Migration
+class m240215_070204_create_user_filler extends Migration
 {
     public function safeUp()
     {

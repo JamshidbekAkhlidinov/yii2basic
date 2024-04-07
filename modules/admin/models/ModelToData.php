@@ -9,6 +9,9 @@
 namespace app\modules\admin\models;
 
 use app\models\User;
+use app\modules\admin\modules\content\models\Page;
+use app\modules\admin\modules\content\models\Post;
+use app\modules\admin\modules\content\models\PostCategory;
 use app\modules\admin\modules\rbac\models\AuthItem;
 use app\modules\admin\modules\rbac\models\AuthRule;
 use yii\helpers\ArrayHelper;

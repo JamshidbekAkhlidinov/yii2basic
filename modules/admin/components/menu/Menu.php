@@ -19,7 +19,7 @@ class Menu
         return MenuWidget::widget([
             'items' => [
                 [
-                    'label' => 'Test Title',
+                    'label' => 'Main Menus',
                     'type' => MenuWidget::type_title, //menu,item
                     'icon' => 'ri-dashboard-2-line',
                 ],

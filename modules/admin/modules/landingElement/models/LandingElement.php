@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\modules\landingElement\models;
 
+use app\modules\admin\modules\landingElement\models\query\LandingElementQuery;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 
@@ -18,6 +19,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string|null $files
  * @property string|null $url
  * @property int|null $order
+ * @property int|null $status
  * @property string|null $created_at
  */
 class LandingElement extends \yii\db\ActiveRecord
@@ -63,6 +65,7 @@ class LandingElement extends \yii\db\ActiveRecord
             'files' => Yii::t('app', 'Files'),
             'url' => Yii::t('app', 'Url'),
             'order' => Yii::t('app', 'Order'),
+            'status' => Yii::t('app', 'Status'),
             'created_at' => Yii::t('app', 'Created At'),
         ];
     }

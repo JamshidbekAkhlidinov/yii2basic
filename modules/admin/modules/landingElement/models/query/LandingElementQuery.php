@@ -1,6 +1,8 @@
 <?php
 
-namespace app\modules\admin\modules\landingElement\models;
+namespace app\modules\admin\modules\landingElement\models\query;
+
+use app\modules\admin\modules\landingElement\models\LandingElement;
 
 /**
  * This is the ActiveQuery class for [[LandingElement]].

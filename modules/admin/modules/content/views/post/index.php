@@ -28,6 +28,7 @@ $query = Post::find()
     ->orderBy(['created_at' => SORT_DESC]); // created_at bo'yicha tartiblash
 
 // Ma'lumotlarni olish
+
 $dataProvider = new ActiveDataProvider([
     'query' => $query,
 ]);

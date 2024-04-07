@@ -22,6 +22,13 @@ class LandingElementMenu
             'active' => module()->id == "landingElement",
             'items' => [
                 [
+                    'label' => translate("Menu"),
+                    'url' => ['/admin/landingElement/menu'],
+                    'icon' => 'ri-dashboard-2-line',
+                    'active' => controller()->id == "menu",
+
+                ],
+                [
                     'label' => translate("Site Config"),
                     'url' => ['/admin/landingElement/header/form'],
                     'icon' => 'ri-dashboard-2-line',

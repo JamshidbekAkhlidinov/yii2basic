@@ -29,6 +29,7 @@ interface LandingElementEnum
     public const PARTNER = 4000;
 
     public const TEAM = 20000;
+    public const TEAM_TITLE = 21000;
 
     public const DESIGN = 22000;
     public const STRUCTURE = 30000;
@@ -41,8 +42,10 @@ interface LandingElementEnum
     public const PRODUCT_TITLE = 5500;
 
     public const OPINION = 60000;
+    public const OPINION_STATUS = 65000;
 
     public const STATISTIC = 66000;
+    public const STATISTIC_STATUS = 70000;
 
     public const MULTIPLE_ENUMS = [
         self::SERVICE,

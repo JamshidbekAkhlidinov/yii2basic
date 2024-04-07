@@ -10,6 +10,7 @@ namespace app\modules\admin\modules\content\controllers;
 use app\modules\admin\modules\content\forms\PageForm;
 use app\modules\admin\modules\content\models\Page;
 use app\modules\admin\modules\content\search\PageSearch;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

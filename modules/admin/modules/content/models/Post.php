@@ -30,7 +30,6 @@ use yii\behaviors\TimestampBehavior;
  */
 class Post extends \yii\db\ActiveRecord
 {
-
     public function behaviors()
     {
         return [

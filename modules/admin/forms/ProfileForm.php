@@ -26,7 +26,7 @@ class ProfileForm extends Model
 
     public $avatar_path;
 
-    public $ph_number;
+    public $phone_number;
 
     public $birthday;
 
@@ -35,7 +35,7 @@ class ProfileForm extends Model
         $this->model = $model;
         $this->email = $model->user->email;
         $this->username = $model->user->username;
-        $this->ph_number = $model->ph_number;
+        $this->phone_number = $model->phone_number;
         $this->birthday = $model->birthday;
         $this->avatar_path = $model->avatar_path;
         $this->firstName = $model->firstname;
@@ -46,7 +46,7 @@ class ProfileForm extends Model
     public function rules(): array
     {
         return [
-            [['firstName', 'lastName', 'ph_number', 'birthday', 'username', 'avatar_path'], 'string'],
+            [['firstName', 'lastName', 'phone_number', 'birthday', 'username', 'avatar_path'], 'string'],
             [['email'], 'required'],
             [['email'], 'email'],
         ];
@@ -59,7 +59,7 @@ class ProfileForm extends Model
             'lastName' => translate('Lastname'),
             'avatar_path' => translate('Avatar Path'),
             'gender' => translate('Gender'),
-            'ph_number' => translate('Phone number'),
+            'phone_number' => translate('Phone number'),
             'birthday' => translate('Birthday'),
             'old_password' => translate('Old password'),
         ];
@@ -73,7 +73,7 @@ class ProfileForm extends Model
         $user->username = $this->username;
         $user->save();
         $model->firstname = $this->firstName;
-        $model->ph_number = $this->ph_number;
+        $model->phone_number = $this->phone_number;
         $model->birthday = $this->birthday;
         $model->lastname = $this->lastName;
         $model->avatar_path = $this->avatar_path;

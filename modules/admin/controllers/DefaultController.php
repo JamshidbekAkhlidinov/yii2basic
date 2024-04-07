@@ -28,4 +28,15 @@ class DefaultController extends Controller
     {
         return $this->render('index');
     }
+
+    public function actionEditor()
+    {
+        return $this->render('editor');
+    }
+
+
+    public function actionData()
+    {
+        dd($_SERVER);
+    }
 }

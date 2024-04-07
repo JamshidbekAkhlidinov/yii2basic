@@ -12,8 +12,8 @@ class m240108_124500_add_birthday_column_to_user_profile_table extends Migration
      */
     public function safeUp()
     {
-        $this->addColumn('{{%user_profile}}', 'ph_number', $this->string());
-        $this->addColumn('{{%user_profile}}', 'birthday', $this->string());
+        $this->addColumn('{{%user_profile}}', 'phone_number', $this->string());
+        $this->addColumn('{{%user_profile}}', 'birthday', $this->date());
     }
 
     /**
@@ -21,7 +21,7 @@ class m240108_124500_add_birthday_column_to_user_profile_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropColumn('{{%user_profile}}', 'ph_number');
+        $this->dropColumn('{{%user_profile}}', 'phone_number');
         $this->dropColumn('{{%user_profile}}', 'birthday');
     }
 }
