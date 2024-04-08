@@ -34,6 +34,9 @@ class DefaultController extends Controller
                                     !($attr == 'read' || $attr == 'write') :
                                     null;
                             },
+                            'uploadDeny' => [
+                                'text/x-php', 'text/php', 'application/x-php', 'application/php'
+                            ],
                         ],
                     ],
                 ],

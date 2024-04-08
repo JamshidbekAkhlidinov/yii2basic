@@ -22,18 +22,29 @@ features to your application.
 DIRECTORY STRUCTURE
 -------------------
 
-      assets/             contains assets definition
-      commands/           contains console commands (controllers)
-      config/             contains application configurations
-      controllers/        contains Web controller classes
-      mail/               contains view files for e-mails
-      models/             contains model classes
-      modules/            contains admin module and others modules
-      runtime/            contains files generated during runtime
-      tests/              contains various tests for the basic application
-      vendor/             contains dependent 3rd-party packages
-      views/              contains view files for the Web application
-      web/                contains the entry script and Web resources
+    - yii2basic
+    |
+    |-----assets/             contains assets definition
+    |----- commands/           contains console commands (controllers)
+    |----- config/             contains application configurations
+    |----- controllers/        contains Web controller classes
+    |----- mail/               contains view files for e-mails
+    |----- models/             contains model classes
+    |----- modules/            contains admin module and others modules
+    |          |- admin/        admin module
+    |          |  |- modules/
+    |              |-- content/             post,page,post category
+    |              |-- file/                file management
+    |              |-- landing element/     frontend view management
+    |              |-- rbac/
+    |          |- restapi/       rest api module
+    |              modules/
+    |                  v1/
+    |----- runtime/            contains files generated during runtime
+    |----- tests/              contains various tests for the basic application
+    |----- vendor/             contains dependent 3rd-party packages
+    |----- views/              contains view files for the Web application
+          web/                contains the entry script and Web resources
 
 
 
@@ -90,7 +101,7 @@ CONFIGURATION
 
 ### Database
 
-Edit the file `config/db.php` with real data, for example:
+ `config/db.php` copy `config/db_locale.php` and setting this file
 
 ```php
 return [
@@ -100,6 +111,27 @@ return [
     'password' => 'rooot',
     'charset' => 'utf8mb4',
 ];
+```
+or `.env.dist` file copy `.env` file and settings
+
+```dotenv
+YII_DEBUG="true"
+YII_ENV="dev"
+
+APP_NAME="Admin Panel"
+
+DB_DSN="mysql:host=localhost;dbname=yii2basic"
+DB_USERNAME="root"
+DB_PASSWORD="root"
+DB_CHARSET="utf8mb4"
+
+
+BOT_TOKEN="token"
+
+MAIL_FROM_EMAIL="mail@gmail.com"
+MAIL_FROM_NAME="Name"
+MAIL_HOST="smtp.gmail.com"
+MAIL_PASSWORD="password"
 ```
 
 **NOTES:**
