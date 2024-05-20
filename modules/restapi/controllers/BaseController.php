@@ -4,6 +4,7 @@ namespace app\modules\restapi\controllers;
 
 use app\modules\restapi\base\BaseRequest;
 use yii\filters\AccessControl;
+use yii\filters\auth\HttpBearerAuth;
 use yii\filters\Cors;
 use yii\rest\Controller;
 use yii\web\Response;
@@ -43,13 +44,11 @@ class BaseController extends Controller
                     ],
                 ],
             ],
-            'access' => [
-                'class' => AccessControl::class,
-                'rules' => [
-                    [
-                        'allow' => true,
-                    ],
-                ]
+            'authenticator' => [
+                'class' => HttpBearerAuth::class,
+                'except' => [
+                    'login', 'signup', 'ok', 'error',
+                ],
             ],
         ];
     }
