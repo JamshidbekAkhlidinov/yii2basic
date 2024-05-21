@@ -62,13 +62,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                     ],
                                 ]); ?>
 
-                                <?= $form->field($model, 'username')->textInput(['placeholder'=>"Enter username"]) ?>
+                                <?= $form->field($model, 'username')->textInput(['placeholder' => "Enter username"]) ?>
 
                                 <div class="float-end">
                                     <a href="auth-pass-reset-basic.html" class="text-muted">Forgot password?</a>
                                 </div>
 
-                                <?= $form->field($model, 'password')->passwordInput(['placeholder'=>"Enter password"]) ?>
+                                <?= $form->field($model, 'password')->passwordInput(['placeholder' => "Enter password"]) ?>
 
                                 <?= $form->field($model, 'rememberMe')->checkbox([
                                     'template' => "<div class=\"form-check\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
@@ -88,20 +88,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <?= yii\authclient\widgets\AuthChoice::widget([
                                             'baseAuthUrl' => ['site/auth'],
                                             'popupMode' => false,
+                                            'options' => [
+                                                'style' => 'display: flex;    justify-content: center;'
+                                            ]
                                         ]) ?>
 
-                                        <button type="button" class="btn btn-primary btn-icon waves-effect waves-light">
-                                            <i class="ri-facebook-fill fs-16"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-danger btn-icon waves-effect waves-light">
-                                            <i class="ri-google-fill fs-16"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-dark btn-icon waves-effect waves-light">
-                                            <i class="ri-github-fill fs-16"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-info btn-icon waves-effect waves-light">
-                                            <i class="ri-twitter-fill fs-16"></i>
-                                        </button>
                                     </div>
                                 </div>
 
@@ -114,7 +105,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <!-- end card -->
 
                     <div class="mt-4 text-center">
-                        <p class="mb-0">Don't have an account ? <a href="<?=Url::to(['site/signup'])?>"
+                        <p class="mb-0">Don't have an account ? <a href="<?= Url::to(['site/signup']) ?>"
                                                                    class="fw-semibold text-primary text-decoration-underline">
                                 Signup </a></p>
                     </div>

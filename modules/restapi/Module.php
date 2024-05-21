@@ -26,8 +26,12 @@ class Module extends \yii\base\Module
         Yii::$app->errorHandler->errorAction = '/restapi/default/error';
         Yii::$app->user->enableSession = false;
         Yii::$app->user->loginUrl = null;
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        Yii::$app->language = 'uz';
+
         $this->modules = [
             'v1' => \app\modules\restapi\modules\v1\Module::class,
         ];
     }
+
 }
