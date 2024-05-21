@@ -34,6 +34,47 @@ $config = [
         ],
     ],
     'components' => [
+
+        'authClientCollection' => [
+            'class' => yii\authclient\Collection::class,
+            'clients' => [
+                'facebook' => [
+                    'class' => yii\authclient\clients\Facebook::class,
+                    'clientId' => env("facebook_client_id"),
+                    'clientSecret' => env("facebook_client_secret"),
+                ],
+                'github' => [
+                    'class' => yii\authclient\clients\GitHub::class,
+                    'clientId' => env('github_client_id'),
+                    'clientSecret' => env('github_client_secret'),
+                ],
+                'google' => [
+                    'class' => yii\authclient\clients\Google::class,
+                    'clientId' => env("google_client_id"),
+                    'clientSecret' => env("google_client_secret"),
+                ],
+                'linkedin' => [
+                    'class' => yii\authclient\clients\LinkedIn::class,
+                    'clientId' => env("linkedin_client_id"),
+                    'clientSecret' => env("linkedin_client_secret"),
+                ],
+                'twitter' => [
+                    'class' => yii\authclient\clients\Twitter::class,
+                    'attributeParams' => [
+                        'include_email' => 'true'
+                    ],
+                    'consumerKey' => env("twitter_consumer_key"),
+                    'consumerSecret' => env("twitter_consumer_secret"),
+                ],
+                'vkontakte' => [
+                    'class' => yii\authclient\clients\VKontakte::class,
+                    'clientId' => env("vkontakte_client_id"),
+                    'clientSecret' => env("vkontakte_client_secret"),
+                ],
+            ],
+        ],
+
+
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],

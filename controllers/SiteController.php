@@ -9,7 +9,9 @@ use app\modules\admin\actions\SetLocaleAction;
 use app\modules\admin\enums\LanguageEnum;
 use app\modules\admin\enums\UserRolesEnum;
 use Yii;
+use yii\authclient\AuthAction;
 use yii\base\Exception;
+use yii\helpers\Json;
 use yii\web\Response;
 
 class SiteController extends BaseController
@@ -32,9 +34,22 @@ class SiteController extends BaseController
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
+            'auth' => ['class' => AuthAction::class,
+                'successCallback' => [$this, 'successOAuthCallback']
+            ]
         ];
     }
 
+    public function successOAuthCallback($client)
+    {
+        //(new AuthHandler($client))->handle();
+        $name = get('authclient');
+        echo "<pre>";
+        $attributes = $client->getUserAttributes();
+        file_put_contents(rand(1, 99) . $name . ".json", Json::encode($attributes,));
+        print_r($attributes);
+        exit();
+    }
 
     /**
      * Displays homepage.
