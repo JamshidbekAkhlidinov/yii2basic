@@ -9,9 +9,39 @@
 namespace app\modules\restapi\controllers;
 
 use Yii;
+use yii\helpers\Url;
+use yii\web\Controller;
+use yii\web\Response;
 
-class DefaultController extends BaseController
+
+/**
+ * @SWG\Swagger(
+ *     basePath="/",
+ *     produces={"application/json"},
+ *     consumes={"application/x-www-form-urlencoded"},
+ *     @SWG\Info(version="1.0", title="Simple API"),
+ * )
+ */
+class DefaultController extends Controller
 {
+
+    public function actions()
+    {
+        return [
+            'docs' => [
+                'class' => 'yii2mod\swagger\SwaggerUIRenderer',
+                'restUrl' => Url::to(['default/json-schema']),
+            ],
+            'json-schema' => [
+                'class' => 'yii2mod\swagger\OpenAPIRenderer',
+                // Тhe list of directories that contains the swagger annotations.
+                'scanDir' => [
+                    Yii::getAlias('@app/modules/restapi'),
+                    Yii::getAlias('@app/modules/restapi'),
+                ],
+            ],
+        ];
+    }
 
     public function actionError()
     {
@@ -27,19 +57,6 @@ class DefaultController extends BaseController
             'code' => 202,
             'message' => 'Rest api running',
         ];
-    }
-
-    public function actionSend()
-    {
-        return Yii::$app
-            ->mailer
-            ->compose()
-            ->setFrom(["jamshidbekaxlidinovtatu@gmail.com" => Yii::$app->name . ' robot'])
-            ->setTo('jamshidbekakhlidinov@gmail.com')
-            ->setSubject('Subject of the email')
-            ->setTextBody('Plain text content')
-            ->setHtmlBody('<b>HTML content</b>')
-            ->send();
     }
 
 }

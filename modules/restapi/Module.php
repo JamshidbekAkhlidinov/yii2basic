@@ -30,23 +30,4 @@ class Module extends \yii\base\Module
             'v1' => \app\modules\restapi\modules\v1\Module::class,
         ];
     }
-
-    public function behaviors()
-    {
-        $behaviors = parent::behaviors();
-
-        $behaviors['contentNegotiator'] = [
-            'class' => ContentNegotiator::class,
-            'formats' => [
-                'application/json' => Response::FORMAT_JSON,
-                'application/xml' => Response::FORMAT_XML,
-            ],
-        ];
-
-        $behaviors['rateLimiter'] = [
-            'class' => RateLimiter::class,
-        ];
-
-        return $behaviors;
-    }
 }

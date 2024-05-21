@@ -16,8 +16,20 @@ use app\modules\restapi\modules\v1\forms\PostCategoryDeleteForm;
 use app\modules\restapi\modules\v1\forms\PostCategoryForm;
 use yii\console\Exception;
 
+
 class PostCategoryController extends BaseController
 {
+    /**
+     * @SWG\Get(path="/restapi/v1/post-category",
+     *     tags={"PostCategoryResource"},
+     *     summary="Retrieves the collection of User resources.",
+     *     @SWG\Response(
+     *         response = 200,
+     *         description = "PostCategoryResource collection response",
+     *         @SWG\Schema(ref = "#PostCategoryResource")
+     *     ),
+     * )
+     */
     public function actionIndex()
     {
         return $this->sendResponse(

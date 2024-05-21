@@ -3,9 +3,9 @@
 namespace app\modules\restapi\controllers;
 
 use app\modules\restapi\base\BaseRequest;
-use yii\filters\AccessControl;
 use yii\filters\auth\HttpBearerAuth;
 use yii\filters\Cors;
+use yii\filters\RateLimiter;
 use yii\rest\Controller;
 use yii\web\Response;
 
@@ -18,6 +18,7 @@ class BaseController extends Controller
         'metaEnvelope' => 'options',
     ];
 
+
     public function behaviors()
     {
         return [
@@ -26,6 +27,9 @@ class BaseController extends Controller
                 'formats' => [
                     'application/json' => Response::FORMAT_JSON,
                 ],
+            ],
+            'rateLimiter' => [
+                'class' => RateLimiter::class,
             ],
             'corsFilter' => [
                 'class' => Cors::class,
@@ -47,7 +51,8 @@ class BaseController extends Controller
             'authenticator' => [
                 'class' => HttpBearerAuth::class,
                 'except' => [
-                    'login', 'signup', 'ok', 'error',
+                    'login', 'signup', 'ok', 'error', 'index',
+                    'json-schema', 'docs'
                 ],
             ],
         ];
