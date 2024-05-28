@@ -12,6 +12,7 @@ $config = [
     'layout' => 'velzon-horizantal',
     'name' => env('APP_NAME', "Yii2 basic"),
     'bootstrap' => ['log'],
+    'homeUrl' => ['site/index'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',

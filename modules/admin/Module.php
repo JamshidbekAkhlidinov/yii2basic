@@ -27,8 +27,9 @@ class Module extends \yii\base\Module
         $this->modules = [
             'rbac' => \app\modules\admin\modules\rbac\Module::class,
             'file' => \app\modules\admin\modules\file\Module::class,
-            'content'=> \app\modules\admin\modules\content\Module::class,
-            'landingElement'=> \app\modules\admin\modules\landingElement\Module::class,
+            'content' => \app\modules\admin\modules\content\Module::class,
+            'landingElement' => \app\modules\admin\modules\landingElement\Module::class,
+            'telegram' => \app\modules\admin\modules\telegram\Module::class,
         ];
     }
 

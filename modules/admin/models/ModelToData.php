@@ -8,6 +8,7 @@
 
 namespace app\modules\admin\models;
 
+use app\models\TelegramCompany;
 use app\models\User;
 use app\modules\admin\modules\content\models\Page;
 use app\modules\admin\modules\content\models\Post;
@@ -42,6 +43,15 @@ class ModelToData
         return ArrayHelper::map(
             AuthRule::find()->all(),
             'name',
+            'name',
+        );
+    }
+
+    public static function getTelegramCompany()
+    {
+        return ArrayHelper::map(
+            TelegramCompany::find()->all(),
+            'id',
             'name',
         );
     }

@@ -32,36 +32,6 @@ class Menu
                     'visible' => can(UserRolesEnum::ROLE_ADMINISTRATOR)
                 ],
                 [
-                    'label' => 'Main menu child',
-                    'type' => MenuWidget::type_item, //menu,item
-                    'icon' => 'ri-dashboard-2-line',
-                    'id' => 'test',
-                    'active' => false,
-                    'items' => [
-                        [
-                            'label' => 'Login',
-                            'url' => ['/admin/default/index'],
-                            'icon' => 'ri-dashboard-2-line',
-                            'active' => true,
-                        ],
-                        [
-                            'label' => 'child menu',
-                            'url' => ['/admin/default/index'],
-                            'icon' => 'ri-dashboard-2-line',
-                        ],
-                        [
-                            'label' => 'child menu',
-                            'url' => ['/admin/default/index'],
-                            'icon' => 'ri-dashboard-2-line',
-                        ],
-                        [
-                            'label' => 'child menu',
-                            'url' => ['/admin/default/index'],
-                            'icon' => 'ri-dashboard-2-line',
-                        ],
-                    ],
-                ],
-                [
                     'label' => translate("Content"),
                     'type' => MenuWidget::type_item, //menu,item
                     'icon' => 'ri-dashboard-2-line',
@@ -105,6 +75,27 @@ class Menu
                     'icon' => 'las la-folder-open',
                     'url' => ['/admin/file'],
                     'active' => module()->id == 'file',
+                ],
+                [
+                    'label' => 'Telegram bot module',
+                    'type' => MenuWidget::type_item, //menu,item
+                    'icon' => 'ri-dashboard-2-line',
+                    'id' => 'telegram_bot',
+                    'active' => module()->id == 'telegram',
+                    'items' => [
+                        [
+                            'label' => translate("Companies"),
+                            'url' => ['/admin/telegram/telegram-company'],
+                            'icon' => 'ri-dashboard-2-line',
+                            'active' => controller()->id == 'telegram-company',
+                        ],
+                        [
+                            'label' => translate("Bot users"),
+                            'url' => ['/admin/telegram/telegram-bot-user'],
+                            'icon' => 'ri-dashboard-2-line',
+                            'active' => controller()->id == 'telegram-bot-user',
+                        ],
+                    ],
                 ],
                 self::getRbacMenu(),
             ]

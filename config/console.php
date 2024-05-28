@@ -43,6 +43,7 @@ $config = [
             'migrationPath' => [
                 '@app/modules/admin/modules/landingElement/migrations',
                 '@app/modules/admin/modules/content/migrations',
+                '@app/modules/admin/modules/telegram/migrations',
                 '@app/modules/admin/migrations',
                 '@yii/rbac/migrations',
             ]

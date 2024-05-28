@@ -57,6 +57,15 @@ if (!function_exists('translate')) {
     }
 }
 
+
+if (!function_exists('translateBotMessage')) {
+    function translateBotMessage($text, $options = []): string
+    {
+        return \Yii::t('app', $text, $options);
+    }
+}
+
+
 if (!function_exists('security')) {
     function security()
     {

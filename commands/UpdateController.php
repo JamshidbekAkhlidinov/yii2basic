@@ -8,6 +8,7 @@
 
 namespace app\commands;
 
+use ustadev\telegram\proxy\Proxy;
 use yii\console\Controller;
 
 class UpdateController extends Controller
@@ -15,11 +16,12 @@ class UpdateController extends Controller
     /**
      * @throws \Exception
      */
-    public function actionIndex()
+    public function actionBot()
     {
-        $bot_api_key = env('BOT_TOKEN');
-        $url = 'http://localhost:8080/telegram/bot';
-        $proxy = new \ziya\Proxy\ProxyLoop($bot_api_key, $url);
-        $proxy->loop(1, true, true);
+        $token = env('BOT_TOKEN');
+        $url = "http://localhost:8080/telegram/bot?access_token=" . $token."&XDEBUG_SESSION_START=1";
+
+        $proxy = new Proxy($url, $token);
+        $proxy->loop();
     }
 }
