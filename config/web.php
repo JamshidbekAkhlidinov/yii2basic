@@ -5,10 +5,6 @@ $db = require __DIR__ . '/db.php';
 $assetManager = require __DIR__ . '/assetManager.php';
 $mailer = require __DIR__ . '/_mailer.php';
 
-if (file_exists(__DIR__ . '/db_locale.php')) {
-    $db = require __DIR__ . '/db_locale.php';
-}
-
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
@@ -26,6 +22,9 @@ $config = [
         ],
         'restapi' => [
             'class' => app\modules\restapi\Module::class,
+        ],
+        'telegram' => [
+            'class' => app\modules\telegram\Module::class,
         ],
     ],
     'container' => [
