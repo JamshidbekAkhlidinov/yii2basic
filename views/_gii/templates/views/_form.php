@@ -42,7 +42,7 @@ if (in_array($attribute, $safeAttributes)) {?>
         </div>
 <?php } } ?>
     </div>
-    <div class="form-group">
+    <div class="form-group pt-2">
         <?= "<?= " ?>Html::submitButton(<?= $generator->generateString('Save') ?>, ['class' => 'btn btn-success']) ?>
     </div>
 
