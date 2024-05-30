@@ -54,6 +54,9 @@
     }
   },
   "scripts": {
+    "build:env": [
+      "cp .env.dist .env"
+    ],
     "post-install-cmd": [
       "yii\\composer\\Installer::postInstall"
     ],
