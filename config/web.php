@@ -117,6 +117,7 @@ $config = [
         'assetManager' => $assetManager,
         'i18n' => [
             'translations' => [
+                /*
                 'app*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@app/modules/admin/messages',
@@ -124,6 +125,14 @@ $config = [
                     'fileMap' => [
                         'app' => 'app.php',
                     ],
+                ],
+                */
+                '*' => [
+                    'class' => yii\i18n\DbMessageSource::class,
+                    'sourceMessageTable' => '{{%i18n_source_message}}',
+                    'messageTable' => '{{%i18n_message}}',
+                    'enableCaching' => YII_ENV_DEV,
+                    'cachingDuration' => 3600,
                 ],
             ],
         ],

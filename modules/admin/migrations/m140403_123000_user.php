@@ -22,7 +22,9 @@ class m140403_123000_user extends Migration
             'status' => $this->smallInteger()->notNull()->defaultValue(User::STATUS_ACTIVE),
             'created_at' => $this->dateTime(),
             'updated_at' => $this->dateTime(),
-            'logged_at' => $this->dateTime()
+            'logged_at' => $this->dateTime(),
+            'verification_token' => $this->string(),
+            'password_reset_token' => $this->string(),
         ]);
 
         $this->createTable('{{%user_profile}}', [
@@ -32,7 +34,9 @@ class m140403_123000_user extends Migration
             'avatar_path' => $this->string(),
             'avatar_base_url' => $this->string(),
             'locale' => $this->string(32)->notNull(),
-            'gender' => $this->smallInteger(1)
+            'gender' => $this->smallInteger(1),
+            'phone_number' => $this->string(),
+            'birthday' => $this->date(),
         ]);
 
         $this->addForeignKey(
@@ -41,8 +45,8 @@ class m140403_123000_user extends Migration
             'user_id',
             '{{%user}}',
             'id',
-            'cascade',
-            'cascade'
+            'CASCADE',
+            'CASCADE'
         );
 
     }
