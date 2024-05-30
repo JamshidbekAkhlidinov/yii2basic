@@ -76,6 +76,7 @@ class Menu
                     'url' => ['/admin/file'],
                     'active' => module()->id == 'file',
                 ],
+
                 [
                     'label' => 'Telegram bot module',
                     'type' => MenuWidget::type_item, //menu,item
@@ -96,6 +97,13 @@ class Menu
                             'active' => controller()->id == 'telegram-bot-user',
                         ],
                     ],
+                ],
+                [
+                    'label' => translate("I18n Messages"),
+                    'type' => MenuWidget::type_item, //menu,item
+                    'icon' => 'las la-folder-open',
+                    'url' => ['/admin/translation-message'],
+                    'active' => controller()->id == 'translation-message',
                 ],
                 self::getRbacMenu(),
             ]

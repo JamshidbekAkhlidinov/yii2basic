@@ -127,12 +127,10 @@ $config = [
                     ],
                 ],
                 */
-                '*' => [
+                'app*' => [
                     'class' => yii\i18n\DbMessageSource::class,
                     'sourceMessageTable' => '{{%i18n_source_message}}',
                     'messageTable' => '{{%i18n_message}}',
-                    'enableCaching' => YII_ENV_DEV,
-                    'cachingDuration' => 3600,
                 ],
             ],
         ],
