@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /** @var app\modules\admin\modules\rbac\models\AuthAssignment $model */
 
 $this->title = $model->item_name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Auth Assignments'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => translate('Auth Assignments'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'item_name' => $model->item_name, 'user_id' => $model->user_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'item_name' => $model->item_name, 'user_id' => $model->user_id], [
+        <?= Html::a(translate('Update'), ['update', 'item_name' => $model->item_name, 'user_id' => $model->user_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(translate('Delete'), ['delete', 'item_name' => $model->item_name, 'user_id' => $model->user_id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                'confirm' => translate('Are you sure you want to delete this item?'),
                 'method' => 'post',
             ],
         ]) ?>

@@ -65,19 +65,19 @@ class TelegramBotUser extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'telegram_company_id' => Yii::t('app', 'Telegram Company ID'),
-            'telegram_user_id' => Yii::t('app', 'Telegram User ID'),
-            'username' => Yii::t('app', 'Username'),
-            'phone_number' => Yii::t('app', 'Phone Number'),
-            'balance' => Yii::t('app', 'Balance'),
-            'is_admin' => Yii::t('app', 'Is Admin'),
-            'is_block' => Yii::t('app', 'Is Block'),
-            'step' => Yii::t('app', 'Step'),
-            'full_name' => Yii::t('app', 'Full Name'),
-            'options' => Yii::t('app', 'Options'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => translate('ID'),
+            'telegram_company_id' => translate('Telegram Company ID'),
+            'telegram_user_id' => translate('Telegram User ID'),
+            'username' => translate('Username'),
+            'phone_number' => translate('Phone Number'),
+            'balance' => translate('Balance'),
+            'is_admin' => translate('Is Admin'),
+            'is_block' => translate('Is Block'),
+            'step' => translate('Step'),
+            'full_name' => translate('Full Name'),
+            'options' => translate('Options'),
+            'created_at' => translate('Created At'),
+            'updated_at' => translate('Updated At'),
         ];
     }
 

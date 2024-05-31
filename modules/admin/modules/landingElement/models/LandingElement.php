@@ -55,18 +55,18 @@ class LandingElement extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'key' => Yii::t('app', 'Key'),
-            'title' => Yii::t('app', 'Title'),
-            'icon' => Yii::t('app', 'Icon'),
-            'description' => Yii::t('app', 'Description'),
-            'sub_text' => Yii::t('app', 'Sub Text'),
-            'value' => Yii::t('app', 'Value'),
-            'files' => Yii::t('app', 'Files'),
-            'url' => Yii::t('app', 'Url'),
-            'order' => Yii::t('app', 'Order'),
-            'status' => Yii::t('app', 'Status'),
-            'created_at' => Yii::t('app', 'Created At'),
+            'id' => translate('ID'),
+            'key' => translate('Key'),
+            'title' => translate('Title'),
+            'icon' => translate('Icon'),
+            'description' => translate('Description'),
+            'sub_text' => translate('Sub Text'),
+            'value' => translate('Value'),
+            'files' => translate('Files'),
+            'url' => translate('Url'),
+            'order' => translate('Order'),
+            'status' => translate('Status'),
+            'created_at' => translate('Created At'),
         ];
     }
 

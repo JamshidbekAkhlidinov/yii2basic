@@ -39,7 +39,7 @@ use yii\widgets\ActiveForm;
     ) ?>
 
     <div class="form-group pt-2">
-        <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(translate('Save'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

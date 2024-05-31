@@ -16,14 +16,14 @@ use yii\grid\GridView;
 /** @var app\modules\admin\modules\content\search\PageSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = Yii::t('app', 'Pages');
+$this->title = translate('Pages');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="page-index card">
     <div class="card-header d-flex justify-content-between">
         <h1><?= Html::encode($this->title) ?></h1>
         <div>
-            <?= Html::a(Yii::t('app', 'Create Page'), ['create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a(translate('Create Page'), ['create'], ['class' => 'btn btn-success']) ?>
         </div>
     </div>
 

@@ -10,12 +10,12 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\models\TelegramCompany $model */
 
-$this->title = Yii::t('app', 'Update Telegram Company: {name}', [
+$this->title = translate('Update Telegram Company: {name}', [
     'name' => $model->name,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Telegram Companies'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => translate('Telegram Companies'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = translate('Update');
 ?>
 <div class="telegram-company-update card">
     <div class="card-header d-flex justify-content-between">

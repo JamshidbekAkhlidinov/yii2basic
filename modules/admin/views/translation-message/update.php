@@ -10,12 +10,12 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\modules\admin\forms\MessageForm $model */
 
-$this->title = Yii::t('app', 'Update I18n Source Message: {name}', [
+$this->title = translate('Update I18n Source Message: {name}', [
     'name' => $model->model->id,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'I18n Source Messages'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => translate('I18n Source Messages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->model->id, 'url' => ['view', 'id' => $model->model->id]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = translate('Update');
 ?>
 <div class="i18n-source-message-update card">
     <div class="card-header d-flex justify-content-between">

@@ -5,12 +5,12 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\rbac\models\AuthItemChild $model */
 
-$this->title = Yii::t('app', 'Update Auth Item Child: {name}', [
+$this->title = translate('Update Auth Item Child: {name}', [
     'name' => $model->parent,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Auth Item Children'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => translate('Auth Item Children'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->parent, 'url' => ['view', 'parent' => $model->parent, 'child' => $model->child]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = translate('Update');
 ?>
 <div class="auth-item-child-update">
 

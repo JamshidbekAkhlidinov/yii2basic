@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\rbac\models\AuthAssignment $model */
 
-$this->title = Yii::t('app', 'Create Auth Assignment');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Auth Assignments'), 'url' => ['index']];
+$this->title = translate('Create Auth Assignment');
+$this->params['breadcrumbs'][] = ['label' => translate('Auth Assignments'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="auth-assignment-create">

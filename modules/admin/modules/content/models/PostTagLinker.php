@@ -42,9 +42,9 @@ class PostTagLinker extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'tag_id' => Yii::t('app', 'Tag ID'),
-            'post_id' => Yii::t('app', 'Post ID'),
+            'id' => translate('ID'),
+            'tag_id' => translate('Tag ID'),
+            'post_id' => translate('Post ID'),
         ];
     }
 

@@ -17,7 +17,7 @@ use yii\helpers\Url;
 /** @var app\modules\admin\modules\landingElement\search\MenuSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = Yii::t('app', 'Menus');
+$this->title = translate('Menus');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="menu-index card">
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class=" d-flex justify-content-between">
             <h1><?= Html::encode($this->title) ?></h1>
             <p>
-                <?= Html::a(Yii::t('app', 'Create Menu'), ['create'], ['class' => 'btn btn-success']) ?>
+                <?= Html::a(translate('Create Menu'), ['create'], ['class' => 'btn btn-success']) ?>
             </p>
         </div>
         <?=MenuGroupButtonWidget::widget()?>

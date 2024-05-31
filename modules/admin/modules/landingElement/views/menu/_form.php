@@ -47,7 +47,7 @@ use yii\helpers\Url;
                         'data' => !empty($model->type) ? DataToArray::getListMenu($model->type) : [],
                         'pluginOptions' => [
                             'depends' => ['type'],
-                            'placeholder' => Yii::t('app', '--Select--'),
+                            'placeholder' => translate('--Select--'),
                             'url' => Url::to('/admin/landingElement/menu/list')
                         ],
                         'type' => DepDrop::TYPE_SELECT2,
@@ -75,7 +75,7 @@ use yii\helpers\Url;
                     <?= $form->field($model, 'parent_id')->widget(Select2::class, [
                         'data' => DataToArray::getParentMenu($model->model->id),
                         'options' => [
-                            'placeholder' => Yii::t('app', '--Select--')
+                            'placeholder' => translate('--Select--')
                         ],
                         'pluginOptions' => [
                             'allowClear' => true
@@ -101,7 +101,7 @@ use yii\helpers\Url;
         </div>
     </div>
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(translate('Save'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

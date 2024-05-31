@@ -10,12 +10,12 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\content\models\PostTag $model */
 
-$this->title = Yii::t('app', 'Update Post Tag: {name}', [
+$this->title = translate('Update Post Tag: {name}', [
     'name' => $model->model->name,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Post Tags'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => translate('Post Tags'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->model->name, 'url' => ['view', 'id' => $model->model->id]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = translate('Update');
 ?>
 <div class="post-tag-update card">
     <div class="card-header d-flex justify-content-between">

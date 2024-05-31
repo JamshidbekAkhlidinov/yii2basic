@@ -5,12 +5,12 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\rbac\models\AuthRule $model */
 
-$this->title = Yii::t('app', 'Update Auth Rule: {name}', [
+$this->title = translate('Update Auth Rule: {name}', [
     'name' => $model->name,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Auth Rules'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => translate('Auth Rules'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'name' => $model->name]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = translate('Update');
 ?>
 <div class="auth-rule-update">
 

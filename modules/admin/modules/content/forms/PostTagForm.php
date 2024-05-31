@@ -30,8 +30,8 @@ class PostTagForm extends Model
     public function attributeLabels(): array
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
+            'id' => translate('ID'),
+            'name' => translate('Name'),
         ];
     }
 

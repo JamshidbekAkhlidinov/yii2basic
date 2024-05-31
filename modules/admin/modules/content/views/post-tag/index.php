@@ -19,7 +19,7 @@ $this->title = translate("Post Tags");
 params()['breadcrumbs'][] = ['label' => translate("Content"), 'url' => ['/admin/landingElement']];
 params()['breadcrumbs'][] = $this->title;
 
-$this->title = Yii::t('app', 'Post Tags');
+$this->title = translate('Post Tags');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="post-tag-index card">

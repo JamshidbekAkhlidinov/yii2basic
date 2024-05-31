@@ -10,12 +10,12 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\content\forms\PageForm $model */
 
-$this->title = Yii::t('app', 'Update Page: {name}', [
+$this->title = translate('Update Page: {name}', [
     'name' => $model->model->title,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Pages'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => translate('Pages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->model->title, 'url' => ['view', 'id' => $model->model->id]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = translate('Update');
 ?>
 <div class="page-update card">
     <div class="card-header d-flex justify-content-between">

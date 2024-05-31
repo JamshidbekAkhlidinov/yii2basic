@@ -10,8 +10,8 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\models\TelegramBotUser $model */
 
-$this->title = Yii::t('app', 'Create Telegram Bot User');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Telegram Bot Users'), 'url' => ['index']];
+$this->title = translate('Create Telegram Bot User');
+$this->params['breadcrumbs'][] = ['label' => translate('Telegram Bot Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="telegram-bot-user-create card">

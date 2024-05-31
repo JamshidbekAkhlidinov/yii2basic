@@ -10,8 +10,8 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\modules\admin\models\I18nSourceMessage $model */
 
-$this->title = Yii::t('app', 'Create I18n Source Message');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'I18n Source Messages'), 'url' => ['index']];
+$this->title = translate('Create I18n Source Message');
+$this->params['breadcrumbs'][] = ['label' => translate('I18n Source Messages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="i18n-source-message-create card">

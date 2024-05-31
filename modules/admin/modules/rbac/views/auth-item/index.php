@@ -13,7 +13,7 @@ use yii\widgets\Pjax;
 /** @var app\modules\admin\modules\rbac\search\AuthItem $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = Yii::t('app', 'Auth Items');
+$this->title = translate('Auth Items');
 
 ?>
 <div class="auth-item-index card">

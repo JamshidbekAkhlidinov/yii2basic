@@ -7,9 +7,9 @@
 
 namespace app\modules\admin\search;
 
+use app\modules\admin\models\I18nSourceMessage;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\admin\models\I18nSourceMessage;
 
 /**
  * I18nSourceMessageSearch represents the model behind the search form of `app\modules\admin\models\I18nSourceMessage`.
@@ -48,7 +48,10 @@ class I18nSourceMessageSearch extends I18nSourceMessage
      */
     public function search($params)
     {
-        $query = I18nSourceMessage::find();
+        $query = I18nSourceMessage::find()
+            ->joinWith('i18nMessages', false)
+            ->distinct();
+        $query->orderBy(['i18n_source_message.id' => SORT_DESC]);
 
         // add conditions that should always apply here
 
@@ -72,7 +75,6 @@ class I18nSourceMessageSearch extends I18nSourceMessage
         $query->andFilterWhere(['like', 'i18n_source_message.category', $this->category])
             ->andFilterWhere(['like', 'i18n_source_message.message', $this->message]);
 
-        $query->joinWith('i18nMessages');
         $query->andFilterWhere(['like', 'i18n_message.translation', $this->languages]);
 
         return $dataProvider;

@@ -72,19 +72,19 @@ class Menu extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'order' => Yii::t('app', 'Order'),
-            'status' => Yii::t('app', 'Status'),
-            'icon' => Yii::t('app', 'Icon'),
-            'parent_id' => Yii::t('app', 'Parent ID'),
-            'type' => Yii::t('app', 'Type'),
-            'position_menu' => Yii::t('app', 'Position Menu'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
-            'label_position' => Yii::t('app', 'Label Position'),
-            'slug' => Yii::t('app', 'Slug'),
-            'item' => Yii::t('app', 'Item'),
+            'id' => translate('ID'),
+            'name' => translate('Name'),
+            'order' => translate('Order'),
+            'status' => translate('Status'),
+            'icon' => translate('Icon'),
+            'parent_id' => translate('Parent ID'),
+            'type' => translate('Type'),
+            'position_menu' => translate('Position Menu'),
+            'created_at' => translate('Created At'),
+            'updated_at' => translate('Updated At'),
+            'label_position' => translate('Label Position'),
+            'slug' => translate('Slug'),
+            'item' => translate('Item'),
         ];
     }
 

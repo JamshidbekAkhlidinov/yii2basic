@@ -15,14 +15,14 @@ use yii\widgets\Pjax;
 /** @var app\modules\admin\modules\telegram\searches\TelegramCompanySearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = Yii::t('app', 'Telegram Companies');
+$this->title = translate('Telegram Companies');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="telegram-company-index card">
     <div class="card-header d-flex justify-content-between">
         <h1><?= Html::encode($this->title) ?></h1>
         <p>
-            <?= Html::a(Yii::t('app', 'Create Telegram Company'), ['create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a(translate('Create Telegram Company'), ['create'], ['class' => 'btn btn-success']) ?>
         </p>
     </div>
 

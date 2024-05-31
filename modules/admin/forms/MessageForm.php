@@ -48,20 +48,27 @@ class MessageForm extends Model
 
     public function save()
     {
-        $model = $this->model;
-        $model->category = $this->category;
-        $model->message = $this->message;
-        $isSave = $model->save();
-        if ($isSave) {
-            I18nMessage::deleteAll(['id' => $model->id]);
-            foreach ($this->items as $key => $value) {
-                $modelItem = new I18nMessage([
-                    'id' => $model->id,
-                    'language' => $key,
-                    'translation' => $value,
-                ]);
-                $modelItem->save();
+        $transaction = app()->db->beginTransaction();
+        try {
+            $model = $this->model;
+            $model->category = $this->category;
+            $model->message = $this->message;
+            $isSave = $model->save();
+            if ($isSave) {
+                I18nMessage::deleteAll(['id' => $model->id]);
+                foreach ($this->items as $key => $value) {
+                    $modelItem = new I18nMessage([
+                        'id' => $model->id,
+                        'language' => $key,
+                        'translation' => $value,
+                    ]);
+                    $modelItem->save();
+                }
             }
+            $transaction->commit();
+        } catch (\Exception $exception) {
+            $isSave = false;
+            $transaction->rollBack();
         }
         return $isSave;
     }

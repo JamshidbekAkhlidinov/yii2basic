@@ -13,7 +13,7 @@ use yii\widgets\Pjax;
 /** @var app\modules\admin\modules\rbac\search\AuthAssignmentSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = Yii::t('app', 'Auth Assignments');
+$this->title = translate('Auth Assignments');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="auth-assignment-index card">

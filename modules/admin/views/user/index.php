@@ -12,7 +12,7 @@ use yii\grid\GridView;
 /** @var app\modules\admin\search\UserSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = Yii::t('app', 'Users');
+$this->title = translate('Users');
 Yii::$app->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index card">

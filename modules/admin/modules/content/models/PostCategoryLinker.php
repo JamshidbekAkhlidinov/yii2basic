@@ -42,9 +42,9 @@ class PostCategoryLinker extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'post_category_id' => Yii::t('app', 'Post Category ID'),
-            'post_id' => Yii::t('app', 'Post ID'),
+            'id' => translate('ID'),
+            'post_category_id' => translate('Post Category ID'),
+            'post_id' => translate('Post ID'),
         ];
     }
 

@@ -10,12 +10,12 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\content\forms\PostCategoryForm $model */
 
-$this->title = Yii::t('app', 'Update Post Category: {name}', [
+$this->title = translate('Update Post Category: {name}', [
     'name' => $model->model->name,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Post Categories'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => translate('Post Categories'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->model->name, 'url' => ['view', 'id' => $model->model->id]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = translate('Update');
 ?>
 <div class="post-category-update card">
     <div class="card-header d-flex justify-content-between">

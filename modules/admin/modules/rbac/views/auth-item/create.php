@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\rbac\models\AuthItem $model */
 
-$this->title = Yii::t('app', 'Create Auth Item');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Auth Items'), 'url' => ['index']];
+$this->title = translate('Create Auth Item');
+$this->params['breadcrumbs'][] = ['label' => translate('Auth Items'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="auth-item-create">

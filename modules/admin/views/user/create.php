@@ -7,8 +7,8 @@ use yii\helpers\Html;
  * @var $roles
  */
 
-$this->title = Yii::t('app', 'Create User');
-Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Users'), 'url' => ['index']];
+$this->title = translate('Create User');
+Yii::$app->params['breadcrumbs'][] = ['label' => translate('Users'), 'url' => ['index']];
 Yii::$app->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-create card">

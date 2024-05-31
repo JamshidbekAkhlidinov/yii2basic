@@ -10,8 +10,8 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\models\TelegramCompany $model */
 
-$this->title = Yii::t('app', 'Create Telegram Company');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Telegram Companies'), 'url' => ['index']];
+$this->title = translate('Create Telegram Company');
+$this->params['breadcrumbs'][] = ['label' => translate('Telegram Companies'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="telegram-company-create card">

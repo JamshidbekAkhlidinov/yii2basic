@@ -21,7 +21,7 @@ $this->title = translate("Posts");
 params()['breadcrumbs'][] = ['label' => translate("Content"), 'url' => ['/admin/content']];
 params()['breadcrumbs'][] = $this->title;
 
-$this->title = Yii::t('app', 'Posts');
+$this->title = translate('Posts');
 $this->params['breadcrumbs'][] = $this->title;
 
 $query = Post::find()
@@ -37,7 +37,7 @@ $dataProvider = new ActiveDataProvider([
     <div class="card-header d-flex justify-content-between">
         <h1><?= Html::encode($this->title) ?></h1>
         <p>
-            <?= Html::a(Yii::t('app', 'Create Post'), ['create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a(translate('Create Post'), ['create'], ['class' => 'btn btn-success']) ?>
         </p>
     </div>
 

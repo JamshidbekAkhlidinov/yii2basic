@@ -13,7 +13,7 @@ use yii\widgets\Pjax;
 /** @var app\modules\admin\modules\rbac\search\AuthItemChildSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = Yii::t('app', 'Auth Item Children');
+$this->title = translate('Auth Item Children');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="auth-item-child-index card">

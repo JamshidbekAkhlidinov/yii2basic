@@ -53,9 +53,9 @@ class AuthAssignment extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'item_name' => Yii::t('app', 'Item Name'),
-            'user_id' => Yii::t('app', 'User ID'),
-            'created_at' => Yii::t('app', 'Created At'),
+            'item_name' => translate('Item Name'),
+            'user_id' => translate('User ID'),
+            'created_at' => translate('Created At'),
         ];
     }
 

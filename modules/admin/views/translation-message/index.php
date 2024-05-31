@@ -17,14 +17,14 @@ use yii\widgets\Pjax;
 /** @var app\modules\admin\search\I18nSourceMessageSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = Yii::t('app', 'I18n Source Messages');
+$this->title = translate('I18n Source Messages');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="i18n-source-message-index card">
     <div class="card-header d-flex justify-content-between">
         <h1><?= Html::encode($this->title) ?></h1>
         <p>
-            <?= Html::a(Yii::t('app', 'Create I18n Source Message'), ['create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a(translate('Create I18n Source Message'), ['create'], ['class' => 'btn btn-success']) ?>
         </p>
     </div>
 

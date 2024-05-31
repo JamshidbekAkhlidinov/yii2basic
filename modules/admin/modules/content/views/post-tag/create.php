@@ -10,8 +10,8 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\content\models\PostTag $model */
 
-$this->title = Yii::t('app', 'Create Post Tag');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Post Tags'), 'url' => ['index']];
+$this->title = translate('Create Post Tag');
+$this->params['breadcrumbs'][] = ['label' => translate('Post Tags'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="post-tag-create card">

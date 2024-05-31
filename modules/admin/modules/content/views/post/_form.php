@@ -113,7 +113,7 @@ $this->registerCss($css);
 
             <div class="card card-footer">
                 <div class="form-group">
-                    <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+                    <?= Html::submitButton(translate('Save'), ['class' => 'btn btn-success']) ?>
                 </div>
             </div>
 

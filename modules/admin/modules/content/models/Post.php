@@ -70,17 +70,17 @@ class Post extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'title' => Yii::t('app', 'Title'),
-            'image' => Yii::t('app', 'Image'),
-            'sub_text' => Yii::t('app', 'Sub Text'),
-            'description' => Yii::t('app', 'Description'),
-            'status' => Yii::t('app', 'Status'),
-            'view_count' => Yii::t('app', 'View Count'),
-            'created_by' => Yii::t('app', 'Created By'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
-            'updated_by' => Yii::t('app', 'Updated By'),
+            'id' => translate('ID'),
+            'title' => translate('Title'),
+            'image' => translate('Image'),
+            'sub_text' => translate('Sub Text'),
+            'description' => translate('Description'),
+            'status' => translate('Status'),
+            'view_count' => translate('View Count'),
+            'created_by' => translate('Created By'),
+            'created_at' => translate('Created At'),
+            'updated_at' => translate('Updated At'),
+            'updated_by' => translate('Updated By'),
         ];
     }
 

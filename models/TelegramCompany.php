@@ -47,13 +47,13 @@ class TelegramCompany extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'bot_token' => Yii::t('app', 'Bot Token'),
-            'status' => Yii::t('app', 'Status'),
-            'admin_ids' => Yii::t('app', 'Admin Ids'),
-            'admin_url' => Yii::t('app', 'Admin Url'),
-            'channel_id' => Yii::t('app', 'Channel ID'),
+            'id' => translate('ID'),
+            'name' => translate('Name'),
+            'bot_token' => translate('Bot Token'),
+            'status' => translate('Status'),
+            'admin_ids' => translate('Admin Ids'),
+            'admin_url' => translate('Admin Url'),
+            'channel_id' => translate('Channel ID'),
         ];
     }
 

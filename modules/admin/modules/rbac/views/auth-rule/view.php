@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /** @var app\modules\admin\modules\rbac\models\AuthRule $model */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Auth Rules'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => translate('Auth Rules'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'name' => $model->name], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'name' => $model->name], [
+        <?= Html::a(translate('Update'), ['update', 'name' => $model->name], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(translate('Delete'), ['delete', 'name' => $model->name], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                'confirm' => translate('Are you sure you want to delete this item?'),
                 'method' => 'post',
             ],
         ]) ?>
