@@ -7,10 +7,9 @@
 
 use app\modules\admin\enums\LanguageEnum;
 use app\modules\admin\models\I18nSourceMessage;
-use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\helpers\Html;
 use yii\widgets\Pjax;
 
 /** @var yii\web\View $this */
@@ -63,6 +62,10 @@ $this->params['breadcrumbs'][] = $this->title;
                             return implode("<br>", $items);
                         }
                     }
+                ],
+                [
+                    'class' => ActionColumn::class,
+                    'template' => '{delete}'
                 ]
             ],
         ]); ?>
