@@ -698,5 +698,13 @@
     {
         "category": "app",
         "value": "Message"
+    },
+    {
+        "category": "app",
+        "value": "Main"
+    },
+    {
+        "category": "app",
+        "value": "About"
     }
 ]

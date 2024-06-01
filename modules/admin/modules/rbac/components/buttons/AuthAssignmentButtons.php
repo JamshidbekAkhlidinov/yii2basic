@@ -12,7 +12,7 @@ class AuthAssignmentButtons
            'button' => [
                'tag' => 'button',
                'class' => 'btn btn-success',
-               'label' => icon('folder-add'),
+               'label' => icon('fa-plus', ['icon' => 'fa']),
            ],
            'header' => "<h2>" . translate("Auth Assignment Form") . "</h2>",
            'url' => ['auth-assignment/create'],

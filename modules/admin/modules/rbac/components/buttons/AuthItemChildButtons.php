@@ -13,7 +13,7 @@ class AuthItemChildButtons
             'button' => [
                 'tag' => "button",
                 'class' => "btn btn-success",
-                'label' => icon("folder-add"),
+                'label' => icon('fa-plus', ['icon' => 'fa']),
             ],
             'url' => ['auth-item-child/create', 'parent' => get('parent')],
             'footer' => '',
