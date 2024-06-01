@@ -706,5 +706,9 @@
     {
         "category": "app",
         "value": "About"
+    },
+    {
+        "category": "app",
+        "value": "Update I18n Source Message: {name}"
     }
 ]
