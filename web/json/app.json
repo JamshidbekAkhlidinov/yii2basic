@@ -706,5 +706,29 @@
     {
         "category": "app",
         "value": "About"
+    },
+    {
+        "category": "app",
+        "value": "Service form"
+    },
+    {
+        "category": "app",
+        "value": "Team form"
+    },
+    {
+        "category": "app",
+        "value": "Avatar"
+    },
+    {
+        "category": "app",
+        "value": "Level"
+    },
+    {
+        "category": "app",
+        "value": "Header Image"
+    },
+    {
+        "category": "app",
+        "value": "Process form"
     }
 ]
