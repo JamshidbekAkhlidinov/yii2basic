@@ -38,6 +38,12 @@ $config = [
         'authClientCollection' => [
             'class' => yii\authclient\Collection::class,
             'clients' => [
+                'google' => [
+                    'class' => yii\authclient\clients\Google::class,
+                    'clientId' => env("google_client_id"),
+                    'clientSecret' => env("google_client_secret"),
+                ],
+                /*
                 'facebook' => [
                     'class' => yii\authclient\clients\Facebook::class,
                     'clientId' => env("facebook_client_id"),
@@ -47,11 +53,6 @@ $config = [
                     'class' => yii\authclient\clients\GitHub::class,
                     'clientId' => env('github_client_id'),
                     'clientSecret' => env('github_client_secret'),
-                ],
-                'google' => [
-                    'class' => yii\authclient\clients\Google::class,
-                    'clientId' => env("google_client_id"),
-                    'clientSecret' => env("google_client_secret"),
                 ],
                 'linkedin' => [
                     'class' => yii\authclient\clients\LinkedIn::class,
@@ -71,6 +72,7 @@ $config = [
                     'clientId' => env("vkontakte_client_id"),
                     'clientSecret' => env("vkontakte_client_secret"),
                 ],
+                */
             ],
         ],
 

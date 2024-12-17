@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\forms\ContactForm;
 use app\forms\LoginForm;
 use app\forms\SignupForm;
+use app\forms\SocialNetworkLogin;
 use app\modules\admin\actions\SetLocaleAction;
 use app\modules\admin\enums\LanguageEnum;
 use app\modules\admin\enums\UserRolesEnum;
@@ -42,13 +43,9 @@ class SiteController extends BaseController
 
     public function successOAuthCallback($client)
     {
-        //(new AuthHandler($client))->handle();
         $name = get('authclient');
-        echo "<pre>";
-        $attributes = $client->getUserAttributes();
-        file_put_contents(rand(1, 99) . $name . ".json", Json::encode($attributes,));
-        print_r($attributes);
-        exit();
+        $authForm = new SocialNetworkLogin($name, $client);
+        return $authForm->login();
     }
 
     /**
