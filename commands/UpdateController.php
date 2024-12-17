@@ -10,9 +10,12 @@ namespace app\commands;
 
 use app\modules\admin\enums\LanguageEnum;
 use app\modules\admin\forms\MessageForm;
+use app\modules\admin\models\I18nMessage;
 use app\modules\admin\models\I18nSourceMessage;
 use ustadev\telegram\proxy\Proxy;
+use Yii;
 use yii\console\Controller;
+use yii\helpers\FileHelper;
 
 class UpdateController extends Controller
 {
@@ -28,18 +31,29 @@ class UpdateController extends Controller
         $proxy->loop();
     }
 
-    public function actionTranslate()
+    public function actionTranslate($isTranslate = false)
     {
-        $path = \Yii::getAlias("@app/web/json/app.json");
+        $path = \Yii::getAlias("@app/web/json/");
+        if ($isTranslate) {
+            $path .= "app.json";
+        } else {
+            $path .= "translate.json";
+        }
         $file = file_get_contents($path);
         $array = json_decode($file, true);
+
         foreach ($array as $item) {
             $model = I18nSourceMessage::findOne(['category' => $item['category'], 'message' => $item['value']]);
             if (!$model) {
                 $items = [];
-                foreach (LanguageEnum::LABELS as $key => $label) {
-                    $items[$key] = googleTranslate($item['value'], $key);
+                if ($isTranslate) {
+                    foreach (LanguageEnum::LABELS as $key => $label) {
+                        $items[$key] = googleTranslate($item['value'], $key);
+                    }
+                } else {
+                    $items = $item['items'];
                 }
+
                 $form = new MessageForm(
                     new I18nSourceMessage(),
                     [
@@ -55,5 +69,40 @@ class UpdateController extends Controller
                 echo $item['value'] . " -> exist\n";
             }
         }
+    }
+
+
+    public function actionUpdateJson()
+    {
+        $path = \Yii::getAlias("@app/web/json/translate.json");
+        if (!file_exists($path)) {
+            file_put_contents($path, "[]");
+        }
+        $file = file_get_contents($path);
+        $array = json_decode($file, true);
+
+        $translations = I18nSourceMessage::find()->all();
+        foreach ($translations as $translation) {
+            /**
+             * @var $translation I18nSourceMessage
+             */
+            $array[$translation->message] = [
+                'category' => $translation->category,
+                'value' => $translation->message,
+                'items' => array_column(
+                    $translation->i18nMessages,
+                    'translation',
+                    'language'
+                ),
+            ];
+        }
+        file_put_contents($path, json_encode($array, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+    }
+
+    public function actionRoute()
+    {
+        $basePath = Yii::getAlias('@app');
+        $allRoutes = getAllRoutes($basePath, 'app');
+        print_r($allRoutes);
     }
 }
