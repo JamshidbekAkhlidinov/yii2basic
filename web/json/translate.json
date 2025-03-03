@@ -126,21 +126,23 @@
         }
     },
     "Options": {
+    "Create I18n Source Message": {
         "category": "app",
-        "value": "Options",
+        "value": "Create I18n Source Message",
         "items": {
-            "en": "Options",
-            "ru": "Параметры",
-            "uz": "Variantlar"
+            "en": "Create I18n Source Message",
+            "ru": "Создать исходное сообщение I18n",
+            "uz": "I18n manba xabarini yarating"
         }
     },
+    "Update I18n Source Message: {name}": {
     "Date of Birth": {
         "category": "app",
-        "value": "Date of Birth",
+        "value": "Update I18n Source Message: {name}",
         "items": {
-            "en": "Date of Birth",
-            "ru": "Дата рождения",
-            "uz": "Tug'ilgan kuni"
+            "en": "Update I18n Source Message: {name}",
+            "ru": "Обновить исходное сообщение I18n: {name}",
+            "uz": "I18n manba xabarini yangilash: {name}"
         }
     },
     "Username": {
@@ -1544,7 +1546,6 @@
         "items": {
             "en": "Service Title Settings",
             "ru": "Настройки названия услуги",
-            "uz": "Xizmat nomi sozlamalari"
         }
     },
     "Process Config": {
@@ -1661,7 +1662,6 @@
         "items": {
             "en": "Add Members",
             "ru": "Добавить участников",
-            "uz": "A'zolarni qo'shish"
         }
     },
     " Delete": {
@@ -1679,7 +1679,6 @@
         "items": {
             "en": "Add Opinion",
             "ru": "Добавить мнение",
-            "uz": "Fikr qo'shing"
         }
     },
     "Project Config": {
@@ -1832,7 +1831,7 @@
         "items": {
             "en": "Create Page",
             "ru": "Создать страницу",
-            "uz": "Sahifa yaratish"
+            "uz": "Sahifani yaratish"
         }
     },
     "Create Post": {
@@ -1925,6 +1924,15 @@
             "uz": "Asosiy menyu ma'lumotlari"
         }
     },
+    "--Select--": {
+        "category": "app",
+        "value": "--Select--",
+        "items": {
+            "en": "--Select--",
+            "ru": "--Выбирать--",
+            "uz": "--Tanlash--"
+        }
+    },
     "Other settings": {
         "category": "app",
         "value": "Other settings",
@@ -1995,6 +2003,87 @@
             "en": "Update Telegram Company: {name}",
             "ru": "Обновить компанию Telegram: {name}",
             "uz": "Telegram kompaniyasini yangilang: {name}"
+        }
+    },
+    "Auth Items": {
+        "category": "app",
+        "value": "Auth Items",
+        "items": {
+            "en": "Auth Items",
+            "ru": "Элементы аутентификации",
+            "uz": "Auth ob'ektlari"
+        }
+    },
+    "Rule Name": {
+        "category": "app",
+        "value": "Rule Name",
+        "items": {
+            "en": "Rule Name",
+            "ru": "Имя правила",
+            "uz": "Qoida nomi"
+        }
+    },
+    "Data": {
+        "category": "app",
+        "value": "Data",
+        "items": {
+            "en": "Data",
+            "ru": "Данные",
+            "uz": "Ma'lumotlar"
+        }
+    },
+    "Auth Item Children": {
+        "category": "app",
+        "value": "Auth Item Children",
+        "items": {
+            "en": "Auth Item Children",
+            "ru": "Детский элемент аутентификации",
+            "uz": "Auth Item Bolalar"
+        }
+    },
+    "Parent": {
+        "category": "app",
+        "value": "Parent",
+        "items": {
+            "en": "Parent",
+            "ru": "Родитель",
+            "uz": "Ota-ona"
+        }
+    },
+    "Child": {
+        "category": "app",
+        "value": "Child",
+        "items": {
+            "en": "Child",
+            "ru": "Ребенок",
+            "uz": "Bola"
+        }
+    },
+    "I18n Source Messages": {
+        "category": "app",
+        "value": "I18n Source Messages",
+        "items": {
+            "en": "I18n Source Messages",
+            "ru": "Исходные сообщения I18n",
+            "uz": "I18n manba xabarlari"
+        }
+    },
+    "Category": {
+        "category": "app",
+        "value": "Category",
+        "items": {
+            "en": "Category",
+            "ru": "Категория",
+            "uz": "Turkum"
+        }
+    },
+    "Message": {
+        "category": "app",
+        "value": "Message",
+        "items": {
+            "en": "Message",
+            "ru": "Сообщение",
+            "uz": "Xabar"
         }
     },
     "Main": {

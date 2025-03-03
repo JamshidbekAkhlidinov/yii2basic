@@ -12,6 +12,7 @@ use app\modules\admin\enums\LanguageEnum;
 use app\modules\admin\forms\MessageForm;
 use app\modules\admin\models\I18nSourceMessage;
 use ustadev\telegram\proxy\Proxy;
+use Yii;
 use yii\console\Controller;
 
 class UpdateController extends Controller
@@ -95,5 +96,12 @@ class UpdateController extends Controller
             ];
         }
         file_put_contents($path, json_encode($array, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+    }
+
+    public function actionRoute()
+    {
+        $basePath = Yii::getAlias('@app');
+        $allRoutes = getAllRoutes($basePath, 'app');
+        print_r($allRoutes);
     }
 }

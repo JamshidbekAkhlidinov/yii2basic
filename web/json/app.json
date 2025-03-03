@@ -1,10 +1,6 @@
 [
     {
         "category": "app",
-        "value": "Username"
-    },
-    {
-        "category": "app",
         "value": "E-mail"
     },
     {
@@ -730,5 +726,9 @@
     {
         "category": "app",
         "value": "Process form"
+    },
+    {
+        "category": "app",
+        "value": "Update I18n Source Message: {name}"
     }
 ]
