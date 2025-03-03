@@ -730,5 +730,57 @@
     {
         "category": "app",
         "value": "Update I18n Source Message: {name}"
+    },
+    {
+        "category": "app",
+        "value": "Username"
+    },
+    {
+        "category": "app",
+        "value": "Post View"
+    },
+    {
+        "category": "app",
+        "value": "Sub title"
+    },
+    {
+        "category": "app",
+        "value": "Create date"
+    },
+    {
+        "category": "app",
+        "value": "Update date"
+    },
+    {
+        "category": "app",
+        "value": "Publish date"
+    },
+    {
+        "category": "app",
+        "value": "Taglar"
+    },
+    {
+        "category": "app",
+        "value": "Post Update"
+    },
+    {
+        "category": "app",
+        "value": "Update Post: {name}"
+    },
+    {
+        "category": "app",
+        "value": "This username has already been taken."
+    },
+    {
+        "category": "app",
+        "value": "This email address has already been taken."
+    },
+    {
+        "category": "app",
+        "value": "Confirm Password"
+    },
+    {
+        "category": "app",
+        "value": "Update Page: {name}"
     }
 ]

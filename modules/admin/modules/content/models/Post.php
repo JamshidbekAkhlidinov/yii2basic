@@ -38,7 +38,6 @@ class Post extends \yii\db\ActiveRecord
                 'value'=>date('Y-m-d H:i:s'),
             ],
             BlameableBehavior::class,
-
         ];
     }
 
@@ -75,6 +74,7 @@ class Post extends \yii\db\ActiveRecord
             'image' => translate('Image'),
             'sub_text' => translate('Sub Text'),
             'description' => translate('Description'),
+            'category_id' => translate('Category'),
             'status' => translate('Status'),
             'view_count' => translate('View Count'),
             'created_by' => translate('Created By'),

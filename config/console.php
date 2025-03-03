@@ -4,11 +4,6 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 require __DIR__ . '/function.php';
 
-if (file_exists(__DIR__ . '/db_locale.php')) {
-    $db = require __DIR__ . '/db_locale.php';
-}
-
-
 $config = [
     'id' => 'basic-console',
     'basePath' => dirname(__DIR__),

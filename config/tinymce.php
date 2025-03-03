@@ -13,7 +13,7 @@ return [
         'image', 'link', 'lists', 'media', 'paste',
         'searchreplace', 'table','fullscreen',
     ],
-    'height' => 500,
+    'height' => 800,
     'convert_urls' => false,
     'element_format' => 'html',
     'image_caption' => true,

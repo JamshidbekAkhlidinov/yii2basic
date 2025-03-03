@@ -5,6 +5,7 @@
  *   https://github.com/JamshidbekAkhlidinov
 */
 
+use app\modules\admin\modules\content\models\DataToArray;
 use app\modules\admin\modules\content\models\Post;
 use app\modules\admin\modules\content\models\PostCategory;
 use yii\data\ActiveDataProvider;
@@ -20,18 +21,6 @@ use yii\grid\GridView;
 $this->title = translate("Posts");
 params()['breadcrumbs'][] = ['label' => translate("Content"), 'url' => ['/admin/content']];
 params()['breadcrumbs'][] = $this->title;
-
-$this->title = translate('Posts');
-$this->params['breadcrumbs'][] = $this->title;
-
-$query = Post::find()
-    ->orderBy(['created_at' => SORT_DESC]); // created_at bo'yicha tartiblash
-
-// Ma'lumotlarni olish
-
-$dataProvider = new ActiveDataProvider([
-    'query' => $query,
-]);
 ?>
 <div class="post-index card">
     <div class="card-header d-flex justify-content-between">
@@ -54,19 +43,20 @@ $dataProvider = new ActiveDataProvider([
                     'format' => 'raw',
                     'attribute' => 'image',
                     'value' => static function ($model) {
-                        return Html::img($model->image, ['width' => '150px']);
+                        return Html::img($model->image, ['width' => '100px','height'=>'100px']);
                     }
                 ],
                 'title',
                 [
-                    'attribute' => 'category',
+                    'attribute' => 'category_id',
                     'value' => static function (Post $model) {
                         $items = [];
                         foreach ($model->postCategoryLinkers as $linker) {
                             $items[] = $linker->postCategory->name;
                         }
                         return implode(', ', $items);
-                    }
+                    },
+                    'filter'=> DataToArray::getCategories(),
                 ],
                 [
                     'attribute' => 'tag',

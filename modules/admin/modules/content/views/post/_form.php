@@ -57,14 +57,9 @@ $this->registerCss($css);
                                 TinyMCE::class,
                                 [
                                     'presetPath' => '@app/config/tinymce.php',
-                                    'clientOptions' => [
-                                        'height' => 300,
-                                    ],
                                 ]
                             ) ?>
                         </div>
-
-
 
                     </div>
                 </div>
@@ -75,7 +70,7 @@ $this->registerCss($css);
 
             <div class="card">
                 <div class="card-body">
-                    <?= $form->field($model, 'publish_at') ?>
+                    <?= $form->field($model, 'publish_at')->input('datetime-local') ?>
                 </div>
             </div>
 
