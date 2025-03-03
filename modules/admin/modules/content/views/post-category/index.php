@@ -23,17 +23,6 @@ use yii\grid\GridView;
 $this->title = translate("Post Categories");
 params()['breadcrumbs'][] = ['label' => translate("Content"), 'url' => ['/admin/landingElement']];
 params()['breadcrumbs'][] = $this->title;
-
-$this->title = translate('Post Categories');
-$this->params['breadcrumbs'][] = $this->title;
-
-$query = PostCategory::find()
-    ->orderBy(['created_at' => SORT_DESC]); // created_at bo'yicha tartiblash
-
-// Ma'lumotlarni olish
-$dataProvider = new ActiveDataProvider([
-    'query' => $query,
-]);
 ?>
 
 <div class="post-category-index card">
@@ -55,7 +44,7 @@ $dataProvider = new ActiveDataProvider([
                     'attribute' => 'image',
                     'format' => 'raw',
                     'value' => static function ($model) {
-                        return Html::img($model->image, ['width' => '150px']);
+                        return Html::img($model->image, ['width' => '100px','height'=>'100px']);
                     }
                 ],
                 [
