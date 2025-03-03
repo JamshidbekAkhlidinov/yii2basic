@@ -10,12 +10,10 @@ namespace app\commands;
 
 use app\modules\admin\enums\LanguageEnum;
 use app\modules\admin\forms\MessageForm;
-use app\modules\admin\models\I18nMessage;
 use app\modules\admin\models\I18nSourceMessage;
 use ustadev\telegram\proxy\Proxy;
 use Yii;
 use yii\console\Controller;
-use yii\helpers\FileHelper;
 
 class UpdateController extends Controller
 {
@@ -30,6 +28,7 @@ class UpdateController extends Controller
         $proxy = new Proxy($url, $token);
         $proxy->loop();
     }
+
 
     public function actionTranslate($isTranslate = false)
     {
