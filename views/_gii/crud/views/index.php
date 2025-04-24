@@ -13,6 +13,7 @@ echo "<?php\n";
 /*
  *   Jamshidbek Akhlidinov
  *   <?php echo date('d - m Y H:i:s')."\n"; ?>
+ *   https://ustadev.uz
  *   https://github.com/JamshidbekAkhlidinov
 */
 
@@ -42,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php if(!empty($generator->searchModelClass)): ?>
 <?= "    <?php " . ($generator->indexWidgetType === 'grid' ? "// " : "") ?>echo $this->render('_search', ['model' => $searchModel]); ?>
 <?php endif; ?>
-    <div class="card-header">
+    <div class="card-body">
 <?php if ($generator->indexWidgetType === 'grid'): ?>
     <?= "<?= " ?>GridView::widget([
         'dataProvider' => $dataProvider,

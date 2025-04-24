@@ -11,6 +11,7 @@ echo "<?php\n";
 /*
  *   Jamshidbek Akhlidinov
  *   <?php echo date('d - m Y H:i:s')."\n"; ?>
+ *   https://ustadev.uz
  *   https://github.com/JamshidbekAkhlidinov
 */
 

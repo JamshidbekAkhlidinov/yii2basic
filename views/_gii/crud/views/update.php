@@ -21,6 +21,7 @@ echo "<?php\n";
 /*
  *   Jamshidbek Akhlidinov
  *   <?php echo date('d - m Y H:i:s')."\n"; ?>
+ *   https://ustadev.uz
  *   https://github.com/JamshidbekAkhlidinov
 */
 
@@ -38,7 +39,7 @@ $this->params['breadcrumbs'][] = <?= $generator->generateString('Update') ?>;
     <div class="card-header d-flex justify-content-between">
         <h1><?= '<?= ' ?>Html::encode($this->title) ?></h1>
     </div>
-    <div class="card-header">
+    <div class="card-body">
     <?= '<?= ' ?>$this->render('_form', [
         'model' => $model,
     ]) ?>

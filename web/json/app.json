@@ -782,5 +782,29 @@
     {
         "category": "app",
         "value": "Update Page: {name}"
+    },
+    {
+        "category": "app",
+        "value": "User configuration"
+    },
+    {
+        "category": "app",
+        "value": "Product form"
+    },
+    {
+        "category": "app",
+        "value": "Price"
+    },
+    {
+        "category": "app",
+        "value": "Month or Year"
+    },
+    {
+        "category": "app",
+        "value": "Month"
+    },
+    {
+        "category": "app",
+        "value": "Year"
     }
 ]
