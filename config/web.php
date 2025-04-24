@@ -161,7 +161,23 @@ if (YII_ENV_DEV) {
             'crud' => [
                 'class' => yii\gii\generators\crud\Generator::class,
                 'templates' => [
-                    'ustadev-uz' => dirname(__DIR__) . "/views/_gii/templates",
+                    'ustadev-uz' => dirname(__DIR__) . "/views/_gii/crud",
+                ],
+                'template' => 'ustadev-uz',
+                'messageCategory' => 'app',
+            ],
+            'model' => [
+                'class' => yii\gii\generators\model\Generator::class,
+                'templates' => [
+                    'ustadev-uz' => dirname(__DIR__) . "/views/_gii/model",
+                ],
+                'template' => 'ustadev-uz',
+                'messageCategory' => 'app',
+            ],
+            'module' => [
+                'class' => yii\gii\generators\module\Generator::class,
+                'templates' => [
+                    'ustadev-uz' => dirname(__DIR__) . "/views/_gii/module",
                 ],
                 'template' => 'ustadev-uz',
                 'messageCategory' => 'app',

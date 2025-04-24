@@ -8,7 +8,6 @@
 
 namespace app\modules\admin\components\menu;
 
-use app\modules\admin\enums\AuthItemTypeEnum;
 use app\modules\admin\enums\UserRolesEnum;
 use app\modules\admin\widgets\MenuWidget;
 
@@ -22,14 +21,6 @@ class Menu
                     'label' => 'Main Menus',
                     'type' => MenuWidget::type_title, //menu,item
                     'icon' => 'ri-dashboard-2-line',
-                ],
-                [
-                    'label' => translate("Users"),
-                    'type' => MenuWidget::type_item, //menu,item
-                    'icon' => 'fa fa-users',
-                    'url' => ['/admin/user'],
-                    'active' => controller()->id == 'user',
-                    'visible' => can(UserRolesEnum::ROLE_ADMINISTRATOR)
                 ],
                 [
                     'label' => translate("Content"),
@@ -105,23 +96,37 @@ class Menu
                     'url' => ['/admin/translation-message'],
                     'active' => controller()->id == 'translation-message',
                 ],
-                self::getRbacMenu(),
+                self::getUserConfigurationMenu(),
             ]
         ]);
     }
 
-    public static function getRbacMenu()
+    public static function getUserConfigurationMenu()
     {
         $controller_id = controller()->id;
         $module_id = module()->id;
         return [
-            'label' => translate("Rbac configuration"),
+            'label' => translate("User configuration"),
             'icon' => 'ri-dashboard-2-line',
             'visible' => can(UserRolesEnum::ROLE_ADMINISTRATOR),
-            'active' => $module_id == 'rbac',
+            'active' => $module_id == 'rbac' || $controller_id == 'user',
             'id' => 'rbac',
             'type' => MenuWidget::type_item,
             'items' => [
+                [
+                    'label' => translate("Users"),
+                    'type' => MenuWidget::type_item, //menu,item
+                    'icon' => 'fa fa-users',
+                    'url' => ['/admin/user'],
+                    'active' => controller()->id == 'user',
+                    'visible' => can(UserRolesEnum::ROLE_ADMINISTRATOR)
+                ],
+                [
+                    'label' => translate("Roles"),
+                    'url' => ['/admin/rbac/role'],
+                    'active' => $controller_id == 'role',
+                ],
+                /*
                 [
                     'label' => translate("Roles"),
                     'url' => ['/admin/rbac/auth-item', 'type' => AuthItemTypeEnum::ROLE],
@@ -137,7 +142,6 @@ class Menu
                     'url' => ['/admin/rbac/auth-item-child'],
                     'active' => $controller_id == 'auth-item-child',
                 ],
-                /*
                 [
                     'label' => translate("Assignments"),
                     'url' => ['/admin/rbac/auth-assignment'],

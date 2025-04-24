@@ -13,6 +13,7 @@ echo "<?php\n";
 /*
  *   Jamshidbek Akhlidinov
  *   <?php echo date('d - m Y H:i:s')."\n"; ?>
+ *   https://ustadev.uz
  *   https://github.com/JamshidbekAkhlidinov
 */
 
@@ -25,7 +26,6 @@ use yii\widgets\DetailView;
 $this->title = $model-><?= $generator->getNameAttribute() ?>;
 $this->params['breadcrumbs'][] = ['label' => <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>, 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-view card">
     <div class="card-header d-flex justify-content-between">
@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
     </div>
-    <div class="card-header">
+    <div class="card-body">
     <?= "<?= " ?>DetailView::widget([
         'model' => $model,
         'attributes' => [
