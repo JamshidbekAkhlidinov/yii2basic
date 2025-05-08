@@ -7,41 +7,17 @@
 
 namespace app\modules\admin\modules\content\controllers;
 
+use app\modules\admin\controllers\BaseController;
 use app\modules\admin\modules\content\forms\PostForm;
 use app\modules\admin\modules\content\models\Post;
 use app\modules\admin\modules\content\search\PostSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * PostController implements the CRUD actions for Post model.
  */
-class PostController extends Controller
+class PostController extends BaseController
 {
-    /**
-     * @inheritDoc
-     */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
-
-    /**
-     * Lists all Post models.
-     *
-     * @return string
-     */
     public function actionIndex()
     {
         $searchModel = new PostSearch();
@@ -63,7 +39,7 @@ class PostController extends Controller
     public function actionCreate()
     {
         $model = new Post();
-        return $this->form($model, 'create',);
+        return $this->form($model, 'create');
     }
 
     public function actionUpdate($id)

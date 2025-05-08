@@ -2,40 +2,16 @@
 
 namespace app\modules\admin\modules\rbac\controllers;
 
+use app\modules\admin\controllers\BaseController;
 use app\modules\admin\modules\rbac\models\AuthRule;
 use app\modules\admin\modules\rbac\search\AuthRuleSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * AuthRuleController implements the CRUD actions for AuthRule model.
  */
-class AuthRuleController extends Controller
+class AuthRuleController extends BaseController
 {
-    /**
-     * @inheritDoc
-     */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
-
-    /**
-     * Lists all AuthRule models.
-     *
-     * @return string
-     */
     public function actionIndex()
     {
         $searchModel = new AuthRuleSearch();
@@ -47,12 +23,6 @@ class AuthRuleController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single AuthRule model.
-     * @param string $name Name
-     * @return string
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionView($name)
     {
         return $this->render('view', [
@@ -60,11 +30,7 @@ class AuthRuleController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new AuthRule model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return string|\yii\web\Response
-     */
+
     public function actionCreate()
     {
         $model = new AuthRule();
@@ -82,13 +48,6 @@ class AuthRuleController extends Controller
         ]);
     }
 
-    /**
-     * Updates an existing AuthRule model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param string $name Name
-     * @return string|\yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionUpdate($name)
     {
         $model = $this->findModel($name);
@@ -102,13 +61,7 @@ class AuthRuleController extends Controller
         ]);
     }
 
-    /**
-     * Deletes an existing AuthRule model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $name Name
-     * @return \yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+
     public function actionDelete($name)
     {
         $this->findModel($name)->delete();
@@ -116,13 +69,6 @@ class AuthRuleController extends Controller
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the AuthRule model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $name Name
-     * @return AuthRule the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     protected function findModel($name)
     {
         if (($model = AuthRule::findOne(['name' => $name])) !== null) {

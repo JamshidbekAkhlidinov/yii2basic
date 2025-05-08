@@ -806,5 +806,17 @@
     {
         "category": "app",
         "value": "Year"
+    },
+    {
+        "category": "app",
+        "value": "Update permissions"
+    },
+    {
+        "category": "app",
+        "value": "Select All"
+    },
+    {
+        "category": "app",
+        "value": "Permissions update"
     }
 ]

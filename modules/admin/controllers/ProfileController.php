@@ -10,9 +10,8 @@ namespace app\modules\admin\controllers;
 
 use app\modules\admin\forms\ProfileForm;
 use app\modules\admin\forms\UserProfileForm;
-use yii\web\Controller;
 
-class ProfileController extends Controller
+class ProfileController extends BaseController
 {
     public function actionIndex()
     {

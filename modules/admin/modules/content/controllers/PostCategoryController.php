@@ -7,38 +7,17 @@
 
 namespace app\modules\admin\modules\content\controllers;
 
+use app\modules\admin\controllers\BaseController;
 use app\modules\admin\modules\content\forms\PostCategoryForm;
 use app\modules\admin\modules\content\models\PostCategory;
 use app\modules\admin\modules\content\search\PostCategorySearch;
-use Yii;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * PostCategoryController implements the CRUD actions for PostCategory model.
  */
-class PostCategoryController extends Controller
+class PostCategoryController extends BaseController
 {
-    /**
-     * @inheritDoc
-     */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
-
-
     public function actionIndex()
     {
         $searchModel = new PostCategorySearch();
@@ -77,7 +56,7 @@ class PostCategoryController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        return $this->form($model, 'update',);
+        return $this->form($model, 'update');
     }
 
     public function form(PostCategory $model, $view)

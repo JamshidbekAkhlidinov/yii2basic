@@ -7,18 +7,17 @@
 
 namespace app\modules\admin\modules\content\controllers;
 
+use app\modules\admin\controllers\BaseController;
 use app\modules\admin\modules\content\forms\PostTagForm;
 use app\modules\admin\modules\content\models\PostTag;
 use app\modules\admin\modules\content\search\PostTagSearch;
-use Yii;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\NotFoundHttpException;
 
 /**
  * PostTagController implements the CRUD actions for PostTag model.
  */
-class PostTagController extends Controller
+class PostTagController extends BaseController
 {
     /**
      * @inheritDoc

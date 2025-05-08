@@ -9,9 +9,8 @@
 namespace app\modules\admin\controllers;
 
 use app\modules\admin\forms\TestForm;
-use yii\web\Controller;
 
-class TestController extends Controller
+class TestController extends BaseController
 {
     public function actionDate()
     {

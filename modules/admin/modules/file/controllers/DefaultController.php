@@ -6,13 +6,13 @@ use alexantr\elfinder\CKEditorAction;
 use alexantr\elfinder\ConnectorAction;
 use alexantr\elfinder\InputFileAction;
 use alexantr\elfinder\TinyMCEAction;
+use app\modules\admin\controllers\BaseController;
 use Yii;
-use yii\web\Controller;
 
 /**
  * Default controller for the `file` module
  */
-class DefaultController extends Controller
+class DefaultController extends BaseController
 {
 
     public function actions()

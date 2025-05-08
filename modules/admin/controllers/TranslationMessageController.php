@@ -10,33 +10,13 @@ namespace app\modules\admin\controllers;
 use app\modules\admin\forms\MessageForm;
 use app\modules\admin\models\I18nSourceMessage;
 use app\modules\admin\search\I18nSourceMessageSearch;
-use Yii;
-use yii\filters\VerbFilter;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
 /**
  * TranslationMessageController implements the CRUD actions for I18nSourceMessage model.
  */
-class TranslationMessageController extends Controller
+class TranslationMessageController extends BaseController
 {
-    /**
-     * @inheritDoc
-     */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
 
     public function actionIndex()
     {

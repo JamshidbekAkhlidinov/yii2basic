@@ -8,6 +8,7 @@
 
 namespace app\modules\admin\components\menu;
 
+use app\modules\admin\enums\AuthItemTypeEnum;
 use app\modules\admin\enums\UserRolesEnum;
 use app\modules\admin\widgets\MenuWidget;
 
@@ -123,12 +124,6 @@ class Menu
                 ],
                 [
                     'label' => translate("Roles"),
-                    'url' => ['/admin/rbac/role'],
-                    'active' => $controller_id == 'role',
-                ],
-                /*
-                [
-                    'label' => translate("Roles"),
                     'url' => ['/admin/rbac/auth-item', 'type' => AuthItemTypeEnum::ROLE],
                     'active' => $controller_id == 'auth-item' && get('type') == AuthItemTypeEnum::ROLE,
                 ],
@@ -137,6 +132,7 @@ class Menu
                     'url' => ['/admin/rbac/auth-item', 'type' => AuthItemTypeEnum::PERMISSION],
                     'active' => $controller_id == 'auth-item' && get('type') == AuthItemTypeEnum::PERMISSION,
                 ],
+                /*
                 [
                     'label' => translate("Items childs"),
                     'url' => ['/admin/rbac/auth-item-child'],
