@@ -7,42 +7,18 @@
 
 namespace app\modules\admin\modules\content\controllers;
 
+use app\modules\admin\controllers\BaseController;
 use app\modules\admin\modules\content\forms\PageForm;
 use app\modules\admin\modules\content\models\Page;
 use app\modules\admin\modules\content\search\PageSearch;
-use Yii;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * PageController implements the CRUD actions for Page model.
  */
-class PageController extends Controller
+class PageController extends BaseController
 {
-    /**
-     * @inheritDoc
-     */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
 
-    /**
-     * Lists all Page models.
-     *
-     * @return string
-     */
     public function actionIndex()
     {
         $searchModel = new PageSearch();
@@ -53,6 +29,7 @@ class PageController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+
     public function actionView($id)
     {
         return $this->render('view', [
@@ -63,7 +40,7 @@ class PageController extends Controller
     public function actionCreate()
     {
         $model = new Page();
-        return $this->form($model, 'create',);
+        return $this->form($model, 'create');
     }
 
     public function actionUpdate($id)
@@ -76,7 +53,7 @@ class PageController extends Controller
     {
 
         $form = new PageForm($model);
-        if ($form->load($this->request->post())  && $form->save()) {
+        if ($form->load($this->request->post()) && $form->save()) {
             return $this->redirect(['view', 'id' => $form->model->id]);
         }
 

@@ -3,11 +3,10 @@
 use app\modules\admin\enums\AuthItemTypeEnum;
 use app\modules\admin\modules\rbac\components\buttons\AuthItemButtons;
 use app\modules\admin\modules\rbac\models\AuthItem;
-use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
-use yii\widgets\Pjax;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
 /** @var yii\web\View $this */
 /** @var app\modules\admin\modules\rbac\search\AuthItem $searchModel */
@@ -52,6 +51,17 @@ $this->title = translate('Auth Items');
                         );
                     }
                 ],
+                [
+                    'attribute' => 'permissions',
+                    'format' => 'raw',
+                    'value' => static function ($item) {
+                        return Html::a(
+                            translate("Permissions"),
+                            ['role/index', 'name' => $item->name]
+                        );
+                    },
+                    'visible' => get('type') == AuthItemTypeEnum::ROLE,
+                ],
                 'description:ntext',
                 'rule_name',
                 'data',
@@ -61,11 +71,12 @@ $this->title = translate('Auth Items');
                     'class' => ActionColumn::className(),
                     'template' => '{delete}',
                     'urlCreator' => function ($action, AuthItem $model, $key, $index, $column) {
-                        return Url::toRoute([$action, 'name' => $model->name]);
+                        return Url::toRoute([$action, 'name' => $model->name, 'page' => get('page')]);
                     }
                 ],
             ],
         ]); ?>
     </div>
+
 
 </div>

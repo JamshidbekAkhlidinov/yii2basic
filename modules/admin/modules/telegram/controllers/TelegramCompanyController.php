@@ -8,40 +8,16 @@
 namespace app\modules\admin\modules\telegram\controllers;
 
 use app\models\TelegramCompany;
+use app\modules\admin\controllers\BaseController;
 use app\modules\admin\modules\telegram\searches\TelegramCompanySearch;
-use Yii;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * TelegramCompanyController implements the CRUD actions for TelegramCompany model.
  */
-class TelegramCompanyController extends Controller
+class TelegramCompanyController extends BaseController
 {
-    /**
-     * @inheritDoc
-     */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
 
-    /**
-     * Lists all TelegramCompany models.
-     *
-     * @return string
-     */
     public function actionIndex()
     {
         $searchModel = new TelegramCompanySearch();

@@ -2,21 +2,20 @@
 
 namespace app\modules\admin\controllers;
 
-use app\modules\admin\enums\UserRolesEnum;
-use app\modules\admin\search\UserSearch;
-use app\modules\admin\forms\UserForm;
 use app\models\User;
+use app\modules\admin\enums\UserRolesEnum;
+use app\modules\admin\forms\UserForm;
+use app\modules\admin\search\UserSearch;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
 /**
  * UserController implements the CRUD actions for User model.
  */
-class UserController extends Controller
+class UserController extends BaseController
 {
     public function behaviors()
     {

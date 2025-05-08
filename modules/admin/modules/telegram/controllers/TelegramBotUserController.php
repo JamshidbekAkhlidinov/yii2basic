@@ -8,39 +8,16 @@
 namespace app\modules\admin\modules\telegram\controllers;
 
 use app\models\TelegramBotUser;
+use app\modules\admin\controllers\BaseController;
 use app\modules\admin\modules\telegram\searches\TelegramBotUserSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * TelegramBotUserController implements the CRUD actions for TelegramBotUser model.
  */
-class TelegramBotUserController extends Controller
+class TelegramBotUserController extends BaseController
 {
-    /**
-     * @inheritDoc
-     */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
 
-    /**
-     * Lists all TelegramBotUser models.
-     *
-     * @return string
-     */
     public function actionIndex()
     {
         $searchModel = new TelegramBotUserSearch();

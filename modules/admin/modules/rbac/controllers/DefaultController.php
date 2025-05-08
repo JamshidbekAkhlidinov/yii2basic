@@ -2,17 +2,13 @@
 
 namespace app\modules\admin\modules\rbac\controllers;
 
-use yii\web\Controller;
+use app\modules\admin\controllers\BaseController;
 
 /**
  * Default controller for the `rbac` module
  */
-class DefaultController extends Controller
+class DefaultController extends BaseController
 {
-    /**
-     * Renders the index view for the module
-     * @return string
-     */
     public function actionIndex()
     {
         return $this->render('index');
