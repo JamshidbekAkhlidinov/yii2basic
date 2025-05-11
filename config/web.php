@@ -35,6 +35,10 @@ $config = [
     ],
     'components' => [
 
+        'permissions' => [
+            'class' => \app\modules\admin\components\PermissionsComponent::class,
+        ],
+
         'authClientCollection' => [
             'class' => yii\authclient\Collection::class,
             'clients' => [
