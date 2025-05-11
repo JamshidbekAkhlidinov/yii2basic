@@ -818,5 +818,65 @@
     {
         "category": "app",
         "value": "Permissions update"
+    },
+    {
+        "category": "app",
+        "value": "Welcome Back!"
+    },
+    {
+        "category": "app",
+        "value": "Enter username"
+    },
+    {
+        "category": "app",
+        "value": "Forgot password?"
+    },
+    {
+        "category": "app",
+        "value": "Enter password"
+    },
+    {
+        "category": "app",
+        "value": "Sign In"
+    },
+    {
+        "category": "app",
+        "value": "Sign In with"
+    },
+    {
+        "category": "app",
+        "value": "Don't have an account ?"
+    },
+    {
+        "category": "app",
+        "value": "Signup"
+    },
+    {
+        "category": "app",
+        "value": "Enter email"
+    },
+    {
+        "category": "app",
+        "value": "Enter password confirm"
+    },
+    {
+        "category": "app",
+        "value": "Create New Account"
+    },
+    {
+        "category": "app",
+        "value": "Sign Up"
+    },
+    {
+        "category": "app",
+        "value": "Create account with"
+    },
+    {
+        "category": "app",
+        "value": "Already have an account ?"
+    },
+    {
+        "category": "app",
+        "value": "Signin"
     }
 ]
