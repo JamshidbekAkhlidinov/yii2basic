@@ -14,7 +14,6 @@
 use app\modules\admin\assets\AdminAsset;
 use app\modules\admin\components\menu\Menu;
 use app\modules\admin\widgets\LanguageSwitcherWidget;
-use app\modules\admin\widgets\MenuWidget;
 use yii\bootstrap5\Alert;
 use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
@@ -29,11 +28,6 @@ $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, 
 $this->registerMetaTag(['name' => 'description', 'content' => $this->params['meta_description'] ?? '']);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
 $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii::getAlias('@web/favicon.ico')]);
-
-
-
-
-
 ?>
 
 
@@ -41,11 +35,15 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <!DOCTYPE html>
 <html lang="<?= app()->language ?>"
       data-layout="vertical"
-      data-topbar="light"
+      data-topbar="dark"
       data-sidebar="dark"
-      data-sidebar-size="lg"
       data-sidebar-image="none"
       data-preloader="disable"
+      data-bs-theme="light"
+      data-layout-width="fluid"
+      data-layout-position="fixed"
+      data-layout-style="default"
+      data-sidebar-visibility="show"
 >
 
 <head>
@@ -542,7 +540,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                         <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                         <span class="d-flex align-items-center">
-                            <img class="rounded-circle header-profile-user" src="<?= user()->identity->userProfile->avatar ?>"
+                            <img class="rounded-circle header-profile-user"
+                                 src="<?= user()->identity->userProfile->avatar ?>"
                                  alt="Header Avatar" style="object-fit: cover">
                             <span class="text-start ms-xl-2">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">

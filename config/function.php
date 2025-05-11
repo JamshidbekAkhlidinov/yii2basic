@@ -242,3 +242,21 @@ if(!function_exists('getAllRoutes')){
 }
 
 
+
+if (!function_exists('checkRoute')) {
+    function checkRoute($route)
+    {
+        if (Yii::$app->user->can(\app\modules\admin\enums\UserRolesEnum::ROLE_ADMINISTRATOR)) {
+            return true;
+        }
+        $prefix = str_replace('-', '', $route);
+        $permissions = Yii::$app->permissions->permissions;
+
+        foreach (array_keys($permissions) as $permissionName) {
+            if (strpos($permissionName, $prefix) === 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+}

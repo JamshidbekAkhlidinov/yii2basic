@@ -8,7 +8,6 @@
 
 namespace app\components\menu;
 
-use app\modules\admin\enums\UserRolesEnum;
 use app\modules\admin\widgets\MenuWidget;
 
 class Menu
@@ -30,21 +29,21 @@ class Menu
                     'active' => controller()->route == 'site/index',
                 ],
                 [
-                    'label' => translate("Category"),
+                    'label' => translate("Posts"),
                     'type' => MenuWidget::type_item, //menu,item
                     'icon' => 'ri-dashboard-2-line',
                     'id' => 'categoryList',
                     'active' => controller()->route == 'category/index',
                     'items' => [
                         [
-                            'label' => 'Login',
-                            'url' => ['/admin/default/index'],
+                            'label' => 'Posts',
+                            'url' => ['/posts/index'],
                             'icon' => 'ri-dashboard-2-line',
                             'active' => true,
                         ],
                         [
-                            'label' => 'child menu',
-                            'url' => ['/admin/default/index'],
+                            'label' => 'Posts',
+                            'url' => ['/posts/index'],
                             'icon' => 'ri-dashboard-2-line',
                         ],
                     ],
@@ -55,6 +54,13 @@ class Menu
                     'icon' => 'ri-checkbox-multiple-fill',
                     'url' => ['/site/about'],
                     'active' => controller()->route == 'site/about',
+                ],
+
+                [
+                    'type' => MenuWidget::type_item, //menu,item
+                    'label' => 'Login',
+                    'url' => ['/admin/default/index'],
+                    'icon' => 'ri-dashboard-2-line',
                 ],
             ]
         ]);
