@@ -43,14 +43,13 @@ class Module extends \yii\base\Module
                         'allow' => true,
                         'actions' => ['error'],
                         'roles' => [
-                            "@"
+                            "@", "?"
                         ],
                     ],
                     [
                         'allow' => true,
                         'roles' => [
-                            UserRolesEnum::ROLE_ADMINISTRATOR,
-                            UserRolesEnum::ROLE_MANAGER
+                            "@"
                         ],
                     ],
                 ],

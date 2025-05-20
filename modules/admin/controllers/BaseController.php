@@ -18,6 +18,13 @@ class BaseController extends Controller
 {
     public function beforeAction($action)
     {
+        if (
+            Yii::$app->controller->id === 'site' && in_array($action->id, ['error']) ||
+            Yii::$app->errorHandler->exception !== null
+        ) {
+            return parent::beforeAction($action);
+        }
+
         $permission = $this->module->id . '/' . $this->id . '/' . $action->id;
         $permission = str_replace('-', '', $permission);
         if (!Yii::$app->user->can($permission) && !Yii::$app->user->can(UserRolesEnum::ROLE_ADMINISTRATOR)) {

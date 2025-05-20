@@ -878,5 +878,9 @@
     {
         "category": "app",
         "value": "Signin"
+    },
+    {
+        "category": "app",
+        "value": "Send"
     }
 ]
