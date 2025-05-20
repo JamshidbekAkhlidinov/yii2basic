@@ -6,14 +6,13 @@
 /** @var app\forms\LoginForm $model */
 
 use yii\bootstrap5\ActiveForm;
+use yii\helpers\Html;
 use yii\helpers\Url;
 
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="auth-page-wrapper pt-5">
-
-    <!-- auth page content -->
     <div class="auth-page-content">
         <div class="container">
 
@@ -39,15 +38,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                 <?= $form->field($model, 'username')->textInput(['placeholder' => translate("Enter username")]) ?>
 
-                                <div class="float-end">
-                                    <a href="#" class="text-muted"><?=translate("Forgot password?")?></a>
-                                </div>
-
                                 <?= $form->field($model, 'password')->passwordInput(['placeholder' => translate("Enter password")]) ?>
 
                                 <?= $form->field($model, 'rememberMe')->checkbox([
                                     'template' => "<div class=\"form-check\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
                                 ]) ?>
+
+                                <div class="my-1 mx-0" style="color:#999;">
+                                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
+                                    <br>
+                                    Need new verification email? <?= Html::a('Resend', ['site/resend-verification-email']) ?>
+                                </div>
 
                                 <div class="mt-4">
                                     <button class="btn btn-success w-100" type="submit"><?=translate("Sign In")?></button>
@@ -89,10 +90,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 </div>
             </div>
-            <!-- end row -->
         </div>
-        <!-- end container -->
     </div>
-    <!-- end auth page content -->
 </div>
-<!-- end auth-page-wrapper -->

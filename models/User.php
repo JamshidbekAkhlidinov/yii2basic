@@ -11,6 +11,7 @@ namespace app\models;
 use app\models\query\UserQuery;
 use app\modules\admin\enums\StatusEnum;
 use app\modules\admin\enums\UserRolesEnum;
+use Yii;
 use yii\base\Exception;
 use yii\behaviors\AttributeBehavior;
 use yii\behaviors\TimestampBehavior;
@@ -291,7 +292,8 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function generateEmailVerificationToken()
     {
-        $this->verification_token = rand(100000, 999999);
+        //$this->verification_token = rand(100000, 999999);
+        $this->verification_token = Yii::$app->security->generateRandomString();
     }
 
     public static function isPasswordResetTokenValid($token)
@@ -330,7 +332,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return static::findOne([
             'verification_token' => $token,
-            'status' => StatusEnum::ACTIVE
+            'status' => self::STATUS_NOT_ACTIVE
         ]);
     }
 
@@ -339,7 +341,8 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function generatePasswordResetToken()
     {
-        $this->password_reset_token = rand(100000, 999999);
+        //$this->password_reset_token = rand(100000, 999999);
+        $this->password_reset_token = Yii::$app->security->generateRandomString();
     }
 
     /**
@@ -350,4 +353,13 @@ class User extends ActiveRecord implements IdentityInterface
         $this->password_reset_token = null;
     }
 
+
+    /**
+     * Generates "remember me" authentication key
+     * @throws Exception
+     */
+    public function generateAuthKey()
+    {
+        $this->auth_key = Yii::$app->security->generateRandomString();
+    }
 }

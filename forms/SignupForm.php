@@ -9,6 +9,7 @@
 namespace app\forms;
 
 use app\models\User;
+use Yii;
 use yii\base\Exception;
 use yii\base\Model;
 
@@ -76,25 +77,46 @@ class SignupForm extends Model
     /**
      * Signs user up.
      *
-     * @return User|null the saved model or null if saving fails
+     * @return bool the saved model or null if saving fails
      * @throws Exception
      */
     public function signup()
     {
-        if ($this->validate()) {
-            $user = new User();
-            $user->username = $this->username;
-            $user->email = $this->email;
-            $user->status = User::STATUS_ACTIVE;
-            $user->setPassword($this->password);
-            if (!$user->save()) {
-                throw new Exception("User couldn't be  saved");
-            };
-            $user->afterSignup();
+        if (!$this->validate()) {
+            return null;
+        }
+        $user = new User();
+        $user->username = $this->username;
+        $user->email = $this->email;
+        $user->status = User::STATUS_NOT_ACTIVE;
+        $user->setPassword($this->password);
+        $user->generateAuthKey();
+        $user->generateEmailVerificationToken();
 
-            return $user;
+        $isSave = $user->save();
+        if ($isSave) {
+            $user->afterSignup();
         }
 
-        return null;
+        return $isSave && $this->sendEmail($user);
+    }
+
+    /**
+     * Sends confirmation email to user
+     * @param User $user user model to with email should be send
+     * @return bool whether the email was sent
+     */
+    protected function sendEmail($user)
+    {
+        return Yii::$app
+            ->mailer
+            ->compose(
+                ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
+                ['user' => $user]
+            )
+            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
+            ->setTo($this->email)
+            ->setSubject('Account registration at ' . Yii::$app->name)
+            ->send();
     }
 }
