@@ -2239,5 +2239,59 @@
             "ru": "Создать учетную запись с",
             "uz": "Hisob yarating"
         }
+    },
+    "Send": {
+        "category": "app",
+        "value": "Send",
+        "items": {
+            "en": "Send",
+            "ru": "Отправлять",
+            "uz": "Yuborish"
+        }
+    },
+    "Login": {
+        "category": "app",
+        "value": "Login",
+        "items": {
+            "en": "Login",
+            "ru": "Авторизоваться",
+            "uz": "Tizimga kirish"
+        }
+    },
+    "If you forgot your password you can {reset it}": {
+        "category": "app",
+        "value": "If you forgot your password you can {reset it}",
+        "items": {
+            "en": "If you forgot your password you can {reset it}",
+            "ru": "Если вы забыли свой пароль, вы можете {reset it}",
+            "uz": "Agar siz parolingizni unutgan bo'lsangiz, siz {reset it}"
+        }
+    },
+    "Need new verification email? ": {
+        "category": "app",
+        "value": "Need new verification email? ",
+        "items": {
+            "en": "Get an email confirmation link",
+            "ru": "Получите ссылку для подтверждения по электронной почте",
+            "uz": "Elektron pochtani tasdiqlash havoloasini olish"
+        }
+    },
+    "Resend": {
+        "category": "app",
+        "value": "Resend",
+        "items": {
+            "en": "Resend",
+            "ru": "Приезжать",
+            "uz": "Qayta olish"
+        }
+    },
+    "reset it": {
+        "category": "app",
+        "value": "reset it",
+        "items": {
+            "en": "reset it",
+            "ru": "сбросить его",
+            "uz": "qayta tiklang"
+        }
     }
 }

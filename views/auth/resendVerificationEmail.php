@@ -1,16 +1,25 @@
 <?php
+/*
+ *   Jamshidbek Akhlidinov
+ *   23 - 5 2025 17:36:18
+ *   https://ustadev.uz
+ *   https://github.com/JamshidbekAkhlidinov
+ */
 
 /** @var yii\web\View $this */
 /** @var yii\bootstrap5\ActiveForm $form */
-/** @var \app\forms\PasswordResetRequestForm $model */
 
-use yii\bootstrap5\Html;
+/** @var app\forms\ResetPasswordForm $model */
+
 use yii\bootstrap5\ActiveForm;
+use yii\bootstrap5\Html;
 use yii\helpers\Url;
 
-$this->title = 'Request password reset';
+$this->title = translate('Resend verification email');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+
 <div class="auth-page-wrapper pt-5">
     <div class="auth-page-content">
         <div class="container">
@@ -27,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="p-2 mt-4">
 
                                 <?php $form = ActiveForm::begin([
-                                    'id' => 'request-password-reset-form',
+                                    'id' => 'resend-verification-email-form',
                                     'fieldConfig' => [
                                         'template' => "{label}\n{input}\n{error}",
                                         'labelOptions' => ['class' => 'form-label'],
@@ -51,9 +60,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     <!-- end card -->
 
                     <div class="mt-4 text-center">
-                        <p class="mb-0"><?=translate("Don't have an account ?")?>
-                            <a href="<?= Url::to(['site/signup']) ?>" class="fw-semibold text-primary text-decoration-underline">
-                                <?=translate("Signup")?>
+                        <p class="mb-0"><?= translate("Don't have an account ?") ?>
+                            <a href="<?= Url::to(['auth/signup']) ?>"
+                               class="fw-semibold text-primary text-decoration-underline">
+                                <?= translate("Signup") ?>
                             </a>
                         </p>
                     </div>
