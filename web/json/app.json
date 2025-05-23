@@ -882,5 +882,37 @@
     {
         "category": "app",
         "value": "Send"
+    },
+    {
+        "category": "app",
+        "value": "Request password reset"
+    },
+    {
+        "category": "app",
+        "value": "Please fill out your email. A link to reset password will be sent there."
+    },
+    {
+        "category": "app",
+        "value": "Login"
+    },
+    {
+        "category": "app",
+        "value": "Resend verification email"
+    },
+    {
+        "category": "app",
+        "value": "If you forgot your password you can {reset it}"
+    },
+    {
+        "category": "app",
+        "value": "Need new verification email? "
+    },
+    {
+        "category": "app",
+        "value": "Resend"
+    },
+    {
+        "category": "app",
+        "value": "reset it"
     }
 ]

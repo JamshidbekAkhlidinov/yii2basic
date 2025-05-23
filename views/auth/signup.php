@@ -1,13 +1,19 @@
 <?php
+/*
+ *   Jamshidbek Akhlidinov
+ *   23 - 5 2025 17:36:6
+ *   https://ustadev.uz
+ *   https://github.com/JamshidbekAkhlidinov
+ */
 
 use yii\bootstrap5\ActiveForm;
 use yii\helpers\Url;
 
 /**
- * @var $model \app\forms\SignupForm
+ * @var $model app\forms\SignupForm
  */
 
-$this->title = 'Signup';
+$this->title = translate('Signup');
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -24,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                         <div class="card-body p-4">
                             <div class="text-center mt-2">
-                                <h5 class="text-primary"><?=translate("Create New Account")?></h5>
+                                <h5 class="text-primary"><?= translate("Create New Account") ?></h5>
                             </div>
                             <div class="p-2 mt-4">
 
@@ -49,12 +55,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
                                 <div class="mt-4">
-                                    <button class="btn btn-success w-100" type="submit"><?=translate("Sign Up")?></button>
+                                    <button class="btn btn-success w-100"
+                                            type="submit"><?= translate("Sign Up") ?></button>
                                 </div>
 
                                 <div class="mt-4 text-center">
                                     <div class="signin-other-title">
-                                        <h5 class="fs-13 mb-4 title text-muted"><?=translate("Create account with")?></h5>
+                                        <h5 class="fs-13 mb-4 title text-muted"><?= translate("Create account with") ?></h5>
                                     </div>
 
                                     <?= yii\authclient\widgets\AuthChoice::widget([
@@ -75,9 +82,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     <!-- end card -->
 
                     <div class="mt-4 text-center">
-                        <p class="mb-0"><?=translate("Already have an account ?")?>
-                            <a href="<?= Url::to(['site/login']) ?>" class="fw-semibold text-primary text-decoration-underline">
-                                <?=translate("Signin")?>
+                        <p class="mb-0"><?= translate("Already have an account ?") ?>
+                            <a href="<?= Url::to(['auth/login']) ?>"
+                               class="fw-semibold text-primary text-decoration-underline">
+                                <?= translate("Signin") ?>
                             </a>
                         </p>
                     </div>
