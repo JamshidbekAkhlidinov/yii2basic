@@ -3,10 +3,10 @@
 use app\models\User;
 use rmrevin\yii\fontawesome\FA;
 use rmrevin\yii\fontawesome\FontAwesome;
-use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
 /** @var yii\web\View $this */
 /** @var app\modules\admin\search\UserSearch $searchModel */
@@ -30,9 +30,11 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
+            'options' => [
+                'class' => 'grid-view table-responsive',
+            ],
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
-
                 //'id',
                 'username',
                 //'auth_key',

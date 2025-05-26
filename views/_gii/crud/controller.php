@@ -44,15 +44,13 @@ use yii\data\ActiveDataProvider;
 use <?= ltrim($generator->baseControllerClass, '\\') ?>;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use Yii;
 
 /**
  * <?= $controllerClass ?> implements the CRUD actions for <?= $modelClass ?> model.
  */
 class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->baseControllerClass) . "\n" ?>
 {
-    /**
-     * @inheritDoc
-     */
     public function behaviors()
     {
         return array_merge(
@@ -68,11 +66,6 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         );
     }
 
-    /**
-     * Lists all <?= $modelClass ?> models.
-     *
-     * @return string
-     */
     public function actionIndex()
     {
 <?php if (!empty($generator->searchModelClass)): ?>
@@ -106,12 +99,7 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
 <?php endif; ?>
     }
 
-    /**
-     * Displays a single <?= $modelClass ?> model.
-     * <?= implode("\n     * ", $actionParamComments) . "\n" ?>
-     * @return string
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+
     public function actionView(<?= $actionParams ?>)
     {
         return $this->render('view', [
@@ -119,69 +107,41 @@ class <?= $controllerClass ?> extends <?= StringHelper::basename($generator->bas
         ]);
     }
 
-    /**
-     * Creates a new <?= $modelClass ?> model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return string|\yii\web\Response
-     */
+
     public function actionCreate()
     {
         $model = new <?= $modelClass ?>();
+        return $this->form($model,'create');
+    }
 
-        if ($this->request->isPost) {
+
+    public function actionUpdate(<?= $actionParams ?>)
+    {
+        $model = $this->findModel(<?= $actionParams ?>);
+        return $this->form($model,'update');
+    }
+
+    public function form( <?= $modelClass ?> $model,$view)
+    {
+        if (Yii::$app->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
                 return $this->redirect(['view', <?= $urlParams ?>]);
             }
         } else {
             $model->loadDefaultValues();
         }
-
-        return $this->render('create', [
+        return $this->render($view, [
             'model' => $model,
         ]);
     }
 
-    /**
-     * Updates an existing <?= $modelClass ?> model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * <?= implode("\n     * ", $actionParamComments) . "\n" ?>
-     * @return string|\yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate(<?= $actionParams ?>)
-    {
-        $model = $this->findModel(<?= $actionParams ?>);
-
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', <?= $urlParams ?>]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Deletes an existing <?= $modelClass ?> model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * <?= implode("\n     * ", $actionParamComments) . "\n" ?>
-     * @return \yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionDelete(<?= $actionParams ?>)
     {
         $this->findModel(<?= $actionParams ?>)->delete();
-
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the <?= $modelClass ?> model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * <?= implode("\n     * ", $actionParamComments) . "\n" ?>
-     * @return <?= $modelClass ?> the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+
     protected function findModel(<?= $actionParams ?>)
     {
 <?php
