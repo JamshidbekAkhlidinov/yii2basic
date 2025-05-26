@@ -15,7 +15,8 @@ class ProfileController extends BaseController
 {
     public function actionIndex()
     {
-        return $this->render('view');
+        return $this->redirect(['profile/update-data']);
+        //return $this->render('view');
     }
 
     public function actionUpdate()

@@ -914,5 +914,53 @@
     {
         "category": "app",
         "value": "reset it"
+    },
+    {
+        "category": "app",
+        "value": "Personal Details"
+    },
+    {
+        "category": "app",
+        "value": "Change Password"
+    },
+    {
+        "category": "app",
+        "value": "Old Password"
+    },
+    {
+        "category": "app",
+        "value": "All Logout"
+    },
+    {
+        "category": "app",
+        "value": "Login History"
+    },
+    {
+        "category": "app",
+        "value": "Logout"
+    },
+    {
+        "category": "app",
+        "value": "Welcome"
+    },
+    {
+        "category": "app",
+        "value": "Notifications"
+    },
+    {
+        "category": "app",
+        "value": "{n} New"
+    },
+    {
+        "category": "app",
+        "value": "All {n}"
+    },
+    {
+        "category": "app",
+        "value": "Messages"
+    },
+    {
+        "category": "app",
+        "value": "Alerts"
     }
 ]

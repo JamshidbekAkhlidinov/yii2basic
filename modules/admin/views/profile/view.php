@@ -20,44 +20,6 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
 ?>
 
 
-<div class="profile-foreground position-relative mx-n4 mt-n4">
-    <div class="profile-wid-bg">
-        <img src="/images/profile-bg.jpg" alt="" class="profile-wid-img"/>
-    </div>
-</div>
-<div class="pt-4 mb-4 mb-lg-3 pb-lg-4 profile-wrapper">
-    <div class="row g-4">
-        <div class="col-auto">
-                <div class="avatar-lg">
-                    <img src="<?= user()->identity->userProfile->avatar ?>" alt="user-img" class="img-thumbnail rounded-circle avatar-lg" style="object-fit: cover">
-                </div>
-        </div>
-        <!--end col-->
-        <div class="col">
-            <div class="p-2">
-                <h3 class="text-white mb-1">
-                    <?= user()->identity->publicIdentity ?>
-                </h3>
-                <p class="text-white text-opacity-75">
-                    <?= user()->identity->role() ?>
-                </p>
-                <div class="hstack text-white-50 gap-1">
-                    <div class="me-2"><i
-                                class="ri-map-pin-user-line me-1 text-white text-opacity-75 fs-16 align-middle"></i>California,
-                        United States
-                    </div>
-                    <div>
-                        <i class="ri-building-line me-1 text-white text-opacity-75 fs-16 align-middle"></i>Themesbrand
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--end col-->
-
-
-    </div>
-    <!--end row-->
-</div>
 
 <div class="row">
     <div class="col-lg-12">
