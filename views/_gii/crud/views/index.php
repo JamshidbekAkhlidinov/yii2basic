@@ -15,27 +15,30 @@ echo "<?php\n";
  *   <?php echo date('d - m Y H:i:s')."\n"; ?>
  *   https://ustadev.uz
  *   https://github.com/JamshidbekAkhlidinov
-*/
+ */
 
-use <?= $generator->modelClass ?>;
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use <?= $generator->indexWidgetType === 'grid' ? "yii\\grid\\GridView" : "yii\\widgets\\ListView" ?>;
 <?= $generator->enablePjax ? 'use yii\widgets\Pjax;' : '' ?>
 
-/** @var yii\web\View $this */
-<?= !empty($generator->searchModelClass) ? "/** @var " . ltrim($generator->searchModelClass, '\\') . " \$searchModel */\n" : '' ?>
-/** @var yii\data\ActiveDataProvider $dataProvider */
+/** @var yii\web\View $this
+<?= !empty($generator->searchModelClass) ? " * @var " . ltrim($generator->searchModelClass, '\\') . " \$searchModel \n" : '' ?>
+ * @var yii\data\ActiveDataProvider $dataProvider
+ */
 
 $this->title = <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>;
-$this->params['breadcrumbs'][] = $this->title;
+Yii::$app->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-index card">
     <div class="card-header d-flex justify-content-between">
         <h1><?= "<?= " ?>Html::encode($this->title) ?></h1>
         <p>
-            <?= "<?= " ?>Html::a(<?= $generator->generateString('Create ' . Inflector::camel2words(StringHelper::basename($generator->modelClass))) ?>, ['create'], ['class' => 'btn btn-success']) ?>
+            <?= "<?= " ?>Html::a(
+                <?= $generator->generateString('Create ' . Inflector::camel2words(StringHelper::basename($generator->modelClass))) ?>,
+                ['create'],
+                ['class' => 'btn btn-success']
+            ) ?>
         </p>
     </div>
 
@@ -47,6 +50,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php if ($generator->indexWidgetType === 'grid'): ?>
     <?= "<?= " ?>GridView::widget([
         'dataProvider' => $dataProvider,
+        'options' => [
+            'class' => 'grid-view table-responsive',
+        ],
         <?= !empty($generator->searchModelClass) ? "'filterModel' => \$searchModel,\n        'columns' => [\n" : "'columns' => [\n"; ?>
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -73,9 +79,6 @@ if (($tableSchema = $generator->getTableSchema()) === false) {
 ?>
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, <?= $modelClass ?> $model, $key, $index, $column) {
-                    return Url::toRoute([$action, <?= $generator->generateUrlParams() ?>]);
-                 }
             ],
         ],
     ]); ?>

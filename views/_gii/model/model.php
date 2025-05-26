@@ -51,7 +51,6 @@ use Yii;
  */
 class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . "\n" ?>
 {
-
 <?php if (!empty($enum)): ?>
     /**
      * ENUM field values
@@ -64,7 +63,6 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->baseClass, '\\') . 
     }
 endif
 ?>
-
     /**
      * {@inheritdoc}
      */

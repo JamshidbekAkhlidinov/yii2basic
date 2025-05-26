@@ -33,7 +33,7 @@ class UserProfileForm extends Model
 
             [['old_password', 'password'], 'string'],
             [
-                ['old_password','confirm_password'],
+                ['old_password', 'confirm_password'],
                 'required',
                 'when' => function ($model) {
                     return !empty($model->password);
@@ -44,6 +44,15 @@ class UserProfileForm extends Model
             ],
             ['old_password', 'validateOldPassword'],
             ['confirm_password', 'compare', 'compareAttribute' => 'password', 'message' => translate("Passwords do not match"), 'skipOnEmpty' => false],
+        ];
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'old_password' => translate('Old password'),
+            'password' => translate('Password'),
+            'confirm_password' => translate('Confirm Password'),
         ];
     }
 

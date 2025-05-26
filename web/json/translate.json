@@ -1148,7 +1148,7 @@
         "items": {
             "en": "Content",
             "ru": "Содержание",
-            "uz": "Tarkib"
+            "uz": "Malumotlar"
         }
     },
     "Pages": {
@@ -1184,16 +1184,16 @@
         "items": {
             "en": "Posts",
             "ru": "Сообщения",
-            "uz": "Xabarlar"
+            "uz": "Yangiliklar"
         }
     },
     "Landing Elements": {
         "category": "app",
         "value": "Landing Elements",
         "items": {
-            "en": "Landing Elements",
-            "ru": "Посадочные элементы",
-            "uz": "Uchish elementlari"
+            "en": "Page settings",
+            "ru": "Настройки страницы",
+            "uz": "Sahifa sozlamalari"
         }
     },
     "Menu": {
@@ -1436,7 +1436,7 @@
         "items": {
             "en": "Order",
             "ru": "Заказ",
-            "uz": "Buyurtma"
+            "uz": "Tartib"
         }
     },
     "Icon": {
@@ -2292,6 +2292,96 @@
             "en": "reset it",
             "ru": "сбросить его",
             "uz": "qayta tiklang"
+        }
+    },
+    "Personal Details": {
+        "category": "app",
+        "value": "Personal Details",
+        "items": {
+            "en": "Personal Details",
+            "ru": "Личные данные",
+            "uz": "Shaxsiy ma'lumotlar"
+        }
+    },
+    "All Logout": {
+        "category": "app",
+        "value": "All Logout",
+        "items": {
+            "en": "All Logout",
+            "ru": "Весь выход",
+            "uz": "Barcha chiqish"
+        }
+    },
+    "Login History": {
+        "category": "app",
+        "value": "Login History",
+        "items": {
+            "en": "Login History",
+            "ru": "История входа в систему",
+            "uz": "Kirish tarixi"
+        }
+    },
+    "Logout": {
+        "category": "app",
+        "value": "Logout",
+        "items": {
+            "en": "Logout",
+            "ru": "Выход",
+            "uz": "Chiqish"
+        }
+    },
+    "Welcome": {
+        "category": "app",
+        "value": "Welcome",
+        "items": {
+            "en": "Welcome",
+            "ru": "Добро пожаловать",
+            "uz": "Xush kelibsiz"
+        }
+    },
+    "Notifications": {
+        "category": "app",
+        "value": "Notifications",
+        "items": {
+            "en": "Notifications",
+            "ru": "Уведомления",
+            "uz": "Bildirishnoma"
+        }
+    },
+    "{n} New": {
+        "category": "app",
+        "value": "{n} New",
+        "items": {
+            "en": "{n} New",
+            "ru": "{n} новый",
+            "uz": "{n} yangi"
+        }
+    },
+    "All {n}": {
+        "category": "app",
+        "value": "All {n}",
+        "items": {
+            "en": "All {n}",
+            "ru": "Все {n}",
+            "uz": "Hammasi {n}"
+        }
+    },
+    "Messages": {
+        "category": "app",
+        "value": "Messages",
+        "items": {
+            "en": "Messages",
+            "ru": "Сообщения",
+            "uz": "Xabarlar"
+        }
+    },
+    "Alerts": {
+        "category": "app",
+        "value": "Alerts",
+        "items": {
+            "en": "Alerts",
+            "ru": "Оповещения",
+            "uz": "Ogohlantirishlar"
         }
     }
 }

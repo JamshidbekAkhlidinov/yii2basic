@@ -46,7 +46,7 @@ class <?= $className ?> extends <?= '\\' . ltrim($generator->queryBaseClass, '\\
 {
     /*public function active()
     {
-        return $this->andWhere('[[status]]=1');
+        return $this->andWhere(['status' => 1]);
     }*/
 
     /**

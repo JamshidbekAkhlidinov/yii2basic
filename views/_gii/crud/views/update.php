@@ -26,18 +26,28 @@ echo "<?php\n";
 */
 
 use yii\helpers\Html;
+use rmrevin\yii\fontawesome\FA;
 
-/** @var yii\web\View $this */
-/** @var <?= ltrim($generator->modelClass, '\\') ?> $model */
+/**
+ * @var yii\web\View $this
+ * @var <?= ltrim($generator->modelClass, '\\') ?> $model
+ */
 
 $this->title = <?= $title ?>;
-$this->params['breadcrumbs'][] = ['label' => <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>, 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model-><?= $generator->getNameAttribute() ?>, 'url' => ['view', <?= $urlParams ?>]];
-$this->params['breadcrumbs'][] = <?= $generator->generateString('Update') ?>;
+Yii::$app->params['breadcrumbs'][] = ['label' => <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>, 'url' => ['index']];
+Yii::$app->params['breadcrumbs'][] = ['label' => $model-><?= $generator->getNameAttribute() ?>, 'url' => ['view', <?= $urlParams ?>]];
+Yii::$app->params['breadcrumbs'][] = <?= $generator->generateString('Update') ?>;
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-update card">
     <div class="card-header d-flex justify-content-between">
         <h1><?= '<?= ' ?>Html::encode($this->title) ?></h1>
+        <p>
+            <?= "<?= " ?>Html::a(
+                FA::icon('arrow-left') . " " .<?= $generator->generateString('Back') ?>,
+                ['index'],
+                ['class' => 'btn btn-info']
+            ) ?>
+        </p>
     </div>
     <div class="card-body">
     <?= '<?= ' ?>$this->render('_form', [
