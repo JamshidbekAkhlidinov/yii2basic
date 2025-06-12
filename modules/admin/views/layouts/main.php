@@ -66,19 +66,19 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     <div class="navbar-brand-box horizontal-logo">
                         <a href="/admin" class="logo logo-dark">
                         <span class="logo-sm">
-                            <img src="/images/logo-sm.png" alt="" height="22">
+                            <img src="/images/logo-middle.png" alt="" height="40">
                         </span>
                             <span class="logo-lg">
-                            <img src="/images/logo-dark.png" alt="" height="17">
+                            <img src="/images/admin_panel.png" alt="" height="40">
                         </span>
                         </a>
 
                         <a href="/admin" class="logo logo-light">
                         <span class="logo-sm">
-                            <img src="/images/logo-sm.png" alt="" height="22">
+                            <img src="/images/logo-middle.png" alt="" height="40">
                         </span>
                             <span class="logo-lg">
-                            <img src="/images/logo-light.png" alt="" height="17">
+                            <img src="/images/admin_panel.png" alt="" height="40">
                         </span>
                         </a>
                     </div>
@@ -498,19 +498,19 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             <!-- Dark Logo-->
             <a href="/admin" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="/images/logo-sm.png" alt="" height="22">
+                        <img src="/images/logo-middle.png" alt="" height="40">
                     </span>
                 <span class="logo-lg">
-                        <img src="/images/logo-dark.png" alt="" height="17">
+                        <img src="/images/admin_panel.png" alt="" height="40">
                     </span>
             </a>
             <!-- Light Logo-->
             <a href="/admin" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="/images/logo-sm.png" alt="" height="22">
+                        <img src="/images/logo-middle.png" alt="" height="40">
                     </span>
                 <span class="logo-lg">
-                        <img src="/images/logo-light.png" alt="" height="17">
+                        <img src="/images/admin_panel.png" alt="" height="40">
                     </span>
             </a>
             <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
